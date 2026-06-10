@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Welcome · Casa Janet · San Sebastián Río Hondo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#2f3d2a;
+    --moss:#5a6b4a;
+    --clay:#b5764f;
+    --clay-deep:#9a5d3a;
+    --sand:#efe7d8;
+    --paper:#f7f1e6;
+    --ink:#322a22;
+    --ink-soft:#5c5247;
+    --line:rgba(50,42,34,.12);
+    --shadow:0 18px 40px -18px rgba(47,61,42,.45);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Spline Sans',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:480px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative;}
+
+  /* texture overlay */
+  .wrap::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    max-width:480px;left:50%;transform:translateX(-50%);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:32px 26px 46px;color:#f5efe2;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      linear-gradient(180deg,rgba(30,40,26,.15) 0%,rgba(30,40,26,.55) 55%,rgba(25,33,22,.88) 100%),
+      radial-gradient(120% 80% at 70% 20%,#6f7d54 0%,#4a5838 45%,#2f3d2a 100%);
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;opacity:.35;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23dfe6c8' stroke-width='1.2' opacity='.5'%3E%3Cpath d='M40 200 Q44 120 60 70 Q70 40 64 10'/%3E%3Cpath d='M60 70 Q90 60 110 40'/%3E%3Cpath d='M60 100 Q34 92 16 70'/%3E%3Cpath d='M62 130 Q92 122 120 100'/%3E%3Cpath d='M150 200 Q154 130 168 90 Q176 60 172 30'/%3E%3Cpath d='M168 90 Q140 82 124 64'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:200px;
+  }
+  .hero-content{position:relative;z-index:2;}
+  .eyebrow{
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    font-weight:500;opacity:.85;margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6;}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:400;font-size:44px;line-height:1.02;
+    letter-spacing:-.01em;margin-bottom:6px;
+  }
+  .hero h1 em{font-style:italic;color:#e9c9a8;}
+  .hero .sub{font-size:16px;opacity:.9;max-width:30ch;margin-top:14px;}
+  .scroll-cue{
+    position:relative;z-index:2;margin-top:34px;font-size:12.5px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.7;display:flex;align-items:center;gap:8px;
+  }
+  .scroll-cue span{animation:bob 2.2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+  /* ===== SECTIONS ===== */
+  section{position:relative;z-index:2;padding:44px 26px;}
+  .sec-label{
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--clay-deep);
+    font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;
+  }
+  .sec-label::before{content:"";width:22px;height:1px;background:var(--clay);}
+  h2{font-family:'Fraunces',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin-bottom:16px;}
+  h2 em{font-style:italic;color:var(--clay-deep);}
+  p.lead{color:var(--ink-soft);font-size:15.5px;}
+
+  .divider{height:1px;background:var(--line);margin:0 26px;position:relative;z-index:2;}
+
+  /* welcome note */
+  .welcome{background:linear-gradient(180deg,#fbf6ec,#f7f1e6);}
+  .welcome .note{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:19px;
+    line-height:1.5;color:var(--forest);margin-top:6px;
+  }
+  .host-sign{display:flex;align-items:center;gap:12px;margin-top:22px;}
+  .host-sign .avatar{
+    width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--clay),var(--clay-deep));
+    display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:20px;
+  }
+  .host-sign .meta{font-size:13.5px;line-height:1.3;}
+  .host-sign .meta b{font-weight:600;}
+  .host-sign .meta span{color:var(--ink-soft);font-size:12.5px;}
+
+  /* ===== getting here / steps ===== */
+  .arrival{background:var(--forest);color:#f0ecdf;}
+  .arrival .sec-label{color:#e9c9a8;}
+  .arrival .sec-label::before{background:#e9c9a8;}
+  .arrival h2{color:#f5efe2;}
+  .arrival h2 em{color:#e9c9a8;}
+  .arrival .lead{color:rgba(240,236,223,.78);}
+  .route{
+    background:rgba(255,255,255,.05);border:1px solid rgba(233,201,168,.18);border-radius:16px;
+    padding:18px 18px 16px;margin-top:14px;
+  }
+  .route summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    font-weight:500;font-size:15.5px;color:#f5efe2;
+  }
+  .route summary::-webkit-details-marker{display:none;}
+  .route .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e9c9a8;
+    border:1px solid rgba(233,201,168,.4);padding:3px 9px;border-radius:20px;white-space:nowrap;}
+  .route .chev{transition:transform .3s;color:#e9c9a8;font-size:18px;}
+  .route[open] .chev{transform:rotate(90deg);}
+  .route ol{margin:14px 0 0;padding-left:0;list-style:none;counter-reset:step;}
+  .route ol li{
+    counter-increment:step;position:relative;padding:0 0 14px 34px;font-size:14px;
+    color:rgba(240,236,223,.85);line-height:1.5;
+  }
+  .route ol li::before{
+    content:counter(step);position:absolute;left:0;top:-1px;width:22px;height:22px;border-radius:50%;
+    background:var(--clay);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:600;
+  }
+  .route ol li:not(:last-child)::after{
+    content:"";position:absolute;left:10.5px;top:24px;bottom:2px;width:1px;background:rgba(233,201,168,.3);
+  }
+  .landmark{
+    margin-top:8px;background:rgba(233,201,168,.12);border-radius:12px;padding:12px 14px;
+    font-size:13.5px;color:#f0ecdf;display:flex;gap:10px;align-items:flex-start;
+  }
+  .landmark b{color:#e9c9a8;}
+
+  /* ===== quick facts grid ===== */
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;}
+  .fact{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);
+  }
+  .fact .ic{font-size:20px;margin-bottom:8px;display:block;}
+  .fact .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-deep);font-weight:600;}
+  .fact .v{font-size:14.5px;font-weight:500;margin-top:3px;}
+  .fact .v small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
+
+  /* wifi card */
+  .wifi{
+    grid-column:1/-1;background:linear-gradient(135deg,var(--clay),var(--clay-deep));color:#fff;border:none;
+  }
+  .wifi .k{color:rgba(255,255,255,.8);}
+  .wifi-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
+  .wifi-row .label{font-size:12px;opacity:.8;}
+  .wifi-row .val{font-family:'Fraunces',serif;font-size:16px;}
+
+  /* ===== rules list ===== */
+  .rule{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);}
+  .rule:last-child{border-bottom:none;}
+  .rule .ic{
+    flex:none;width:38px;height:38px;border-radius:11px;background:var(--sand);
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+  }
+  .rule .txt b{display:block;font-weight:600;font-size:14.5px;}
+  .rule .txt span{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ===== experiences ===== */
+  .experiences{background:linear-gradient(180deg,#f2ead9,#efe7d8);}
+  .exp{
+    background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-top:14px;
+    border:1px solid var(--line);
+  }
+  .exp .band{height:88px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px 14px;}
+  .exp .band .emoji{font-size:34px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.2));}
+  .exp.e1 .band{background:radial-gradient(120% 140% at 20% 10%,#8a6d3f,#5a4528);}
+  .exp.e2 .band{background:radial-gradient(120% 140% at 20% 10%,#6f7d54,#3f4a30);}
+  .exp.e3 .band{background:radial-gradient(120% 140% at 20% 10%,#b5764f,#7d4a2c);}
+  .exp.e4 .band{background:radial-gradient(120% 140% at 20% 10%,#7a8a9a,#465260);}
+  .exp.e5 .band{background:radial-gradient(120% 140% at 20% 10%,#a98a5a,#6b5430);}
+  .exp .body{padding:15px 16px 17px;}
+  .exp .body h3{font-family:'Fraunces',serif;font-weight:500;font-size:18px;margin-bottom:5px;}
+  .exp .body p{font-size:13.5px;color:var(--ink-soft);}
+  .exp .pre{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--clay-deep);font-weight:600;background:var(--sand);padding:4px 10px;border-radius:20px;}
+
+  /* ===== eat ===== */
+  .eatcard{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .eatcard:last-child{border-bottom:none;}
+  .eatcard .num{font-family:'Fraunces',serif;font-size:22px;color:var(--clay);flex:none;width:30px;line-height:1.1;}
+  .eatcard h3{font-size:15.5px;font-weight:600;}
+  .eatcard p{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
+  .eatcard .veg{font-size:11px;color:var(--moss);font-weight:600;letter-spacing:.05em;}
+
+  /* ===== practical ===== */
+  .practical{background:var(--forest);color:#f0ecdf;}
+  .practical .sec-label{color:#e9c9a8;}
+  .practical .sec-label::before{background:#e9c9a8;}
+  .practical h2{color:#f5efe2;}
+  .practical h2 em{color:#e9c9a8;}
+  .pcard{
+    background:rgba(255,255,255,.05);border:1px solid rgba(233,201,168,.18);border-radius:14px;
+    padding:15px 16px;margin-top:12px;display:flex;gap:13px;align-items:flex-start;
+  }
+  .pcard .ic{font-size:20px;flex:none;}
+  .pcard b{display:block;font-size:14.5px;color:#f5efe2;margin-bottom:2px;}
+  .pcard span{font-size:13.5px;color:rgba(240,236,223,.8);}
+
+  /* ===== checkout ===== */
+  .checkout .step{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .checkout .step:last-child{border-bottom:none;}
+  .checkout .step .box{
+    flex:none;width:24px;height:24px;border:2px solid var(--clay);border-radius:7px;
+  }
+  .checkout .step span{font-size:14.5px;}
+
+  /* ===== contact ===== */
+  .contact{background:linear-gradient(180deg,#fbf6ec,#f2ead9);text-align:center;padding-bottom:30px;}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:16px;border-radius:14px;font-family:'Spline Sans';font-size:15.5px;font-weight:600;
+    text-decoration:none;margin-top:12px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn-wa{background:#25845a;color:#fff;box-shadow:0 10px 24px -10px rgba(37,132,90,.7);}
+  .btn-ghost{background:transparent;color:var(--forest);border:1.5px solid var(--line);}
+
+  /* footer */
+  .foot{text-align:center;padding:30px 26px 44px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--moss);}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+  .ph{color:var(--clay-deep);font-weight:600;}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="eyebrow">San Sebastián Río Hondo · Oaxaca</div>
+      <h1>Welcome to <em>the edge<br>of the forest</em></h1>
+      <p class="sub">You've found a quiet corner of the Sierra Sur. Here's everything you need for a beautiful stay.</p>
+    </div>
+    <div class="scroll-cue">Scroll to begin <span>↓</span></div>
+  </header>
+
+  <!-- WELCOME NOTE -->
+  <section class="welcome reveal">
+    <div class="sec-label">A note from your host</div>
+    <p class="note">"My front yard is the forest, and a few steps away is the trail to the river. I've lived here thirteen years. Many guests say it feels like stepping into a National Geographic special. I hope you feel held here."</p>
+    <div class="host-sign">
+      <div class="avatar">J</div>
+      <div class="meta"><b>Janet</b> · Superhost<br><span>5.0 ★ · 85 reviews · 5 years hosting</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GETTING HERE -->
+  <section class="arrival reveal">
+    <div class="sec-label">Getting here</div>
+    <h2>Finding your way to <em>the village</em></h2>
+    <p class="lead">We're remote, high in the mountains. The trip is part of the magic. Tap your route below.</p>
+
+    <details class="route">
+      <summary><span>From the coast · by public transport</span><span class="tag">Bus + taxi</span><span class="chev">›</span></summary>
+      <ol>
+        <li>Take Hwy 175 toward San José del Pacífico.</li>
+        <li>From there, grab a taxi or moto-taxi to San Sebastián.</li>
+        <li>Ask the driver for <b>Tienda de Mari</b> in El Centro.</li>
+        <li>I'm on the road just below the store. Pass through the second gate on the right, and it leads to my house.</li>
+      </ol>
+    </details>
+
+    <details class="route">
+      <summary><span>From the coast · by car</span><span class="tag">Driving</span><span class="chev">›</span></summary>
+      <ol>
+        <li>Hwy 175 to La Venta, the first village past San José del Pacífico.</li>
+        <li>Follow the sign pointing up to San Sebastián. Drive about 20 minutes.</li>
+        <li>Turn right at the second arch (not the green one) into El Centro.</li>
+        <li>Turn right at the second street, follow it to <b>Tienda de Mari</b>. Paid parking is across from the store.</li>
+        <li>Follow the road down from the Tienda on foot to the second gate on your right.</li>
+      </ol>
+    </details>
+
+    <details class="route">
+      <summary><span>From Oaxaca City</span><span class="tag">Colectivo</span><span class="chev">›</span></summary>
+      <ol>
+        <li>Take Líneas Unidos toward Miahuatlán or San José del Pacífico (they run every 20 min).</li>
+        <li>From Miahuatlán, find a local taxi to the San Sebastián base.</li>
+        <li>Take a colectivo from there into the village.</li>
+        <li>Ask for <b>Tienda de Mari</b>, then follow the road down to the second gate on the right.</li>
+      </ol>
+    </details>
+
+    <div class="landmark">
+      <span>📍</span>
+      <div><b>Lost or arriving?</b> Message me or my co-host on WhatsApp and we'll meet you at Tienda de Mari to walk you in. <span class="ph">[Add WhatsApp link]</span></div>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS -->
+  <section class="reveal">
+    <div class="sec-label">The essentials</div>
+    <h2>Good to <em>know</em></h2>
+    <div class="facts">
+      <div class="fact wifi">
+        <span class="ic">📶</span>
+        <div class="k">WiFi · Starlink</div>
+        <div class="wifi-row"><span class="label">Network</span><span class="val ph">[network name]</span></div>
+        <div class="wifi-row"><span class="label">Password</span><span class="val ph">[password]</span></div>
+      </div>
+      <div class="fact">
+        <span class="ic">🕑</span>
+        <div class="k">Check-in</div>
+        <div class="v">2:00 – 6:00 PM</div>
+      </div>
+      <div class="fact">
+        <span class="ic">🌙</span>
+        <div class="k">Check-out</div>
+        <div class="v">Before 11 AM</div>
+      </div>
+      <div class="fact">
+        <span class="ic">🔕</span>
+        <div class="k">Quiet hours</div>
+        <div class="v">From 8 PM<small>We rise and sleep with the birds</small></div>
+      </div>
+      <div class="fact">
+        <span class="ic">👥</span>
+        <div class="k">Guests</div>
+        <div class="v">2 maximum</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HOUSE RULES -->
+  <section class="reveal">
+    <div class="sec-label">The home</div>
+    <h2>How we <em>live here</em></h2>
+    <p class="lead" style="margin-bottom:8px">A few things that make this place special, and a little different from what you may be used to.</p>
+    <div class="rule">
+      <div class="ic">🚿</div>
+      <div class="txt"><b>Shared, composting bathroom</b><span>We don't have plumbing in the village. The bathroom is shared and composting. It's clean, simple, and part of the way of life here.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">⛈️</div>
+      <div class="txt"><b>Electricity & WiFi can pause</b><span>In heavy mountain storms, power and internet may drop briefly. It always returns. Bring a little patience.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">♻️</div>
+      <div class="txt"><b>Pack out your plastic</b><span>There's no recycling nearby, so please take any plastic trash with you when you go. 🙏</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🌅</div>
+      <div class="txt"><b>An early-rising village</b><span>This is an authentic Zapotec community. Mornings start with the birds, evenings wind down by 8 PM.</span></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCES -->
+  <section class="experiences reveal">
+    <div class="sec-label">While you're here</div>
+    <h2>Experiences in <em>the village</em></h2>
+    <p class="lead">These aren't tourist add-ons, they're the real life of this place. All must be arranged in advance, just message me.</p>
+
+    <div class="exp e1">
+      <div class="band"><span class="emoji">🍄</span></div>
+      <div class="body">
+        <h3>Mushroom foraging</h3>
+        <p>In rainy season (June–October), take a guide into the forest to hunt mushrooms, then bring them back for Ana or Margarita to cook up.</p>
+        <span class="pre">Arrange in advance · seasonal</span>
+      </div>
+    </div>
+
+    <div class="exp e2">
+      <div class="band"><span class="emoji">🔥</span></div>
+      <div class="body">
+        <h3>Temazcal sweat lodge</h3>
+        <p>Just above us is a traditional Temazcal. Reserve it on your own, or with a local curandera when she's available.</p>
+        <span class="pre">Arrange in advance</span>
+      </div>
+    </div>
+
+    <div class="exp e3">
+      <div class="band"><span class="emoji">🌽</span></div>
+      <div class="body">
+        <h3>Cooking with Ana</h3>
+        <p>My neighbor Ana cooks on a wood stove and grinds her own organic corn. Her Oaxacan menu is extensive. Try the pozole with mushrooms.</p>
+        <span class="pre">Arrange in advance</span>
+      </div>
+    </div>
+
+    <div class="exp e4">
+      <div class="band"><span class="emoji">🧵</span></div>
+      <div class="body">
+        <h3>Back-strap loom weaving</h3>
+        <p>Learn weaving with a local family. A small project needs a 3-day commitment, about 3–4 hours daily.</p>
+        <span class="pre">Min. 3-day stay</span>
+      </div>
+    </div>
+
+    <div class="exp e5">
+      <div class="band"><span class="emoji">🌿</span></div>
+      <div class="body">
+        <h3>Soap making · Qigong · herb walks</h3>
+        <p>Cold-process soap with Heber (min. 2 days), Qigong by the river, and medicinal herb walks with our bilingual herbalist.</p>
+        <span class="pre">Arrange in advance</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EAT -->
+  <section class="reveal">
+    <div class="sec-label">Eat & drink</div>
+    <h2>Where to <em>eat</em></h2>
+    <p class="lead" style="margin-bottom:6px">Four local spots, all within reach. Some need a little notice.</p>
+
+    <div class="eatcard">
+      <div class="num">01</div>
+      <div>
+        <h3>Ana's Kitchen <span class="veg">· veg options</span></h3>
+        <p>Local Zapotec cuisine with flair, whatever's on the wood-burning comal. Breakfast, lunch, dinner. Very reasonable.</p>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">02</div>
+      <div>
+        <h3>Casa Maitri <span class="veg">· vegetarian</span></h3>
+        <p>A retreat center just above me serving Indian food with a Zapotec twist. Needs 12 hours' notice.</p>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">03</div>
+      <div>
+        <h3>Comedor de Juanna</h3>
+        <p>Local Zapotec and Mexican cooking, at "the triangle."</p>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">04</div>
+      <div>
+        <h3>La Montaña</h3>
+        <p>Traditional food with beautiful views, also at "the triangle."</p>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">★</div>
+      <div>
+        <h3>Farmers Market</h3>
+        <p>The first Sunday of every month. Worth planning around if your dates line up.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL -->
+  <section class="practical reveal">
+    <div class="sec-label">Plan ahead</div>
+    <h2>A few <em>practical</em> things</h2>
+    <div class="pcard">
+      <span class="ic">💵</span>
+      <div><b>Bring cash</b><span>No ATMs or banks in the area. The closest bank is an hour away in Miahuatlán. Plan accordingly.</span></div>
+    </div>
+    <div class="pcard">
+      <span class="ic">📱</span>
+      <div><b>Reaching me</b><span>I'm on WhatsApp and email. If I don't reply within 24 hours, it's usually the electricity or connection, not you. It'll come back.</span></div>
+    </div>
+    <div class="pcard">
+      <span class="ic">🥾</span>
+      <div><b>Day hikes</b><span>You can hike to San José del Pacífico or San Mateo Río Hondo for lunch, then take a moto-taxi back if you're tired.</span></div>
+    </div>
+    <div class="pcard">
+      <span class="ic">🛖</span>
+      <div><b>You're in San Sebastián</b><span>Not San José del Pacífico or San Mateo. This is a quieter, more authentic village, new to tourism.</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CHECKOUT -->
+  <section class="checkout reveal">
+    <div class="sec-label">Before you go</div>
+    <h2>Check-out by <em>11 AM</em></h2>
+    <p class="lead" style="margin-bottom:8px">A simple list to leave the casita as you found it.</p>
+    <div class="step"><div class="box"></div><span>Take any plastic trash with you</span></div>
+    <div class="step"><div class="box"></div><span class="ph">[Where to leave the key]</span></div>
+    <div class="step"><div class="box"></div><span>Close windows and the patio gate</span></div>
+    <div class="step"><div class="box"></div><span>Turn off lights and any fans</span></div>
+    <div class="step"><div class="box"></div><span>Message me to say you're off safely 🙏</span></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact reveal">
+    <div class="sec-label" style="justify-content:center">Here for you</div>
+    <h2>Anything you <em>need</em></h2>
+    <p class="lead">Don't hesitate to reach out. We love sharing this place.</p>
+    <a class="btn btn-wa ph" href="#">💬 Message Janet on WhatsApp</a>
+    <a class="btn btn-ghost ph" href="#">📞 Call the co-host</a>
+    <p class="lead" style="font-size:13px;margin-top:16px">A translator is available on request for any activity. Just ask.</p>
+  </section>
+
+  <div class="foot">
+    <div class="mark">Buen viaje, and welcome home.</div>
+    <div class="small">Casa Janet · San Sebastián Río Hondo · Sierra Sur, Oaxaca</div>
+  </div>
+
+</div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // close other route accordions when one opens
+  const routes=document.querySelectorAll('.route');
+  routes.forEach(r=>r.addEventListener('toggle',()=>{
+    if(r.open) routes.forEach(o=>{if(o!==r)o.open=false;});
+  }));
+</script>
+</body>
+</html>

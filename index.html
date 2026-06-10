@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Welcome Link · Custom guest welcome experiences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#2a7d7b;--sea-deep:#1d5e5c;--terra:#dd8a52;--terra-deep:#c06d36;--sun:#f0b35e;
+    --shell:#fdf6ec;--cream:#fffaf3;--sand:#f1e4d0;--ink:#3f3528;--ink-soft:#7c6e5c;
+    --line:rgba(63,53,40,.12);--shadow:0 22px 50px -24px rgba(192,109,54,.4);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Spline Sans',sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+  .wrap{max-width:600px;margin:0 auto;position:relative;background:var(--shell);min-height:100vh;}
+
+  .hero{position:relative;padding:64px 30px 56px;overflow:hidden;color:#fff6ea;text-align:center;}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#f0b35e 0%,#e08a5a 34%,#c96f53 60%,#2a7d7b 100%);}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 38% at 50% 14%,rgba(255,238,200,.8),transparent 55%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='160'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.4' opacity='.2'%3E%3Cpath d='M0 100 Q150 82 300 100 T600 100'/%3E%3Cpath d='M0 125 Q150 108 300 125 T600 125'/%3E%3C/g%3E%3C/svg%3E") bottom no-repeat;background-size:auto,100% auto;}
+  .hero-in{position:relative;z-index:2;}
+  .brandmark{font-size:13px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;opacity:.95;margin-bottom:26px;}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:42px;line-height:1.05;letter-spacing:-.01em;}
+  .hero h1 em{font-style:italic;}
+  .hero .sub{font-size:17px;opacity:.95;margin-top:18px;max-width:34ch;margin-left:auto;margin-right:auto;}
+
+  section{position:relative;z-index:2;padding:46px 30px;}
+  .intro{text-align:center;background:linear-gradient(180deg,#fffaf3,#fdf6ec);}
+  .intro p{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:21px;line-height:1.5;color:var(--sea-deep);max-width:32ch;margin:0 auto;}
+
+  .lbl{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:18px;text-align:center;}
+  .cards{display:grid;gap:16px;}
+  .card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s;}
+  .card:active{transform:scale(.99);}
+  .card .band{height:96px;display:flex;align-items:flex-end;padding:14px 16px;color:#fff6ea;}
+  .card.janet .band{background:linear-gradient(135deg,#6f7d54,#2f3d2a);}
+  .card.mar .band{background:linear-gradient(135deg,#f0b35e,#2a7d7b);}
+  .card .band .t{font-family:'Fraunces',serif;font-size:20px;}
+  .card .body{padding:14px 16px 16px;}
+  .card .body .loc{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;}
+  .card .body .desc{font-size:14px;color:var(--ink-soft);margin-top:3px;}
+  .card .body .go{font-size:13px;font-weight:600;color:var(--sea);margin-top:10px;}
+
+  .pitch{background:linear-gradient(160deg,#f1e4d0,#f1e0c8);text-align:center;}
+  .pitch h2{font-family:'Fraunces',serif;font-weight:400;font-size:28px;color:#352c1f;margin-bottom:12px;}
+  .pitch h2 em{font-style:italic;color:var(--terra-deep);}
+  .pitch p{font-size:15.5px;color:var(--ink-soft);max-width:36ch;margin:0 auto 22px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--sea);color:#fff;font-weight:600;font-size:15.5px;padding:15px 28px;border-radius:13px;text-decoration:none;box-shadow:0 12px 28px -12px rgba(42,125,123,.6);}
+
+  .foot{text-align:center;padding:30px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--sea);}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-in">
+      <div class="brandmark">The Welcome Link</div>
+      <h1>Welcome your guests <em>beautifully</em></h1>
+      <p class="sub">Custom welcome experiences for short-term rentals. One link, everything your guests need, all your brand.</p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <p>"We don't just hand guests a rental. We welcome them into a place we love, and make sure they have the best experience of it."</p>
+  </section>
+
+  <section>
+    <div class="lbl">Live examples</div>
+    <div class="cards">
+      <a class="card mar" href="/casa-del-mar/">
+        <div class="band"><span class="t">Casa del Mar</span></div>
+        <div class="body">
+          <div class="loc">Puerto Escondido</div>
+          <div class="desc">A beachside stay with surf, sunsets, and a full experiences menu.</div>
+          <div class="go">View the welcome →</div>
+        </div>
+      </a>
+      <a class="card janet" href="/casa-janet/">
+        <div class="band"><span class="t">Janet's Casita</span></div>
+        <div class="body">
+          <div class="loc">San Sebastián Río Hondo</div>
+          <div class="desc">A remote mountain Superhost retreat in the Sierra Sur of Oaxaca.</div>
+          <div class="go">View the welcome →</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="pitch">
+    <h2>Want one for <em>your place?</em></h2>
+    <p>Built around your property, your branding, your favorite local spots. Live in 48 hours.</p>
+    <a class="btn" href="#">💬 Get in touch</a>
+  </section>
+
+  <div class="foot">
+    <div class="mark">The Welcome Link</div>
+    <div class="small">Custom guest welcome experiences · Puerto Escondido</div>
+  </div>
+</div>
+</body>
+</html>
