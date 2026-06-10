@@ -31,17 +31,18 @@
   .wrap{max-width:480px;margin:0 auto;position:relative;background:var(--shell);min-height:100vh;}
   .wrap::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;max-width:480px;left:50%;transform:translateX(-50%);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");}
 
-  /* HERO — sky-to-sea for Las Nubes */
-  .hero{position:relative;min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;padding:32px 26px 44px;color:#e8f4ff;overflow:hidden;}
-  .hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#1a5c8a 0%,#2272a8 30%,#2a80a0 57%,#2a7d7b 100%);}
-  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 40% at 78% 16%,rgba(200,230,255,.85),transparent 55%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='200'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.4' opacity='.22'%3E%3Cpath d='M0 120 Q120 100 240 120 T480 120'/%3E%3Cpath d='M0 145 Q120 128 240 145 T480 145'/%3E%3Cpath d='M0 170 Q120 156 240 170 T480 170'/%3E%3C/g%3E%3C/svg%3E") bottom no-repeat;background-size:auto,100% auto;}
-  .hero-bg .palm{position:absolute;bottom:0;left:-10px;width:160px;opacity:.18;z-index:1;}
+  /* HERO */
+  .hero{position:relative;min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;padding:32px 26px 44px;color:#fff;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:#1a5c8a;}
+  .hero-bg::before{content:"";position:absolute;inset:0;background:url('images/hero.jpg') center/cover no-repeat;}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,12,35,0.55) 0%,rgba(5,25,55,0.40) 30%,rgba(10,45,65,0.38) 57%,rgba(15,55,58,0.52) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='200'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.4' opacity='.18'%3E%3Cpath d='M0 120 Q120 100 240 120 T480 120'/%3E%3Cpath d='M0 145 Q120 128 240 145 T480 145'/%3E%3Cpath d='M0 170 Q120 156 240 170 T480 170'/%3E%3C/g%3E%3C/svg%3E") bottom no-repeat;background-size:auto,100% auto;}
+  .hero-bg .palm{position:absolute;bottom:0;left:-10px;width:160px;opacity:.12;z-index:1;}
   .hero-content{position:relative;z-index:2;}
   .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;opacity:.95;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.7;}
-  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:46px;line-height:1.0;letter-spacing:-.01em;}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:46px;line-height:1.0;letter-spacing:-.01em;text-shadow:0 2px 24px rgba(0,0,0,0.5);}
   .hero h1 em{font-style:italic;color:#fff;}
-  .hero .sub{font-size:16px;opacity:.95;max-width:30ch;margin-top:14px;}
+  .hero .sub{font-size:16px;opacity:.95;max-width:30ch;margin-top:14px;text-shadow:0 1px 10px rgba(0,0,0,0.45);}
   .scroll-cue{position:relative;z-index:2;margin-top:30px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;display:flex;align-items:center;gap:8px;}
   .scroll-cue span{animation:bob 2.2s ease-in-out infinite;}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
@@ -136,6 +137,18 @@
   .wellness-item .txt span{font-size:13.5px;color:var(--ink-soft);}
   .wellness-item .txt a{display:inline-block;margin-top:5px;font-size:13px;color:var(--sea);font-weight:600;text-decoration:none;}
 
+  /* PHOTO COMPONENTS */
+  .home-photo{width:100%;height:260px;object-fit:cover;border-radius:16px;margin-bottom:22px;display:block;}
+  .place-photo{margin-top:14px;border-radius:14px;overflow:hidden;border:1px solid var(--line);}
+  .place-photo img{width:100%;height:240px;object-fit:cover;display:block;}
+  .place-photo figcaption{font-size:12.5px;color:var(--ink-soft);padding:9px 14px;background:#fff;border-top:1px solid var(--line);}
+  .gather-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;border-radius:16px;overflow:hidden;}
+  .gather-grid img{width:100%;height:190px;object-fit:cover;display:block;}
+  .accent-strip{position:relative;z-index:2;overflow:hidden;}
+  .accent-strip img{width:100%;height:220px;object-fit:cover;display:block;}
+  .accent-strip.two-up{display:grid;grid-template-columns:1fr 1fr;}
+  .accent-strip.two-up img{height:180px;}
+
   /* COMMUNITY */
   .community{background:linear-gradient(180deg,#f1e4d0,#f1e0c8);}
   .community-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:var(--shadow);}
@@ -220,6 +233,10 @@
     <h2>Finding the <em>house</em></h2>
     <div class="here-note">
       <p>The access is a little hidden — first-timers often feel like they've taken a wrong turn. You haven't. Keep following the path down. It opens up to the house, and when it does, you'll understand why immediately.</p>
+      <figure class="place-photo">
+        <img src="images/exterior.jpg" alt="Casa Las Nubes exterior" loading="lazy">
+        <figcaption>Look for the white tower with the palapa on top.</figcaption>
+      </figure>
       <a class="map-btn" href="https://maps.app.goo.gl/DjQQQLsLGg9ZiT8SA" target="_blank" rel="noopener">📍 Open in Google Maps</a>
     </div>
   </section>
@@ -230,6 +247,7 @@
     <div class="sec-label">The home</div>
     <h2>The intentional <em>luxuries</em></h2>
     <p class="lead" style="margin-bottom:20px">Most places forget the things that actually make a stay feel good. We didn't.</p>
+    <img class="home-photo" src="images/palapa-view.jpg" alt="Upstairs palapa with ocean view" loading="lazy">
     <div class="feature">
       <div class="ic">🛏️</div>
       <div class="txt"><b>Three bedrooms, three ocean views</b><span>Each room has a desk, an office chair, and a direct view of the Pacific. The most inspiring workspace in Puerto.</span></div>
@@ -304,6 +322,11 @@
       </div>
     </div>
   </section>
+
+  <div class="accent-strip two-up">
+    <img src="images/sunset.jpg" alt="" loading="lazy" aria-hidden="true">
+    <img src="images/sunset-2.jpg" alt="" loading="lazy" aria-hidden="true">
+  </div>
 
   <div class="divider"></div>
 
@@ -445,9 +468,17 @@
     </div>
   </section>
 
+  <div class="accent-strip">
+    <img src="images/clouds.jpg" alt="" loading="lazy" aria-hidden="true">
+  </div>
+
   <section class="community reveal">
     <div class="sec-label">Community & events</div>
     <h2>The house is <em>alive</em></h2>
+    <div class="gather-grid">
+      <img src="images/gathering-1.jpg" alt="Community gathering at the palapa" loading="lazy">
+      <img src="images/gathering-2.jpg" alt="Yoga and sound healing" loading="lazy">
+    </div>
     <div class="community-note">
       <p>The upstairs palapa is our gathering space — yoga, meditation, and community events happen here. The house occasionally hosts ceremonies and gatherings through <b>Sacred Journeys</b>. Ask us what's on while you're here.</p>
     </div>
