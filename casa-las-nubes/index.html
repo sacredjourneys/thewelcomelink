@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Welcome · Casa Las Nubes · Puerto Escondido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#2a7d7b;
+    --sea-deep:#1d5e5c;
+    --terra:#dd8a52;
+    --terra-deep:#c06d36;
+    --sun:#f0b35e;
+    --shell:#fdf6ec;
+    --cream:#fffaf3;
+    --sand:#f1e4d0;
+    --linen:#f6ead8;
+    --ink:#3f3528;
+    --ink-soft:#7c6e5c;
+    --line:rgba(63,53,40,.12);
+    --shadow:0 22px 50px -24px rgba(192,109,54,.4);
+    --sky:#1a5c8a;
+    --sky-mid:#2272a8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Spline Sans',sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+  .wrap{max-width:480px;margin:0 auto;position:relative;background:var(--shell);min-height:100vh;}
+  .wrap::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;max-width:480px;left:50%;transform:translateX(-50%);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");}
+
+  /* HERO — sky-to-sea for Las Nubes */
+  .hero{position:relative;min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;padding:32px 26px 44px;color:#e8f4ff;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#1a5c8a 0%,#2272a8 30%,#2a80a0 57%,#2a7d7b 100%);}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 40% at 78% 16%,rgba(200,230,255,.85),transparent 55%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='200'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.4' opacity='.22'%3E%3Cpath d='M0 120 Q120 100 240 120 T480 120'/%3E%3Cpath d='M0 145 Q120 128 240 145 T480 145'/%3E%3Cpath d='M0 170 Q120 156 240 170 T480 170'/%3E%3C/g%3E%3C/svg%3E") bottom no-repeat;background-size:auto,100% auto;}
+  .hero-bg .palm{position:absolute;bottom:0;left:-10px;width:160px;opacity:.18;z-index:1;}
+  .hero-content{position:relative;z-index:2;}
+  .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;opacity:.95;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.7;}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:46px;line-height:1.0;letter-spacing:-.01em;}
+  .hero h1 em{font-style:italic;color:#fff;}
+  .hero .sub{font-size:16px;opacity:.95;max-width:30ch;margin-top:14px;}
+  .scroll-cue{position:relative;z-index:2;margin-top:30px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;display:flex;align-items:center;gap:8px;}
+  .scroll-cue span{animation:bob 2.2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+  section{position:relative;z-index:2;padding:42px 26px;}
+  .sec-label{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
+  .sec-label::before{content:"";width:22px;height:1px;background:var(--terra);}
+  h2{font-family:'Fraunces',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin-bottom:14px;color:#352c1f;}
+  h2 em{font-style:italic;color:var(--terra-deep);}
+  p.lead{color:var(--ink-soft);font-size:15.5px;}
+  .divider{height:1px;background:var(--line);margin:0 26px;position:relative;z-index:2;}
+
+  /* WELCOME */
+  .welcome{background:linear-gradient(180deg,#fffaf3,#fdf6ec);}
+  .welcome .note{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:19px;line-height:1.5;color:var(--sea-deep);margin-top:4px;}
+  .host-sign{display:flex;align-items:center;gap:12px;margin-top:22px;}
+  .host-sign .avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--sky-mid),var(--sky));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:20px;}
+  .host-sign .meta{font-size:13.5px;line-height:1.3;}
+  .host-sign .meta b{font-weight:600;}
+  .host-sign .meta span{color:var(--ink-soft);font-size:12.5px;}
+
+  /* ESSENTIALS */
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;}
+  .fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);}
+  .fact .ic{font-size:20px;margin-bottom:8px;display:block;}
+  .fact .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;}
+  .fact .v{font-size:14.5px;font-weight:500;margin-top:3px;}
+  .fact .v small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:4px;line-height:1.5;}
+  .wifi{grid-column:1/-1;background:linear-gradient(135deg,var(--sea),var(--sea-deep));color:#fff;border:none;}
+  .wifi .k{color:rgba(255,255,255,.85);}
+  .wifi-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
+  .wifi-row .label{font-size:12px;opacity:.85;}
+  .wifi-row .val{font-family:'Fraunces',serif;font-size:16px;}
+  .wellness-fact{grid-column:1/-1;background:linear-gradient(135deg,var(--sky-mid),var(--sky));color:#fff;border:none;}
+  .wellness-fact .k{color:rgba(255,255,255,.85);}
+  .wellness-fact .v{font-size:13.5px;font-weight:400;margin-top:5px;opacity:.95;line-height:1.6;}
+
+  /* GETTING HERE */
+  .getting-here{background:linear-gradient(180deg,#fffaf3,#fdf6ec);}
+  .here-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:8px;box-shadow:var(--shadow);}
+  .here-note p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;}
+  .map-btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:var(--sea);color:#fff;font-size:13.5px;font-weight:600;padding:10px 18px;border-radius:11px;text-decoration:none;}
+
+  /* THE HOME */
+  .the-home{background:linear-gradient(180deg,#e4f2f8,#d8ecec);}
+  .the-home .sec-label{color:var(--sea-deep);}
+  .the-home .sec-label::before{background:var(--sea);}
+  .the-home h2 em{color:var(--sea-deep);}
+  .the-home p.lead{color:#4a6e6c;}
+  .feature{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid rgba(42,125,123,.18);}
+  .feature:last-child{border-bottom:none;}
+  .feature .ic{flex:none;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--sea),var(--sea-deep));display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .feature .txt b{display:block;font-weight:600;font-size:14.5px;color:#1d3d3a;}
+  .feature .txt span{font-size:13.5px;color:#4a6e6c;}
+
+  /* GET AROUND */
+  .wa-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:var(--shadow);}
+  .wa-card .info b{display:block;font-size:15px;font-weight:600;margin-bottom:2px;}
+  .wa-card .info span{font-size:13px;color:var(--ink-soft);}
+  .wa-link{flex:none;background:#25845a;color:#fff;font-size:13px;font-weight:600;padding:9px 14px;border-radius:10px;text-decoration:none;white-space:nowrap;}
+
+  /* BEACHES */
+  .beaches{background:linear-gradient(180deg,#fffaf3,#fdf6ec);}
+  .beach{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .beach:last-child{border-bottom:none;}
+  .beach .dot{flex:none;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--sea),var(--sea-deep));display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .beach-info b{font-size:14.5px;font-weight:600;display:block;}
+  .beach-info span{font-size:13px;color:var(--ink-soft);}
+  .beach-pin{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:var(--sea);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:8px;text-decoration:none;}
+
+  /* EAT & DRINK */
+  .eatcard{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .eatcard:last-child{border-bottom:none;}
+  .eatcard .num{font-family:'Fraunces',serif;font-size:22px;color:var(--terra);flex:none;width:30px;line-height:1.1;}
+  .eatcard h3{font-size:15.5px;font-weight:600;}
+  .eatcard p{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
+  .eatcard .tagline{font-size:11px;color:var(--sea);font-weight:600;letter-spacing:.04em;}
+  .eatcard .pin{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:12px;font-weight:600;color:var(--terra-deep);text-decoration:none;background:var(--sand);padding:5px 10px;border-radius:7px;}
+
+  /* PROVISIONS */
+  .prov{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .prov:last-child{border-bottom:none;}
+  .prov .ic{flex:none;width:38px;height:38px;border-radius:11px;background:var(--linen);display:flex;align-items:center;justify-content:center;font-size:17px;}
+  .prov .txt b{display:block;font-weight:600;font-size:14.5px;}
+  .prov .txt span{font-size:13.5px;color:var(--ink-soft);}
+
+  /* MOVE & WELLNESS */
+  .wellness-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .wellness-item:last-child{border-bottom:none;}
+  .wellness-item .ic{flex:none;width:38px;height:38px;border-radius:11px;background:var(--linen);display:flex;align-items:center;justify-content:center;font-size:17px;}
+  .wellness-item .txt b{display:block;font-weight:600;font-size:14.5px;}
+  .wellness-item .txt span{font-size:13.5px;color:var(--ink-soft);}
+  .wellness-item .txt a{display:inline-block;margin-top:5px;font-size:13px;color:var(--sea);font-weight:600;text-decoration:none;}
+
+  /* COMMUNITY */
+  .community{background:linear-gradient(180deg,#f1e4d0,#f1e0c8);}
+  .community-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:var(--shadow);}
+  .community-note p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;}
+
+  /* CONTACT */
+  .contact{background:linear-gradient(180deg,#fdf6ec,#f1e4d0);text-align:center;padding-bottom:28px;}
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;font-family:'Spline Sans';font-size:15.5px;font-weight:600;text-decoration:none;margin-top:12px;border:none;cursor:pointer;}
+  .btn-wa{background:#25845a;color:#fff;box-shadow:0 10px 24px -10px rgba(37,132,90,.6);}
+  .btn-sea{background:var(--sea);color:#fff;box-shadow:0 10px 24px -10px rgba(42,125,123,.5);}
+  .review{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);}
+  .review p{font-size:14px;color:var(--ink-soft);}
+  .review .stars{font-size:20px;letter-spacing:3px;margin-bottom:6px;}
+
+  .foot{text-align:center;padding:28px 26px 42px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--sea);}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+  .madeby{font-size:11px;color:var(--ink-soft);margin-top:14px;opacity:.75;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-bg">
+      <svg class="palm" viewBox="0 0 160 200" fill="#0e2e48" xmlns="http://www.w3.org/2000/svg"><path d="M78 200 C74 150 72 110 76 80 C60 84 40 92 22 108 C44 86 60 76 76 72 C58 64 38 62 18 66 C44 54 62 56 78 64 C72 46 60 30 42 18 C68 28 80 46 82 64 C92 44 108 30 130 24 C110 40 96 56 86 74 C104 70 124 72 142 82 C118 76 100 78 84 86 C88 116 86 154 86 200 Z"/></svg>
+    </div>
+    <div class="hero-content">
+      <div class="eyebrow">Puerto Escondido · La Punta</div>
+      <h1>Welcome to <em>Casa Las Nubes</em></h1>
+      <p class="sub">The house in the clouds. Ocean views from every room, deep quiet, and the best view in Puerto. We're so glad you're here.</p>
+    </div>
+    <div class="scroll-cue">Scroll to begin <span>↓</span></div>
+  </header>
+
+  <section class="welcome reveal">
+    <div class="sec-label">Welcome</div>
+    <p class="note">"This has been our home for nearly two years. We built it around the things that actually make a stay feel good: ocean from every window, real quiet, clean air, deep sleep. It's a living, intentional home, not a rental. Treat it like yours, rest deeply, and let Puerto work on you. — Trevor"</p>
+    <div class="host-sign">
+      <div class="avatar">T</div>
+      <div class="meta"><b>Trevor</b> · Host<br><span>Casa Las Nubes, La Punta</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="reveal">
+    <div class="sec-label">The essentials</div>
+    <h2>Good to <em>know</em></h2>
+    <div class="facts">
+      <div class="fact wifi">
+        <span class="ic">📶</span>
+        <div class="k">WiFi</div>
+        <div class="wifi-row"><span class="label">Network</span><span class="val">HouseInTheClouds1</span></div>
+        <div class="wifi-row"><span class="label">Password</span><span class="val">nubes1049</span></div>
+      </div>
+      <div class="fact">
+        <span class="ic">🚪</span>
+        <div class="k">Check-in</div>
+        <div class="v">Personal welcome<small>We'll let you in when you arrive. If the door isn't open, message us and we'll share access.</small></div>
+      </div>
+      <div class="fact">
+        <span class="ic">🌙</span>
+        <div class="k">Check-out</div>
+        <div class="v">Before 11 AM</div>
+      </div>
+      <div class="fact wellness-fact">
+        <span class="ic">🌿</span>
+        <div class="k">Intentional by design</div>
+        <div class="v">WiFi sleeps 11 PM – 5 AM (on a timer, for your deep sleep). Lighting is kept low in the evenings to protect your circadian rhythm.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="getting-here reveal">
+    <div class="sec-label">Getting here</div>
+    <h2>Finding the <em>house</em></h2>
+    <div class="here-note">
+      <p>The access is a little hidden — first-timers often feel like they've taken a wrong turn. You haven't. Keep following the path down. It opens up to the house, and when it does, you'll understand why immediately.</p>
+      <a class="map-btn" href="https://maps.app.goo.gl/DjQQQLsLGg9ZiT8SA" target="_blank" rel="noopener">📍 Open in Google Maps</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="the-home reveal">
+    <div class="sec-label">The home</div>
+    <h2>The intentional <em>luxuries</em></h2>
+    <p class="lead" style="margin-bottom:20px">Most places forget the things that actually make a stay feel good. We didn't.</p>
+    <div class="feature">
+      <div class="ic">🛏️</div>
+      <div class="txt"><b>Three bedrooms, three ocean views</b><span>Each room has a desk, an office chair, and a direct view of the Pacific. The most inspiring workspace in Puerto.</span></div>
+    </div>
+    <div class="feature">
+      <div class="ic">📶</div>
+      <div class="txt"><b>Strong WiFi throughout</b><span>Fast, reliable connection in every room and the upstairs palapa. (Sleeps 11 PM – 5 AM by design.)</span></div>
+    </div>
+    <div class="feature">
+      <div class="ic">🍳</div>
+      <div class="txt"><b>Fully equipped kitchen</b><span>Non-toxic cookware, good knives, oven, big fridge. Actually cook well here.</span></div>
+    </div>
+    <div class="feature">
+      <div class="ic">🧊</div>
+      <div class="txt"><b>Ice plunge + pool</b><span>Start your morning right. The contrast therapy setup most people pay a lot of money to access elsewhere.</span></div>
+    </div>
+    <div class="feature">
+      <div class="ic">🛋️</div>
+      <div class="txt"><b>Spacious downstairs living area</b><span>Open, easy, and full of light. For slow mornings, long evenings, or just existing well.</span></div>
+    </div>
+    <div class="feature">
+      <div class="ic">🌿</div>
+      <div class="txt"><b>Upstairs palapa</b><span>Yoga, hammock time, meditation, gatherings. The best perch in the house — especially at sunrise and sunset.</span></div>
+    </div>
+    <div class="feature">
+      <div class="ic">🧹</div>
+      <div class="txt"><b>Weekly cleaner</b><span>The house stays fresh. We take care of it so you can focus on being here.</span></div>
+    </div>
+    <div class="feature">
+      <div class="ic">🌊</div>
+      <div class="txt"><b>Private, quiet, no neighbors</b><span>Just the ocean, the breeze, and whatever pace you choose. 600m from La Punta.</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="reveal">
+    <div class="sec-label">Get around</div>
+    <h2>Transport & <em>referrals</em></h2>
+    <p class="lead" style="margin-bottom:4px">Message Trevor directly — he'll sort it personally.</p>
+    <div class="wa-card">
+      <div class="info"><b>🚗 Car rental</b><span>Arrange a rental for your stay</span></div>
+      <a class="wa-link" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20I%27d%20like%20to%20arrange%20a%20car%20rental." target="_blank" rel="noopener">Arrange →</a>
+    </div>
+    <div class="wa-card">
+      <div class="info"><b>🛵 Scooter rental</b><span>Moto Mami — daily or monthly</span></div>
+      <a class="wa-link" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20I%27m%20interested%20in%20a%20scooter%20from%20Moto%20Mami." target="_blank" rel="noopener">Arrange →</a>
+    </div>
+    <div class="wa-card">
+      <div class="info"><b>🏄 Surf lessons</b><span>Local instructor recommendation</span></div>
+      <a class="wa-link" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20I%27d%20love%20a%20surf%20lesson%20recommendation." target="_blank" rel="noopener">Ask →</a>
+    </div>
+  </section>
+
+  <section class="beaches reveal">
+    <div class="sec-label">The coast</div>
+    <h2>Your nearest <em>beaches</em></h2>
+    <div class="beach">
+      <div class="dot">🏄</div>
+      <div class="beach-info">
+        <b>La Punta</b>
+        <span>600m away. The lively one — surfers, scene, and the best sunsets in Puerto. Walk down or take a scooter.</span>
+      </div>
+    </div>
+    <div class="beach">
+      <div class="dot">🌿</div>
+      <div class="beach-info">
+        <b>Playa La Barra</b>
+        <span>Same distance, completely different feel. Secluded, natural, almost no one there — perfect for a quiet sunset. The road down is rough at times; fine on foot, bike, or scooter.</span>
+        <a class="beach-pin" href="https://maps.app.goo.gl/9343LP9PwVpT8cdC7" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="reveal">
+    <div class="sec-label">Eat & drink</div>
+    <h2>Trevor's honest <em>list</em></h2>
+    <div class="eatcard">
+      <div class="num">01</div>
+      <div>
+        <h3>Capsula <span class="tagline">· coffee</span></h3>
+        <p>Best coffee in town, hands down. And convenient.</p>
+        <a class="pin" href="https://maps.app.goo.gl/WV6xssnubLybjXB76" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">02</div>
+      <div>
+        <h3>Amarisa Café <span class="tagline">· work & breakfast</span></h3>
+        <p>Sit, work, breakfast and good coffee. A solid base for a morning.</p>
+        <a class="pin" href="https://maps.app.goo.gl/zgoSoZ32RL4i6i2U8" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">03</div>
+      <div>
+        <h3>Malagua Café <span class="tagline">· brunch & bakery</span></h3>
+        <p>Solid breakfast, good brunch, great bakery selection.</p>
+        <a class="pin" href="https://maps.app.goo.gl/iL9xRU5gUtsZrPHf9" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">04</div>
+      <div>
+        <h3>Ojitos Abiertos <span class="tagline">· slow & intentional</span></h3>
+        <p>A cute spot to read or journal with a friend. Raw cow milk and nut milks made in-house. Very organic. Not a work spot.</p>
+        <a class="pin" href="https://maps.app.goo.gl/8oL9dEH1vYymSprL7" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">05</div>
+      <div>
+        <h3>Casa del Surfer <span class="tagline">· healthy & close</span></h3>
+        <p>Close by, healthy, great fish tacos and açaí bowls.</p>
+        <a class="pin" href="https://maps.app.goo.gl/BhqN5FwHVXrHTg676" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">06</div>
+      <div>
+        <h3>Taqueria Alvarado <span class="tagline">· hidden gem · Fri–Sun 8 AM–3 PM</span></h3>
+        <p>The best quesabirria around. Weekends only. Ignore the Google reviews — they don't reflect how good it actually is.</p>
+        <a class="pin" href="https://maps.app.goo.gl/LkXssopmgBwe1WsR7" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">07</div>
+      <div>
+        <h3>Taqueria Liz <span class="tagline">· my favorite taqueria</span></h3>
+        <p>In Lázaro Cárdenas. A bit of a trip — you'll want a scooter. Cheap and incredible. Worth every minute.</p>
+        <a class="pin" href="https://maps.app.goo.gl/hFyeL4uWE2hfziAY9" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">08</div>
+      <div>
+        <h3>Chicama <span class="tagline">· dinner</span></h3>
+        <p>Great go-to for dinner. Good vibes and atmosphere. Often a line — plan accordingly.</p>
+        <a class="pin" href="https://maps.app.goo.gl/rHPrNqxPqwP5TiSAA" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">09</div>
+      <div>
+        <h3>Campestre <span class="tagline">· treat yourself</span></h3>
+        <p>My favorite place to treat myself to a great steak.</p>
+        <a class="pin" href="https://maps.app.goo.gl/tHoq75KzoXbVDfrXA" target="_blank" rel="noopener">📍 Map</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="reveal">
+    <div class="sec-label">Provisions</div>
+    <h2>Stock up <em>well</em></h2>
+    <div class="prov">
+      <div class="ic">🥗</div>
+      <div class="txt">
+        <b>Moringa</b>
+        <span>Convenient health food shop nearby.</span><br>
+        <a class="beach-pin" href="https://maps.app.goo.gl/4uE1Kiabue4fRfbZ6" target="_blank" rel="noopener" style="margin-top:8px;">📍 Map</a>
+      </div>
+    </div>
+    <div class="prov">
+      <div class="ic">🥩</div>
+      <div class="txt">
+        <b>Zicatela Market</b>
+        <span>Fruits, veg, and Don Buffalo inside for the best meat, milk & cheese.</span>
+      </div>
+    </div>
+    <div class="prov">
+      <div class="ic">🍊</div>
+      <div class="txt">
+        <b>Carretera fruterías</b>
+        <span>Cheaper fruit and veg along the highway. Worth the ride.</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="reveal">
+    <div class="sec-label">Move & wellness</div>
+    <h2>Stay in <em>your body</em></h2>
+    <div class="wellness-item">
+      <div class="ic">🏋️</div>
+      <div class="txt">
+        <b>El Workout</b>
+        <span>Economical, great gym in La Punta right by the beach. Unique vibe, also runs classes.</span>
+      </div>
+    </div>
+    <div class="wellness-item">
+      <div class="ic">🧊</div>
+      <div class="txt">
+        <b>Wolf Terrace</b>
+        <span>Picturesque Tulum-style space, contrast therapy, lots of classes. Pricier but a beautiful experience.</span>
+        <a href="https://wolfterrace.mx/" target="_blank" rel="noopener">wolfterrace.mx →</a>
+      </div>
+    </div>
+    <div class="wellness-item">
+      <div class="ic">🧘</div>
+      <div class="txt">
+        <b>That SHRED Life</b>
+        <span>Roving yoga and fitness classes all over town with a daily schedule. Their class pass also unlocks discounts at partners across Puerto.</span>
+        <a href="https://www.thatshredlife.mx/" target="_blank" rel="noopener">thatshredlife.mx →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="community reveal">
+    <div class="sec-label">Community & events</div>
+    <h2>The house is <em>alive</em></h2>
+    <div class="community-note">
+      <p>The upstairs palapa is our gathering space — yoga, meditation, and community events happen here. The house occasionally hosts ceremonies and gatherings through <b>Sacred Journeys</b>. Ask us what's on while you're here.</p>
+    </div>
+    <p class="lead" style="margin-bottom:14px">For daily yoga and wellness events around town:</p>
+    <a class="btn btn-sea" href="#" target="_blank" rel="noopener">💬 Join the Puerto events chat</a>
+  </section>
+
+  <section class="contact reveal">
+    <div class="sec-label" style="justify-content:center">Here for you</div>
+    <h2>Anything you <em>need</em></h2>
+    <p class="lead">Trevor's a message away — before, during, or after your stay.</p>
+    <a class="btn btn-wa" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20have%20a%20question." target="_blank" rel="noopener">💬 Message Trevor on WhatsApp</a>
+    <div class="review">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>If Casa Las Nubes gave you something — rest, perspective, a good memory — a few kind words in a review would mean a lot. No pressure, no rush. Only if it felt worth it. Thank you for being here. 🌊</p>
+    </div>
+  </section>
+
+  <div class="foot">
+    <div class="mark">Hasta la próxima, Casa Las Nubes</div>
+    <div class="small">Puerto Escondido · La Punta · Oaxaca · México</div>
+    <div class="madeby">Guide by The Welcome Link</div>
+  </div>
+
+</div>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
