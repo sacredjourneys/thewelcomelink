@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Custom guest welcome experiences for short-term rentals. One link, everything your guests need, all your brand.">
+<meta name="description" content="Done-for-you custom digital welcome guides for short-term rental hosts. Your brand, your local knowledge, built for you in 48 hours.">
 <meta property="og:title" content="The Welcome Link">
-<meta property="og:description" content="Custom guest welcome experiences for short-term rentals. One link, everything your guests need.">
+<meta property="og:description" content="Done-for-you custom digital welcome guides for short-term rental hosts. Your brand, your local knowledge, built for you in 48 hours.">
 <meta property="og:image" content="https://thewelcomelink.com/og-image.jpg">
 <meta property="og:url" content="https://thewelcomelink.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<title>The Welcome Link · Custom guest welcome experiences</title>
+<title>The Welcome Link</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,101 +24,311 @@
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
   body{font-family:'Spline Sans',sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;}
-  .wrap{max-width:600px;margin:0 auto;position:relative;background:var(--shell);min-height:100vh;}
+  .wrap{max-width:600px;margin:0 auto;background:var(--shell);min-height:100vh;}
 
-  .hero{position:relative;padding:64px 30px 56px;overflow:hidden;color:#fff6ea;text-align:center;}
-  .hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#f0b35e 0%,#e08a5a 34%,#c96f53 60%,#2a7d7b 100%);}
-  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 38% at 50% 14%,rgba(255,238,200,.8),transparent 55%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='160'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.4' opacity='.2'%3E%3Cpath d='M0 100 Q150 82 300 100 T600 100'/%3E%3Cpath d='M0 125 Q150 108 300 125 T600 125'/%3E%3C/g%3E%3C/svg%3E") bottom no-repeat;background-size:auto,100% auto;}
+  /* HERO */
+  .hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:space-between;padding:52px 28px 38px;color:#fff;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:#1a3530;}
+  .hero-bg::before{content:"";position:absolute;inset:-5%;background:url('/casa-las-nubes/images/hero.jpg') center 52%/cover no-repeat;}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,12,30,0.60) 0%,rgba(5,22,45,0.44) 35%,rgba(8,35,50,0.32) 65%,rgba(12,48,45,0.58) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='160'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.2' opacity='.15'%3E%3Cpath d='M0 100 Q150 82 300 100 T600 100'/%3E%3Cpath d='M0 128 Q150 112 300 128 T600 128'/%3E%3C/g%3E%3C/svg%3E") bottom no-repeat;background-size:auto,100% auto;}
   .hero-in{position:relative;z-index:2;}
-  .brandmark{font-size:13px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;opacity:.95;margin-bottom:26px;}
-  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:42px;line-height:1.05;letter-spacing:-.01em;}
+  .brandmark{font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-weight:600;opacity:.88;margin-bottom:30px;}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:46px;line-height:1.0;letter-spacing:-.02em;text-shadow:0 2px 28px rgba(0,0,0,0.5);}
   .hero h1 em{font-style:italic;}
-  .hero .sub{font-size:17px;opacity:.95;margin-top:18px;max-width:34ch;margin-left:auto;margin-right:auto;}
+  .hero .sub{font-size:16px;opacity:.92;max-width:34ch;margin-top:16px;line-height:1.6;text-shadow:0 1px 10px rgba(0,0,0,0.4);}
+  .btn-hero{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:#25845a;color:#fff;font-size:15px;font-weight:600;padding:13px 22px;border-radius:12px;text-decoration:none;box-shadow:0 10px 26px -10px rgba(37,132,90,.65);}
+  .scroll-cue{position:relative;z-index:2;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.72;display:flex;align-items:center;gap:8px;}
+  .scroll-cue span{animation:bob 2.2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
-  section{position:relative;z-index:2;padding:46px 30px;}
-  .intro{text-align:center;background:linear-gradient(180deg,#fffaf3,#fdf6ec);}
-  .intro p{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:21px;line-height:1.5;color:var(--sea-deep);max-width:32ch;margin:0 auto;}
+  /* SECTIONS */
+  section{position:relative;z-index:2;padding:48px 28px;}
+  .sec-label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
+  .sec-label::before{content:"";width:20px;height:1px;background:var(--terra);}
+  h2{font-family:'Fraunces',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin-bottom:16px;color:#352c1f;}
+  h2 em{font-style:italic;color:var(--terra-deep);}
+  .body-copy{font-size:15.5px;color:var(--ink-soft);line-height:1.72;}
+  .divider{height:1px;background:var(--line);margin:0 28px;position:relative;z-index:2;}
 
-  .lbl{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:18px;text-align:center;}
-  .cards{display:grid;gap:16px;}
-  .card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s;}
-  .card:active{transform:scale(.99);}
-  .card .band{height:96px;display:flex;align-items:flex-end;padding:14px 16px;color:#fff6ea;}
-  .card.janet .band{background:linear-gradient(135deg,#6f7d54,#2f3d2a);}
-  .card.mar .band{background:linear-gradient(135deg,#f0b35e,#2a7d7b);}
-  .card.nubes .band{background:linear-gradient(135deg,#2a7d7b,#f0b35e);}
-  .card .band .t{font-family:'Fraunces',serif;font-size:20px;}
-  .card .body{padding:14px 16px 16px;}
-  .card .body .loc{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;}
-  .card .body .desc{font-size:14px;color:var(--ink-soft);margin-top:3px;}
-  .card .body .go{font-size:13px;font-weight:600;color:var(--sea);margin-top:10px;}
+  /* PHILOSOPHY */
+  .phil{background:linear-gradient(160deg,#1b3836,#122c2a);color:#eaf3f1;padding:54px 28px;}
+  .phil .sec-label{color:#ffd9a8;}
+  .phil .sec-label::before{background:#ffd9a8;}
+  .phil h2{color:#fff;font-size:32px;margin-bottom:18px;}
+  .phil h2 em{color:#ffd9a8;}
+  .phil p{color:rgba(234,243,241,.85);font-size:15.5px;line-height:1.75;margin-bottom:16px;}
+  .phil p:last-child{margin-bottom:0;}
+  .pullquote{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:19px;line-height:1.55;color:#ffd9a8;border-left:2px solid rgba(255,217,168,.38);padding-left:18px;margin:22px 0;}
 
-  .pitch{background:linear-gradient(160deg,#f1e4d0,#f1e0c8);text-align:center;}
-  .pitch h2{font-family:'Fraunces',serif;font-weight:400;font-size:28px;color:#352c1f;margin-bottom:12px;}
-  .pitch h2 em{font-style:italic;color:var(--terra-deep);}
-  .pitch p{font-size:15.5px;color:var(--ink-soft);max-width:36ch;margin:0 auto 22px;}
-  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--sea);color:#fff;font-weight:600;font-size:15.5px;padding:15px 28px;border-radius:13px;text-decoration:none;box-shadow:0 12px 28px -12px rgba(42,125,123,.6);}
+  /* ACCENT STRIP */
+  .strip{position:relative;z-index:2;overflow:hidden;}
+  .strip img{width:100%;height:210px;object-fit:cover;display:block;}
 
-  .foot{text-align:center;padding:30px;position:relative;z-index:2;}
+  /* WHAT'S DIFFERENT */
+  .diff-item{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);}
+  .diff-item:last-child{border-bottom:none;}
+  .diff-ic{flex:none;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--sea),var(--sea-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;}
+  .diff-txt b{display:block;font-size:15px;font-weight:600;margin-bottom:3px;}
+  .diff-txt span{font-size:13.5px;color:var(--ink-soft);}
+
+  /* WHAT'S INCLUDED */
+  .inc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;}
+  .inc-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);}
+  .inc-card .ic{font-size:22px;margin-bottom:8px;display:block;}
+  .inc-card b{display:block;font-size:14px;font-weight:600;margin-bottom:4px;}
+  .inc-card span{font-size:12.5px;color:var(--ink-soft);line-height:1.5;}
+
+  /* ROI */
+  .roi{background:linear-gradient(160deg,#f1e4d0,#eddbca);}
+
+  /* PROCESS */
+  .step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .step:last-child{border-bottom:none;}
+  .step-num{flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--terra),var(--terra-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:17px;}
+  .step b{display:block;font-size:15px;font-weight:600;margin-bottom:3px;}
+  .step span{font-size:13.5px;color:var(--ink-soft);}
+
+  /* LIVE EXAMPLES */
+  .card-feat{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px;transition:transform .15s;}
+  .card-feat:active{transform:scale(.99);}
+  .card-feat .feat-img{width:100%;height:230px;object-fit:cover;object-position:center 58%;display:block;}
+  .card-feat .feat-body{padding:18px 18px 20px;}
+  .card-feat .loc{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;}
+  .card-feat .name{font-family:'Fraunces',serif;font-size:24px;font-weight:400;margin:4px 0 8px;color:#352c1f;}
+  .card-feat .desc{font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
+  .card-feat .go{font-size:13px;font-weight:600;color:var(--sea);margin-top:12px;}
+  .cards-small{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .card-sm{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s;}
+  .card-sm:active{transform:scale(.99);}
+  .card-sm .band{height:76px;display:flex;align-items:flex-end;padding:10px 12px;color:#fff6ea;}
+  .card-sm.mar .band{background:linear-gradient(135deg,#f0b35e,#2a7d7b);}
+  .card-sm.janet .band{background:linear-gradient(135deg,#6f7d54,#2f3d2a);}
+  .card-sm .band .t{font-family:'Fraunces',serif;font-size:16px;}
+  .card-sm .sm-body{padding:10px 12px 14px;}
+  .card-sm .loc{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;}
+  .card-sm .desc{font-size:12.5px;color:var(--ink-soft);margin-top:2px;line-height:1.4;}
+  .card-sm .go{font-size:12px;font-weight:600;color:var(--sea);margin-top:8px;}
+
+  /* ABOUT */
+  .about{background:linear-gradient(180deg,#fffaf3,#fdf6ec);}
+  .about p{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:18px;line-height:1.65;color:var(--sea-deep);}
+  .sig{display:flex;align-items:center;gap:12px;margin-top:22px;}
+  .sig .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#2272a8,#1a5c8a);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:19px;font-style:italic;}
+  .sig .meta{font-size:13.5px;line-height:1.4;color:var(--ink-soft);}
+  .sig .meta b{display:block;color:var(--ink);font-weight:600;}
+
+  /* FOUNDING OFFER */
+  .founding{background:linear-gradient(160deg,#f1e4d0,#eddbca);}
+  .founding-card{background:#fff;border:2px solid var(--terra);border-radius:18px;padding:24px 20px;box-shadow:var(--shadow);}
+  .founding-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:23px;margin-bottom:12px;color:#352c1f;}
+  .founding-card h3 em{font-style:italic;color:var(--terra-deep);}
+  .founding-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:20px;}
+
+  /* FOOTER CTA */
+  .cta-foot{background:linear-gradient(160deg,var(--sea),var(--sea-deep));color:#eaf3f1;text-align:center;padding:54px 28px 48px;}
+  .cta-foot .sec-label{color:#ffd9a8;justify-content:center;}
+  .cta-foot .sec-label::before{background:#ffd9a8;}
+  .cta-foot h2{color:#fff;margin-bottom:12px;}
+  .cta-foot h2 em{color:#ffd9a8;}
+  .cta-foot p{color:rgba(234,243,241,.82);font-size:15px;margin-bottom:26px;max-width:32ch;margin-left:auto;margin-right:auto;}
+
+  /* BUTTONS */
+  .btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;font-family:'Spline Sans',sans-serif;font-size:15.5px;font-weight:600;text-decoration:none;background:#25845a;color:#fff;box-shadow:0 10px 24px -10px rgba(37,132,90,.6);}
+  .btn-terra{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;font-family:'Spline Sans',sans-serif;font-size:15.5px;font-weight:600;text-decoration:none;background:var(--terra-deep);color:#fff;box-shadow:0 10px 24px -10px rgba(192,109,54,.5);}
+
+  .foot{text-align:center;padding:28px 28px 46px;position:relative;z-index:2;}
   .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--sea);}
-  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <header class="hero">
     <div class="hero-bg"></div>
     <div class="hero-in">
       <div class="brandmark">The Welcome Link</div>
-      <h1>Welcome your guests <em>beautifully</em></h1>
-      <p class="sub">Custom welcome experiences for short-term rentals. One link, everything your guests need, all your brand.</p>
+      <h1>Welcome your guests <em>beautifully.</em></h1>
+      <p class="sub">A custom digital guide built around your home, your town, and the experience you want guests to have. Done for you in 48 hours.</p>
+      <a class="btn-hero" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20saw%20The%20Welcome%20Link%20and%20I%27d%20love%20one%20for%20my%20place." target="_blank" rel="noopener">💬 Talk to Trevor</a>
     </div>
+    <div class="scroll-cue">See how it works <span>↓</span></div>
   </header>
 
-  <section class="intro">
-    <p>"We don't just hand guests a rental. We welcome them into a place we love, and make sure they have the best experience of it."</p>
+  <section class="phil reveal">
+    <div class="sec-label">The idea</div>
+    <h2>This isn't <em>a guidebook.</em></h2>
+    <p>When a guest arrives and feels genuinely welcomed into a place someone loves, they don't just have a good stay. They fall in love with the town.</p>
+    <div class="pullquote">The rental is the doorway. What we're really giving them is the best possible experience of the place.</div>
+    <p>A guide that tells your guest where to get the best coffee, which beach to catch at sunset, which taqueria only locals know about. Happy guests, better reviews, more income. Those are the byproducts of doing one thing well: welcoming people into a place we love.</p>
   </section>
 
-  <section>
-    <div class="lbl">Live examples</div>
-    <div class="cards">
-      <a class="card nubes" href="/casa-las-nubes/">
-        <div class="band"><span class="t">Casa Las Nubes</span></div>
-        <div class="body">
-          <div class="loc">Puerto Escondido</div>
-          <div class="desc">My own home, an intentional house with the best views in Puerto — the flagship example.</div>
-          <div class="go">View the welcome →</div>
-        </div>
-      </a>
-      <a class="card janet" href="/casa-janet/">
-        <div class="band"><span class="t">Janet's Casita</span></div>
-        <div class="body">
-          <div class="loc">San Sebastián Río Hondo</div>
-          <div class="desc">A remote mountain Superhost retreat in the Sierra Sur of Oaxaca.</div>
-          <div class="go">View the welcome →</div>
-        </div>
-      </a>
-      <a class="card mar" href="/casa-del-mar/">
+  <div class="strip">
+    <img src="/casa-las-nubes/images/sunset.jpg" alt="" loading="lazy" aria-hidden="true">
+  </div>
+
+  <section class="reveal">
+    <div class="sec-label">Why it works</div>
+    <h2>Done for you. <em>Fully yours.</em></h2>
+    <p class="body-copy" style="margin-bottom:22px">Other tools hand you an empty dashboard and a blank template. Most hosts never finish. The ones who do end up with something that looks like everyone else's.</p>
+    <div class="diff-item">
+      <div class="diff-ic">✓</div>
+      <div class="diff-txt"><b>We build it, you don't</b><span>Answer a few questions about your place and town. We handle the writing, design, and setup. No dashboard to learn, no template to fill in.</span></div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-ic">✓</div>
+      <div class="diff-txt"><b>Fully your brand</b><span>No platform badge, no generic feel. Your guests see your guide, your personality, your picks.</span></div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-ic">✓</div>
+      <div class="diff-txt"><b>Real local knowledge</b><span>Every recommendation comes from someone who actually lives here. Not a generated list, not a travel blog from five years ago.</span></div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-ic">✓</div>
+      <div class="diff-txt"><b>Designed, not templated</b><span>A guest can feel the difference between a template and something built specifically for where they're staying.</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="reveal">
+    <div class="sec-label">What's inside</div>
+    <h2>Everything in <em>one place.</em></h2>
+    <div class="inc-grid">
+      <div class="inc-card">
+        <span class="ic">🗺️</span>
+        <b>Arrival + directions</b>
+        <span>Clear directions to your door. Getting there is the first moment of the stay.</span>
+      </div>
+      <div class="inc-card">
+        <span class="ic">🏠</span>
+        <b>House essentials</b>
+        <span>WiFi, check-in, checkout, and the notes that make a home feel welcoming.</span>
+      </div>
+      <div class="inc-card">
+        <span class="ic">📍</span>
+        <b>Local guide</b>
+        <span>Coffee, food, beaches, wellness. Curated picks, not generic lists.</span>
+      </div>
+      <div class="inc-card">
+        <span class="ic">🏄</span>
+        <b>Experiences + upsells</b>
+        <span>Surf, scooters, boat trips. Referrals that come back to you.</span>
+      </div>
+      <div class="inc-card">
+        <span class="ic">💬</span>
+        <b>One-tap contact</b>
+        <span>Your guests reach you in a single tap. Prefilled WhatsApp, no friction.</span>
+      </div>
+      <div class="inc-card">
+        <span class="ic">⭐</span>
+        <b>Gentle review nudge</b>
+        <span>A warm, Airbnb-safe ask at the end. Never pushy.</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="roi reveal">
+    <div class="sec-label">The return</div>
+    <h2>It pays for <em>itself.</em></h2>
+    <p class="body-copy">A good experiences section can generate referral income that covers the cost of the guide in a single booking. Upsells like a stocked fridge or airport pickup add host revenue with almost no extra effort. And guests who feel genuinely cared for write the kind of reviews that lift your ranking and let you charge more.</p>
+  </section>
+
+  <div class="strip">
+    <img src="/casa-las-nubes/images/gathering-1.jpg" alt="" loading="lazy" aria-hidden="true">
+  </div>
+
+  <section class="reveal">
+    <div class="sec-label">The process</div>
+    <h2>Three <em>steps.</em></h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div><b>Quick chat</b><span>15 minutes. Tell us about your place, your town, and the experience you want guests to have.</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div><b>We build it</b><span>In 48 hours, your guide is ready. Review it, request any changes.</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div><b>Share the link</b><span>Send it to every guest before arrival. Update it any time.</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="reveal">
+    <div class="sec-label">See it live</div>
+    <h2>What a guide <em>looks like.</em></h2>
+    <a class="card-feat" href="/casa-las-nubes/">
+      <img class="feat-img" src="/casa-las-nubes/images/hero.jpg" alt="Casa Las Nubes terrace, Puerto Escondido" loading="lazy">
+      <div class="feat-body">
+        <div class="loc">Puerto Escondido · La Punta</div>
+        <div class="name">Casa Las Nubes</div>
+        <div class="desc">The flagship. A real home with ocean views from every room, an ice plunge, and a rooftop palapa for gatherings. Three bedrooms, 600m from La Punta. This is what a full guide looks like.</div>
+        <div class="go">View the full guide →</div>
+      </div>
+    </a>
+    <div class="cards-small">
+      <a class="card-sm mar" href="/casa-del-mar/">
         <div class="band"><span class="t">Casa del Mar</span></div>
-        <div class="body">
+        <div class="sm-body">
           <div class="loc">Puerto Escondido</div>
-          <div class="desc">A beachside stay with surf, sunsets, and a full experiences menu.</div>
-          <div class="go">View the welcome →</div>
+          <div class="desc">Beachside, surf, full upsells menu.</div>
+          <div class="go">View →</div>
+        </div>
+      </a>
+      <a class="card-sm janet" href="/casa-janet/">
+        <div class="band"><span class="t">Janet's Casita</span></div>
+        <div class="sm-body">
+          <div class="loc">Sierra Sur, Oaxaca</div>
+          <div class="desc">Remote mountain Superhost retreat.</div>
+          <div class="go">View →</div>
         </div>
       </a>
     </div>
   </section>
 
-  <section class="pitch">
+  <div class="divider"></div>
+
+  <section class="about reveal">
+    <div class="sec-label">The person behind it</div>
+    <p>Trevor is a host in Puerto Escondido. He lives at Casa Las Nubes, runs Sacred Journeys, and believes a stay should feel like being welcomed into a place someone loves, not handed a key and a list of rules. That belief is what this is built on.</p>
+    <div class="sig">
+      <div class="avatar">T</div>
+      <div class="meta"><b>Trevor</b><span>Host, Puerto Escondido</span></div>
+    </div>
+  </section>
+
+  <section class="founding reveal">
+    <div class="founding-card">
+      <h3>The founding <em>host rate.</em></h3>
+      <p>The first handful of guides are offered at a reduced rate, in exchange for an honest testimonial. If you want something beautiful for your place and are willing to share what you think, this is the window.</p>
+      <a class="btn-terra" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20saw%20The%20Welcome%20Link%20and%20I%27d%20love%20one%20for%20my%20place." target="_blank" rel="noopener">💬 Claim the founding rate</a>
+    </div>
+  </section>
+
+  <section class="cta-foot reveal">
+    <div class="sec-label">Ready</div>
     <h2>Want one for <em>your place?</em></h2>
-    <p>Built around your property, your branding, your favorite local spots. Live in 48 hours.</p>
-    <a class="btn" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27d%20like%20to%20learn%20more%20about%20The%20Welcome%20Link." target="_blank" rel="noopener">💬 Get in touch</a>
+    <p>Built around your property, your local knowledge, your guests. In 48 hours.</p>
+    <a class="btn-wa" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20saw%20The%20Welcome%20Link%20and%20I%27d%20love%20one%20for%20my%20place." target="_blank" rel="noopener">💬 Talk to Trevor on WhatsApp</a>
   </section>
 
   <div class="foot">
     <div class="mark">The Welcome Link</div>
     <div class="small">Custom guest welcome experiences · Puerto Escondido</div>
   </div>
+
 </div>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
