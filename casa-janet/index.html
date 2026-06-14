@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Your guide to Janet's Casita — everything you need for a great stay in the Sierra Sur of Oaxaca.">
-<meta property="og:title" content="Welcome to Janet's Casita · Oaxaca">
+<meta name="description" content="Your guide to Casa Yani — everything you need for a great stay in the Sierra Sur of Oaxaca.">
+<meta property="og:title" content="Welcome to Casa Yani · Oaxaca">
 <meta property="og:description" content="A remote mountain Superhost retreat in the Sierra Sur of Oaxaca.">
 <meta property="og:image" content="https://thewelcomelink.com/og-image.jpg">
 <meta property="og:url" content="https://thewelcomelink.com/casa-janet/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<title>Welcome · Casa Janet · San Sebastián Río Hondo</title>
+<title>Welcome · Casa Yani · San Sebastián Río Hondo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -240,6 +240,15 @@
   .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
   .ph{color:var(--clay-deep);font-weight:600;}
 
+  /* arrival warning */
+  .arrival-warn{font-size:13px;color:var(--clay-deep);background:#fff8f2;border:1.5px solid var(--clay);border-radius:10px;padding:10px 12px;margin-top:10px;font-weight:500;line-height:1.55;}
+
+  /* google maps button */
+  .btn-map{display:flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(233,201,168,.4);border-radius:13px;padding:14px 18px;text-decoration:none;color:#f5efe2;font-weight:600;font-size:15px;margin-top:14px;}
+
+  /* day hikes in experiences */
+  .exp.e6 .band{background:radial-gradient(120% 140% at 20% 10%,#4a6080,#2a3a4a);}
+
   /* reveal animation */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
   .reveal.in{opacity:1;transform:none;}
@@ -280,6 +289,7 @@
     <details class="route">
       <summary><span>From the coast · by public transport</span><span class="tag">Bus + taxi</span><span class="chev">›</span></summary>
       <ol>
+        <li><span class="ph">[Janet to add superhighway detail — which supercarretera exit and direction to take from the coast]</span></li>
         <li>Take Hwy 175 toward San José del Pacífico.</li>
         <li>From there, grab a taxi or moto-taxi to San Sebastián.</li>
         <li>Ask the driver for <b>Tienda de Mari</b> in El Centro.</li>
@@ -290,6 +300,7 @@
     <details class="route">
       <summary><span>From the coast · by car</span><span class="tag">Driving</span><span class="chev">›</span></summary>
       <ol>
+        <li><span class="ph">[Janet to add superhighway detail — which supercarretera exit and turnoff to use from the coast]</span></li>
         <li>Hwy 175 to La Venta, the first village past San José del Pacífico.</li>
         <li>Follow the sign pointing up to San Sebastián. Drive about 20 minutes.</li>
         <li>Turn right at the second arch (not the green one) into El Centro.</li>
@@ -302,15 +313,22 @@
       <summary><span>From Oaxaca City</span><span class="tag">Colectivo</span><span class="chev">›</span></summary>
       <ol>
         <li>Take Líneas Unidos toward Miahuatlán or San José del Pacífico (they run every 20 min).</li>
+        <li><span class="ph">[Janet to add superhighway detail — any supercarretera connection or shortcut from this direction]</span></li>
         <li>From Miahuatlán, find a local taxi to the San Sebastián base.</li>
         <li>Take a colectivo from there into the village.</li>
         <li>Ask for <b>Tienda de Mari</b>, then follow the road down to the second gate on the right.</li>
       </ol>
     </details>
 
+    <a class="btn-map" href="[Google Maps pin link]" target="_blank" rel="noopener">📍 Open in Google Maps</a>
+
     <div class="landmark">
       <span>📍</span>
       <div><b>Lost or arriving?</b> Message me on WhatsApp and I'll meet you at Tienda de Mari to walk you in.</div>
+    </div>
+    <div class="landmark" style="margin-top:8px;">
+      <span>📝</span>
+      <div>These directions are still being refined. If anything is unclear on the way, just message me and I'll guide you in.</div>
     </div>
   </section>
 
@@ -321,14 +339,15 @@
     <div class="facts">
       <div class="fact wifi">
         <span class="ic">📶</span>
-        <div class="k">WiFi · Starlink</div>
+        <div class="k">WiFi</div>
         <div class="wifi-row"><span class="label">Network</span><span class="val ph">[network name]</span></div>
         <div class="wifi-row"><span class="label">Password</span><span class="val ph">[password]</span></div>
       </div>
-      <div class="fact">
+      <div class="fact" style="grid-column:1/-1;">
         <span class="ic">🕑</span>
         <div class="k">Check-in</div>
-        <div class="v">2:00 – 6:00 PM</div>
+        <div class="v">2:00 PM – <strong style="font-size:17px;">6:00 PM</strong></div>
+        <p class="arrival-warn">Please arrive before dark. There is no proper lighting here in the forest, and the drive in is difficult after sunset. Arriving in daylight makes for a much better first night.</p>
       </div>
       <div class="fact">
         <span class="ic">🌙</span>
@@ -357,11 +376,11 @@
     <p class="lead" style="margin-bottom:8px">A few things that make this place special, and a little different from what you may be used to.</p>
     <div class="rule">
       <div class="ic">🚿</div>
-      <div class="txt"><b>Shared, composting bathroom</b><span>We don't have plumbing in the village. The bathroom is shared and composting. It's clean, simple, and part of the way of life here.</span></div>
+      <div class="txt"><b>Shared, composting bathroom</b><span>The bathroom is shared with me, your host, not other guests. We don't have plumbing in the village, so it's a clean, simple composting bathroom, part of the way of life here.</span></div>
     </div>
     <div class="rule">
       <div class="ic">⛈️</div>
-      <div class="txt"><b>Electricity & WiFi can pause</b><span>In heavy mountain storms, power and internet may drop briefly. It always returns. Bring a little patience.</span></div>
+      <div class="txt"><b>Electricity & WiFi can pause</b><span>In heavy mountain storms, power and internet may drop, sometimes for a while, occasionally for a few days. It always comes back. Come prepared for a little off-grid time.</span></div>
     </div>
     <div class="rule">
       <div class="ic">♻️</div>
@@ -378,6 +397,7 @@
     <div class="sec-label">While you're here</div>
     <h2>Experiences in <em>the village</em></h2>
     <p class="lead">These aren't tourist add-ons, they're the real life of this place. All must be arranged in advance, just message me.</p>
+    <p class="lead" style="font-size:13.5px;margin-top:8px;">A translator is available on request for any activity. Just let me know in advance and I'll arrange it.</p>
 
     <div class="exp e1">
       <div class="band"><span class="emoji">🍄</span></div>
@@ -418,9 +438,17 @@
     <div class="exp e5">
       <div class="band"><span class="emoji">🌿</span></div>
       <div class="body">
-        <h3>Soap making · Qigong · herb walks</h3>
-        <p>Cold-process soap with Heber (min. 2 days), Qigong by the river, and medicinal herb walks with our bilingual herbalist.</p>
+        <h3>Qigong</h3>
+        <p>Qigong by the river, in the forest. A quiet, grounding practice in a setting that makes it feel effortless. Ask me about scheduling a session.</p>
         <span class="pre">Arrange in advance</span>
+      </div>
+    </div>
+
+    <div class="exp e6">
+      <div class="band"><span class="emoji">🥾</span></div>
+      <div class="body">
+        <h3>Day hikes</h3>
+        <p>Hike to San José del Pacífico or San Mateo Río Hondo for lunch, then take a moto-taxi back if you'd rather not walk both ways. No arranging needed, just lace up.</p>
       </div>
     </div>
   </section>
@@ -483,10 +511,6 @@
       <div><b>Reaching me</b><span>I'm on WhatsApp and email. If I don't reply within 24 hours, it's usually the electricity or connection, not you. It'll come back.</span></div>
     </div>
     <div class="pcard">
-      <span class="ic">🥾</span>
-      <div><b>Day hikes</b><span>You can hike to San José del Pacífico or San Mateo Río Hondo for lunch, then take a moto-taxi back if you're tired.</span></div>
-    </div>
-    <div class="pcard">
       <span class="ic">🛖</span>
       <div><b>You're in San Sebastián</b><span>Not San José del Pacífico or San Mateo. This is a quieter, more authentic village, new to tourism.</span></div>
     </div>
@@ -500,9 +524,9 @@
     <h2>Check-out by <em>11 AM</em></h2>
     <p class="lead" style="margin-bottom:8px">A simple list to leave the casita as you found it.</p>
     <div class="step"><div class="box"></div><span>Take any plastic trash with you</span></div>
-    <div class="step"><div class="box"></div><span class="ph">[Where to leave the key]</span></div>
+    <div class="step"><div class="box"></div><span>Leave the key in the room</span></div>
     <div class="step"><div class="box"></div><span>Close windows and the patio gate</span></div>
-    <div class="step"><div class="box"></div><span>Turn off lights and any fans</span></div>
+    <div class="step"><div class="box"></div><span>Turn off the lights</span></div>
     <div class="step"><div class="box"></div><span>Message me to say you're off safely 🙏</span></div>
   </section>
 
@@ -511,14 +535,13 @@
     <div class="sec-label" style="justify-content:center">Here for you</div>
     <h2>Anything you <em>need</em></h2>
     <p class="lead">Don't hesitate to reach out. We love sharing this place.</p>
-    <a class="btn btn-wa" href="https://wa.me/529511243080">💬 Message Janet on WhatsApp</a>
-    <a class="btn btn-ghost" href="tel:+529511243080">📞 Call Janet</a>
-    <p class="lead" style="font-size:13px;margin-top:16px">A translator is available on request for any activity. Just ask.</p>
+    <a class="btn btn-wa" href="https://wa.me/529511243080">💬 Message Yani on WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+529511243080">📞 Call Yani</a>
   </section>
 
   <div class="foot">
     <div class="mark">Buen viaje, and welcome home.</div>
-    <div class="small">Casa Janet · San Sebastián Río Hondo · Sierra Sur, Oaxaca</div>
+    <div class="small">Casa Yani · San Sebastián Río Hondo · Sierra Sur, Oaxaca</div>
   </div>
 
 </div>
