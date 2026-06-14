@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Casa Aurora · Preview · The Welcome Link</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,400&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terra:#c4735a;
+    --terra-deep:#a35640;
+    --teal:#2a7d7b;
+    --teal-deep:#1d5e5c;
+    --sand:#f1e4d0;
+    --shell:#fdf6ec;
+    --cream:#fffaf3;
+    --ink:#3a2e24;
+    --ink-soft:#7a6a58;
+    --line:rgba(58,46,36,.11);
+    --shadow:0 20px 48px -20px rgba(164,86,64,.38);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Spline Sans',sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+  .wrap{max-width:480px;margin:0 auto;background:var(--shell);min-height:100vh;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:92vh;display:flex;flex-direction:column;
+    justify-content:flex-end;padding:32px 26px 50px;color:#fff;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:url("images/hero.jpg") center 38%/cover no-repeat;
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(20,12,8,.18) 0%,rgba(20,12,8,.42) 50%,rgba(20,12,8,.82) 100%);
+  }
+  .hero-content{position:relative;z-index:2;}
+  .preview-tag{
+    display:inline-block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:600;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+    border-radius:20px;padding:5px 13px;color:rgba(255,255,255,.9);margin-bottom:20px;
+    backdrop-filter:blur(6px);
+  }
+  .eyebrow{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;
+    opacity:.82;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.6;}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:400;font-size:42px;line-height:1.04;
+    letter-spacing:-.02em;text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero h1 em{font-style:italic;color:#f5c9a0;}
+  .hero .sub{font-size:15.5px;opacity:.9;max-width:32ch;margin-top:14px;line-height:1.65;text-shadow:0 1px 8px rgba(0,0,0,.3);}
+  .scroll-cue{
+    position:relative;z-index:2;margin-top:32px;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;opacity:.65;display:flex;align-items:center;gap:8px;
+  }
+  .scroll-cue span{animation:bob 2.2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  /* SECTIONS */
+  section{position:relative;z-index:2;padding:46px 26px;}
+  .sec-label{
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--terra-deep);
+    font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;
+  }
+  .sec-label::before{content:"";width:20px;height:1px;background:var(--terra);}
+  h2{
+    font-family:'Fraunces',serif;font-weight:400;font-size:28px;line-height:1.12;
+    letter-spacing:-.01em;margin-bottom:14px;color:#352a1f;
+  }
+  h2 em{font-style:italic;color:var(--terra-deep);}
+  .divider{height:1px;background:var(--line);margin:0 26px;position:relative;z-index:2;}
+
+  /* INTRO */
+  .intro{background:linear-gradient(180deg,#fffaf3,#fdf6ec);}
+  .intro-note{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:18.5px;
+    line-height:1.6;color:var(--teal-deep);margin-top:4px;
+  }
+
+  /* CHECK-IN TABLE */
+  .checkin{background:linear-gradient(180deg,#fdf6ec,#f7ede0);}
+  .info-table{width:100%;border-collapse:collapse;margin-top:6px;}
+  .info-table tr{border-bottom:1px solid var(--line);}
+  .info-table tr:last-child{border-bottom:none;}
+  .info-table td{padding:13px 0;font-size:14.5px;vertical-align:top;}
+  .info-table td:first-child{
+    width:38%;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:600;color:var(--terra-deep);padding-right:12px;padding-top:15px;
+  }
+  .info-table td:last-child{color:var(--ink);font-weight:500;line-height:1.45;}
+  .info-table td:last-child small{display:block;font-weight:400;color:var(--ink-soft);font-size:13px;margin-top:2px;}
+
+  /* VALUE ADD-ONS */
+  .addons{background:linear-gradient(160deg,#1b3836,#122c2a);color:#eaf3f1;padding:50px 26px;}
+  .addons .sec-label{color:#f5c9a0;}
+  .addons .sec-label::before{background:#f5c9a0;}
+  .addons h2{color:#fff;font-size:26px;margin-bottom:8px;}
+  .addons h2 em{color:#f5c9a0;}
+  .addons .sub-copy{font-size:14.5px;color:rgba(234,243,241,.78);margin-bottom:22px;line-height:1.65;}
+  .addon-card{
+    background:rgba(255,255,255,.06);border:1px solid rgba(245,201,160,.18);
+    border-radius:16px;padding:18px 18px 16px;margin-bottom:12px;
+    display:flex;gap:14px;align-items:flex-start;
+  }
+  .addon-card:last-child{margin-bottom:0;}
+  .addon-ic{
+    flex:none;width:40px;height:40px;border-radius:12px;
+    background:rgba(245,201,160,.14);display:flex;align-items:center;
+    justify-content:center;font-size:19px;
+  }
+  .addon-card b{display:block;font-size:15px;font-weight:600;color:#f5efe6;margin-bottom:3px;}
+  .addon-card span{font-size:13px;color:rgba(234,243,241,.72);line-height:1.5;}
+
+  /* CLOSING CTA */
+  .cta{background:linear-gradient(180deg,#f7ede0,#f1e4d0);text-align:center;padding:50px 26px 48px;}
+  .cta .sec-label{justify-content:center;}
+  .cta h2{font-size:26px;margin-bottom:12px;}
+  .cta-copy{
+    font-size:15px;color:var(--ink-soft);line-height:1.72;
+    margin-bottom:28px;max-width:34ch;margin-left:auto;margin-right:auto;
+  }
+  .btn-wa{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:16px;border-radius:14px;font-family:'Spline Sans',sans-serif;font-size:15.5px;
+    font-weight:600;text-decoration:none;background:#25845a;color:#fff;
+    box-shadow:0 10px 26px -10px rgba(37,132,90,.65);
+  }
+
+  /* FOOTER */
+  .foot{text-align:center;padding:28px 26px 46px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--teal);}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="preview-tag">A preview, built for you by The Welcome Link</div>
+      <div class="eyebrow">Punta Zicatela · Puerto Escondido</div>
+      <h1>Welcome to Casa <em>Aurora</em></h1>
+      <p class="sub">Your minimalist escape by the sea. Pool, peace, and everything you need a tap away.</p>
+    </div>
+    <div class="scroll-cue">Scroll to explore <span>↓</span></div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="intro reveal">
+    <div class="sec-label">A note before you scroll</div>
+    <p class="intro-note">Hi Ombeline, here's a small taste of what a welcome guide for Casa Aurora could feel like for your guests.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CHECK-IN -->
+  <section class="checkin reveal">
+    <div class="sec-label">On arrival</div>
+    <h2>Your arrival, <em>sorted.</em></h2>
+    <table class="info-table">
+      <tr>
+        <td>Check-in</td>
+        <td>After 3:00 PM<small>Self check-in with keypad</small></td>
+      </tr>
+      <tr>
+        <td>Checkout</td>
+        <td>Before 11:00 AM</td>
+      </tr>
+      <tr>
+        <td>WiFi</td>
+        <td>Starlink<small>Fast and throughout</small></td>
+      </tr>
+      <tr>
+        <td>Guests</td>
+        <td>3 maximum</td>
+      </tr>
+      <tr>
+        <td>The beach</td>
+        <td>11-minute walk</td>
+      </tr>
+      <tr>
+        <td>Coffee</td>
+        <td>French press in the kitchen</td>
+      </tr>
+    </table>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- VALUE ADD-ONS -->
+  <section class="addons reveal">
+    <div class="sec-label">For hosts</div>
+    <h2>Earn more from <em>every booking.</em></h2>
+    <p class="sub-copy">Simple add-ons your guests can pre-book. Profit from day one, almost no extra work.</p>
+
+    <div class="addon-card">
+      <div class="addon-ic">🛒</div>
+      <div>
+        <b>Stocked welcome fridge</b>
+        <span>Guests arrive to a ready home. A small, effortless upgrade that lands in every review.</span>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-ic">🕐</div>
+      <div>
+        <b>Early check-in / late checkout</b>
+        <span>Sell the hours you already have. Easy income on bookings you've already filled.</span>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-ic">🚗</div>
+      <div>
+        <b>Airport pickup</b>
+        <span>A trusted driver waiting when they land. No taxi haggle, no first-night stress.</span>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-ic">🏄</div>
+      <div>
+        <b>Curated experiences</b>
+        <span>Surf, boat tours, scooter rental. Referral income on every stay, with almost no effort on your end.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="cta reveal">
+    <div class="sec-label">The full picture</div>
+    <h2>This is just the <em>welcome.</em></h2>
+    <p class="cta-copy">The full guide includes your local food and beach picks, experiences, directions, and one-tap contact, all in your brand. I live right around the corner at Casa Las Nubes.</p>
+    <a class="btn-wa" href="https://wa.me/529542061152?text=Hi%2C%20this%20is%20about%20the%20Casa%20Aurora%20welcome%20guide." target="_blank" rel="noopener">💬 Let's talk on WhatsApp</a>
+  </section>
+
+  <div class="foot">
+    <div class="mark">The Welcome Link</div>
+    <div class="small">Done-for-you guest guides · Puerto Escondido</div>
+  </div>
+
+</div>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
