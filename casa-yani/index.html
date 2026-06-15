@@ -46,6 +46,17 @@
     max-width:480px;left:50%;transform:translateX(-50%);
   }
 
+  /* language toggle */
+  #langBtn{
+    position:fixed;top:14px;right:14px;z-index:999;
+    background:rgba(255,255,255,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1.5px solid rgba(0,0,0,.13);border-radius:20px;
+    padding:7px 15px;font-size:12px;font-weight:700;letter-spacing:.1em;
+    cursor:pointer;color:#2f3d2a;font-family:'Spline Sans',sans-serif;
+    box-shadow:0 2px 12px rgba(0,0,0,.14);transition:background .2s;
+  }
+  #langBtn:hover{background:rgba(255,255,255,.98);}
+
   /* ===== HERO ===== */
   .hero{
     position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;
@@ -187,6 +198,7 @@
   .exp.e3 .band{background:radial-gradient(120% 140% at 20% 10%,#b5764f,#7d4a2c);}
   .exp.e4 .band{background:radial-gradient(120% 140% at 20% 10%,#7a8a9a,#465260);}
   .exp.e5 .band{background:radial-gradient(120% 140% at 20% 10%,#a98a5a,#6b5430);}
+  .exp.e6 .band{background:radial-gradient(120% 140% at 20% 10%,#4a6080,#2a3a4a);}
   .exp .body{padding:15px 16px 17px;}
   .exp .body h3{font-family:'Fraunces',serif;font-weight:500;font-size:18px;margin-bottom:5px;}
   .exp .body p{font-size:13.5px;color:var(--ink-soft);}
@@ -246,15 +258,13 @@
   /* google maps button */
   .btn-map{display:flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(233,201,168,.4);border-radius:13px;padding:14px 18px;text-decoration:none;color:#f5efe2;font-weight:600;font-size:15px;margin-top:14px;}
 
-  /* day hikes in experiences */
-  .exp.e6 .band{background:radial-gradient(120% 140% at 20% 10%,#4a6080,#2a3a4a);}
-
   /* reveal animation */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
   .reveal.in{opacity:1;transform:none;}
 </style>
 </head>
 <body>
+<button id="langBtn" onclick="toggleLang()">ES</button>
 <div class="wrap">
 
   <!-- HERO -->
@@ -262,19 +272,19 @@
     <div class="hero-bg"></div>
     <div class="hero-content">
       <div class="eyebrow">San Sebastián Río Hondo · Oaxaca</div>
-      <h1>Welcome to <em>the edge<br>of the forest</em></h1>
-      <p class="sub">You've found a quiet corner of the Sierra Sur. Here's everything you need for a beautiful stay.</p>
+      <h1 data-i18n="hero-h1">Welcome to <em>the edge<br>of the forest</em></h1>
+      <p class="sub" data-i18n="hero-sub">You've found a quiet corner of the Sierra Sur. Here's everything you need for a beautiful stay.</p>
     </div>
-    <div class="scroll-cue">Scroll to begin <span>↓</span></div>
+    <div class="scroll-cue" data-i18n="scroll-cue">Scroll to begin <span>↓</span></div>
   </header>
 
   <!-- WELCOME NOTE -->
   <section class="welcome reveal">
-    <div class="sec-label">A note from your host</div>
-    <p class="note">"My front yard is the forest, and a few steps away is the trail to the river. I've lived here thirteen years. Many guests say it feels like stepping into a National Geographic special. I hope you feel held here."</p>
+    <div class="sec-label" data-i18n="welcome-label">A note from your host</div>
+    <p class="note" data-i18n="welcome-note">"My front yard is the forest, and a few steps away is the trail to the river. I've lived here thirteen years. Many guests say it feels like stepping into a National Geographic special. I hope you feel held here."</p>
     <div class="host-sign">
       <div class="avatar">J</div>
-      <div class="meta"><b>Janet</b> · Superhost<br><span>5.0 ★ · 85 reviews · 5 years hosting</span></div>
+      <div class="meta"><b>Janet</b> · Superhost<br><span data-i18n="host-reviews">5.0 ★ · 85 reviews · 5 years hosting</span></div>
     </div>
   </section>
 
@@ -282,85 +292,85 @@
 
   <!-- GETTING HERE -->
   <section class="arrival reveal">
-    <div class="sec-label">Getting here</div>
-    <h2>Finding your way to <em>the village</em></h2>
-    <p class="lead">We're remote, high in the mountains. The trip is part of the magic. Tap your route below.</p>
+    <div class="sec-label" data-i18n="arrival-label">Getting here</div>
+    <h2 data-i18n="arrival-h2">Finding your way to <em>the village</em></h2>
+    <p class="lead" data-i18n="arrival-lead">We're remote, high in the mountains. The trip is part of the magic. Tap your route below.</p>
 
     <details class="route">
-      <summary><span>From the coast · by public transport</span><span class="tag">Bus + taxi</span><span class="chev">›</span></summary>
+      <summary><span data-i18n="route1-title">From the coast · by public transport</span><span class="tag" data-i18n="route1-tag">Bus + taxi</span><span class="chev">›</span></summary>
       <ol>
-        <li>Take Hwy 175 toward San José del Pacífico.</li>
-        <li>From there, grab a taxi or moto-taxi to San Sebastián.</li>
-        <li>Ask the driver for <b>Tienda de Mari</b> in El Centro.</li>
-        <li>I'm on the road just below the store. Pass through the second gate on the right, and it leads to my house.</li>
+        <li data-i18n="r1s1">Take Hwy 175 toward San José del Pacífico.</li>
+        <li data-i18n="r1s2">From there, grab a taxi or moto-taxi to San Sebastián.</li>
+        <li data-i18n="r1s3">Ask the driver for <b>Tienda de Mari</b> in El Centro.</li>
+        <li data-i18n="r1s4">I'm on the road just below the store. Pass through the second gate on the right, and it leads to my house.</li>
       </ol>
     </details>
 
     <details class="route">
-      <summary><span>From the coast · by car</span><span class="tag">Driving</span><span class="chev">›</span></summary>
+      <summary><span data-i18n="route2-title">From the coast · by car</span><span class="tag" data-i18n="route2-tag">Driving</span><span class="chev">›</span></summary>
       <ol>
         <li><span class="ph">[Janet to add superhighway detail — which supercarretera exit and turnoff to use from the coast]</span></li>
-        <li>Hwy 175 to La Venta, the first village past San José del Pacífico.</li>
-        <li>Follow the sign pointing up to San Sebastián. Drive about 20 minutes.</li>
-        <li>Turn right at the second arch (not the green one) into El Centro.</li>
-        <li>Turn right at the second street, follow it to <b>Tienda de Mari</b>. Paid parking is across from the store.</li>
-        <li>Follow the road down from the Tienda on foot to the second gate on your right.</li>
+        <li data-i18n="r2s2">Hwy 175 to La Venta, the first village past San José del Pacífico.</li>
+        <li data-i18n="r2s3">Follow the sign pointing up to San Sebastián. Drive about 20 minutes.</li>
+        <li data-i18n="r2s4">Turn right at the second arch (not the green one) into El Centro.</li>
+        <li data-i18n="r2s5">Turn right at the second street, follow it to <b>Tienda de Mari</b>. Paid parking is across from the store.</li>
+        <li data-i18n="r2s6">Follow the road down from the Tienda on foot to the second gate on your right.</li>
       </ol>
     </details>
 
     <details class="route">
-      <summary><span>From Oaxaca City</span><span class="tag">Colectivo</span><span class="chev">›</span></summary>
+      <summary><span data-i18n="route3-title">From Oaxaca City</span><span class="tag" data-i18n="route3-tag">Colectivo</span><span class="chev">›</span></summary>
       <ol>
-        <li>Take Líneas Unidos toward Miahuatlán or San José del Pacífico (they run every 20 min).</li>
-        <li>From Miahuatlán, find a local taxi to the San Sebastián base.</li>
-        <li>Take a colectivo from there into the village.</li>
-        <li>Ask for <b>Tienda de Mari</b>, then follow the road down to the second gate on the right.</li>
+        <li data-i18n="r3s1">Take Líneas Unidos toward Miahuatlán or San José del Pacífico (they run every 20 min).</li>
+        <li data-i18n="r3s2">From Miahuatlán, find a local taxi to the San Sebastián base.</li>
+        <li data-i18n="r3s3">Take a colectivo from there into the village.</li>
+        <li data-i18n="r3s4">Ask for <b>Tienda de Mari</b>, then follow the road down to the second gate on the right.</li>
       </ol>
     </details>
 
-    <a class="btn-map" href="https://maps.app.goo.gl/7g4sbcgE4KTj4nzw7" target="_blank" rel="noopener">📍 Open in Google Maps</a>
+    <a class="btn-map" href="https://maps.app.goo.gl/7g4sbcgE4KTj4nzw7" target="_blank" rel="noopener" data-i18n="map-btn">📍 Open in Google Maps</a>
 
     <div class="landmark">
       <span>📍</span>
-      <div><b>Lost or arriving?</b> Message me on WhatsApp and I'll meet you at Tienda de Mari to walk you in.</div>
+      <div data-i18n="landmark1"><b>Lost or arriving?</b> Message me on WhatsApp and I'll meet you at Tienda de Mari to walk you in.</div>
     </div>
     <div class="landmark" style="margin-top:8px;">
       <span>📝</span>
-      <div>These directions are still being refined. If anything is unclear on the way, just message me and I'll guide you in.</div>
+      <div data-i18n="landmark2">These directions are still being refined. If anything is unclear on the way, just message me and I'll guide you in.</div>
     </div>
   </section>
 
   <!-- QUICK FACTS -->
   <section class="reveal">
-    <div class="sec-label">The essentials</div>
-    <h2>Good to <em>know</em></h2>
+    <div class="sec-label" data-i18n="facts-label">The essentials</div>
+    <h2 data-i18n="facts-h2">Good to <em>know</em></h2>
     <div class="facts">
       <div class="fact wifi">
         <span class="ic">📶</span>
-        <div class="k">WiFi</div>
-        <div class="wifi-row"><span class="label">Network</span><span class="val ph">[network name]</span></div>
-        <div class="wifi-row"><span class="label">Password</span><span class="val ph">[password]</span></div>
+        <div class="k" data-i18n="wifi-label">WiFi</div>
+        <div class="wifi-row"><span class="label" data-i18n="wifi-network">Network</span><span class="val ph">[network name]</span></div>
+        <div class="wifi-row"><span class="label" data-i18n="wifi-password">Password</span><span class="val ph">[password]</span></div>
       </div>
       <div class="fact" style="grid-column:1/-1;">
         <span class="ic">🕑</span>
-        <div class="k">Check-in</div>
-        <div class="v">2:00 PM – <strong style="font-size:17px;">6:00 PM</strong> [latest]</div>
-        <p class="arrival-warn">Please arrive before dark. There is no proper lighting here in the forest, and the drive in is difficult after sunset. Arriving in daylight makes for a much better first night.</p>
+        <div class="k" data-i18n="checkin-label">Check-in</div>
+        <div class="v" data-i18n="checkin-val">2:00 PM – <strong style="font-size:17px;">6:00 PM</strong> [latest]</div>
+        <p class="arrival-warn" data-i18n="arrival-warn">Please arrive before dark. There is no proper lighting here in the forest, and the drive in is difficult after sunset. Arriving in daylight makes for a much better first night.</p>
       </div>
       <div class="fact">
         <span class="ic">🌙</span>
-        <div class="k">Check-out</div>
-        <div class="v">Before 11 AM</div>
+        <div class="k" data-i18n="checkout-label">Check-out</div>
+        <div class="v" data-i18n="checkout-val">Before 11 AM</div>
       </div>
       <div class="fact">
         <span class="ic">🔕</span>
-        <div class="k">Quiet hours</div>
-        <div class="v">From 8 PM<small>We rise and sleep with the birds</small></div>
+        <div class="k" data-i18n="quiet-label">Quiet hours</div>
+        <div class="v">From 8 PM<small data-i18n="quiet-small">We rise and sleep with the birds</small></div>
       </div>
       <div class="fact">
         <span class="ic">👥</span>
-        <div class="k">Guests</div>
-        <div class="v">2 maximum</div>
+        <div class="k" data-i18n="guests-label">Guests</div>
+        <div class="v" data-i18n="guests-val">2 maximum</div>
       </div>
     </div>
   </section>
@@ -369,84 +379,84 @@
 
   <!-- HOUSE RULES -->
   <section class="reveal">
-    <div class="sec-label">The home</div>
-    <h2>How we <em>live here</em></h2>
-    <p class="lead" style="margin-bottom:8px">A few things that make this place special, and a little different from what you may be used to.</p>
+    <div class="sec-label" data-i18n="home-label">The home</div>
+    <h2 data-i18n="home-h2">How we <em>live here</em></h2>
+    <p class="lead" style="margin-bottom:8px" data-i18n="home-lead">A few things that make this place special, and a little different from what you may be used to.</p>
     <div class="rule">
       <div class="ic">🚿</div>
-      <div class="txt"><b>Shared, composting bathroom</b><span>The bathroom is shared with me, your host, not other guests. We don't have plumbing in the village, so it's a clean, simple composting bathroom, part of the way of life here.</span></div>
+      <div class="txt"><b data-i18n="rule1-title">Shared, composting bathroom</b><span data-i18n="rule1-text">The bathroom is shared with me, your host, not other guests. We don't have plumbing in the village, so it's a clean, simple composting bathroom, part of the way of life here.</span></div>
     </div>
     <div class="rule">
       <div class="ic">⛈️</div>
-      <div class="txt"><b>Electricity & WiFi can pause</b><span>In heavy mountain storms, power and internet may drop, sometimes for a while, occasionally for a few days. It always comes back. Come prepared for a little off-grid time.</span></div>
+      <div class="txt"><b data-i18n="rule2-title">Electricity &amp; WiFi can pause</b><span data-i18n="rule2-text">In heavy mountain storms, power and internet may drop, sometimes for a while, occasionally for a few days. It always comes back. Come prepared for a little off-grid time.</span></div>
     </div>
     <div class="rule">
       <div class="ic">♻️</div>
-      <div class="txt"><b>Pack out your plastic</b><span>There's no recycling nearby, so please take any plastic trash with you when you go. 🙏</span></div>
+      <div class="txt"><b data-i18n="rule3-title">Pack out your plastic</b><span data-i18n="rule3-text">There's no recycling nearby, so please take any plastic trash with you when you go. 🙏</span></div>
     </div>
     <div class="rule">
       <div class="ic">🌅</div>
-      <div class="txt"><b>An early-rising village</b><span>This is an authentic Zapotec community. Mornings start with the birds, evenings wind down by 8 PM.</span></div>
+      <div class="txt"><b data-i18n="rule4-title">An early-rising village</b><span data-i18n="rule4-text">This is an authentic Zapotec community. Mornings start with the birds, evenings wind down by 8 PM.</span></div>
     </div>
   </section>
 
   <!-- EXPERIENCES -->
   <section class="experiences reveal">
-    <div class="sec-label">While you're here</div>
-    <h2>Experiences in <em>the village</em></h2>
-    <p class="lead">These aren't tourist add-ons, they're the real life of this place. All must be arranged in advance, just message me.</p>
-    <p class="lead" style="font-size:13.5px;margin-top:8px;">A translator is available on request for any activity. Just let me know in advance and I'll arrange it.</p>
+    <div class="sec-label" data-i18n="exp-label">While you're here</div>
+    <h2 data-i18n="exp-h2">Experiences in <em>the village</em></h2>
+    <p class="lead" data-i18n="exp-lead">These aren't tourist add-ons, they're the real life of this place. All must be arranged in advance, just message me.</p>
+    <p class="lead" style="font-size:13.5px;margin-top:8px;" data-i18n="exp-translator">A translator is available on request for any activity. Just let me know in advance and I'll arrange it.</p>
 
     <div class="exp e1">
-      <div class="band"><span class="emoji">🍄</span></div>
+      <div class="band"><span class="emoji">🥾</span></div>
       <div class="body">
-        <h3>Mushroom foraging</h3>
-        <p>In rainy season (June–October), take a guide into the forest to hunt mushrooms, then bring them back for Ana or Margarita to cook up.</p>
-        <span class="pre">Arrange in advance · seasonal</span>
+        <h3 data-i18n="exp1-title">Day hikes</h3>
+        <p data-i18n="exp1-desc">Hike to San José del Pacífico or San Mateo Río Hondo for lunch, then take a moto-taxi back if you'd rather not walk both ways. No arranging needed, just lace up.</p>
       </div>
     </div>
 
     <div class="exp e2">
-      <div class="band"><span class="emoji">🔥</span></div>
+      <div class="band"><span class="emoji">🍄</span></div>
       <div class="body">
-        <h3>Temazcal sweat lodge</h3>
-        <p>Just above us is a traditional Temazcal. Reserve it on your own, or with a local curandera when she's available.</p>
-        <span class="pre">Arrange in advance</span>
+        <h3 data-i18n="exp2-title">Mushroom foraging</h3>
+        <p data-i18n="exp2-desc">In rainy season (June–October), take a guide into the forest to hunt mushrooms, then bring them back for Ana or Margarita to cook up.</p>
+        <span class="pre" data-i18n="exp2-pre">Arrange in advance · seasonal</span>
       </div>
     </div>
 
     <div class="exp e3">
-      <div class="band"><span class="emoji">🌽</span></div>
+      <div class="band"><span class="emoji">🔥</span></div>
       <div class="body">
-        <h3>Cooking with Ana</h3>
-        <p>My neighbor Ana cooks on a wood stove and grinds her own organic corn. Her Oaxacan menu is extensive. Try the pozole with mushrooms.</p>
-        <span class="pre">Arrange in advance</span>
+        <h3 data-i18n="exp3-title">Temazcal sweat lodge</h3>
+        <p data-i18n="exp3-desc">Just above us is a traditional Temazcal. Reserve it on your own, or with a local curandera when she's available.</p>
+        <span class="pre" data-i18n="exp-pre-advance">Arrange in advance</span>
       </div>
     </div>
 
     <div class="exp e4">
-      <div class="band"><span class="emoji">🧵</span></div>
+      <div class="band"><span class="emoji">🌽</span></div>
       <div class="body">
-        <h3>Back-strap loom weaving</h3>
-        <p>Learn weaving with a local family. A small project needs a 3-day commitment, about 3–4 hours daily.</p>
-        <span class="pre">Min. 3-day stay</span>
+        <h3 data-i18n="exp4-title">Cooking with Ana</h3>
+        <p data-i18n="exp4-desc">My neighbor Ana cooks on a wood stove and grinds her own organic corn. Her Oaxacan menu is extensive. Try the pozole with mushrooms.</p>
+        <span class="pre" data-i18n="exp-pre-advance2">Arrange in advance</span>
       </div>
     </div>
 
     <div class="exp e5">
-      <div class="band"><span class="emoji">🌿</span></div>
+      <div class="band"><span class="emoji">🧵</span></div>
       <div class="body">
-        <h3>Qigong</h3>
-        <p>Qigong by the river, in the forest. A quiet, grounding practice in a setting that makes it feel effortless. Ask me about scheduling a session.</p>
-        <span class="pre">Arrange in advance</span>
+        <h3 data-i18n="exp5-title">Back-strap loom weaving</h3>
+        <p data-i18n="exp5-desc">Learn weaving with a local family. A small project needs a 3-day commitment, about 3–4 hours daily.</p>
+        <span class="pre" data-i18n="exp5-pre">Min. 3-day stay</span>
       </div>
     </div>
 
     <div class="exp e6">
-      <div class="band"><span class="emoji">🥾</span></div>
+      <div class="band"><span class="emoji">🌿</span></div>
       <div class="body">
-        <h3>Day hikes</h3>
-        <p>Hike to San José del Pacífico or San Mateo Río Hondo for lunch, then take a moto-taxi back if you'd rather not walk both ways. No arranging needed, just lace up.</p>
+        <h3 data-i18n="exp6-title">Qigong</h3>
+        <p data-i18n="exp6-desc">Qigong by the river, in the forest. A quiet, grounding practice in a setting that makes it feel effortless. Ask me about scheduling a session.</p>
+        <span class="pre" data-i18n="exp-pre-advance3">Arrange in advance</span>
       </div>
     </div>
   </section>
@@ -455,62 +465,62 @@
 
   <!-- EAT -->
   <section class="reveal">
-    <div class="sec-label">Eat & drink</div>
-    <h2>Where to <em>eat</em></h2>
-    <p class="lead" style="margin-bottom:6px">Four local spots, all within reach. Some need a little notice.</p>
+    <div class="sec-label" data-i18n="eat-label">Eat &amp; drink</div>
+    <h2 data-i18n="eat-h2">Where to <em>eat</em></h2>
+    <p class="lead" style="margin-bottom:6px" data-i18n="eat-lead">Four local spots, all within reach. Some need a little notice.</p>
 
     <div class="eatcard">
       <div class="num">01</div>
       <div>
-        <h3>Ana's Kitchen <span class="veg">· veg options</span></h3>
-        <p>Local Zapotec cuisine with flair, whatever's on the wood-burning comal. Breakfast, lunch, dinner. Very reasonable.</p>
+        <h3>Ana's Kitchen <span class="veg" data-i18n="eat1-veg">· veg options</span></h3>
+        <p data-i18n="eat1-desc">Local Zapotec cuisine with flair, whatever's on the wood-burning comal. Breakfast, lunch, dinner. Very reasonable.</p>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">02</div>
       <div>
-        <h3>Casa Maitri <span class="veg">· vegetarian</span></h3>
-        <p>A retreat center just above me serving Indian food with a Zapotec twist. Needs 12 hours' notice.</p>
+        <h3>Casa Maitri <span class="veg" data-i18n="eat2-veg">· vegetarian</span></h3>
+        <p data-i18n="eat2-desc">A retreat center just above me serving Indian food with a Zapotec twist. Needs 12 hours' notice.</p>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">03</div>
       <div>
         <h3>Comedor de Juanna</h3>
-        <p>Local Zapotec and Mexican cooking, at "the triangle."</p>
+        <p data-i18n="eat3-desc">Local Zapotec and Mexican cooking, at "the triangle."</p>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">04</div>
       <div>
         <h3>La Montaña</h3>
-        <p>Traditional food with beautiful views, also at "the triangle."</p>
+        <p data-i18n="eat4-desc">Traditional food with beautiful views, also at "the triangle."</p>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">★</div>
       <div>
-        <h3>Farmers Market</h3>
-        <p>The first Sunday of every month. Worth planning around if your dates line up.</p>
+        <h3 data-i18n="eat5-title">Farmers Market</h3>
+        <p data-i18n="eat5-desc">The first Sunday of every month. Worth planning around if your dates line up.</p>
       </div>
     </div>
   </section>
 
   <!-- PRACTICAL -->
   <section class="practical reveal">
-    <div class="sec-label">Plan ahead</div>
-    <h2>A few <em>practical</em> things</h2>
+    <div class="sec-label" data-i18n="practical-label">Plan ahead</div>
+    <h2 data-i18n="practical-h2">A few <em>practical</em> things</h2>
     <div class="pcard">
       <span class="ic">💵</span>
-      <div><b>Bring cash</b><span>No ATMs or banks in the area. The closest bank is an hour away in Miahuatlán. Plan accordingly.</span></div>
+      <div><b data-i18n="pcard1-title">Bring cash</b><span data-i18n="pcard1-text">No ATMs or banks in the area. The closest bank is an hour away in Miahuatlán. Plan accordingly.</span></div>
     </div>
     <div class="pcard">
       <span class="ic">📱</span>
-      <div><b>Reaching me</b><span>I'm on WhatsApp and email. If I don't reply within 24 hours, it's usually the electricity or connection, not you. It'll come back.</span></div>
+      <div><b data-i18n="pcard2-title">Reaching me</b><span data-i18n="pcard2-text">I'm on WhatsApp and email. If I don't reply within 24 hours, it's usually the electricity or connection, not you. It'll come back.</span></div>
     </div>
     <div class="pcard">
       <span class="ic">🛖</span>
-      <div><b>You're in San Sebastián</b><span>Not San José del Pacífico or San Mateo. This is a quieter, more authentic village, new to tourism.</span></div>
+      <div><b data-i18n="pcard3-title">You're in San Sebastián</b><span data-i18n="pcard3-text">Not San José del Pacífico or San Mateo. This is a quieter, more authentic village, new to tourism.</span></div>
     </div>
   </section>
 
@@ -518,42 +528,280 @@
 
   <!-- CHECKOUT -->
   <section class="checkout reveal">
-    <div class="sec-label">Before you go</div>
-    <h2>Check-out by <em>11 AM</em></h2>
-    <p class="lead" style="margin-bottom:8px">A simple list to leave the casita as you found it.</p>
-    <div class="step"><div class="box"></div><span>Take any plastic trash with you</span></div>
-    <div class="step"><div class="box"></div><span>Leave the key in the room</span></div>
-    <div class="step"><div class="box"></div><span>Close windows and the patio gate</span></div>
-    <div class="step"><div class="box"></div><span>Turn off the lights</span></div>
-    <div class="step"><div class="box"></div><span>Message me to say you're off safely 🙏</span></div>
+    <div class="sec-label" data-i18n="checkout-section-label">Before you go</div>
+    <h2 data-i18n="checkout-h2">Check-out by <em>11 AM</em></h2>
+    <p class="lead" style="margin-bottom:8px" data-i18n="checkout-lead">A simple list to leave the casita as you found it.</p>
+    <div class="step"><div class="box"></div><span data-i18n="step1">Take any plastic trash with you</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step2">Leave the key in the room</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step3">Close windows and the patio gate</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step4">Turn off the lights</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step5">Message me to say you're off safely 🙏</span></div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact reveal">
-    <div class="sec-label" style="justify-content:center">Here for you</div>
-    <h2>Anything you <em>need</em></h2>
-    <p class="lead">Don't hesitate to reach out. We love sharing this place.</p>
-    <a class="btn btn-wa" href="https://wa.me/529511243080">💬 Message Janet on WhatsApp</a>
-    <a class="btn btn-ghost" href="tel:+529511243080">📞 Call Janet</a>
+    <div class="sec-label" style="justify-content:center" data-i18n="contact-label">Here for you</div>
+    <h2 data-i18n="contact-h2">Anything you <em>need</em></h2>
+    <p class="lead" data-i18n="contact-lead">Don't hesitate to reach out. We love sharing this place.</p>
+    <a class="btn btn-wa" href="https://wa.me/529511243080" data-i18n="btn-wa">💬 Message Janet on WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+529511243080" data-i18n="btn-call">📞 Call Janet</a>
   </section>
 
   <div class="foot">
-    <div class="mark">Buen viaje, and welcome home.</div>
+    <div class="mark" data-i18n="foot-mark">Buen viaje, and welcome home.</div>
     <div class="small">Casa Yani · San Sebastián Río Hondo · Sierra Sur, Oaxaca</div>
   </div>
 
 </div>
 
 <script>
-  const io=new IntersectionObserver((es)=>{
-    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const T = {
+    en: {
+      'hero-h1': 'Welcome to <em>the edge<br>of the forest</em>',
+      'hero-sub': "You've found a quiet corner of the Sierra Sur. Here's everything you need for a beautiful stay.",
+      'scroll-cue': 'Scroll to begin <span>↓</span>',
+      'welcome-label': 'A note from your host',
+      'welcome-note': '"My front yard is the forest, and a few steps away is the trail to the river. I\'ve lived here thirteen years. Many guests say it feels like stepping into a National Geographic special. I hope you feel held here."',
+      'host-reviews': '5.0 ★ · 85 reviews · 5 years hosting',
+      'arrival-label': 'Getting here',
+      'arrival-h2': 'Finding your way to <em>the village</em>',
+      'arrival-lead': "We're remote, high in the mountains. The trip is part of the magic. Tap your route below.",
+      'route1-title': 'From the coast · by public transport',
+      'route1-tag': 'Bus + taxi',
+      'r1s1': 'Take Hwy 175 toward San José del Pacífico.',
+      'r1s2': 'From there, grab a taxi or moto-taxi to San Sebastián.',
+      'r1s3': 'Ask the driver for <b>Tienda de Mari</b> in El Centro.',
+      'r1s4': "I'm on the road just below the store. Pass through the second gate on the right, and it leads to my house.",
+      'route2-title': 'From the coast · by car',
+      'route2-tag': 'Driving',
+      'r2s2': 'Hwy 175 to La Venta, the first village past San José del Pacífico.',
+      'r2s3': 'Follow the sign pointing up to San Sebastián. Drive about 20 minutes.',
+      'r2s4': 'Turn right at the second arch (not the green one) into El Centro.',
+      'r2s5': 'Turn right at the second street, follow it to <b>Tienda de Mari</b>. Paid parking is across from the store.',
+      'r2s6': 'Follow the road down from the Tienda on foot to the second gate on your right.',
+      'route3-title': 'From Oaxaca City',
+      'route3-tag': 'Colectivo',
+      'r3s1': 'Take Líneas Unidos toward Miahuatlán or San José del Pacífico (they run every 20 min).',
+      'r3s2': 'From Miahuatlán, find a local taxi to the San Sebastián base.',
+      'r3s3': 'Take a colectivo from there into the village.',
+      'r3s4': 'Ask for <b>Tienda de Mari</b>, then follow the road down to the second gate on the right.',
+      'map-btn': '📍 Open in Google Maps',
+      'landmark1': "<b>Lost or arriving?</b> Message me on WhatsApp and I'll meet you at Tienda de Mari to walk you in.",
+      'landmark2': "These directions are still being refined. If anything is unclear on the way, just message me and I'll guide you in.",
+      'facts-label': 'The essentials',
+      'facts-h2': 'Good to <em>know</em>',
+      'wifi-label': 'WiFi',
+      'wifi-network': 'Network',
+      'wifi-password': 'Password',
+      'checkin-label': 'Check-in',
+      'checkin-val': '2:00 PM – <strong style="font-size:17px;">6:00 PM</strong> [latest]',
+      'arrival-warn': 'Please arrive before dark. There is no proper lighting here in the forest, and the drive in is difficult after sunset. Arriving in daylight makes for a much better first night.',
+      'checkout-label': 'Check-out',
+      'checkout-val': 'Before 11 AM',
+      'quiet-label': 'Quiet hours',
+      'quiet-small': 'We rise and sleep with the birds',
+      'guests-label': 'Guests',
+      'guests-val': '2 maximum',
+      'home-label': 'The home',
+      'home-h2': 'How we <em>live here</em>',
+      'home-lead': 'A few things that make this place special, and a little different from what you may be used to.',
+      'rule1-title': 'Shared, composting bathroom',
+      'rule1-text': "The bathroom is shared with me, your host, not other guests. We don't have plumbing in the village, so it's a clean, simple composting bathroom, part of the way of life here.",
+      'rule2-title': 'Electricity & WiFi can pause',
+      'rule2-text': 'In heavy mountain storms, power and internet may drop, sometimes for a while, occasionally for a few days. It always comes back. Come prepared for a little off-grid time.',
+      'rule3-title': 'Pack out your plastic',
+      'rule3-text': "There's no recycling nearby, so please take any plastic trash with you when you go. 🙏",
+      'rule4-title': 'An early-rising village',
+      'rule4-text': 'This is an authentic Zapotec community. Mornings start with the birds, evenings wind down by 8 PM.',
+      'exp-label': "While you're here",
+      'exp-h2': 'Experiences in <em>the village</em>',
+      'exp-lead': "These aren't tourist add-ons, they're the real life of this place. All must be arranged in advance, just message me.",
+      'exp-translator': "A translator is available on request for any activity. Just let me know in advance and I'll arrange it.",
+      'exp1-title': 'Day hikes',
+      'exp1-desc': "Hike to San José del Pacífico or San Mateo Río Hondo for lunch, then take a moto-taxi back if you'd rather not walk both ways. No arranging needed, just lace up.",
+      'exp2-title': 'Mushroom foraging',
+      'exp2-desc': 'In rainy season (June–October), take a guide into the forest to hunt mushrooms, then bring them back for Ana or Margarita to cook up.',
+      'exp2-pre': 'Arrange in advance · seasonal',
+      'exp3-title': 'Temazcal sweat lodge',
+      'exp3-desc': "Just above us is a traditional Temazcal. Reserve it on your own, or with a local curandera when she's available.",
+      'exp-pre-advance': 'Arrange in advance',
+      'exp4-title': 'Cooking with Ana',
+      'exp4-desc': 'My neighbor Ana cooks on a wood stove and grinds her own organic corn. Her Oaxacan menu is extensive. Try the pozole with mushrooms.',
+      'exp-pre-advance2': 'Arrange in advance',
+      'exp5-title': 'Back-strap loom weaving',
+      'exp5-desc': 'Learn weaving with a local family. A small project needs a 3-day commitment, about 3–4 hours daily.',
+      'exp5-pre': 'Min. 3-day stay',
+      'exp6-title': 'Qigong',
+      'exp6-desc': 'Qigong by the river, in the forest. A quiet, grounding practice in a setting that makes it feel effortless. Ask me about scheduling a session.',
+      'exp-pre-advance3': 'Arrange in advance',
+      'eat-label': 'Eat & drink',
+      'eat-h2': 'Where to <em>eat</em>',
+      'eat-lead': 'Four local spots, all within reach. Some need a little notice.',
+      'eat1-veg': '· veg options',
+      'eat1-desc': "Local Zapotec cuisine with flair, whatever's on the wood-burning comal. Breakfast, lunch, dinner. Very reasonable.",
+      'eat2-veg': '· vegetarian',
+      'eat2-desc': "A retreat center just above me serving Indian food with a Zapotec twist. Needs 12 hours' notice.",
+      'eat3-desc': 'Local Zapotec and Mexican cooking, at "the triangle."',
+      'eat4-desc': 'Traditional food with beautiful views, also at "the triangle."',
+      'eat5-title': 'Farmers Market',
+      'eat5-desc': 'The first Sunday of every month. Worth planning around if your dates line up.',
+      'practical-label': 'Plan ahead',
+      'practical-h2': 'A few <em>practical</em> things',
+      'pcard1-title': 'Bring cash',
+      'pcard1-text': 'No ATMs or banks in the area. The closest bank is an hour away in Miahuatlán. Plan accordingly.',
+      'pcard2-title': 'Reaching me',
+      'pcard2-text': "I'm on WhatsApp and email. If I don't reply within 24 hours, it's usually the electricity or connection, not you. It'll come back.",
+      'pcard3-title': "You're in San Sebastián",
+      'pcard3-text': 'Not San José del Pacífico or San Mateo. This is a quieter, more authentic village, new to tourism.',
+      'checkout-section-label': 'Before you go',
+      'checkout-h2': 'Check-out by <em>11 AM</em>',
+      'checkout-lead': 'A simple list to leave the casita as you found it.',
+      'step1': 'Take any plastic trash with you',
+      'step2': 'Leave the key in the room',
+      'step3': 'Close windows and the patio gate',
+      'step4': 'Turn off the lights',
+      'step5': "Message me to say you're off safely 🙏",
+      'contact-label': 'Here for you',
+      'contact-h2': 'Anything you <em>need</em>',
+      'contact-lead': "Don't hesitate to reach out. We love sharing this place.",
+      'btn-wa': '💬 Message Janet on WhatsApp',
+      'btn-call': '📞 Call Janet',
+      'foot-mark': 'Buen viaje, and welcome home.'
+    },
+    es: {
+      'hero-h1': 'Bienvenido a <em>los confines<br>del bosque</em>',
+      'hero-sub': 'Encontraste un rincón tranquilo de la Sierra Sur. Aquí tienes todo lo que necesitas para una estancia hermosa.',
+      'scroll-cue': 'Desliza para comenzar <span>↓</span>',
+      'welcome-label': 'Una nota de tu anfitriona',
+      'welcome-note': '"Mi jardín delantero es el bosque, y a unos pasos está el camino al río. Llevo trece años viviendo aquí. Muchos huéspedes dicen que se siente como entrar a un especial de National Geographic. Espero que te sientas bien aquí."',
+      'host-reviews': '5.0 ★ · 85 reseñas · 5 años como anfitriona',
+      'arrival-label': 'Cómo llegar',
+      'arrival-h2': 'Cómo encontrar <em>el pueblo</em>',
+      'arrival-lead': 'Estamos en un lugar remoto, en lo alto de las montañas. El viaje es parte de la magia. Toca tu ruta abajo.',
+      'route1-title': 'Desde la costa · transporte público',
+      'route1-tag': 'Autobús + taxi',
+      'r1s1': 'Toma la Hwy 175 hacia San José del Pacífico.',
+      'r1s2': 'Desde allí, toma un taxi o mototaxi a San Sebastián.',
+      'r1s3': 'Pide al conductor que te lleve a la <b>Tienda de Mari</b> en El Centro.',
+      'r1s4': 'Estoy en el camino justo debajo de la tienda. Pasa por el segundo portón a la derecha, y lleva a mi casa.',
+      'route2-title': 'Desde la costa · en coche',
+      'route2-tag': 'En coche',
+      'r2s2': 'Toma la Hwy 175 hasta La Venta, el primer pueblo después de San José del Pacífico.',
+      'r2s3': 'Sigue la señal que apunta hacia San Sebastián. Son unos 20 minutos en coche.',
+      'r2s4': 'Gira a la derecha en el segundo arco (no el verde) hacia El Centro.',
+      'r2s5': 'Gira a la derecha en la segunda calle, síguela hasta la <b>Tienda de Mari</b>. El estacionamiento de pago está frente a la tienda.',
+      'r2s6': 'Baja por el camino desde la Tienda a pie hasta el segundo portón a tu derecha.',
+      'route3-title': 'Desde la Ciudad de Oaxaca',
+      'route3-tag': 'Colectivo',
+      'r3s1': 'Toma Líneas Unidos hacia Miahuatlán o San José del Pacífico (salen cada 20 min).',
+      'r3s2': 'Desde Miahuatlán, busca un taxi local hacia la base de San Sebastián.',
+      'r3s3': 'Toma un colectivo desde allí hacia el pueblo.',
+      'r3s4': 'Pregunta por la <b>Tienda de Mari</b>, luego baja por el camino hasta el segundo portón a la derecha.',
+      'map-btn': '📍 Abrir en Google Maps',
+      'landmark1': '<b>¿Perdido o llegando?</b> Escríbeme por WhatsApp y te espero en la Tienda de Mari para acompañarte.',
+      'landmark2': 'Estas indicaciones se están mejorando. Si algo no queda claro en el camino, escríbeme y te guío.',
+      'facts-label': 'Lo esencial',
+      'facts-h2': 'Bueno <em>saberlo</em>',
+      'wifi-label': 'WiFi',
+      'wifi-network': 'Red',
+      'wifi-password': 'Contraseña',
+      'checkin-label': 'Llegada',
+      'checkin-val': '2:00 PM – <strong style="font-size:17px;">6:00 PM</strong> [como máximo]',
+      'arrival-warn': 'Por favor llega antes del anochecer. No hay iluminación aquí en el bosque, y el camino de entrada es difícil después del atardecer. Llegar de día hace que la primera noche sea mucho mejor.',
+      'checkout-label': 'Salida',
+      'checkout-val': 'Antes de las 11 AM',
+      'quiet-label': 'Horario de silencio',
+      'quiet-small': 'Nos levantamos y dormimos con los pájaros',
+      'guests-label': 'Huéspedes',
+      'guests-val': '2 máximo',
+      'home-label': 'El espacio',
+      'home-h2': 'Cómo <em>vivimos aquí</em>',
+      'home-lead': 'Algunas cosas que hacen especial este lugar, y un poco diferentes a lo que quizás estás acostumbrado.',
+      'rule1-title': 'Baño compartido y de compostaje',
+      'rule1-text': 'El baño está compartido conmigo, tu anfitriona, no con otros huéspedes. No hay plomería en el pueblo, así que es un baño de compostaje limpio y sencillo, parte de la vida aquí.',
+      'rule2-title': 'Electricidad y WiFi pueden pausar',
+      'rule2-text': 'En tormentas montañesas fuertes, la electricidad e internet pueden cortarse, a veces por un rato, ocasionalmente por algunos días. Siempre vuelve. Ven preparado para un poco de tiempo desconectado.',
+      'rule3-title': 'Llévate tu plástico',
+      'rule3-text': 'No hay reciclaje cerca, así que por favor llévate cualquier basura de plástico cuando te vayas. 🙏',
+      'rule4-title': 'Un pueblo madrugador',
+      'rule4-text': 'Esta es una comunidad zapoteca auténtica. Las mañanas comienzan con los pájaros, y las noches se tranquilizan alrededor de las 8 PM.',
+      'exp-label': 'Mientras estés aquí',
+      'exp-h2': 'Experiencias en <em>el pueblo</em>',
+      'exp-lead': 'Estas no son atracciones turísticas, son la vida real de este lugar. Todas deben organizarse con anticipación, solo escríbeme.',
+      'exp-translator': 'Un intérprete está disponible bajo petición para cualquier actividad. Solo avísame con anticipación y lo organizo.',
+      'exp1-title': 'Caminatas de día',
+      'exp1-desc': 'Camina hasta San José del Pacífico o San Mateo Río Hondo para almorzar, luego toma un mototaxi de regreso si prefieres no caminar en ambas direcciones. Sin organización previa, solo ponte los tenis.',
+      'exp2-title': 'Recolección de hongos',
+      'exp2-desc': 'En temporada de lluvias (junio–octubre), ve con un guía al bosque a buscar hongos y luego llévalos con Ana o Margarita para que los cocinen.',
+      'exp2-pre': 'Organizar con anticipación · estacional',
+      'exp3-title': 'Temazcal',
+      'exp3-desc': 'Justo arriba de nosotros hay un Temazcal tradicional. Resérvalo por tu cuenta o con una curandera local cuando esté disponible.',
+      'exp-pre-advance': 'Organizar con anticipación',
+      'exp4-title': 'Cocinar con Ana',
+      'exp4-desc': 'Mi vecina Ana cocina en una estufa de leña y muele su propio maíz orgánico. Su menú oaxaqueño es extenso. Prueba el pozole con hongos.',
+      'exp-pre-advance2': 'Organizar con anticipación',
+      'exp5-title': 'Tejido en telar de cintura',
+      'exp5-desc': 'Aprende a tejer con una familia local. Un proyecto pequeño requiere un compromiso de 3 días, unas 3–4 horas al día.',
+      'exp5-pre': 'Mínimo 3 noches',
+      'exp6-title': 'Qigong',
+      'exp6-desc': 'Qigong junto al río, en el bosque. Una práctica tranquila y arraigada en un entorno que la hace sentir sin esfuerzo. Pregúntame sobre cómo programar una sesión.',
+      'exp-pre-advance3': 'Organizar con anticipación',
+      'eat-label': 'Comer y beber',
+      'eat-h2': 'Dónde <em>comer</em>',
+      'eat-lead': 'Cuatro lugares locales, todos al alcance. Algunos necesitan un poco de aviso previo.',
+      'eat1-veg': '· opciones vegetarianas',
+      'eat1-desc': 'Cocina zapoteca local con estilo, lo que haya en el comal de leña. Desayuno, comida y cena. Muy económico.',
+      'eat2-veg': '· vegetariano',
+      'eat2-desc': 'Un centro de retiro justo arriba de mí que sirve comida india con toque zapoteca. Necesita 12 horas de aviso previo.',
+      'eat3-desc': 'Cocina zapoteca y mexicana local, en "el triángulo".',
+      'eat4-desc': 'Comida tradicional con vistas hermosas, también en "el triángulo".',
+      'eat5-title': 'Mercado de productores',
+      'eat5-desc': 'El primer domingo de cada mes. Vale la pena planear tu estancia alrededor de él si las fechas coinciden.',
+      'practical-label': 'Prepárate',
+      'practical-h2': 'Algunas cosas <em>prácticas</em>',
+      'pcard1-title': 'Trae efectivo',
+      'pcard1-text': 'No hay cajeros ni bancos en la zona. El banco más cercano está a una hora en Miahuatlán. Planea en consecuencia.',
+      'pcard2-title': 'Contactarme',
+      'pcard2-text': 'Estoy en WhatsApp y correo. Si no respondo en 24 horas, generalmente es por la electricidad o la conexión, no por ti. Regresará.',
+      'pcard3-title': 'Estás en San Sebastián',
+      'pcard3-text': 'No en San José del Pacífico ni en San Mateo. Este es un pueblo más tranquilo y auténtico, nuevo en el turismo.',
+      'checkout-section-label': 'Antes de irte',
+      'checkout-h2': 'Salida a las <em>11 AM</em>',
+      'checkout-lead': 'Una lista sencilla para dejar la casita como la encontraste.',
+      'step1': 'Llévate cualquier basura de plástico',
+      'step2': 'Deja la llave en la habitación',
+      'step3': 'Cierra ventanas y el portón del patio',
+      'step4': 'Apaga las luces',
+      'step5': 'Escríbeme para decirme que partiste bien 🙏',
+      'contact-label': 'Aquí para ti',
+      'contact-h2': 'Lo que <em>necesites</em>',
+      'contact-lead': 'No dudes en escribirnos. Nos encanta compartir este lugar.',
+      'btn-wa': '💬 Escribe a Janet por WhatsApp',
+      'btn-call': '📞 Llamar a Janet',
+      'foot-mark': 'Buen viaje, y bienvenido a casa.'
+    }
+  };
 
-  // close other route accordions when one opens
-  const routes=document.querySelectorAll('.route');
-  routes.forEach(r=>r.addEventListener('toggle',()=>{
-    if(r.open) routes.forEach(o=>{if(o!==r)o.open=false;});
+  let lang = 'en';
+
+  function toggleLang() {
+    lang = lang === 'en' ? 'es' : 'en';
+    document.getElementById('langBtn').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+    });
+  }
+
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const routes = document.querySelectorAll('.route');
+  routes.forEach(r => r.addEventListener('toggle', () => {
+    if (r.open) routes.forEach(o => { if (o !== r) o.open = false; });
   }));
 </script>
 </body>

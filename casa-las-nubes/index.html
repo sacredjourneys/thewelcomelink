@@ -39,6 +39,17 @@
   .wrap{max-width:480px;margin:0 auto;position:relative;background:var(--shell);min-height:100vh;}
   .wrap::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;max-width:480px;left:50%;transform:translateX(-50%);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");}
 
+  /* language toggle */
+  #langBtn{
+    position:fixed;top:14px;right:14px;z-index:999;
+    background:rgba(255,255,255,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1.5px solid rgba(0,0,0,.13);border-radius:20px;
+    padding:7px 15px;font-size:12px;font-weight:700;letter-spacing:.1em;
+    cursor:pointer;color:#3f3528;font-family:'Spline Sans',sans-serif;
+    box-shadow:0 2px 12px rgba(0,0,0,.14);transition:background .2s;
+  }
+  #langBtn:hover{background:rgba(255,255,255,.98);}
+
   /* HERO */
   .hero{position:relative;min-height:94vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 26px 40px;color:#fff;overflow:hidden;}
   .hero-bg{position:absolute;inset:0;z-index:0;background:#1a5c8a;}
@@ -181,6 +192,7 @@
 </style>
 </head>
 <body>
+<button id="langBtn" onclick="toggleLang()">ES</button>
 <div class="wrap">
 
   <header class="hero">
@@ -189,15 +201,15 @@
     </div>
     <div class="hero-content">
       <div class="eyebrow">Puerto Escondido · La Punta</div>
-      <h1>Welcome to <em>Casa Las Nubes</em></h1>
-      <p class="sub">The house in the clouds. Ocean views from every room, deep quiet, and the best view in Puerto. We're so glad you're here.</p>
+      <h1 data-i18n="hero-h1">Welcome to <em>Casa Las Nubes</em></h1>
+      <p class="sub" data-i18n="hero-sub">The house in the clouds. Ocean views from every room, deep quiet, and the best view in Puerto. We're so glad you're here.</p>
     </div>
-    <div class="scroll-cue">Scroll to begin <span>↓</span></div>
+    <div class="scroll-cue" data-i18n="scroll-cue">Scroll to begin <span>↓</span></div>
   </header>
 
   <section class="welcome reveal">
-    <div class="sec-label">Welcome</div>
-    <p class="note">"This has been our home for nearly two years. We built it around the things that actually make a stay feel good: ocean from every window, real quiet, clean air, deep sleep. It's a living, intentional home, not a rental. Treat it like yours, rest deeply, and let Puerto work on you. — Trevor"</p>
+    <div class="sec-label" data-i18n="welcome-label">Welcome</div>
+    <p class="note" data-i18n="welcome-note">"This has been our home for nearly two years. We built it around the things that actually make a stay feel good: ocean from every window, real quiet, clean air, deep sleep. It's a living, intentional home, not a rental. Treat it like yours, rest deeply, and let Puerto work on you. — Trevor"</p>
     <div class="host-sign">
       <div class="avatar">T</div>
       <div class="meta"><b>Trevor</b> · Host<br><span>Casa Las Nubes, La Punta</span></div>
@@ -207,29 +219,29 @@
   <div class="divider"></div>
 
   <section class="reveal">
-    <div class="sec-label">The essentials</div>
-    <h2>Good to <em>know</em></h2>
+    <div class="sec-label" data-i18n="ess-label">The essentials</div>
+    <h2 data-i18n="ess-h2">Good to <em>know</em></h2>
     <div class="facts">
       <div class="fact wifi">
         <span class="ic">📶</span>
         <div class="k">WiFi</div>
-        <div class="wifi-row"><span class="label">Network</span><span class="val">HouseInTheClouds1</span></div>
-        <div class="wifi-row"><span class="label">Password</span><span class="val">••••••••</span></div>
+        <div class="wifi-row"><span class="label" data-i18n="wifi-network">Network</span><span class="val">HouseInTheClouds1</span></div>
+        <div class="wifi-row"><span class="label" data-i18n="wifi-password">Password</span><span class="val">••••••••</span></div>
       </div>
       <div class="fact">
         <span class="ic">🚪</span>
-        <div class="k">Check-in</div>
-        <div class="v">Personal welcome<small>We'll let you in when you arrive. If the door isn't open, message us and we'll share access.</small></div>
+        <div class="k" data-i18n="checkin-label">Check-in</div>
+        <div class="v" data-i18n="checkin-val">Personal welcome<small>We'll let you in when you arrive. If the door isn't open, message us and we'll share access.</small></div>
       </div>
       <div class="fact">
         <span class="ic">🌙</span>
-        <div class="k">Check-out</div>
-        <div class="v">Before 12 PM</div>
+        <div class="k" data-i18n="checkout-label">Check-out</div>
+        <div class="v" data-i18n="checkout-val">Before 12 PM</div>
       </div>
       <div class="fact wellness-fact">
         <span class="ic">🌿</span>
-        <div class="k">Intentional by design</div>
-        <div class="v">WiFi sleeps 11 PM – 5 AM (on a timer, for your deep sleep). Lighting is kept low in the evenings to protect your circadian rhythm.</div>
+        <div class="k" data-i18n="wellness-label">Intentional by design</div>
+        <div class="v" data-i18n="wellness-val">WiFi sleeps 11 PM – 5 AM (on a timer, for your deep sleep). Lighting is kept low in the evenings to protect your circadian rhythm.</div>
       </div>
     </div>
   </section>
@@ -237,96 +249,96 @@
   <div class="divider"></div>
 
   <section class="getting-here reveal">
-    <div class="sec-label">Getting here</div>
-    <h2>Finding the <em>house</em></h2>
+    <div class="sec-label" data-i18n="here-label">Getting here</div>
+    <h2 data-i18n="here-h2">Finding the <em>house</em></h2>
     <div class="here-note">
-      <p>The access is a little hidden — first-timers often feel like they've taken a wrong turn. You haven't. Keep following the path down. It opens up to the house, and when it does, you'll understand why immediately.</p>
+      <p data-i18n="here-note">The access is a little hidden — first-timers often feel like they've taken a wrong turn. You haven't. Keep following the path down. It opens up to the house, and when it does, you'll understand why immediately.</p>
       <figure class="place-photo">
         <img src="images/exterior.jpg" alt="Casa Las Nubes exterior" loading="lazy">
-        <figcaption>Look for the white tower with the palapa on top.</figcaption>
+        <figcaption data-i18n="here-caption">Look for the white tower with the palapa on top.</figcaption>
       </figure>
-      <a class="map-btn" href="#">📍 Open in Google Maps</a>
+      <a class="map-btn" href="#" data-i18n="map-btn">📍 Open in Google Maps</a>
     </div>
   </section>
 
   <div class="divider"></div>
 
   <section class="the-home reveal">
-    <div class="sec-label">The home</div>
-    <h2>The intentional <em>luxuries</em></h2>
-    <p class="lead" style="margin-bottom:20px">Most places forget the things that actually make a stay feel good. We didn't.</p>
+    <div class="sec-label" data-i18n="home-label">The home</div>
+    <h2 data-i18n="home-h2">The intentional <em>luxuries</em></h2>
+    <p class="lead" style="margin-bottom:20px" data-i18n="home-lead">Most places forget the things that actually make a stay feel good. We didn't.</p>
     <img class="home-photo" src="images/palapa-view.jpg" alt="Upstairs palapa with ocean view" loading="lazy">
     <div class="feature">
       <div class="ic">🛏️</div>
-      <div class="txt"><b>Three bedrooms, three ocean views</b><span>Each room has a desk, an office chair, and a direct view of the Pacific. The most inspiring workspace in Puerto.</span></div>
+      <div class="txt"><b data-i18n="feat1-b">Three bedrooms, three ocean views</b><span data-i18n="feat1-s">Each room has a desk, an office chair, and a direct view of the Pacific. The most inspiring workspace in Puerto.</span></div>
     </div>
     <div class="feature">
       <div class="ic">📶</div>
-      <div class="txt"><b>Strong WiFi throughout</b><span>Fast, reliable connection in every room and the upstairs palapa. (Sleeps 11 PM – 5 AM by design.)</span></div>
+      <div class="txt"><b data-i18n="feat2-b">Strong WiFi throughout</b><span data-i18n="feat2-s">Fast, reliable connection in every room and the upstairs palapa. (Sleeps 11 PM – 5 AM by design.)</span></div>
     </div>
     <div class="feature">
       <div class="ic">🍳</div>
-      <div class="txt"><b>Fully equipped kitchen</b><span>Non-toxic cookware, good knives, oven, big fridge. Actually cook well here.</span></div>
+      <div class="txt"><b data-i18n="feat3-b">Fully equipped kitchen</b><span data-i18n="feat3-s">Non-toxic cookware, good knives, oven, big fridge. Actually cook well here.</span></div>
     </div>
     <div class="feature">
       <div class="ic">🧊</div>
-      <div class="txt"><b>Ice plunge + pool</b><span>Start your morning right. The contrast therapy setup most people pay a lot of money to access elsewhere.</span></div>
+      <div class="txt"><b data-i18n="feat4-b">Ice plunge + pool</b><span data-i18n="feat4-s">Start your morning right. The contrast therapy setup most people pay a lot of money to access elsewhere.</span></div>
     </div>
     <div class="feature">
       <div class="ic">🛋️</div>
-      <div class="txt"><b>Spacious downstairs living area</b><span>Open, easy, and full of light. For slow mornings, long evenings, or just existing well.</span></div>
+      <div class="txt"><b data-i18n="feat5-b">Spacious downstairs living area</b><span data-i18n="feat5-s">Open, easy, and full of light. For slow mornings, long evenings, or just existing well.</span></div>
     </div>
     <div class="feature">
       <div class="ic">🌿</div>
-      <div class="txt"><b>Upstairs palapa</b><span>Yoga, hammock time, meditation, gatherings. The best perch in the house — especially at sunrise and sunset.</span></div>
+      <div class="txt"><b data-i18n="feat6-b">Upstairs palapa</b><span data-i18n="feat6-s">Yoga, hammock time, meditation, gatherings. The best perch in the house — especially at sunrise and sunset.</span></div>
     </div>
     <div class="feature">
       <div class="ic">🧹</div>
-      <div class="txt"><b>Weekly cleaner</b><span>The house stays fresh. We take care of it so you can focus on being here.</span></div>
+      <div class="txt"><b data-i18n="feat7-b">Weekly cleaner</b><span data-i18n="feat7-s">The house stays fresh. We take care of it so you can focus on being here.</span></div>
     </div>
     <div class="feature">
       <div class="ic">🌊</div>
-      <div class="txt"><b>Private, quiet, no neighbors</b><span>Just the ocean, the breeze, and whatever pace you choose. 600m from La Punta.</span></div>
+      <div class="txt"><b data-i18n="feat8-b">Private, quiet, no neighbors</b><span data-i18n="feat8-s">Just the ocean, the breeze, and whatever pace you choose. 600m from La Punta.</span></div>
     </div>
   </section>
 
   <div class="divider"></div>
 
   <section class="reveal">
-    <div class="sec-label">Get around</div>
-    <h2>Transport & <em>referrals</em></h2>
-    <p class="lead" style="margin-bottom:4px">Message Trevor directly — he'll sort it personally.</p>
+    <div class="sec-label" data-i18n="around-label">Get around</div>
+    <h2 data-i18n="around-h2">Transport & <em>referrals</em></h2>
+    <p class="lead" style="margin-bottom:4px" data-i18n="around-lead">Message Trevor directly — he'll sort it personally.</p>
     <div class="wa-card">
-      <div class="info"><b>🚗 Car rental</b><span>Arrange a rental for your stay</span></div>
-      <a class="wa-link" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20I%27d%20like%20to%20arrange%20a%20car%20rental." target="_blank" rel="noopener">Arrange →</a>
+      <div class="info"><b data-i18n="wac1-b">🚗 Car rental</b><span data-i18n="wac1-s">Arrange a rental for your stay</span></div>
+      <a class="wa-link" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20I%27d%20like%20to%20arrange%20a%20car%20rental." target="_blank" rel="noopener" data-i18n="wac-arrange">Arrange →</a>
     </div>
     <div class="wa-card">
-      <div class="info"><b>🛵 Scooter rental</b><span>Moto Mami — daily or monthly</span></div>
-      <a class="wa-link" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20I%27m%20interested%20in%20a%20scooter%20from%20Moto%20Mami." target="_blank" rel="noopener">Arrange →</a>
+      <div class="info"><b data-i18n="wac2-b">🛵 Scooter rental</b><span data-i18n="wac2-s">Moto Mami — daily or monthly</span></div>
+      <a class="wa-link" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20I%27m%20interested%20in%20a%20scooter%20from%20Moto%20Mami." target="_blank" rel="noopener" data-i18n="wac-arrange2">Arrange →</a>
     </div>
     <div class="wa-card">
-      <div class="info"><b>🏄 Surf lessons</b><span>Local instructor recommendation</span></div>
-      <a class="wa-link" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20I%27d%20love%20a%20surf%20lesson%20recommendation." target="_blank" rel="noopener">Ask →</a>
+      <div class="info"><b data-i18n="wac3-b">🏄 Surf lessons</b><span data-i18n="wac3-s">Local instructor recommendation</span></div>
+      <a class="wa-link" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20I%27d%20love%20a%20surf%20lesson%20recommendation." target="_blank" rel="noopener" data-i18n="wac-ask">Ask →</a>
     </div>
   </section>
 
   <section class="beaches reveal">
-    <div class="sec-label">The coast</div>
-    <h2>Your nearest <em>beaches</em></h2>
+    <div class="sec-label" data-i18n="beach-label">The coast</div>
+    <h2 data-i18n="beach-h2">Your nearest <em>beaches</em></h2>
     <div class="beach">
       <div class="dot">🏄</div>
       <div class="beach-info">
         <b>La Punta</b>
-        <span>600m away. The lively one — surfers, scene, and the best sunsets in Puerto. Walk down or take a scooter.</span>
-        <a class="beach-pin" href="https://maps.app.goo.gl/MvUuAJvCnCBzwxFw9" target="_blank" rel="noopener">📍 Map</a>
+        <span data-i18n="beach1-s">600m away. The lively one — surfers, scene, and the best sunsets in Puerto. Walk down or take a scooter.</span>
+        <a class="beach-pin" href="https://maps.app.goo.gl/MvUuAJvCnCBzwxFw9" target="_blank" rel="noopener" data-i18n="map-pin">📍 Map</a>
       </div>
     </div>
     <div class="beach">
       <div class="dot">🌿</div>
       <div class="beach-info">
         <b>Playa La Barra</b>
-        <span>Same distance, completely different feel. Secluded, natural, almost no one there — perfect for a quiet sunset. The road down is rough at times; fine on foot, bike, or scooter.</span>
-        <a class="beach-pin" href="https://maps.app.goo.gl/9343LP9PwVpT8cdC7" target="_blank" rel="noopener">📍 Map</a>
+        <span data-i18n="beach2-s">Same distance, completely different feel. Secluded, natural, almost no one there — perfect for a quiet sunset. The road down is rough at times; fine on foot, bike, or scooter.</span>
+        <a class="beach-pin" href="https://maps.app.goo.gl/9343LP9PwVpT8cdC7" target="_blank" rel="noopener" data-i18n="map-pin2">📍 Map</a>
       </div>
     </div>
   </section>
@@ -339,78 +351,78 @@
   <div class="divider"></div>
 
   <section class="reveal">
-    <div class="sec-label">Eat & drink</div>
-    <h2>Trevor's honest <em>list</em></h2>
+    <div class="sec-label" data-i18n="eat-label">Eat & drink</div>
+    <h2 data-i18n="eat-h2">Trevor's honest <em>list</em></h2>
     <div class="eatcard">
       <div class="num">01</div>
       <div>
-        <h3>Capsula <span class="tagline">· coffee</span></h3>
-        <p>Best coffee in town, hands down. And convenient.</p>
-        <a class="pin" href="https://maps.app.goo.gl/WV6xssnubLybjXB76" target="_blank" rel="noopener">📍 Map</a>
+        <h3>Capsula <span class="tagline" data-i18n="eat1-tag">· coffee</span></h3>
+        <p data-i18n="eat1-p">Best coffee in town, hands down. And convenient.</p>
+        <a class="pin" href="https://maps.app.goo.gl/WV6xssnubLybjXB76" target="_blank" rel="noopener" data-i18n="map-link">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">02</div>
       <div>
-        <h3>Amarisa Café <span class="tagline">· work & breakfast</span></h3>
-        <p>Sit, work, breakfast and good coffee. A solid base for a morning.</p>
-        <a class="pin" href="https://maps.app.goo.gl/zgoSoZ32RL4i6i2U8" target="_blank" rel="noopener">📍 Map</a>
+        <h3>Amarisa Café <span class="tagline" data-i18n="eat2-tag">· work & breakfast</span></h3>
+        <p data-i18n="eat2-p">Sit, work, breakfast and good coffee. A solid base for a morning.</p>
+        <a class="pin" href="https://maps.app.goo.gl/zgoSoZ32RL4i6i2U8" target="_blank" rel="noopener" data-i18n="map-link2">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">03</div>
       <div>
-        <h3>Malagua Café <span class="tagline">· brunch & bakery</span></h3>
-        <p>Solid breakfast, good brunch, great bakery selection.</p>
-        <a class="pin" href="https://maps.app.goo.gl/iL9xRU5gUtsZrPHf9" target="_blank" rel="noopener">📍 Map</a>
+        <h3>Malagua Café <span class="tagline" data-i18n="eat3-tag">· brunch & bakery</span></h3>
+        <p data-i18n="eat3-p">Solid breakfast, good brunch, great bakery selection.</p>
+        <a class="pin" href="https://maps.app.goo.gl/iL9xRU5gUtsZrPHf9" target="_blank" rel="noopener" data-i18n="map-link3">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">04</div>
       <div>
-        <h3>Ojitos Abiertos <span class="tagline">· slow & intentional</span></h3>
-        <p>A cute spot to read or journal with a friend. Raw cow milk and nut milks made in-house. Very organic. Not a work spot.</p>
-        <a class="pin" href="https://maps.app.goo.gl/8oL9dEH1vYymSprL7" target="_blank" rel="noopener">📍 Map</a>
+        <h3>Ojitos Abiertos <span class="tagline" data-i18n="eat4-tag">· slow & intentional</span></h3>
+        <p data-i18n="eat4-p">A cute spot to read or journal with a friend. Raw cow milk and nut milks made in-house. Very organic. Not a work spot.</p>
+        <a class="pin" href="https://maps.app.goo.gl/8oL9dEH1vYymSprL7" target="_blank" rel="noopener" data-i18n="map-link4">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">05</div>
       <div>
-        <h3>Casa del Surfer <span class="tagline">· healthy & close</span></h3>
-        <p>Close by, healthy, great fish tacos and açaí bowls.</p>
-        <a class="pin" href="https://maps.app.goo.gl/BhqN5FwHVXrHTg676" target="_blank" rel="noopener">📍 Map</a>
+        <h3>Casa del Surfer <span class="tagline" data-i18n="eat5-tag">· healthy & close</span></h3>
+        <p data-i18n="eat5-p">Close by, healthy, great fish tacos and açaí bowls.</p>
+        <a class="pin" href="https://maps.app.goo.gl/BhqN5FwHVXrHTg676" target="_blank" rel="noopener" data-i18n="map-link5">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">06</div>
       <div>
-        <h3>Birria y barbacoa Alvarado <span class="tagline">· local spot · Fri–Sun 8 AM–3 PM</span></h3>
-        <p>Weekends only. No website, no real online presence — until recently they weren't even on Maps. The kind of place you only knew about if someone local told you. We've been everywhere. This is the best quesabirria in Puerto.</p>
-        <a class="pin" href="https://maps.app.goo.gl/LkXssopmgBwe1WsR7" target="_blank" rel="noopener">📍 Map</a>
+        <h3>Birria y barbacoa Alvarado <span class="tagline" data-i18n="eat6-tag">· local spot · Fri–Sun 8 AM–3 PM</span></h3>
+        <p data-i18n="eat6-p">Weekends only. No website, no real online presence — until recently they weren't even on Maps. The kind of place you only knew about if someone local told you. We've been everywhere. This is the best quesabirria in Puerto.</p>
+        <a class="pin" href="https://maps.app.goo.gl/LkXssopmgBwe1WsR7" target="_blank" rel="noopener" data-i18n="map-link6">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">07</div>
       <div>
-        <h3>Taqueria Liz <span class="tagline">· my favorite taqueria</span></h3>
-        <p>In Lázaro Cárdenas. A bit of a trip — you'll want a scooter. Cheap and incredible. Worth every minute.</p>
-        <a class="pin" href="https://maps.app.goo.gl/hFyeL4uWE2hfziAY9" target="_blank" rel="noopener">📍 Map</a>
+        <h3>Taqueria Liz <span class="tagline" data-i18n="eat7-tag">· my favorite taqueria</span></h3>
+        <p data-i18n="eat7-p">In Lázaro Cárdenas. A bit of a trip — you'll want a scooter. Cheap and incredible. Worth every minute.</p>
+        <a class="pin" href="https://maps.app.goo.gl/hFyeL4uWE2hfziAY9" target="_blank" rel="noopener" data-i18n="map-link7">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">08</div>
       <div>
-        <h3>Chicama <span class="tagline">· dinner</span></h3>
-        <p>Great go-to for dinner. Good vibes and atmosphere. Often a line — plan accordingly.</p>
-        <a class="pin" href="https://maps.app.goo.gl/rHPrNqxPqwP5TiSAA" target="_blank" rel="noopener">📍 Map</a>
+        <h3>Chicama <span class="tagline" data-i18n="eat8-tag">· dinner</span></h3>
+        <p data-i18n="eat8-p">Great go-to for dinner. Good vibes and atmosphere. Often a line — plan accordingly.</p>
+        <a class="pin" href="https://maps.app.goo.gl/rHPrNqxPqwP5TiSAA" target="_blank" rel="noopener" data-i18n="map-link8">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">09</div>
       <div>
-        <h3>Campestre <span class="tagline">· treat yourself</span></h3>
-        <p>My favorite place to treat myself to a great steak.</p>
-        <a class="pin" href="https://maps.app.goo.gl/tHoq75KzoXbVDfrXA" target="_blank" rel="noopener">📍 Map</a>
+        <h3>Campestre <span class="tagline" data-i18n="eat9-tag">· treat yourself</span></h3>
+        <p data-i18n="eat9-p">My favorite place to treat myself to a great steak.</p>
+        <a class="pin" href="https://maps.app.goo.gl/tHoq75KzoXbVDfrXA" target="_blank" rel="noopener" data-i18n="map-link9">📍 Map</a>
       </div>
     </div>
   </section>
@@ -418,29 +430,29 @@
   <div class="divider"></div>
 
   <section class="reveal">
-    <div class="sec-label">Provisions</div>
-    <h2>Stock up <em>well</em></h2>
+    <div class="sec-label" data-i18n="prov-label">Provisions</div>
+    <h2 data-i18n="prov-h2">Stock up <em>well</em></h2>
     <div class="prov">
       <div class="ic">🥗</div>
       <div class="txt">
         <b>Moringa</b>
-        <span>Convenient health food shop nearby.</span><br>
-        <a class="beach-pin" href="https://maps.app.goo.gl/4uE1Kiabue4fRfbZ6" target="_blank" rel="noopener" style="margin-top:8px;">📍 Map</a>
+        <span data-i18n="prov1-s">Convenient health food shop nearby.</span><br>
+        <a class="beach-pin" href="https://maps.app.goo.gl/4uE1Kiabue4fRfbZ6" target="_blank" rel="noopener" style="margin-top:8px;" data-i18n="prov-map">📍 Map</a>
       </div>
     </div>
     <div class="prov">
       <div class="ic">🥩</div>
       <div class="txt">
         <b>Mercado de Zicatela</b>
-        <span>Fruits, veg, and Don Buffalo inside for the best meat, milk & cheese.</span><br>
-        <a class="beach-pin" href="https://maps.app.goo.gl/N6k1w34jSJyBB1ZQ7" target="_blank" rel="noopener" style="margin-top:8px;">📍 Map</a>
+        <span data-i18n="prov2-s">Fruits, veg, and Don Buffalo inside for the best meat, milk & cheese.</span><br>
+        <a class="beach-pin" href="https://maps.app.goo.gl/N6k1w34jSJyBB1ZQ7" target="_blank" rel="noopener" style="margin-top:8px;" data-i18n="prov-map2">📍 Map</a>
       </div>
     </div>
     <div class="prov">
       <div class="ic">🍊</div>
       <div class="txt">
-        <b>Carretera fruterías</b>
-        <span>Cheaper fruit and veg along the highway — between the house and the market.</span>
+        <b data-i18n="prov3-b">Carretera fruterías</b>
+        <span data-i18n="prov3-s">Cheaper fruit and veg along the highway — between the house and the market.</span>
       </div>
     </div>
   </section>
@@ -448,13 +460,13 @@
   <div class="divider"></div>
 
   <section class="reveal">
-    <div class="sec-label">Move & wellness</div>
-    <h2>Stay in <em>your body</em></h2>
+    <div class="sec-label" data-i18n="well-label">Move & wellness</div>
+    <h2 data-i18n="well-h2">Stay in <em>your body</em></h2>
     <div class="wellness-item">
       <div class="ic">🏋️</div>
       <div class="txt">
         <b>El Workout</b>
-        <span>Economical, great gym in La Punta right by the beach. Unique vibe, also runs classes.</span>
+        <span data-i18n="well1-s">Economical, great gym in La Punta right by the beach. Unique vibe, also runs classes.</span>
         <a href="https://maps.app.goo.gl/nAuh3wEf2zJZ3qiF7" target="_blank" rel="noopener">📍 Map →</a>
       </div>
     </div>
@@ -462,7 +474,7 @@
       <div class="ic">🧊</div>
       <div class="txt">
         <b>Wolf Terrace</b>
-        <span>Picturesque Tulum-style space, contrast therapy, lots of classes. Pricier but a beautiful experience.</span>
+        <span data-i18n="well2-s">Picturesque Tulum-style space, contrast therapy, lots of classes. Pricier but a beautiful experience.</span>
         <a href="https://wolfterrace.mx/" target="_blank" rel="noopener">wolfterrace.mx →</a>
       </div>
     </div>
@@ -470,7 +482,7 @@
       <div class="ic">🧘</div>
       <div class="txt">
         <b>That SHRED Life</b>
-        <span>Roving yoga and fitness classes all over town with a daily schedule. Their class pass also unlocks discounts at partners across Puerto.</span>
+        <span data-i18n="well3-s">Roving yoga and fitness classes all over town with a daily schedule. Their class pass also unlocks discounts at partners across Puerto.</span>
         <a href="https://www.thatshredlife.mx/" target="_blank" rel="noopener">thatshredlife.mx →</a>
       </div>
     </div>
@@ -481,27 +493,27 @@
   </div>
 
   <section class="community reveal">
-    <div class="sec-label">Community & events</div>
-    <h2>The house is <em>alive</em></h2>
+    <div class="sec-label" data-i18n="comm-label">Community & events</div>
+    <h2 data-i18n="comm-h2">The house is <em>alive</em></h2>
     <div class="gather-grid">
       <img src="images/gathering-1.jpg" alt="Community gathering at the palapa" loading="lazy">
       <img src="images/gathering-2.jpg" alt="Yoga and sound healing" loading="lazy">
     </div>
     <div class="community-note">
-      <p>The upstairs palapa is our gathering space — yoga, meditation, and community events happen here. The house occasionally hosts ceremonies and gatherings through <b>Sacred Journeys</b>. Ask us what's on while you're here.</p>
+      <p data-i18n="comm-note">The upstairs palapa is our gathering space — yoga, meditation, and community events happen here. The house occasionally hosts ceremonies and gatherings through <b>Sacred Journeys</b>. Ask us what's on while you're here.</p>
     </div>
-    <p class="lead" style="margin-bottom:14px">For daily yoga and wellness events around town:</p>
-    <a class="btn btn-sea" href="#" target="_blank" rel="noopener">💬 Join the Puerto events chat</a>
+    <p class="lead" style="margin-bottom:14px" data-i18n="comm-lead">For daily yoga and wellness events around town:</p>
+    <a class="btn btn-sea" href="#" target="_blank" rel="noopener" data-i18n="comm-btn">💬 Join the Puerto events chat</a>
   </section>
 
   <section class="contact reveal">
-    <div class="sec-label" style="justify-content:center">Here for you</div>
-    <h2>Anything you <em>need</em></h2>
-    <p class="lead">Trevor's a message away — before, during, or after your stay.</p>
-    <a class="btn btn-wa" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20have%20a%20question." target="_blank" rel="noopener">💬 Message Trevor on WhatsApp</a>
+    <div class="sec-label" style="justify-content:center" data-i18n="contact-label">Here for you</div>
+    <h2 data-i18n="contact-h2">Anything you <em>need</em></h2>
+    <p class="lead" data-i18n="contact-lead">Trevor's a message away — before, during, or after your stay.</p>
+    <a class="btn btn-wa" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27m%20staying%20at%20Casa%20Las%20Nubes%20and%20have%20a%20question." target="_blank" rel="noopener" data-i18n="contact-btn">💬 Message Trevor on WhatsApp</a>
     <div class="review">
       <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p>If Casa Las Nubes gave you something — rest, perspective, a good memory — a few kind words in a review would mean a lot. No pressure, no rush. Only if it felt worth it. Thank you for being here. 🌊</p>
+      <p data-i18n="review-p">If Casa Las Nubes gave you something — rest, perspective, a good memory — a few kind words in a review would mean a lot. No pressure, no rush. Only if it felt worth it. Thank you for being here. 🌊</p>
     </div>
   </section>
 
@@ -513,8 +525,247 @@
 
 </div>
 <script>
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const T = {
+    en: {
+      'hero-h1': 'Welcome to <em>Casa Las Nubes</em>',
+      'hero-sub': "The house in the clouds. Ocean views from every room, deep quiet, and the best view in Puerto. We're so glad you're here.",
+      'scroll-cue': 'Scroll to begin <span>↓</span>',
+      'welcome-label': 'Welcome',
+      'welcome-note': '"This has been our home for nearly two years. We built it around the things that actually make a stay feel good: ocean from every window, real quiet, clean air, deep sleep. It\'s a living, intentional home, not a rental. Treat it like yours, rest deeply, and let Puerto work on you. — Trevor"',
+      'ess-label': 'The essentials',
+      'ess-h2': 'Good to <em>know</em>',
+      'wifi-network': 'Network',
+      'wifi-password': 'Password',
+      'checkin-label': 'Check-in',
+      'checkin-val': 'Personal welcome<small>We\'ll let you in when you arrive. If the door isn\'t open, message us and we\'ll share access.</small>',
+      'checkout-label': 'Check-out',
+      'checkout-val': 'Before 12 PM',
+      'wellness-label': 'Intentional by design',
+      'wellness-val': 'WiFi sleeps 11 PM – 5 AM (on a timer, for your deep sleep). Lighting is kept low in the evenings to protect your circadian rhythm.',
+      'here-label': 'Getting here',
+      'here-h2': 'Finding the <em>house</em>',
+      'here-note': "The access is a little hidden — first-timers often feel like they've taken a wrong turn. You haven't. Keep following the path down. It opens up to the house, and when it does, you'll understand why immediately.",
+      'here-caption': 'Look for the white tower with the palapa on top.',
+      'map-btn': '📍 Open in Google Maps',
+      'home-label': 'The home',
+      'home-h2': 'The intentional <em>luxuries</em>',
+      'home-lead': "Most places forget the things that actually make a stay feel good. We didn't.",
+      'feat1-b': 'Three bedrooms, three ocean views',
+      'feat1-s': 'Each room has a desk, an office chair, and a direct view of the Pacific. The most inspiring workspace in Puerto.',
+      'feat2-b': 'Strong WiFi throughout',
+      'feat2-s': 'Fast, reliable connection in every room and the upstairs palapa. (Sleeps 11 PM – 5 AM by design.)',
+      'feat3-b': 'Fully equipped kitchen',
+      'feat3-s': 'Non-toxic cookware, good knives, oven, big fridge. Actually cook well here.',
+      'feat4-b': 'Ice plunge + pool',
+      'feat4-s': 'Start your morning right. The contrast therapy setup most people pay a lot of money to access elsewhere.',
+      'feat5-b': 'Spacious downstairs living area',
+      'feat5-s': 'Open, easy, and full of light. For slow mornings, long evenings, or just existing well.',
+      'feat6-b': 'Upstairs palapa',
+      'feat6-s': 'Yoga, hammock time, meditation, gatherings. The best perch in the house — especially at sunrise and sunset.',
+      'feat7-b': 'Weekly cleaner',
+      'feat7-s': 'The house stays fresh. We take care of it so you can focus on being here.',
+      'feat8-b': 'Private, quiet, no neighbors',
+      'feat8-s': 'Just the ocean, the breeze, and whatever pace you choose. 600m from La Punta.',
+      'around-label': 'Get around',
+      'around-h2': 'Transport & <em>referrals</em>',
+      'around-lead': "Message Trevor directly — he'll sort it personally.",
+      'wac1-b': '🚗 Car rental',
+      'wac1-s': 'Arrange a rental for your stay',
+      'wac-arrange': 'Arrange →',
+      'wac2-b': '🛵 Scooter rental',
+      'wac2-s': 'Moto Mami — daily or monthly',
+      'wac-arrange2': 'Arrange →',
+      'wac3-b': '🏄 Surf lessons',
+      'wac3-s': 'Local instructor recommendation',
+      'wac-ask': 'Ask →',
+      'beach-label': 'The coast',
+      'beach-h2': 'Your nearest <em>beaches</em>',
+      'beach1-s': '600m away. The lively one — surfers, scene, and the best sunsets in Puerto. Walk down or take a scooter.',
+      'map-pin': '📍 Map',
+      'beach2-s': 'Same distance, completely different feel. Secluded, natural, almost no one there — perfect for a quiet sunset. The road down is rough at times; fine on foot, bike, or scooter.',
+      'map-pin2': '📍 Map',
+      'eat-label': 'Eat & drink',
+      'eat-h2': "Trevor's honest <em>list</em>",
+      'eat1-tag': '· coffee',
+      'eat1-p': 'Best coffee in town, hands down. And convenient.',
+      'map-link': '📍 Map',
+      'eat2-tag': '· work & breakfast',
+      'eat2-p': 'Sit, work, breakfast and good coffee. A solid base for a morning.',
+      'map-link2': '📍 Map',
+      'eat3-tag': '· brunch & bakery',
+      'eat3-p': 'Solid breakfast, good brunch, great bakery selection.',
+      'map-link3': '📍 Map',
+      'eat4-tag': '· slow & intentional',
+      'eat4-p': 'A cute spot to read or journal with a friend. Raw cow milk and nut milks made in-house. Very organic. Not a work spot.',
+      'map-link4': '📍 Map',
+      'eat5-tag': '· healthy & close',
+      'eat5-p': 'Close by, healthy, great fish tacos and açaí bowls.',
+      'map-link5': '📍 Map',
+      'eat6-tag': '· local spot · Fri–Sun 8 AM–3 PM',
+      'eat6-p': "Weekends only. No website, no real online presence — until recently they weren't even on Maps. The kind of place you only knew about if someone local told you. We've been everywhere. This is the best quesabirria in Puerto.",
+      'map-link6': '📍 Map',
+      'eat7-tag': '· my favorite taqueria',
+      'eat7-p': "In Lázaro Cárdenas. A bit of a trip — you'll want a scooter. Cheap and incredible. Worth every minute.",
+      'map-link7': '📍 Map',
+      'eat8-tag': '· dinner',
+      'eat8-p': 'Great go-to for dinner. Good vibes and atmosphere. Often a line — plan accordingly.',
+      'map-link8': '📍 Map',
+      'eat9-tag': '· treat yourself',
+      'eat9-p': 'My favorite place to treat myself to a great steak.',
+      'map-link9': '📍 Map',
+      'prov-label': 'Provisions',
+      'prov-h2': 'Stock up <em>well</em>',
+      'prov1-s': 'Convenient health food shop nearby.',
+      'prov-map': '📍 Map',
+      'prov2-s': 'Fruits, veg, and Don Buffalo inside for the best meat, milk & cheese.',
+      'prov-map2': '📍 Map',
+      'prov3-b': 'Carretera fruterías',
+      'prov3-s': 'Cheaper fruit and veg along the highway — between the house and the market.',
+      'well-label': 'Move & wellness',
+      'well-h2': 'Stay in <em>your body</em>',
+      'well1-s': 'Economical, great gym in La Punta right by the beach. Unique vibe, also runs classes.',
+      'well2-s': 'Picturesque Tulum-style space, contrast therapy, lots of classes. Pricier but a beautiful experience.',
+      'well3-s': 'Roving yoga and fitness classes all over town with a daily schedule. Their class pass also unlocks discounts at partners across Puerto.',
+      'comm-label': 'Community & events',
+      'comm-h2': 'The house is <em>alive</em>',
+      'comm-note': 'The upstairs palapa is our gathering space — yoga, meditation, and community events happen here. The house occasionally hosts ceremonies and gatherings through <b>Sacred Journeys</b>. Ask us what\'s on while you\'re here.',
+      'comm-lead': 'For daily yoga and wellness events around town:',
+      'comm-btn': '💬 Join the Puerto events chat',
+      'contact-label': 'Here for you',
+      'contact-h2': 'Anything you <em>need</em>',
+      'contact-lead': "Trevor's a message away — before, during, or after your stay.",
+      'contact-btn': '💬 Message Trevor on WhatsApp',
+      'review-p': 'If Casa Las Nubes gave you something — rest, perspective, a good memory — a few kind words in a review would mean a lot. No pressure, no rush. Only if it felt worth it. Thank you for being here. 🌊'
+    },
+    es: {
+      'hero-h1': 'Bienvenido a <em>Casa Las Nubes</em>',
+      'hero-sub': 'La casa en las nubes. Vista al océano desde cada habitación, profundo silencio y la mejor vista en Puerto. Qué alegría tenerte aquí.',
+      'scroll-cue': 'Desliza para comenzar <span>↓</span>',
+      'welcome-label': 'Bienvenida',
+      'welcome-note': '"Esta ha sido nuestra casa por casi dos años. La construimos en torno a las cosas que en verdad hacen que una estancia se sienta bien: océano desde cada ventana, silencio real, aire limpio, sueño profundo. Es un hogar vivo e intencional, no una renta. Trátala como tuya, descansa profundo y deja que Puerto haga su trabajo. — Trevor"',
+      'ess-label': 'Lo esencial',
+      'ess-h2': 'Bueno <em>saberlo</em>',
+      'wifi-network': 'Red',
+      'wifi-password': 'Contraseña',
+      'checkin-label': 'Llegada',
+      'checkin-val': 'Bienvenida personal<small>Te recibiremos cuando llegues. Si la puerta no está abierta, escríbenos y compartimos el acceso.</small>',
+      'checkout-label': 'Salida',
+      'checkout-val': 'Antes de las 12 PM',
+      'wellness-label': 'Diseñado con intención',
+      'wellness-val': 'El WiFi descansa de 11 PM a 5 AM (con temporizador, para tu sueño profundo). La iluminación se mantiene baja en las noches para proteger tu ritmo circadiano.',
+      'here-label': 'Cómo llegar',
+      'here-h2': 'Cómo encontrar <em>la casa</em>',
+      'here-note': 'El acceso es un poco escondido. Los que llegan por primera vez suelen sentir que tomaron el camino equivocado. No es así. Sigue bajando por el sendero. Se abre hacia la casa, y cuando lo haga, entenderás de inmediato por qué.',
+      'here-caption': 'Busca la torre blanca con la palapa arriba.',
+      'map-btn': '📍 Abrir en Google Maps',
+      'home-label': 'El espacio',
+      'home-h2': 'Los lujos <em>con intención</em>',
+      'home-lead': 'La mayoría de los lugares olvidan las cosas que en verdad hacen que una estancia se sienta bien. Nosotros, no.',
+      'feat1-b': 'Tres habitaciones, tres vistas al océano',
+      'feat1-s': 'Cada habitación tiene escritorio, silla de oficina y vista directa al Pacífico. El espacio de trabajo más inspirador en Puerto.',
+      'feat2-b': 'WiFi potente en toda la casa',
+      'feat2-s': 'Conexión rápida y confiable en cada habitación y en la palapa de arriba. (Descansa de 11 PM a 5 AM por diseño.)',
+      'feat3-b': 'Cocina completamente equipada',
+      'feat3-s': 'Utensilios no tóxicos, buenos cuchillos, horno, refrigerador grande. Cocina bien aquí de verdad.',
+      'feat4-b': 'Tina de hielo + alberca',
+      'feat4-s': 'Comienza tu mañana bien. La terapia de contraste que la mayoría paga mucho por acceder en otros lugares.',
+      'feat5-b': 'Amplia sala de estar en planta baja',
+      'feat5-s': 'Abierta, cómoda y llena de luz. Para mañanas tranquilas, noches largas, o simplemente existir bien.',
+      'feat6-b': 'Palapa en el piso de arriba',
+      'feat6-s': 'Yoga, hamaca, meditación, reuniones. El mejor rincón de la casa, especialmente al amanecer y atardecer.',
+      'feat7-b': 'Limpieza semanal',
+      'feat7-s': 'La casa se mantiene fresca. Nosotros nos encargamos para que tú puedas concentrarte en estar aquí.',
+      'feat8-b': 'Privado, tranquilo, sin vecinos',
+      'feat8-s': 'Solo el océano, la brisa y el ritmo que elijas. A 600m de La Punta.',
+      'around-label': 'Moverse',
+      'around-h2': 'Transporte y <em>contactos</em>',
+      'around-lead': 'Escríbele a Trevor directamente, lo coordina él mismo.',
+      'wac1-b': '🚗 Renta de coche',
+      'wac1-s': 'Organiza una renta para tu estancia',
+      'wac-arrange': 'Organizar →',
+      'wac2-b': '🛵 Renta de scooter',
+      'wac2-s': 'Moto Mami, por día o por mes',
+      'wac-arrange2': 'Organizar →',
+      'wac3-b': '🏄 Clases de surf',
+      'wac3-s': 'Recomendación de instructor local',
+      'wac-ask': 'Preguntar →',
+      'beach-label': 'La costa',
+      'beach-h2': 'Las playas más <em>cercanas</em>',
+      'beach1-s': 'A 600m. La más animada: surfistas, ambiente y los mejores atardeceres en Puerto. Baja caminando o en scooter.',
+      'map-pin': '📍 Mapa',
+      'beach2-s': 'La misma distancia, una sensación completamente diferente. Apartada, natural, casi sin gente, perfecta para un atardecer tranquilo. El camino de bajada es irregular a veces; bien a pie, en bici o en scooter.',
+      'map-pin2': '📍 Mapa',
+      'eat-label': 'Comer y beber',
+      'eat-h2': 'La lista honesta <em>de Trevor</em>',
+      'eat1-tag': '· café',
+      'eat1-p': 'El mejor café de la ciudad, sin dudas. Y conveniente.',
+      'map-link': '📍 Mapa',
+      'eat2-tag': '· trabajo y desayuno',
+      'eat2-p': 'Siéntate, trabaja, desayuna con buen café. Una base sólida para una mañana.',
+      'map-link2': '📍 Mapa',
+      'eat3-tag': '· brunch y panadería',
+      'eat3-p': 'Buen desayuno, buen brunch, excelente selección de pan.',
+      'map-link3': '📍 Mapa',
+      'eat4-tag': '· tranquilo e intencional',
+      'eat4-p': 'Un lugar lindo para leer o escribir en tu diario con un amigo. Leche cruda de vaca y leches de nueces hechas en casa. Muy orgánico. No es lugar para trabajar.',
+      'map-link4': '📍 Mapa',
+      'eat5-tag': '· saludable y cerca',
+      'eat5-p': 'Cerca, saludable, con excelentes tacos de pescado y bowls de açaí.',
+      'map-link5': '📍 Mapa',
+      'eat6-tag': '· lugar local · Vie–Dom 8 AM–3 PM',
+      'eat6-p': 'Solo fines de semana. Sin sitio web, sin presencia en línea real. Hasta hace poco ni siquiera estaban en Maps. El tipo de lugar que solo conocías si alguien local te lo decía. Hemos ido a todos lados. Esta es la mejor quesabirria en Puerto.',
+      'map-link6': '📍 Mapa',
+      'eat7-tag': '· mi taquería favorita',
+      'eat7-p': 'En Lázaro Cárdenas. Un poco lejos, necesitarás scooter. Barata e increíble. Vale cada minuto.',
+      'map-link7': '📍 Mapa',
+      'eat8-tag': '· cena',
+      'eat8-p': 'Gran opción para cenar. Buen ambiente. Suele haber fila, planea en consecuencia.',
+      'map-link8': '📍 Mapa',
+      'eat9-tag': '· date un gusto',
+      'eat9-p': 'Mi lugar favorito para darme el gusto de un buen filete.',
+      'map-link9': '📍 Mapa',
+      'prov-label': 'Provisiones',
+      'prov-h2': 'Abastécete <em>bien</em>',
+      'prov1-s': 'Tienda de alimentos saludables, conveniente y cerca.',
+      'prov-map': '📍 Mapa',
+      'prov2-s': 'Frutas, verduras y Don Buffalo adentro para la mejor carne, leche y queso.',
+      'prov-map2': '📍 Mapa',
+      'prov3-b': 'Fruterías de la carretera',
+      'prov3-s': 'Frutas y verduras más baratas a lo largo de la carretera, entre la casa y el mercado.',
+      'well-label': 'Movimiento y bienestar',
+      'well-h2': 'Cuida <em>tu cuerpo</em>',
+      'well1-s': 'Gimnasio económico y excelente en La Punta, junto a la playa. Ambiente único, también imparte clases.',
+      'well2-s': 'Espacio pintoresco estilo Tulum, terapia de contraste, muchas clases. Más caro pero una experiencia hermosa.',
+      'well3-s': 'Clases itinerantes de yoga y fitness por toda la ciudad con horario diario. Su pase de clases también desbloquea descuentos en socios de todo Puerto.',
+      'comm-label': 'Comunidad y eventos',
+      'comm-h2': 'La casa <em>está viva</em>',
+      'comm-note': 'La palapa de arriba es nuestro espacio de reunión: aquí ocurren yoga, meditación y eventos comunitarios. La casa ocasionalmente recibe ceremonias y encuentros a través de <b>Sacred Journeys</b>. Pregúntanos qué hay en tu estancia.',
+      'comm-lead': 'Para yoga diario y eventos de bienestar en la ciudad:',
+      'comm-btn': '💬 Únete al chat de eventos de Puerto',
+      'contact-label': 'Aquí para ti',
+      'contact-h2': 'Lo que <em>necesites</em>',
+      'contact-lead': 'Trevor está a un mensaje de distancia, antes, durante o después de tu estancia.',
+      'contact-btn': '💬 Escribe a Trevor por WhatsApp',
+      'review-p': 'Si Casa Las Nubes te dio algo, descanso, perspectiva, un buen recuerdo, unas palabras amables en una reseña significarían mucho. Sin presión, sin prisa. Solo si te pareció que valió la pena. Gracias por estar aquí. 🌊'
+    }
+  };
+
+  let lang = 'en';
+
+  function toggleLang() {
+    lang = lang === 'en' ? 'es' : 'en';
+    document.getElementById('langBtn').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+    });
+  }
+
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
