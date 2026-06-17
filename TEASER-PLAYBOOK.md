@@ -17,6 +17,20 @@ Read this together with CLAUDE.md before building any teaser. A "teaser" is a pe
 - Same warm, light, beachy brand styling as the Casa Las Nubes guide.
 - Mark the personalize fields with HTML comments so future copies are fill-in-the-blank: guest name, property name, hero tagline, arrival values, the one specific detail.
 
+## Social preview (OG) image — required, branded, not a raw photo
+
+Every teaser ships with a custom 1200x630 OG image that looks like the teaser's own first screen, NOT just the bare hero photo. When Trevor pastes the link into WhatsApp/iMessage/Facebook, the preview itself should already say what this is. The card layers, over a strong landscape property photo with a soft dark bottom gradient: the pill "A preview, built for you by The Welcome Link", the neighborhood eyebrow, the big Fraunces heading "Welcome to [Property]" (gold italic name), and a small italic "The Welcome Link" mark top-right. The subheading/tagline is NOT needed on the OG, just the main heading.
+
+How to build it (reproducible recipe):
+1. Make a temporary `og-card.html` in the property folder: a 1200x630 `.card` with `background:url("images/og-bg.jpg")` (a good landscape shot, positioned to keep the subject clear of the lower-left text), a `::after` bottom gradient, and the elements above. Mirror the hero's wording.
+2. Save a landscape source as `images/og-bg.jpg` (~1600px wide).
+3. Render with headless Chrome at 2x for crispness, then downscale to 1200x630 jpeg:
+   `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1200,630 --screenshot=/tmp/og_shot.png "http://localhost:4399/<slug>/og-card.html"`
+   then `sips -s format jpeg -s formatOptions 88 --resampleWidth 1200 /tmp/og_shot.png --out images/og.jpg`.
+   (The preview server must be running; use the same Node static server you preview with.)
+4. Point the meta tags at it: `og:image` = `https://thewelcomelink.com/<slug>/images/og.jpg`, plus `og:image:width` 1200 / `og:image:height` 630 and `twitter:image`.
+5. Delete the build artifacts (`og-card.html` and `images/og-bg.jpg`) so only the baked `images/og.jpg` ships. The folder stays lean.
+
 ## Page structure, top to bottom
 
 1. **Personal greeting** — the single most important line. "Hi [NAME], here's a small taste of what a welcome guide for [Property] could feel like for your guests." Set [NAME] by hand.
