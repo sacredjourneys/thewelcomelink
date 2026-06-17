@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="A preview welcome guide for Villa Palmas Zicatela, Brisas de Zicatela, Puerto Escondido. Built by The Welcome Link.">
+<meta property="og:title" content="Villa Palmas Zicatela · Puerto Escondido">
+<meta property="og:description" content="Your pool, your palapa, the two best beaches at the door, and everything your guests need, a tap away.">
+<meta property="og:image" content="https://thewelcomelink.com/villa-palmas-zicatela/images/hero.jpg">
+<meta property="og:url" content="https://thewelcomelink.com/villa-palmas-zicatela/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Villa Palmas Zicatela · Preview · The Welcome Link</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,400&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#c46a3d;
+    --sun-deep:#9d5230;
+    --gold:#cca055;
+    --gold-deep:#a8813f;
+    --teal:#2c8a86;
+    --teal-deep:#1d625f;
+    --sand:#e8dcc6;
+    --shell:#fbf5ec;
+    --cream:#fffbf2;
+    --ink:#2b2723;
+    --ink-soft:#6c655c;
+    --line:rgba(43,39,35,.11);
+    --shadow:0 20px 48px -22px rgba(157,82,48,.32);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Spline Sans',sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+  .wrap{max-width:480px;margin:0 auto;background:var(--shell);min-height:100vh;position:relative;}
+
+  /* ===== LANGUAGE TOGGLE ===== */
+  .lang-en,.lang-es{display:contents;}
+  body[data-lang="en"] .lang-es{display:none;}
+  body[data-lang="es"] .lang-en{display:none;}
+  .lang-toggle{
+    position:fixed;top:14px;left:50%;transform:translateX(calc(240px - 100% - 14px));
+    z-index:60;display:flex;gap:2px;padding:3px;border-radius:999px;
+    background:rgba(40,28,18,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.26);box-shadow:0 6px 18px -8px rgba(0,0,0,.4);
+  }
+  @media(max-width:508px){.lang-toggle{left:auto;right:14px;transform:none;}}
+  .lang-toggle button{
+    border:none;background:transparent;color:rgba(255,255,255,.82);cursor:pointer;
+    font-family:'Spline Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;
+    padding:6px 13px;border-radius:999px;transition:background .2s,color .2s;
+  }
+  .lang-toggle button.active{background:#fff;color:#2b2723;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:92vh;display:flex;flex-direction:column;
+    justify-content:flex-end;padding:32px 26px 50px;color:#fff;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:url("images/hero.jpg") center 40%/cover no-repeat;
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(28,18,10,.20) 0%,rgba(28,18,10,.40) 46%,rgba(24,15,8,.88) 100%);
+  }
+  .hero-content{position:relative;z-index:2;}
+  .preview-tag{
+    display:inline-block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:600;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+    border-radius:20px;padding:5px 13px;color:rgba(255,255,255,.92);margin-bottom:20px;
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  }
+  .eyebrow{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;
+    opacity:.84;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.6;}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:400;font-size:43px;line-height:1.03;
+    letter-spacing:-.02em;text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero h1 em{font-style:italic;color:#f0c887;}
+  .hero .sub{font-size:15.5px;opacity:.92;max-width:33ch;margin-top:15px;line-height:1.65;text-shadow:0 1px 8px rgba(0,0,0,.3);}
+  .scroll-cue{
+    position:relative;z-index:2;margin-top:32px;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;opacity:.66;display:flex;align-items:center;gap:8px;
+  }
+  .scroll-cue i{font-style:normal;animation:bob 2.2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  /* ===== SECTIONS ===== */
+  section{position:relative;z-index:2;padding:46px 26px;}
+  .sec-label{
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--sun-deep);
+    font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;
+  }
+  .sec-label::before{content:"";width:20px;height:1px;background:var(--sun);}
+  h2{
+    font-family:'Fraunces',serif;font-weight:400;font-size:28px;line-height:1.12;
+    letter-spacing:-.01em;margin-bottom:14px;color:#2a2620;
+  }
+  h2 em{font-style:italic;color:var(--sun-deep);}
+  .divider{height:1px;background:var(--line);margin:0 26px;position:relative;z-index:2;}
+
+  /* ===== INTRO ===== */
+  .intro{background:linear-gradient(180deg,#fffbf2,#fbf5ec);}
+  .intro-note{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:18.5px;
+    line-height:1.6;color:var(--sun-deep);margin-top:4px;
+  }
+  .relief{padding:32px 26px;}
+  .relief p{font-size:15px;color:var(--ink-soft);line-height:1.72;}
+
+  /* ===== ARRIVAL TABLE ===== */
+  .checkin{background:linear-gradient(180deg,#fbf5ec,#f4e9d6);}
+  .info-table{width:100%;border-collapse:collapse;margin-top:6px;}
+  .info-table tr{border-bottom:1px solid var(--line);}
+  .info-table tr:last-child{border-bottom:none;}
+  .info-table td{padding:13px 0;font-size:14.5px;vertical-align:top;}
+  .info-table td:first-child{
+    width:34%;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:600;color:var(--sun-deep);padding-right:12px;padding-top:15px;
+  }
+  .info-table td:last-child{color:var(--ink);font-weight:500;line-height:1.45;}
+  .info-table td:last-child small{display:block;font-weight:400;color:var(--ink-soft);font-size:13px;margin-top:2px;}
+
+  /* ===== UPSIDE ===== */
+  .addons{background:linear-gradient(160deg,#163f3c,#0f2b29);color:#e9f1ef;padding:50px 26px;}
+  .addons .sec-label{color:#f0c887;}
+  .addons .sec-label::before{background:#f0c887;}
+  .addons h2{color:#fff;font-size:26px;margin-bottom:8px;}
+  .addons h2 em{color:#f0c887;}
+  .addons .sub-copy{font-size:14.5px;color:rgba(233,241,239,.78);margin-bottom:22px;line-height:1.65;}
+  .addon-card{
+    background:rgba(255,255,255,.06);border:1px solid rgba(240,200,135,.18);
+    border-radius:16px;padding:18px 18px 16px;margin-bottom:12px;
+    display:flex;gap:14px;align-items:flex-start;
+  }
+  .addon-card:last-child{margin-bottom:0;}
+  .addon-ic{
+    flex:none;width:40px;height:40px;border-radius:12px;
+    background:rgba(240,200,135,.14);display:flex;align-items:center;
+    justify-content:center;font-size:19px;
+  }
+  .addon-card b{display:block;font-size:15px;font-weight:600;color:#f4efe5;margin-bottom:3px;}
+  .addon-card span{font-size:13px;color:rgba(233,241,239,.74);line-height:1.5;}
+
+  /* ===== CLOSING CTA ===== */
+  .cta{background:linear-gradient(180deg,#f4e9d6,#e8dcc6);text-align:center;padding:50px 26px 48px;}
+  .cta .sec-label{justify-content:center;}
+  .cta h2{font-size:26px;margin-bottom:12px;}
+  .cta-copy{
+    font-size:15px;color:var(--ink-soft);line-height:1.72;
+    margin-bottom:20px;max-width:36ch;margin-left:auto;margin-right:auto;
+  }
+  .both-note{
+    background:#fffbf2;border:1px solid var(--line);border-radius:16px;
+    padding:16px 18px;margin:0 auto 26px;max-width:38ch;box-shadow:var(--shadow);
+  }
+  .both-note .pin{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;display:block;margin-bottom:6px;}
+  .both-note p{font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
+  .cta-sec{display:block;margin-top:16px;font-size:13.5px;color:var(--teal-deep);text-decoration:none;font-weight:500;}
+  .btn-wa{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:16px;border-radius:14px;font-family:'Spline Sans',sans-serif;font-size:15.5px;
+    font-weight:600;text-decoration:none;background:#25845a;color:#fff;
+    box-shadow:0 10px 26px -10px rgba(37,132,90,.65);
+  }
+
+  /* ===== FOOTER ===== */
+  .foot{text-align:center;padding:28px 26px 46px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--sun);}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body data-lang="en">
+
+  <!-- LANGUAGE TOGGLE -->
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" data-lang="es">ES</button>
+    <button type="button" data-lang="en" class="active">EN</button>
+  </div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <!-- PERSONALIZE: keep preview tag as-is -->
+      <div class="preview-tag">
+        <span class="lang-es">Una muestra, hecha para ti por The Welcome Link</span>
+        <span class="lang-en">A preview, built for you by The Welcome Link</span>
+      </div>
+      <!-- PERSONALIZE: neighborhood -->
+      <div class="eyebrow">Brisas de Zicatela · Puerto Escondido</div>
+      <!-- PERSONALIZE: property name -->
+      <h1>
+        <span class="lang-es">Bienvenido a Villa <em>Palmas Zicatela</em></span>
+        <span class="lang-en">Welcome to Villa <em>Palmas Zicatela</em></span>
+      </h1>
+      <!-- PERSONALIZE: hero tagline -->
+      <p class="sub">
+        <span class="lang-es">Tu alberca, tu palapa, las dos mejores playas a la puerta, y todo lo que tus huéspedes necesitan, a un toque.</span>
+        <span class="lang-en">Your pool, your palapa, the two best beaches at the door, and everything your guests need, a tap away.</span>
+      </p>
+    </div>
+    <div class="scroll-cue">
+      <span class="lang-es">Desliza para explorar</span><span class="lang-en">Scroll to explore</span> <i>↓</i>
+    </div>
+  </header>
+
+  <!-- INTRO GREETING -->
+  <section class="intro reveal">
+    <!-- PERSONALIZE: host first name set BY HAND once Trevor confirms it -->
+    <p class="intro-note">
+      <span class="lang-es">Hola, esta es una pequeña muestra de cómo se sentiría una guía de bienvenida para Villa Palmas Zicatela. Recibes grupos grandes desde hace años; así es como ese mismo cuidado llega al teléfono de cada huésped antes de que lleguen.</span>
+      <span class="lang-en">Hi there, here's a small taste of what a welcome guide for Villa Palmas Zicatela could feel like for your guests. You've been welcoming big groups here for years; this is how that same care reaches every guest's phone before they arrive.</span>
+    </p>
+  </section>
+
+  <div class="relief reveal">
+    <p>
+      <span class="lang-es">El detalle que has querido armar para la villa, ya empezado para ti. Sin tableros, sin contraseñas, sin tarea. Tú lo dices y yo lo construyo.</span>
+      <span class="lang-en">The kind of thing you've been meaning to put together for the villa, already started for you. No dashboards, no logins, no homework. You say the word, I build it.</span>
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ARRIVAL -->
+  <section class="checkin reveal">
+    <div class="sec-label">
+      <span class="lang-es">Al llegar</span><span class="lang-en">On arrival</span>
+    </div>
+    <h2>
+      <span class="lang-es">Tu llegada, <em>resuelta.</em></span>
+      <span class="lang-en">Your arrival, <em>sorted.</em></span>
+    </h2>
+    <table class="info-table">
+      <tr>
+        <td><span class="lang-es">Llegada</span><span class="lang-en">Check-in</span></td>
+        <td>
+          <span class="lang-es">Después de las 4:00 PM<small>Autoacceso con caja de seguridad</small></span>
+          <span class="lang-en">After 4:00 PM<small>Self check-in with lockbox</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">Salida</span><span class="lang-en">Checkout</span></td>
+        <td><span class="lang-es">Antes de las 11:00 AM</span><span class="lang-en">Before 11:00 AM</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">Huéspedes</span><span class="lang-en">Guests</span></td>
+        <td>
+          <span class="lang-es">Hasta 12<small>6 recámaras · 7 camas · 4.5 baños</small></span>
+          <span class="lang-en">Up to 12<small>6 bedrooms · 7 beds · 4.5 baths</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td>WiFi</td>
+        <td>
+          <span class="lang-es">En toda la casa<small>Más estacionamiento gratis en la propiedad</small></span>
+          <span class="lang-en">Throughout the house<small>Plus free parking on the property</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">Las playas</span><span class="lang-en">The beaches</span></td>
+        <td>
+          <span class="lang-es">A 50 metros<small>Zicatela y Punta Zicatela, a un par de minutos</small></span>
+          <span class="lang-en">50 meters away<small>Zicatela and Punta Zicatela, a couple of minutes' walk</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">La alberca</span><span class="lang-en">The pool</span></td>
+        <td>
+          <span class="lang-es">Privada, todo el año<small>Abierta las 24 horas, solo para la casa</small></span>
+          <span class="lang-en">Private, year-round<small>Open 24 hours, just for the house</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">La terraza</span><span class="lang-en">The terrace</span></td>
+        <td>
+          <span class="lang-es">Palapa y cocina equipada<small>Para las mañanas y los atardeceres</small></span>
+          <span class="lang-en">Palapa and full kitchen<small>For slow mornings and sunsets</small></span>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="relief reveal">
+    <p>
+      <span class="lang-es">Esto es lo que un grupo grande suele preguntarte: dónde está la playa, cómo funciona la alberca, dónde estacionar. Aquí queda respondido antes de que escriban, así su estancia fluye y tu teléfono queda más tranquilo.</span>
+      <span class="lang-en">This is the stuff a big group usually messages you about: where the beach is, how the pool works, where to park. Here it's answered before they ask, so their stay flows and your phone stays quieter.</span>
+    </p>
+  </div>
+
+  <!-- UPSIDE -->
+  <section class="addons reveal">
+    <div class="sec-label">
+      <span class="lang-es">Tu plus</span><span class="lang-en">Your upside</span>
+    </div>
+    <h2>
+      <span class="lang-es">Un poquito más, <em>también.</em></span>
+      <span class="lang-en">A little extra, <em>too.</em></span>
+    </h2>
+    <p class="sub-copy">
+      <span class="lang-es">Extras sencillos que tus huéspedes pueden reservar antes de llegar. Pensados para grupos grandes, casi sin trabajo extra de tu parte.</span>
+      <span class="lang-en">Simple add-ons your guests can pre-book. Made for big groups, with almost no extra work on your end.</span>
+    </p>
+
+    <div class="addon-card">
+      <div class="addon-ic">🛒</div>
+      <div>
+        <b><span class="lang-es">Refrigerador de bienvenida surtido</span><span class="lang-en">Stocked welcome fridge</span></b>
+        <span class="lang-es">El grupo llega a una casa lista, sin la primera carrera al súper. Un detalle que aparece en cada reseña.</span>
+        <span class="lang-en">The group arrives to a ready home, no first-day grocery run. A small touch that lands in every review.</span>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-ic">🛬</div>
+      <div>
+        <b><span class="lang-es">Traslado del aeropuerto</span><span class="lang-en">Airport pickup</span></b>
+        <span class="lang-es">Con grupos grandes esto siempre se pregunta. Resuelto de una vez, con ingreso por referido para ti.</span>
+        <span class="lang-en">With big groups this always comes up. Sorted in advance, with referral income for you.</span>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-ic">🕐</div>
+      <div>
+        <b><span class="lang-es">Llegada temprana / salida tardía</span><span class="lang-en">Early check-in / late checkout</span></b>
+        <span class="lang-es">Vende las horas que ya tienes. Ingreso fácil sobre reservas que ya están hechas.</span>
+        <span class="lang-en">Sell the hours you already have. Easy income on bookings you've already filled.</span>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-ic">🏄</div>
+      <div>
+        <b><span class="lang-es">Experiencias seleccionadas</span><span class="lang-en">Curated experiences</span></b>
+        <span class="lang-es">Clases de surf, tours en lancha, cena de chef en la palapa. Ingreso por referidos en cada estancia.</span>
+        <span class="lang-en">Surf lessons, boat tours, a chef dinner under the palapa. Referral income on every stay.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="cta reveal">
+    <div class="sec-label">
+      <span class="lang-es">El panorama completo</span><span class="lang-en">The full picture</span>
+    </div>
+    <h2>
+      <span class="lang-es">Esto es solo la <em>bienvenida.</em></span>
+      <span class="lang-en">This is just the <em>welcome.</em></span>
+    </h2>
+    <p class="cta-copy">
+      <span class="lang-es">La guía completa incluye tus recomendaciones de comida y playas, los spots de surf de Zicatela, experiencias, indicaciones de llegada y contacto a un toque, todo con el sello de Villa Palmas Zicatela. Vivo aquí cerca, en Casa Las Nubes. Por ahora las primeras guías tienen precio reducido, a cambio de un testimonio honesto.</span>
+      <span class="lang-en">The full guide includes your local food and beach picks, the Zicatela surf spots, experiences, arrival directions, and one-tap contact, all in Villa Palmas Zicatela's own style. I live right around the corner at Casa Las Nubes. Right now the first few guides come at a reduced rate, in exchange for an honest testimonial.</span>
+    </p>
+    <a class="btn-wa lang-es" href="https://wa.me/529542061152?text=Hola%20Trevor%2C%20acabo%20de%20ver%20la%20muestra%20de%20Villa%20Palmas%20Zicatela%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s." target="_blank" rel="noopener">💬 Hablemos por WhatsApp</a>
+    <a class="btn-wa lang-en" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20just%20saw%20the%20Villa%20Palmas%20Zicatela%20preview%20and%20I%27d%20love%20to%20know%20more." target="_blank" rel="noopener">💬 Let's talk on WhatsApp</a>
+    <a class="cta-sec" href="https://thewelcomelink.com/casa-las-nubes/" target="_blank" rel="noopener">
+      <span class="lang-es">O mira una casa completa con guía que ya construí →</span>
+      <span class="lang-en">Or see a full home I've built a guide for →</span>
+    </a>
+  </section>
+
+  <div class="foot">
+    <div class="mark">The Welcome Link</div>
+    <div class="small">
+      <span class="lang-es">Guías de bienvenida hechas para ti · Puerto Escondido</span>
+      <span class="lang-en">Done-for-you guest guides · Puerto Escondido</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const body=document.body;
+  document.querySelectorAll('.lang-toggle button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const lang=btn.dataset.lang;
+      body.setAttribute('data-lang',lang);
+      document.documentElement.setAttribute('lang',lang);
+      document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.toggle('active',b===btn));
+    });
+  });
+</script>
+</body>
+</html>
