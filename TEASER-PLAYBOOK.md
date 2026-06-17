@@ -36,6 +36,16 @@ Read this together with CLAUDE.md before building any teaser. A "teaser" is a pe
    - Secondary (quiet text link, smaller, not a full button): "Or see a full home I've built a guide for →" linking to https://thewelcomelink.com/casa-las-nubes/
    - If the two are visually equal, intent splits and people browse instead of messaging. Primary loud, secondary soft.
 
+## Bilingual EN/ES is required (not optional)
+
+Every teaser ships with an English/Spanish toggle in the top right. This is the house standard, do not build a single-language teaser. Most hosts here are Spanish-first and their guests are mixed, so both languages are always present and it signals real care.
+
+- Toggle pattern: `.lang-en,.lang-es{display:contents}` with `body[data-lang]` switching visibility, a fixed frosted pill top-right, and a small JS click handler. Copy lives inline as paired `<span class="lang-en">` / `<span class="lang-es">` siblings. Reuse the markup from an existing teaser (villa-palmeras-3, casa-tsuki) so the structure stays identical.
+- Watch the known bug: a `.lang-es`/`.lang-en` hide rule can tie on CSS specificity with another selector and leak both languages. After building, confirm in the preview that zero of the hidden language's spans are visible (check `getComputedStyle(el).display !== 'none'`).
+- Default to English unless the specific host is Spanish-first, then default Spanish. One-line flip: set `<html lang>`, `<body data-lang>`, and the `.active` toggle button together.
+- Keep Spanish-native words ("ático", "palapa", "alberca") in the Spanish copy and use the plain English equivalent ("rooftop terrace", "pool") in the English copy. Never leave an untranslated Spanish word sitting in the English version; an English-reading host or guest will not know it.
+- Use the proper noun in full (e.g. "Productora Studio", not "Productora"). Brand and studio names are part of the specificity that proves effort.
+
 ## The one human detail (don't skip)
 
 Pull one warm, specific detail from the listing's description prose, not just the specs. The "French press in the kitchen" equivalent. A real human detail is what separates a personal pitch from a template. If the listing only gives specs, find the most human spec and frame it warmly.

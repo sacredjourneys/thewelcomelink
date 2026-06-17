@@ -59,6 +59,7 @@ Two options to offer: (A) one-time build fee, host keeps it; (B) smaller build f
 - Photo-rich. Real photography is the product. Use it generously, compress for fast mobile loading (resize large images to ~1600px wide), lazy-load below-the-fold images, never distort (object-fit: cover).
 - Each property guide is styled to ITS property's character. The brand (landing page) stays consistent; individual guides flex to fit the home.
 - Fonts in use: Fraunces (serif, for headings) and Spline Sans (body).
+- Bilingual by default. Every page (landing, full guides, and teasers) ships with an English/Spanish toggle in the top right. This is the house standard now, not an optional extra. Most hosts here are Spanish-first and their guests are mixed, so both languages are always present. Default the page to English unless the specific host is Spanish-first (then default Spanish); it is a one-line flip either way. The toggle pattern: `.lang-en,.lang-es{display:contents}` with `body[data-lang]` switching visibility, a fixed frosted pill top-right, and a small JS click handler. Copy lives inline as paired `<span class="lang-en">` / `<span class="lang-es">` siblings. Keep Spanish-native words (e.g. "ático", "palapa") in the Spanish copy and use the plain English equivalent ("rooftop terrace", "palapa/roof hut") in the English copy so neither side reads as foreign.
 
 ## Standard guide structure (per property)
 
