@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="A preview welcome guide for Casa Marena, Punta Pájaros, Puerto Escondido. Built by The Welcome Link.">
+<meta property="og:title" content="Casa Marena · Puerto Escondido">
+<meta property="og:description" content="The beachfront, the infinity pool, the chef and the quiet, carried onto your guests' phones for the whole stay. A preview built by The Welcome Link.">
+<meta property="og:image" content="https://thewelcomelink.com/casa-marena/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thewelcomelink.com/casa-marena/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://thewelcomelink.com/casa-marena/images/og.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Casa Marena · Preview · The Welcome Link</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,400&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay:#b67250;
+    --clay-deep:#8f5230;
+    --ocean:#3a7d82;
+    --ocean-deep:#265a5e;
+    --gold:#c8a463;
+    --gold-deep:#a37f41;
+    --sand:#e6dcc8;
+    --shell:#f6f0e4;
+    --cream:#fcf8ee;
+    --ink:#272320;
+    --ink-soft:#6a6056;
+    --line:rgba(39,35,32,.12);
+    --shadow:0 20px 48px -22px rgba(39,33,28,.34);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Spline Sans',sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+  .wrap{max-width:480px;margin:0 auto;background:var(--shell);min-height:100vh;position:relative;}
+
+  /* ===== LANGUAGE TOGGLE ===== */
+  .lang-en,.lang-es{display:contents;}
+  body[data-lang="en"] .lang-es{display:none;}
+  body[data-lang="es"] .lang-en{display:none;}
+  .lang-toggle{
+    position:fixed;top:14px;left:50%;transform:translateX(calc(240px - 100% - 14px));
+    z-index:60;display:flex;gap:2px;padding:3px;border-radius:999px;
+    background:rgba(30,24,18,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.26);box-shadow:0 6px 18px -8px rgba(0,0,0,.4);
+  }
+  @media(max-width:508px){.lang-toggle{left:auto;right:14px;transform:none;}}
+  .lang-toggle button{
+    border:none;background:transparent;color:rgba(255,255,255,.82);cursor:pointer;
+    font-family:'Spline Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;
+    padding:6px 13px;border-radius:999px;transition:background .2s,color .2s;
+  }
+  .lang-toggle button.active{background:#fff;color:#272320;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:92vh;display:flex;flex-direction:column;
+    justify-content:flex-end;padding:32px 26px 50px;color:#fff;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:url("images/hero.jpg") center 42%/cover no-repeat;
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(30,24,18,.14) 0%,rgba(30,24,18,.34) 46%,rgba(24,18,12,.88) 100%);
+  }
+  .hero-content{position:relative;z-index:2;}
+  .preview-tag{
+    display:inline-block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:600;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+    border-radius:20px;padding:5px 13px;color:rgba(255,255,255,.92);margin-bottom:20px;
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  }
+  .eyebrow{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;
+    opacity:.84;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.6;}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:400;font-size:46px;line-height:1.03;
+    letter-spacing:-.02em;text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero .sub{font-size:15.5px;opacity:.92;max-width:34ch;margin-top:15px;line-height:1.65;text-shadow:0 1px 8px rgba(0,0,0,.3);}
+  .scroll-cue{
+    position:relative;z-index:2;margin-top:32px;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;opacity:.66;display:flex;align-items:center;gap:8px;
+  }
+  .scroll-cue i{font-style:normal;animation:bob 2.2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  /* ===== SECTIONS ===== */
+  section{position:relative;z-index:2;padding:46px 26px;}
+  .sec-label{
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--clay-deep);
+    font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;
+  }
+  .sec-label::before{content:"";width:20px;height:1px;background:var(--clay);}
+  h2{
+    font-family:'Fraunces',serif;font-weight:400;font-size:28px;line-height:1.12;
+    letter-spacing:-.01em;margin-bottom:14px;color:#272320;
+  }
+  h2 em{font-style:italic;color:var(--clay-deep);}
+  .divider{height:1px;background:var(--line);margin:0 26px;position:relative;z-index:2;}
+
+  /* ===== INTRO ===== */
+  .intro{background:linear-gradient(180deg,#fcf8ee,#f6f0e4);}
+  .intro-note{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:18.5px;
+    line-height:1.6;color:var(--clay-deep);margin-top:4px;
+  }
+  .relief{padding:32px 26px;}
+  .relief p{font-size:15px;color:var(--ink-soft);line-height:1.72;}
+
+  /* ===== ARRIVAL TABLE ===== */
+  .checkin{background:linear-gradient(180deg,#f6f0e4,#ece0cb);}
+  .info-table{width:100%;border-collapse:collapse;margin-top:6px;}
+  .info-table tr{border-bottom:1px solid var(--line);}
+  .info-table tr:last-child{border-bottom:none;}
+  .info-table td{padding:13px 0;font-size:14.5px;vertical-align:top;}
+  .info-table td:first-child{
+    width:34%;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:600;color:var(--clay-deep);padding-right:12px;padding-top:15px;
+  }
+  .info-table td:last-child{color:var(--ink);font-weight:500;line-height:1.45;}
+  .info-table td:last-child small{display:block;font-weight:400;color:var(--ink-soft);font-size:13px;margin-top:2px;}
+
+  /* ===== UPSIDE ===== */
+  .addons{background:linear-gradient(160deg,#2a221b,#191310);color:#ece4d8;padding:50px 26px;}
+  .addons .sec-label{color:#e0bd84;}
+  .addons .sec-label::before{background:#e0bd84;}
+  .addons h2{color:#fff;font-size:26px;margin-bottom:8px;}
+  .addons h2 em{color:#e0bd84;}
+  .addons .sub-copy{font-size:14.5px;color:rgba(236,228,216,.78);margin-bottom:22px;line-height:1.65;}
+  .addon-card{
+    background:rgba(255,255,255,.06);border:1px solid rgba(224,189,132,.18);
+    border-radius:16px;padding:18px 18px 16px;margin-bottom:12px;
+    display:flex;gap:14px;align-items:flex-start;
+  }
+  .addon-card:last-child{margin-bottom:0;}
+  .addon-ic{
+    flex:none;width:40px;height:40px;border-radius:12px;
+    background:rgba(224,189,132,.14);display:flex;align-items:center;
+    justify-content:center;font-size:19px;
+  }
+  .addon-card b{display:block;font-size:15px;font-weight:600;color:#f3eee4;margin-bottom:3px;}
+  .addon-card span{font-size:13px;color:rgba(236,228,216,.74);line-height:1.5;}
+
+  /* ===== CLOSING CTA ===== */
+  .cta{background:linear-gradient(180deg,#ece0cb,#e0d3bd);text-align:center;padding:50px 26px 48px;}
+  .cta .sec-label{justify-content:center;}
+  .cta h2{font-size:26px;margin-bottom:12px;}
+  .cta-copy{
+    font-size:15px;color:var(--ink-soft);line-height:1.72;
+    margin-bottom:20px;max-width:36ch;margin-left:auto;margin-right:auto;
+  }
+  .both-note{
+    background:#fcf8ee;border:1px solid var(--line);border-radius:16px;
+    padding:16px 18px;margin:0 auto 18px;max-width:38ch;box-shadow:var(--shadow);
+  }
+  .both-note .pin{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ocean-deep);font-weight:600;display:block;margin-bottom:6px;}
+  .both-note p{font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
+  .personal-note{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:15.5px;
+    line-height:1.66;color:var(--clay-deep);max-width:37ch;margin:0 auto 26px;
+  }
+  .cta-sec{display:block;margin-top:16px;font-size:13.5px;color:var(--clay-deep);text-decoration:none;font-weight:500;}
+  .btn-wa{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:16px;border-radius:14px;font-family:'Spline Sans',sans-serif;font-size:15.5px;
+    font-weight:600;text-decoration:none;background:#25845a;color:#fff;
+    box-shadow:0 10px 26px -10px rgba(37,132,90,.65);
+  }
+
+  /* ===== FOOTER ===== */
+  .foot{text-align:center;padding:28px 26px 46px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--clay-deep);}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body data-lang="en">
+
+  <!-- LANGUAGE TOGGLE -->
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" data-lang="es">ES</button>
+    <button type="button" data-lang="en" class="active">EN</button>
+  </div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="preview-tag">
+        <span class="lang-es">Una muestra, hecha para ti por The Welcome Link</span>
+        <span class="lang-en">A preview, built for you by The Welcome Link</span>
+      </div>
+      <div class="eyebrow">Punta Pájaros · Puerto Escondido</div>
+      <h1>
+        <span class="lang-es">Bienvenido a <em>Casa Marena</em></span>
+        <span class="lang-en">Welcome to <em>Casa Marena</em></span>
+      </h1>
+      <p class="sub">
+        <span class="lang-es">El mar a 20 metros, la alberca infinita, el chef y la calma. La misma Casa Marena que tu web vende tan bien, ahora en el teléfono del huésped durante toda la estancia.</span>
+        <span class="lang-en">The ocean 20 metres away, the infinity pool, the chef and the quiet. The same Casa Marena your website sells so well, now on your guests' phones for the whole stay.</span>
+      </p>
+    </div>
+    <div class="scroll-cue">
+      <span class="lang-es">Desliza para explorar</span><span class="lang-en">Scroll to explore</span> <i>↓</i>
+    </div>
+  </header>
+
+  <!-- INTRO GREETING -->
+  <section class="intro reveal">
+    <!-- PERSONALIZE: addressed to Monica by name (Trevor is on her radar via Mi Casa). If reaching someone on her team, change "Monica" by hand. -->
+    <p class="intro-note">
+      <span class="lang-es">Hola Monica, esta es una pequeña muestra de cómo se sentiría una guía de bienvenida para Casa Marena. Tu sitio ya vende este lugar hermosamente. Esto es la otra mitad: lo que pasa después de que reservan, en su teléfono, durante toda la estancia.</span>
+      <span class="lang-en">Hi Monica, here's a small taste of what a welcome guide for Casa Marena could feel like for your guests. Your website already sells this place beautifully. This is the other half: the part that happens after they book, on their phone, all through the stay.</span>
+    </p>
+  </section>
+
+  <div class="relief reveal">
+    <p>
+      <span class="lang-es">Tu web gana la reserva. La guía toma el relevo desde ahí: llegada, alberca, chef, los ritmos del día, y todo lo que normalmente te preguntan por WhatsApp queda respondido antes de que escriban. Ya empezada para ti, sin tableros ni tarea.</span>
+      <span class="lang-en">Your website wins the booking. The guide takes it from there: arrival, the pool, the chef, the rhythm of each day, and all the things they usually message you on WhatsApp, answered before they ask. Already started for you, no dashboards, no homework.</span>
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ARRIVAL -->
+  <section class="checkin reveal">
+    <div class="sec-label">
+      <span class="lang-es">Al llegar</span><span class="lang-en">On arrival</span>
+    </div>
+    <h2>
+      <span class="lang-es">La llegada, <em>resuelta.</em></span>
+      <span class="lang-en">The arrival, <em>sorted.</em></span>
+    </h2>
+    <table class="info-table">
+      <tr>
+        <td><span class="lang-es">Llegada</span><span class="lang-en">Check-in</span></td>
+        <td>
+          <span class="lang-es">Después de las 3:00 PM<small>Entre 3 y 9 PM, llegada autónoma con el personal</small></span>
+          <span class="lang-en">After 3:00 PM<small>Between 3 and 9 PM, self check-in with the staff</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">Salida</span><span class="lang-en">Checkout</span></td>
+        <td><span class="lang-es">Antes de las 11:00 AM</span><span class="lang-en">Before 11:00 AM</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">Huéspedes</span><span class="lang-en">Guests</span></td>
+        <td>
+          <span class="lang-es">Hasta 12 · dos bungalós<small>4 recámaras · 4.5 baños · dos king y literas</small></span>
+          <span class="lang-en">Up to 12 · two bungalows<small>4 bedrooms · 4.5 baths · two kings and bunks</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td>WiFi</td>
+        <td>
+          <span class="lang-es">Alta velocidad en toda la casa<small>Más escritorio, limpieza diaria y seguridad 24/7</small></span>
+          <span class="lang-en">High-speed throughout<small>Plus a workspace, daily cleaning and 24/7 security</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">El mar</span><span class="lang-en">The ocean</span></td>
+        <td>
+          <span class="lang-es">A 20 metros<small>15 km de playa abierta y tu propia palapa</small></span>
+          <span class="lang-en">20 metres away<small>15 km of open beach and your own palapa</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">La alberca</span><span class="lang-en">The pool</span></td>
+        <td>
+          <span class="lang-es">Infinita, frente al Pacífico<small>Abierta las 24 horas, todo el año</small></span>
+          <span class="lang-en">Infinity, facing the Pacific<small>Open 24 hours, year-round</small></span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">El chef</span><span class="lang-en">The chef</span></td>
+        <td>
+          <span class="lang-es">Menús diarios de temporada<small>Acordados antes de llegar, sin que muevas un dedo</small></span>
+          <span class="lang-en">Daily seasonal menus<small>Arranged before arrival, nothing for you to chase</small></span>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="relief reveal">
+    <p>
+      <span class="lang-es">Una villa para 12 con chef es mucha coordinación, y casi siempre cae en tu WhatsApp. Aquí lo práctico queda resuelto antes de que pregunten, así la estancia se siente como el retiro que viene a buscar y tu teléfono queda más tranquilo.</span>
+      <span class="lang-en">A villa for 12 with a chef is a lot of coordination, and most of it lands on your WhatsApp. Here the practical stuff is settled before they ask, so the stay feels like the retreat they came for and your phone stays quieter.</span>
+    </p>
+  </div>
+
+  <!-- UPSIDE -->
+  <section class="addons reveal">
+    <div class="sec-label">
+      <span class="lang-es">El retiro</span><span class="lang-en">The retreat</span>
+    </div>
+    <h2>
+      <span class="lang-es">Lo que hace <em>la estancia.</em></span>
+      <span class="lang-en">What makes <em>the stay.</em></span>
+    </h2>
+    <p class="sub-copy">
+      <span class="lang-es">Los momentos que convierten una buena reserva en un viaje inolvidable, listos para reservar antes de llegar. La guía los pone a un toque.</span>
+      <span class="lang-en">The moments that turn a good booking into a trip they never forget, ready to arrange before arrival. The guide puts them one tap away.</span>
+    </p>
+
+    <div class="addon-card">
+      <div class="addon-ic">🍽️</div>
+      <div>
+        <b><span class="lang-es">La mesa del chef</span><span class="lang-en">The chef's table</span></b>
+        <span class="lang-es">Menús de temporada, elegidos antes de llegar. Desayunos junto a la alberca, cenas al atardecer en la palapa, sin un solo mensaje de ida y vuelta.</span>
+        <span class="lang-en">Seasonal menus, chosen before they arrive. Breakfasts by the pool, sunset dinners in the palapa, without a single back-and-forth message.</span>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-ic">🧘</div>
+      <div>
+        <b><span class="lang-es">Bienestar frente al mar</span><span class="lang-en">Oceanfront wellness</span></b>
+        <span class="lang-es">Yoga al amanecer en la terraza, masaje junto a la alberca. La villa entera se vuelve un retiro privado para el grupo.</span>
+        <span class="lang-en">Sunrise yoga on the terrace, massage by the pool. The whole villa becomes a private retreat for the group.</span>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-ic">✨</div>
+      <div>
+        <b><span class="lang-es">Las noches de Manialtepec</span><span class="lang-en">Manialtepec nights</span></b>
+        <span class="lang-es">Lancha al atardecer y bioluminiscencia en la laguna, de octubre a marzo. Mezcal en Bar Cobarde, omakase cerca en Kakurega. Ingreso por referidos en cada estancia.</span>
+        <span class="lang-en">A sunset boat and bioluminescence on the lagoon, October to March. Mezcal at Bar Cobarde, omakase nearby at Kakurega. Referral income on every stay.</span>
+      </div>
+    </div>
+
+    <div class="addon-card">
+      <div class="addon-ic">🐢</div>
+      <div>
+        <b><span class="lang-es">El mar, de cerca</span><span class="lang-en">The ocean, up close</span></b>
+        <span class="lang-es">Liberar tortuguitas, avistar delfines y ballenas, clases de surf en la playa abierta. La naturaleza que ya está frente a la casa, organizada.</span>
+        <span class="lang-en">Releasing baby sea turtles, spotting dolphins and whales, surf lessons on the open beach. The wildlife already in front of the house, organized.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="cta reveal">
+    <div class="sec-label">
+      <span class="lang-es">El panorama completo</span><span class="lang-en">The full picture</span>
+    </div>
+    <h2>
+      <span class="lang-es">Esto es solo la <em>bienvenida.</em></span>
+      <span class="lang-en">This is just the <em>welcome.</em></span>
+    </h2>
+    <p class="cta-copy">
+      <span class="lang-es">La guía completa incluye tus recomendaciones de comida y playas, los spots de Punta Pájaros y Casa Wabi, las experiencias, indicaciones de llegada y contacto a un toque, todo con el carácter de Casa Marena. Vivo aquí cerca, en Casa Las Nubes. Por ahora las primeras guías tienen precio reducido, a cambio de un testimonio honesto.</span>
+      <span class="lang-en">The full guide includes your local food and beach picks, the Punta Pájaros and Casa Wabi spots, the experiences, arrival directions, and one-tap contact, all in Casa Marena's own character. I live right around the corner at Casa Las Nubes. Right now the first few guides come at a reduced rate, in exchange for an honest testimonial.</span>
+    </p>
+    <div class="both-note">
+      <span class="pin"><span class="lang-es">Tus tres casas</span><span class="lang-en">Your three homes</span></span>
+      <p>
+        <span class="lang-es">Casa Marena, "Mi Casa" en La Punta y el penthouse en la Condesa son tres estancias muy distintas. Cada una podría tener su propia guía, en su propio idioma. Hay un precio especial por hacer varias.</span>
+        <span class="lang-en">Casa Marena, "Mi Casa" in La Punta and the Condesa penthouse are three very different stays. Each could have its own guide, in its own voice. There's a special rate for doing several.</span>
+      </p>
+    </div>
+    <p class="personal-note">
+      <span class="lang-es">Diez años recibiendo huéspedes y una casa en ELLE se notan. Lo digo en serio: ya hiciste lo difícil. Esto solo lo lleva al teléfono del huésped, donde de verdad transcurre la estancia.</span>
+      <span class="lang-en">Ten years of hosting and a home in ELLE both show. I mean it: you've done the hard part. This just carries it onto the guest's phone, where the stay actually unfolds.</span>
+    </p>
+    <a class="btn-wa lang-es" href="https://wa.me/529542061152?text=Hola%20Trevor%2C%20acabo%20de%20ver%20la%20muestra%20de%20Casa%20Marena%20y%20me%20encantar%C3%ADa%20saber%20m%C3%A1s." target="_blank" rel="noopener">💬 Hablemos por WhatsApp</a>
+    <a class="btn-wa lang-en" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20just%20saw%20the%20Casa%20Marena%20preview%20and%20I%27d%20love%20to%20know%20more." target="_blank" rel="noopener">💬 Let's talk on WhatsApp</a>
+    <a class="cta-sec" href="https://thewelcomelink.com/casa-yani/" target="_blank" rel="noopener">
+      <span class="lang-es">O mira Casa Yani, una casa completa con guía que ya construí →</span>
+      <span class="lang-en">Or see Casa Yani, a full home I've built a guide for →</span>
+    </a>
+  </section>
+
+  <div class="foot">
+    <div class="mark">The Welcome Link</div>
+    <div class="small">
+      <span class="lang-es">Guías de bienvenida hechas para ti · Puerto Escondido</span>
+      <span class="lang-en">Done-for-you guest guides · Puerto Escondido</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const body=document.body;
+  document.querySelectorAll('.lang-toggle button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const lang=btn.dataset.lang;
+      body.setAttribute('data-lang',lang);
+      document.documentElement.setAttribute('lang',lang);
+      document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.toggle('active',b===btn));
+    });
+  });
+</script>
+</body>
+</html>
