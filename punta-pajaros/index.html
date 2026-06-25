@@ -172,7 +172,8 @@
   .curated{margin-top:clamp(64px,8vw,104px);}
   .curated h3{font-size:clamp(24px,2.8vw,38px);font-weight:300;margin-bottom:10px;letter-spacing:-.02em;}
   .curated .sub{font-size:15.5px;color:var(--ink-soft);font-weight:300;margin-bottom:clamp(28px,3vw,40px);max-width:54ch;}
-  .tile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .curated-note{margin-top:clamp(18px,2vw,26px);font-size:13px;color:var(--ink-faint);font-style:italic;}
+  .tile-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
   .tile{
     position:relative;border-radius:6px;overflow:hidden;min-height:clamp(300px,32vw,400px);
     display:flex;flex-direction:column;justify-content:flex-end;background:var(--sand);
@@ -181,9 +182,10 @@
   .tile .ph{position:absolute;inset:0;z-index:0;}
   .tile img.ph{object-fit:cover;width:100%;height:100%;}
   .tile .ph.g1{background:linear-gradient(160deg,#7c7160,#564c3f);}
-  .tile .ph.g2{background:linear-gradient(160deg,#4d5b59,#2c3a38);}
-  .tile .ph.g3{background:linear-gradient(160deg,#837a6a,#544a3d);}
-  .tile .ph.g4{background:linear-gradient(160deg,#6b6253,#453f37);}
+  .tile .ph.g2{background:linear-gradient(160deg,#8a7c62,#5d4f37);}
+  .tile .ph.g3{background:linear-gradient(160deg,#4d5b59,#2c3a38);}
+  .tile .ph.g4{background:linear-gradient(160deg,#837a6a,#544a3d);}
+  .tile .ph.g5{background:linear-gradient(160deg,#6b6253,#453f37);}
   .tile::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,18,12,0) 38%,rgba(16,13,8,.62) 100%);}
   .tile .tx{position:relative;z-index:2;padding:22px;}
   .tile .lbl{font-family:'Fraunces',serif;font-size:22px;font-weight:400;line-height:1.1;letter-spacing:-.01em;}
@@ -296,6 +298,9 @@
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}.scroll-cue span{animation:none;}}
 
   /* ===== RESPONSIVE ===== */
+  @media(max-width:1080px){
+    .tile-grid{grid-template-columns:repeat(3,1fr);}
+  }
   @media(max-width:920px){
     .split{grid-template-columns:1fr;gap:48px;}
     .split .mock-wrap{order:2;}
@@ -376,15 +381,15 @@
         <span class="lang-es">Una página para <em>toda la zona.</em></span>
       </h2>
       <p class="body-copy" style="margin-top:clamp(24px,3vw,34px)">
-        <span class="lang-en">A single bilingual page that introduces and sells Punta Pájaros. It tells the story of the place. It holds a map, with every home as a pin, each one tapping through to that property's own site or guide. And it carries the curated layer, the part that makes a stay extraordinary: where to eat, the experiences, the massage, the morning on the water, the art and architecture. This is the connective tissue for the whole community.</span>
-        <span class="lang-es">Una sola página bilingüe que presenta y promueve Punta Pájaros. Cuenta la historia del lugar. Sostiene un mapa, con cada casa como un punto, y cada uno lleva al sitio o a la guía de esa propiedad. Y carga la capa curada, la parte que hace una estancia extraordinaria: dónde comer, las experiencias, el masaje, la mañana en el agua, el arte y la arquitectura. Este es el tejido que conecta a toda la comunidad.</span>
+        <span class="lang-en">A single bilingual page that introduces and sells Punta Pájaros. It tells the story of the place. It holds a map, with every home as a pin, each one tapping through to that property's own site or guide. And it carries the curated layer, the part that makes a stay extraordinary: where to eat, the experiences, the massage, the beach at first light, the art and architecture. This is the connective tissue for the whole community.</span>
+        <span class="lang-es">Una sola página bilingüe que presenta y promueve Punta Pájaros. Cuenta la historia del lugar. Sostiene un mapa, con cada casa como un punto, y cada uno lleva al sitio o a la guía de esa propiedad. Y carga la capa curada, la parte que hace una estancia extraordinaria: dónde comer, las experiencias, el masaje, la playa al amanecer, el arte y la arquitectura. Este es el tejido que conecta a toda la comunidad.</span>
       </p>
     </div>
 
     <!-- MAP CONCEPT -->
     <div class="map-card reveal" id="mapconcept">
       <div class="map-tag"><span class="lang-en">The map · a concept</span><span class="lang-es">El mapa · un concepto</span></div>
-      <div class="map-title"><span class="lang-en">Every home, one pin.</span><span class="lang-es">Cada casa, un punto.</span></div>
+      <div class="map-title"><span class="lang-en">The homes, and the businesses around them.</span><span class="lang-es">Las casas, y los negocios a su alrededor.</span></div>
       <div class="map-figure">
         <img src="images/coast-satellite.jpg" alt="Satellite view of the Punta Pajaros coastline" loading="lazy">
         <span class="map-pin home" style="left:10%;top:54%"></span>
@@ -393,16 +398,18 @@
         <span class="map-pin home" style="left:42%;top:52%"></span>
         <span class="map-pin home" style="left:53%;top:55%"></span>
         <span class="map-pin home" style="left:64%;top:57%"></span>
+        <span class="map-pin spot" style="left:26%;top:48%"></span>
         <span class="map-pin spot" style="left:37%;top:47%"></span>
+        <span class="map-pin spot" style="left:58%;top:50%"></span>
         <span class="map-pin spot" style="left:71%;top:51%"></span>
       </div>
       <div class="pin-legend">
-        <span><i class="home"></i><span class="lang-en">Each property, its own page</span><span class="lang-es">Cada propiedad, su propia página</span></span>
-        <span><i class="spot"></i><span class="lang-en">The curated layer: table, water, art</span><span class="lang-es">La capa curada: mesa, mar, arte</span></span>
+        <span><i class="home"></i><span class="lang-en">The homes, each with its own page</span><span class="lang-es">Las casas, cada una con su página</span></span>
+        <span><i class="spot"></i><span class="lang-en">Local businesses: the chef, wellness, tours, the table</span><span class="lang-es">Negocios locales: el chef, bienestar, tours, la mesa</span></span>
       </div>
       <p class="map-note">
-        <span class="lang-en">A concept sketch, not the real map yet. Each pin becomes a real home with its own photo and a tap through to its page. We build the real one once the homes are in.</span>
-        <span class="lang-es">Un boceto conceptual, todavía no el mapa real. Cada punto se convierte en una casa real con su propia foto y un toque que lleva a su página. Construimos el mapa de verdad cuando las casas estén dentro.</span>
+        <span class="lang-en">A concept sketch, not the real map yet. Each pin becomes a real home or a local business, with a tap through to its page. Supporting the businesses around the zone is part of the point.</span>
+        <span class="lang-es">Un boceto conceptual, todavía no el mapa real. Cada punto se convierte en una casa real o un negocio local, con un toque que lleva a su página. Apoyar a los negocios de la zona es parte del punto.</span>
       </p>
     </div>
 
@@ -416,34 +423,43 @@
           <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M5 3v8M5 11a2 2 0 0 0 2-2V3M3 3v6a2 2 0 0 0 2 2M19 3c-1.7 0-3 2.5-3 5.5S17 14 19 14m0-11v18"/></svg>
           <div class="tx">
             <div class="lbl"><span class="lang-en">The table</span><span class="lang-es">La mesa</span></div>
-            <div class="d"><span class="lang-en">High-end dining and the chef who'll cook in your house.</span><span class="lang-es">Alta cocina y el chef que cocina en tu casa.</span></div>
+            <div class="d"><span class="lang-en">High-end dining, and a private chef who'll cook in your house.</span><span class="lang-es">Alta cocina, y un chef privado que cocina en tu casa.</span></div>
           </div>
         </a>
         <a class="tile" style="cursor:default" onclick="return false">
           <div class="ph g2"></div>
-          <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M2 18c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1M4 14l8-9 8 9M9 14V9"/></svg>
+          <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M2 13c1.6 0 1.6-1.3 3.2-1.3S6.8 13 8.4 13s1.6-1.3 3.2-1.3S13.2 13 14.8 13s1.6-1.3 3.2-1.3S19.6 13 21.2 13M2 18c1.6 0 1.6-1.3 3.2-1.3S6.8 18 8.4 18s1.6-1.3 3.2-1.3S13.2 18 14.8 18s1.6-1.3 3.2-1.3S19.6 18 21.2 18"/></svg>
           <div class="tx">
-            <div class="lbl"><span class="lang-en">On the water</span><span class="lang-es">En el agua</span></div>
-            <div class="d"><span class="lang-en">Sunrise on the Pacific, the boat, the turtles, the swell.</span><span class="lang-es">Amanecer en el Pacífico, la lancha, las tortugas, el oleaje.</span></div>
+            <div class="lbl"><span class="lang-en">The beach</span><span class="lang-es">La playa</span></div>
+            <div class="d"><span class="lang-en">A wild, pristine beach: the swell, long walks, horseback riding, a turtle sanctuary nearby.</span><span class="lang-es">Una playa salvaje y prístina: el oleaje, largas caminatas, paseos a caballo, un santuario de tortugas cerca.</span></div>
           </div>
         </a>
         <a class="tile" style="cursor:default" onclick="return false">
           <div class="ph g3"></div>
-          <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="2.4"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 16.2a6 6 0 0 0 0-8.4M4.9 4.9a10 10 0 0 0 0 14.2M19.1 19.1a10 10 0 0 0 0-14.2"/></svg>
+          <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 15h18l-2 5H5l-2-5zM12 15V5M12 5c3 .2 5 2.2 5.2 4.6"/></svg>
           <div class="tx">
-            <div class="lbl"><span class="lang-en">Stillness</span><span class="lang-es">Quietud</span></div>
-            <div class="d"><span class="lang-en">The massage, the sound, the practice that slows a day down.</span><span class="lang-es">El masaje, el sonido, la práctica que desacelera el día.</span></div>
+            <div class="lbl"><span class="lang-en">On the water</span><span class="lang-es">En el agua</span></div>
+            <div class="d"><span class="lang-en">Boat tours and bioluminescence at the nearby lagoon.</span><span class="lang-es">Paseos en lancha y bioluminiscencia en la laguna cercana.</span></div>
           </div>
         </a>
         <a class="tile" style="cursor:default" onclick="return false">
           <div class="ph g4"></div>
+          <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="2.4"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 16.2a6 6 0 0 0 0-8.4M4.9 4.9a10 10 0 0 0 0 14.2M19.1 19.1a10 10 0 0 0 0-14.2"/></svg>
+          <div class="tx">
+            <div class="lbl"><span class="lang-en">Stillness</span><span class="lang-es">Quietud</span></div>
+            <div class="d"><span class="lang-en">The massage, the yoga, the wellness that slows a day down.</span><span class="lang-es">El masaje, el yoga, el bienestar que desacelera el día.</span></div>
+          </div>
+        </a>
+        <a class="tile" style="cursor:default" onclick="return false">
+          <div class="ph g5"></div>
           <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
           <div class="tx">
-            <div class="lbl"><span class="lang-en">Art &amp; form</span><span class="lang-es">Arte y forma</span></div>
-            <div class="d"><span class="lang-en">Casa Wabi, and the architecture that drew everyone here.</span><span class="lang-es">Casa Wabi, y la arquitectura que atrajo a todos aquí.</span></div>
+            <div class="lbl"><span class="lang-en">Art &amp; architecture</span><span class="lang-es">Arte y arquitectura</span></div>
+            <div class="d"><span class="lang-en">Casa Wabi, and the architecture that drew people to this coast.</span><span class="lang-es">Casa Wabi, y la arquitectura que atrajo a la gente a esta costa.</span></div>
           </div>
         </a>
       </div>
+      <p class="curated-note"><span class="lang-en">The final experiences are confirmed with the owners.</span><span class="lang-es">Las experiencias finales se confirman con los propietarios.</span></p>
     </div>
   </div>
 </section>
@@ -464,8 +480,8 @@
           <span class="lang-es">Bajo la página común vive una capa que pertenece a cada propietario: una guía de bienvenida para cada propiedad, y un sitio web completo para quienes aún no tienen uno. Son acuerdos por separado, casa por casa, el siguiente paso natural más que parte de la página comunitaria.</span>
         </p>
         <p class="body-copy">
-          <span class="lang-en">The cross-linking is the whole point. The community page sends a guest to a home. Inside that home, one tap books the massage, reserves the chef's dinner, holds a spot on the sunrise boat. A guest discovers the zone, picks a house, and finds everything of value in and around it already within reach.</span>
-          <span class="lang-es">El cruce de enlaces es justo el punto. La página comunitaria lleva al huésped a una casa. Dentro de esa casa, un toque reserva el masaje, aparta la cena del chef, guarda un lugar en la lancha del amanecer. El huésped descubre la zona, elige una casa y encuentra todo lo valioso en ella y a su alrededor ya al alcance.</span>
+          <span class="lang-en">The cross-linking is the whole point. The community page sends a guest to a home. Inside that home, one tap books the massage, reserves the chef's dinner, arranges a special experience. A guest discovers the zone, picks a house, and finds everything of value in and around it already within reach.</span>
+          <span class="lang-es">El cruce de enlaces es justo el punto. La página comunitaria lleva al huésped a una casa. Dentro de esa casa, un toque reserva el masaje, aparta la cena del chef, coordina una experiencia especial. El huésped descubre la zona, elige una casa y encuentra todo lo valioso en ella y a su alrededor ya al alcance.</span>
         </p>
         <div class="monica-note">
           <span class="lang-en"><b>Monica put it simply:</b> she wants her guests to know all the value available in and around her house. That is exactly what this layer does, for every home that wants it.</span>
@@ -493,9 +509,9 @@
             <div class="mr-go"><span class="lang-en">Reserve</span><span class="lang-es">Apartar</span></div>
           </div>
           <div class="mock-row">
-            <div class="mr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9c5d36" stroke-width="1.6"><path d="M2 18c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1M4 14l8-9 8 9"/></svg></div>
-            <div class="mr-tx"><b><span class="lang-en">Sunrise on the water</span><span class="lang-es">Amanecer en el agua</span></b><span><span class="lang-en">Boat leaves at six</span><span class="lang-es">La lancha sale a las seis</span></span></div>
-            <div class="mr-go"><span class="lang-en">Hold</span><span class="lang-es">Guardar</span></div>
+            <div class="mr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9c5d36" stroke-width="1.6"><path d="M12 3l1.9 4.9L19 9.8l-4.2 3 1.5 5.2L12 15.6 7.7 18l1.5-5.2-4.2-3 5.1-1.9z"/></svg></div>
+            <div class="mr-tx"><b><span class="lang-en">A special experience</span><span class="lang-es">Una experiencia especial</span></b><span><span class="lang-en">A wellness session, a planned dinner, a tour</span><span class="lang-es">Una sesión de bienestar, una cena, un tour</span></span></div>
+            <div class="mr-go"><span class="lang-en">Arrange</span><span class="lang-es">Coordinar</span></div>
           </div>
           <div class="mock-cap"><span class="lang-en">A concept of what lives inside each home's page.</span><span class="lang-es">Un concepto de lo que vive dentro de la página de cada casa.</span></div>
         </div>
@@ -514,16 +530,16 @@
       <span class="lang-es">Los huéspedes que se enamoran <em>regresan.</em></span>
     </h2>
     <p class="body-copy reveal">
-      <span class="lang-en">The meal they still talk about. The massage on the terrace. The one morning on the water they didn't expect. When a stay is worth talking about, people return, they bring friends, they recommend the zone by name, they post it without being asked.</span>
-      <span class="lang-es">La comida de la que todavía hablan. El masaje en la terraza. La mañana en el agua que no esperaban. Cuando una estancia vale la pena contarla, la gente regresa, trae amigos, recomienda la zona por su nombre, la publica sin que nadie se lo pida.</span>
+      <span class="lang-en">The meal they still talk about. The massage on the terrace. The stillness of the beach at first light. When a stay is worth talking about, people return, they bring friends, they recommend the zone by name, they post it without being asked.</span>
+      <span class="lang-es">La comida de la que todavía hablan. El masaje en la terraza. La quietud de la playa al amanecer. Cuando una estancia vale la pena contarla, la gente regresa, trae amigos, recomienda la zona por su nombre, la publica sin que nadie se lo pida.</span>
     </p>
     <p class="body-copy reveal">
       <span class="lang-en">The bookings, the reviews, the influencer attention, the word of mouth: those are byproducts of one thing done well, a guest who genuinely loved being here. So we build that thing directly, the experience itself, rather than a strategy that describes it.</span>
       <span class="lang-es">Las reservas, las reseñas, la atención de los creadores, el boca a boca: todo eso son subproductos de una sola cosa bien hecha, un huésped que de verdad amó estar aquí. Así que construimos esa cosa directamente, la experiencia misma, en vez de una estrategia que la describe.</span>
     </p>
     <p class="soft reveal">
-      <span class="lang-en">Long-term guests, not one-time ones. The rest follows.</span>
-      <span class="lang-es">Huéspedes de largo plazo, no de una sola vez. Lo demás llega solo.</span>
+      <span class="lang-en">Returning guests, not one-time ones. The rest follows.</span>
+      <span class="lang-es">Huéspedes que regresan, no de una sola vez. Lo demás llega solo.</span>
     </p>
   </div>
 </section>
@@ -544,8 +560,8 @@
         <span class="lang-es">Lo que construyo, y <em>lo que no.</em></span>
       </h2>
       <p class="body-copy" style="margin-top:clamp(24px,3vw,34px)">
-        <span class="lang-en">Plainly, and not as apology. This proposal does not try to answer the whole agency brief. It focuses on the part that creates value first, and the part I can actually make beautiful: the guest's experience of the zone.</span>
-        <span class="lang-es">Con claridad, y sin disculpas. Esta propuesta no intenta responder todo el brief de agencia. Se enfoca en la parte que crea valor primero, y la que de verdad puedo hacer hermosa: la experiencia del huésped en la zona.</span>
+        <span class="lang-en">Plainly, and not as apology. This proposal does not try to answer the whole agency brief. I would rather grow into the bigger picture with the right people than overpromise now. So it focuses on the part that creates value first, and the part I can genuinely make beautiful: the guest's experience of the zone.</span>
+        <span class="lang-es">Con claridad, y sin disculpas. Esta propuesta no intenta responder todo el brief de agencia. Prefiero crecer hacia el panorama completo con las personas correctas que prometer de más ahora. Por eso se enfoca en la parte que crea valor primero, y la que de verdad puedo hacer hermosa: la experiencia del huésped en la zona.</span>
       </p>
     </div>
     <div class="scope-cols">
@@ -588,8 +604,8 @@
           <span class="lang-es">Quiero ser claro sobre lo que soy. Soy un constructor, no una agencia de marketing. Hago la experiencia misma, la parte que tus huéspedes de verdad abren y sienten.</span>
         </p>
         <p class="body-copy">
-          <span class="lang-en">I'm Trevor. I live in La Punta, just down the coast, and I build these welcome experiences for homes around Puerto Escondido. I know this zone because I'm in it. I customize everything, because the whole point is that a place feels like itself. That's the work, and it's work I love.</span>
-          <span class="lang-es">Soy Trevor. Vivo en La Punta, un poco más abajo en la costa, y construyo estas experiencias de bienvenida para casas alrededor de Puerto Escondido. Conozco esta zona porque estoy en ella. Personalizo todo, porque el punto entero es que un lugar se sienta como sí mismo. Ese es el trabajo, y es un trabajo que amo.</span>
+          <span class="lang-en">I'm Trevor. I live in La Punta, just down the coast, and I build these welcome experiences for homes around Puerto Escondido. I've lived in Puerto Escondido for almost four years, and I've spent real time in this zone, so I know what makes it different. I customize everything, because the whole point is that a place feels like itself. That's the work, and it's work I love.</span>
+          <span class="lang-es">Soy Trevor. Vivo en La Punta, un poco más abajo en la costa, y construyo estas experiencias de bienvenida para casas alrededor de Puerto Escondido. Llevo casi cuatro años viviendo en Puerto Escondido, y he pasado tiempo de verdad en esta zona, así que sé lo que la hace diferente. Personalizo todo, porque el punto entero es que un lugar se sienta como sí mismo. Ese es el trabajo, y es un trabajo que amo.</span>
         </p>
         <div class="name"><b>Trevor</b><span class="lang-en">The Welcome Link · La Punta, Puerto Escondido</span><span class="lang-es">The Welcome Link · La Punta, Puerto Escondido</span></div>
       </div>
