@@ -122,15 +122,6 @@
   .scroll-cue span{display:inline-block;animation:bob 2.6s ease-in-out infinite;}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
-  /* ===== STATEMENT (what I am) ===== */
-  .statement{background:var(--paper);}
-  .statement .inner{max-width:1040px;}
-  .statement p{
-    font-family:'Fraunces',serif;font-weight:300;font-size:clamp(23px,3.1vw,42px);
-    line-height:1.32;letter-spacing:-.02em;color:#2a241c;max-width:24ch;
-  }
-  .statement p em{font-style:italic;color:var(--clay-deep);}
-
   /* ===== IDEA ===== */
   .idea{background:var(--cream);}
   .idea .inner{max-width:940px;}
@@ -154,8 +145,22 @@
   }
   .map-tag{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin-bottom:7px;}
   .map-title{font-family:'Fraunces',serif;font-size:clamp(21px,2vw,28px);font-weight:400;color:#2a241c;margin-bottom:26px;letter-spacing:-.02em;}
-  .map-stage{position:relative;width:100%;}
-  .map-stage svg{width:100%;height:auto;display:block;overflow:visible;}
+  .map-figure{position:relative;width:100%;aspect-ratio:1600/768;border-radius:4px;overflow:hidden;border:1px solid var(--line);background:#5a6b55;}
+  .map-figure img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.8) contrast(1.02);}
+  .map-figure::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      linear-gradient(180deg,rgba(36,30,22,.14),rgba(36,30,22,0) 26%,rgba(36,30,22,0) 66%,rgba(26,22,16,.40)),
+      radial-gradient(135% 105% at 50% 36%,rgba(201,162,92,.12),rgba(40,32,22,.12) 72%);
+  }
+  .map-pin{
+    position:absolute;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);z-index:2;
+    border:2px solid rgba(255,255,255,.94);box-shadow:0 2px 9px rgba(0,0,0,.45);
+  }
+  .map-pin::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(255,255,255,.5);}
+  .map-pin.home{background:var(--clay);}
+  .map-pin.spot{background:var(--ocean);width:11px;height:11px;}
+  .map-pin.spot::after{inset:-6px;}
   .map-note{margin-top:24px;font-size:13.5px;color:var(--ink-faint);font-style:italic;max-width:62ch;line-height:1.6;}
   .pin-legend{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:22px;}
   .pin-legend span{display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-soft);}
@@ -177,7 +182,8 @@
   .tile img.ph{object-fit:cover;width:100%;height:100%;}
   .tile .ph.g1{background:linear-gradient(160deg,#7c7160,#564c3f);}
   .tile .ph.g2{background:linear-gradient(160deg,#4d5b59,#2c3a38);}
-  .tile .ph.g3{background:linear-gradient(160deg,#736857,#4b4236);}
+  .tile .ph.g3{background:linear-gradient(160deg,#837a6a,#544a3d);}
+  .tile .ph.g4{background:linear-gradient(160deg,#6b6253,#453f37);}
   .tile::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,18,12,0) 38%,rgba(16,13,8,.62) 100%);}
   .tile .tx{position:relative;z-index:2;padding:22px;}
   .tile .lbl{font-family:'Fraunces',serif;font-size:22px;font-weight:400;line-height:1.1;letter-spacing:-.01em;}
@@ -302,7 +308,6 @@
     .tile-grid{grid-template-columns:1fr;}
     .tile{min-height:210px;}
     .hero h1{font-size:clamp(34px,9vw,52px);}
-    .statement p{max-width:none;}
     .pin-legend{gap:8px 16px;}
   }
 </style>
@@ -324,29 +329,17 @@
     <div class="inner">
       <div class="eyebrow"><span class="lang-en">Punta Pájaros · Oaxaca's Pacific coast</span><span class="lang-es">Punta Pájaros · costa del Pacífico de Oaxaca</span></div>
       <h1>
-        <span class="lang-en">A quiet stretch of Pacific, <em>contemplated more than it is swum.</em></span>
-        <span class="lang-es">Un tramo silencioso del Pacífico, <em>más contemplado que nadado.</em></span>
+        <span class="lang-en">A stretch of coast that <em>kept its silence.</em></span>
+        <span class="lang-es">Un tramo de costa que <em>guardó su silencio.</em></span>
       </h1>
       <p class="sub">
-        <span class="lang-en">Barefoot luxury, architecture by some of Mexico's and the world's finest, art at Casa Wabi, and a stretch of coast that has stayed its own. Imagine one calm place that lets a guest fall in love with all of it.</span>
-        <span class="lang-es">Lujo descalzo, arquitectura de algunos de los mejores de México y del mundo, arte en Casa Wabi y un tramo de costa que ha sabido seguir siendo suyo. Imagina un solo lugar, tranquilo, donde un huésped se enamore de todo ello.</span>
+        <span class="lang-en">Architecture, art, and a coast that asks you to slow down.</span>
+        <span class="lang-es">Arquitectura, arte y una costa que te pide ir despacio.</span>
       </p>
       <div class="scroll-cue"><span class="lang-en">Scroll</span><span class="lang-es">Desliza</span> <span>↓</span></div>
     </div>
   </div>
 </header>
-
-<!-- ===== STATEMENT: what I am ===== -->
-<section class="statement">
-  <div class="inner">
-    <div class="topline reveal"></div>
-    <div class="eyebrow reveal"><span class="lang-en">A note</span><span class="lang-es">Una nota</span></div>
-    <p class="reveal">
-      <span class="lang-en">I want to be clear about what I am. I'm a builder, not a marketing agency. I make <em>the experience itself,</em> the part your guests actually open and feel.</span>
-      <span class="lang-es">Quiero ser claro sobre lo que soy. Soy un constructor, no una agencia de marketing. Hago <em>la experiencia misma,</em> la parte que tus huéspedes de verdad abren y sienten.</span>
-    </p>
-  </div>
-</section>
 
 <!-- ===== THE IDEA ===== -->
 <section class="idea">
@@ -389,42 +382,19 @@
     </div>
 
     <!-- MAP CONCEPT -->
-    <div class="map-card reveal">
+    <div class="map-card reveal" id="mapconcept">
       <div class="map-tag"><span class="lang-en">The map · a concept</span><span class="lang-es">El mapa · un concepto</span></div>
       <div class="map-title"><span class="lang-en">Every home, one pin.</span><span class="lang-es">Cada casa, un punto.</span></div>
-      <div class="map-stage">
-        <svg viewBox="0 0 1000 300" role="img" aria-label="Concept map of the Punta Pajaros coast with property pins">
-          <defs>
-            <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#aebfbb"/><stop offset="1" stop-color="#7f9794"/>
-            </linearGradient>
-            <linearGradient id="landG" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#efe6d2"/><stop offset="1" stop-color="#e3d4b6"/>
-            </linearGradient>
-          </defs>
-          <!-- sea -->
-          <rect x="0" y="0" width="1000" height="300" fill="url(#seaG)" opacity="0.18"/>
-          <!-- coastline: land below a soft curve -->
-          <path d="M0,150 C150,118 300,168 460,150 C640,130 800,182 1000,150 L1000,300 L0,300 Z" fill="url(#landG)"/>
-          <path d="M0,150 C150,118 300,168 460,150 C640,130 800,182 1000,150" fill="none" stroke="#c5a25c" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.85"/>
-          <!-- gentle wave lines in the sea -->
-          <path d="M40,86 Q140,74 240,86 T440,86 T640,86 T840,86 T1040,86" fill="none" stroke="#5f7b78" stroke-width="1.4" opacity="0.2"/>
-          <path d="M40,112 Q140,100 240,112 T440,112 T640,112 T840,112 T1040,112" fill="none" stroke="#5f7b78" stroke-width="1.4" opacity="0.14"/>
-          <!-- property pins (homes) -->
-          <g font-family="'Spline Sans',sans-serif" font-size="13" font-weight="600" fill="#9c5d36">
-            <g><circle cx="150" cy="196" r="9" fill="#c07d54"/><circle cx="150" cy="196" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
-            <g><circle cx="300" cy="222" r="9" fill="#c07d54"/><circle cx="300" cy="222" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
-            <g><circle cx="445" cy="200" r="9" fill="#c07d54"/><circle cx="445" cy="200" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
-            <g><circle cx="600" cy="228" r="9" fill="#c07d54"/><circle cx="600" cy="228" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
-            <g><circle cx="745" cy="202" r="9" fill="#c07d54"/><circle cx="745" cy="202" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
-            <g><circle cx="880" cy="224" r="9" fill="#c07d54"/><circle cx="880" cy="224" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
-          </g>
-          <!-- curated spots (sea-side: a restaurant, an experience) -->
-          <g>
-            <circle cx="370" cy="118" r="7" fill="#3f6f6c"/><circle cx="370" cy="118" r="13" fill="none" stroke="#3f6f6c" stroke-width="1.4" opacity="0.4"/>
-            <circle cx="680" cy="108" r="7" fill="#3f6f6c"/><circle cx="680" cy="108" r="13" fill="none" stroke="#3f6f6c" stroke-width="1.4" opacity="0.4"/>
-          </g>
-        </svg>
+      <div class="map-figure">
+        <img src="images/coast-satellite.jpg" alt="Satellite view of the Punta Pajaros coastline" loading="lazy">
+        <span class="map-pin home" style="left:10%;top:54%"></span>
+        <span class="map-pin home" style="left:20%;top:51%"></span>
+        <span class="map-pin home" style="left:31%;top:55%"></span>
+        <span class="map-pin home" style="left:42%;top:52%"></span>
+        <span class="map-pin home" style="left:53%;top:55%"></span>
+        <span class="map-pin home" style="left:64%;top:57%"></span>
+        <span class="map-pin spot" style="left:37%;top:47%"></span>
+        <span class="map-pin spot" style="left:71%;top:51%"></span>
       </div>
       <div class="pin-legend">
         <span><i class="home"></i><span class="lang-en">Each property, its own page</span><span class="lang-es">Cada propiedad, su propia página</span></span>
@@ -458,14 +428,15 @@
           </div>
         </a>
         <a class="tile" style="cursor:default" onclick="return false">
-          <img class="ph" src="images/wellness.jpg" alt="A wellness session in the zone" loading="lazy">
+          <div class="ph g3"></div>
+          <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="2.4"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 16.2a6 6 0 0 0 0-8.4M4.9 4.9a10 10 0 0 0 0 14.2M19.1 19.1a10 10 0 0 0 0-14.2"/></svg>
           <div class="tx">
             <div class="lbl"><span class="lang-en">Stillness</span><span class="lang-es">Quietud</span></div>
             <div class="d"><span class="lang-en">The massage, the sound, the practice that slows a day down.</span><span class="lang-es">El masaje, el sonido, la práctica que desacelera el día.</span></div>
           </div>
         </a>
         <a class="tile" style="cursor:default" onclick="return false">
-          <div class="ph g3"></div>
+          <div class="ph g4"></div>
           <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
           <div class="tx">
             <div class="lbl"><span class="lang-en">Art &amp; form</span><span class="lang-es">Arte y forma</span></div>
@@ -573,8 +544,8 @@
         <span class="lang-es">Lo que construyo, y <em>lo que no.</em></span>
       </h2>
       <p class="body-copy" style="margin-top:clamp(24px,3vw,34px)">
-        <span class="lang-en">A quick word of clarity, not apology. I'm a builder, not a branding agency. I build beautiful pages and the experience around them. This proposal does not answer the full agency brief, and that's on purpose. It reframes around the part that actually creates value first: the guest's experience of the zone.</span>
-        <span class="lang-es">Una nota de claridad, no de disculpa. Soy un constructor, no una agencia de marca. Construyo páginas hermosas y la experiencia alrededor de ellas. Esta propuesta no responde el brief completo de agencia, y es a propósito. Lo replantea alrededor de la parte que de verdad crea valor primero: la experiencia del huésped en la zona.</span>
+        <span class="lang-en">Plainly, and not as apology. This proposal does not try to answer the whole agency brief. It focuses on the part that creates value first, and the part I can actually make beautiful: the guest's experience of the zone.</span>
+        <span class="lang-es">Con claridad, y sin disculpas. Esta propuesta no intenta responder todo el brief de agencia. Se enfoca en la parte que crea valor primero, y la que de verdad puedo hacer hermosa: la experiencia del huésped en la zona.</span>
       </p>
     </div>
     <div class="scope-cols">
@@ -582,22 +553,17 @@
         <h3><span class="tag"><span class="lang-en">I build</span><span class="lang-es">Construyo</span></span></h3>
         <ul class="scope-list">
           <li><span class="lang-en">The community page: the story, the map, the curated layer</span><span class="lang-es">La página comunitaria: la historia, el mapa, la capa curada</span></li>
-          <li><span class="lang-en">A welcome guide for each property</span><span class="lang-es">Una guía de bienvenida para cada propiedad</span></li>
-          <li><span class="lang-en">A full website for owners who don't have one</span><span class="lang-es">Un sitio web completo para quienes no tienen uno</span></li>
-          <li><span class="lang-en">The cross-linking between the zone and each home</span><span class="lang-es">El cruce de enlaces entre la zona y cada casa</span></li>
-          <li><span class="lang-en">One-tap booking for the massage, the dinner, the experience</span><span class="lang-es">Reserva en un toque del masaje, la cena, la experiencia</span></li>
-          <li><span class="lang-en">Bilingual, beautiful on every phone and screen</span><span class="lang-es">Bilingüe, hermoso en cada teléfono y pantalla</span></li>
+          <li><span class="lang-en">A welcome guide, or a full website, for each home</span><span class="lang-es">Una guía de bienvenida, o un sitio web completo, para cada casa</span></li>
+          <li><span class="lang-en">The cross-linking, and one-tap booking inside each home</span><span class="lang-es">El cruce de enlaces, y la reserva en un toque dentro de cada casa</span></li>
+          <li><span class="lang-en">Bilingual, beautiful on every screen</span><span class="lang-es">Bilingüe, hermoso en cada pantalla</span></li>
         </ul>
       </div>
       <div class="scope-card dont reveal d1">
         <h3><span class="tag"><span class="lang-en">I don't</span><span class="lang-es">No hago</span></span></h3>
         <ul class="scope-list">
           <li><span class="lang-en">Brand strategy, naming, and positioning</span><span class="lang-es">Estrategia de marca, naming y posicionamiento</span></li>
-          <li><span class="lang-en">How to drive traffic and run the media plan</span><span class="lang-es">Cómo atraer tráfico y manejar el plan de medios</span></li>
-          <li><span class="lang-en">What each owner should post on social</span><span class="lang-es">Qué debe publicar cada propietario en redes</span></li>
-          <li><span class="lang-en">How the community organizes itself internally</span><span class="lang-es">Cómo se organiza la comunidad por dentro</span></li>
-          <li><span class="lang-en">Influencer campaigns, PR, and SEO programs</span><span class="lang-es">Campañas con creadores, relaciones públicas y SEO</span></li>
-          <li><span class="lang-en">The wider agency strategy and KPIs</span><span class="lang-es">La estrategia de agencia más amplia y los KPIs</span></li>
+          <li><span class="lang-en">Driving traffic and the media plan</span><span class="lang-es">Atraer tráfico y el plan de medios</span></li>
+          <li><span class="lang-en">Influencer campaigns, PR, and SEO</span><span class="lang-es">Campañas con creadores, relaciones públicas y SEO</span></li>
         </ul>
       </div>
     </div>
@@ -617,6 +583,10 @@
       <div>
         <div class="eyebrow"><span class="ix">06</span><span class="lang-en">Who's behind it</span><span class="lang-es">Quién está detrás</span></div>
         <h2><span class="lang-en">A neighbor who loves <em>this coast.</em></span><span class="lang-es">Un vecino que ama <em>esta costa.</em></span></h2>
+        <p class="body-copy">
+          <span class="lang-en">I want to be clear about what I am. I'm a builder, not a marketing agency. I make the experience itself, the part your guests actually open and feel.</span>
+          <span class="lang-es">Quiero ser claro sobre lo que soy. Soy un constructor, no una agencia de marketing. Hago la experiencia misma, la parte que tus huéspedes de verdad abren y sienten.</span>
+        </p>
         <p class="body-copy">
           <span class="lang-en">I'm Trevor. I live in La Punta, just down the coast, and I build these welcome experiences for homes around Puerto Escondido. I know this zone because I'm in it. I customize everything, because the whole point is that a place feels like itself. That's the work, and it's work I love.</span>
           <span class="lang-es">Soy Trevor. Vivo en La Punta, un poco más abajo en la costa, y construyo estas experiencias de bienvenida para casas alrededor de Puerto Escondido. Conozco esta zona porque estoy en ella. Personalizo todo, porque el punto entero es que un lugar se sienta como sí mismo. Ese es el trabajo, y es un trabajo que amo.</span>
