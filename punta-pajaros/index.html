@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="A shared front door for Punta Pájaros, Oaxaca's Pacific coast. One beautiful page to introduce the zone, hold every home, and let guests fall in love with the whole area. A proposal from The Welcome Link.">
+<meta property="og:title" content="Punta Pájaros · A shared front door">
+<meta property="og:description" content="One calm, beautiful page for the whole zone, the story, a map of every home, and the curated layer that makes a stay extraordinary. A proposal from The Welcome Link.">
+<meta property="og:image" content="https://thewelcomelink.com/punta-pajaros/images/zone-hero.jpg">
+<meta property="og:url" content="https://thewelcomelink.com/punta-pajaros/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Punta Pájaros · A shared front door · The Welcome Link</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,300;9..144,1,400&family=Spline+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --shell:#f7f1e6;
+    --cream:#fdfaf3;
+    --paper:#fbf5ea;
+    --sand:#e9ddc7;
+    --sand-soft:#efe6d4;
+    --clay:#c07d54;
+    --clay-deep:#9c5d36;
+    --gold:#c5a25c;
+    --gold-deep:#a07e3f;
+    --ocean:#2f7d7b;
+    --ocean-deep:#1e5755;
+    --night:#16302e;
+    --ink:#2a2620;
+    --ink-soft:#6f655a;
+    --ink-faint:#9a8f80;
+    --line:rgba(42,38,32,.13);
+    --line-soft:rgba(42,38,32,.08);
+    --shadow:0 30px 70px -34px rgba(40,33,28,.42);
+    --shadow-soft:0 18px 44px -26px rgba(40,33,28,.34);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Spline Sans',sans-serif;background:var(--shell);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;}
+
+  /* ===== LANGUAGE TOGGLE ===== */
+  .lang-en,.lang-es{display:contents;}
+  body[data-lang="en"] .lang-es{display:none;}
+  body[data-lang="es"] .lang-en{display:none;}
+  .lang-toggle{
+    position:fixed;top:16px;right:clamp(16px,3vw,40px);z-index:200;
+    display:flex;gap:2px;padding:3px;border-radius:999px;
+    background:rgba(22,24,20,.4);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.26);box-shadow:0 6px 20px -8px rgba(0,0,0,.45);
+  }
+  .lang-toggle button{
+    border:none;background:transparent;color:rgba(255,255,255,.82);cursor:pointer;
+    font-family:'Spline Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.12em;
+    padding:6px 14px;border-radius:999px;transition:background .25s,color .25s;
+  }
+  .lang-toggle button.active{background:#fff;color:#2a2620;}
+
+  /* ===== LAYOUT PRIMITIVES ===== */
+  .inner{max-width:1180px;margin:0 auto;padding-left:clamp(24px,6vw,80px);padding-right:clamp(24px,6vw,80px);}
+  section{padding-top:clamp(76px,12vw,168px);padding-bottom:clamp(76px,12vw,168px);position:relative;}
+  .eyebrow{
+    font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;font-weight:600;
+    color:var(--clay-deep);display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--clay);display:inline-block;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-.02em;line-height:1.04;color:#2a241c;}
+  h2{font-size:clamp(31px,4.6vw,58px);font-weight:300;}
+  h2 em,h1 em{font-style:italic;color:var(--clay-deep);}
+  .lede{font-size:clamp(17px,1.55vw,21px);line-height:1.78;color:var(--ink-soft);font-weight:300;}
+  .body-copy{font-size:clamp(16px,1.25vw,18px);line-height:1.82;color:var(--ink-soft);font-weight:300;}
+  .body-copy + .body-copy{margin-top:1.1em;}
+  p strong{font-weight:500;color:var(--ink);}
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:0;color:#fff;position:relative;overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0;background:#16302e url("images/zone-hero.jpg") center 46%/cover no-repeat;}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(18,28,24,.30) 0%,rgba(18,26,22,.18) 40%,rgba(14,22,18,.52) 78%,rgba(10,18,15,.84) 100%);
+  }
+  .hero-in{position:relative;z-index:2;width:100%;}
+  .hero-in .inner{padding-top:clamp(120px,18vh,200px);padding-bottom:clamp(54px,8vh,90px);}
+  .hero .eyebrow{color:rgba(255,255,255,.92);}
+  .hero .eyebrow::before{background:rgba(255,255,255,.6);}
+  .hero h1{
+    color:#fff;font-weight:300;font-size:clamp(40px,6.6vw,86px);line-height:1.02;
+    max-width:18ch;text-shadow:0 2px 40px rgba(0,0,0,.4);
+  }
+  .hero h1 em{color:#f4dcae;font-weight:300;}
+  .hero .sub{
+    margin-top:clamp(22px,3vw,34px);max-width:60ch;font-size:clamp(16px,1.5vw,20px);
+    line-height:1.7;color:rgba(255,255,255,.9);font-weight:300;text-shadow:0 1px 16px rgba(0,0,0,.42);
+  }
+  .scroll-cue{margin-top:clamp(34px,5vw,56px);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.72);display:flex;align-items:center;gap:10px;}
+  .scroll-cue span{display:inline-block;animation:bob 2.4s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+  /* ===== IDEA ===== */
+  .idea{background:var(--cream);}
+  .idea .inner{max-width:880px;}
+  .idea h2{margin-bottom:30px;}
+  .pull{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+    font-size:clamp(21px,2.4vw,30px);line-height:1.5;color:var(--ocean-deep);
+    margin-top:34px;padding-left:clamp(20px,2vw,28px);border-left:2px solid var(--gold);
+  }
+
+  /* ===== SHARED FRONT DOOR ===== */
+  .door{background:var(--shell);}
+  .door .head{max-width:760px;margin-bottom:clamp(44px,6vw,72px);}
+  .door h2{margin-bottom:26px;}
+
+  /* map concept */
+  .map-card{
+    background:linear-gradient(165deg,#fcf7ec,#f0e6d2);border:1px solid var(--line);
+    border-radius:24px;padding:clamp(26px,3.5vw,46px);box-shadow:var(--shadow-soft);
+    position:relative;overflow:hidden;
+  }
+  .map-tag{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--clay-deep);font-weight:600;margin-bottom:6px;}
+  .map-title{font-family:'Fraunces',serif;font-size:clamp(20px,2vw,26px);font-weight:400;color:#2a241c;margin-bottom:22px;}
+  .map-stage{position:relative;width:100%;}
+  .map-stage svg{width:100%;height:auto;display:block;overflow:visible;}
+  .map-note{margin-top:22px;font-size:13.5px;color:var(--ink-faint);font-style:italic;max-width:62ch;line-height:1.6;}
+  .pin-legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px;}
+  .pin-legend span{display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-soft);}
+  .pin-legend i{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none;}
+  .pin-legend i.home{background:var(--clay);box-shadow:0 0 0 4px rgba(192,125,84,.18);}
+  .pin-legend i.spot{background:var(--ocean);box-shadow:0 0 0 4px rgba(47,125,123,.16);}
+
+  /* curated layer gallery */
+  .curated{margin-top:clamp(54px,7vw,88px);}
+  .curated h3{font-size:clamp(22px,2.4vw,30px);font-weight:300;margin-bottom:8px;}
+  .curated .sub{font-size:15.5px;color:var(--ink-soft);font-weight:300;margin-bottom:30px;max-width:54ch;}
+  .tile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .tile{
+    position:relative;border-radius:18px;overflow:hidden;min-height:300px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    box-shadow:var(--shadow-soft);color:#fff;text-decoration:none;
+    border:1px solid var(--line-soft);
+  }
+  .tile .ph{position:absolute;inset:0;z-index:0;}
+  .tile img.ph{object-fit:cover;width:100%;height:100%;}
+  .tile .ph.g1{background:linear-gradient(155deg,#caa25e,#a9743f 55%,#8a5530);}
+  .tile .ph.g2{background:linear-gradient(155deg,#3a8f8c,#236462 60%,#163f3d);}
+  .tile .ph.g3{background:linear-gradient(155deg,#cf9a6b,#9c5d36);}
+  .tile::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,18,12,.04) 30%,rgba(18,14,8,.66) 100%);}
+  .tile .tx{position:relative;z-index:2;padding:20px;}
+  .tile .ic{width:30px;height:30px;margin-bottom:auto;opacity:.92;}
+  .tile .lbl{font-family:'Fraunces',serif;font-size:21px;font-weight:400;line-height:1.1;}
+  .tile .d{font-size:12.5px;color:rgba(255,255,255,.82);margin-top:5px;line-height:1.45;font-weight:300;}
+  .tile .ictop{position:absolute;top:18px;left:18px;z-index:2;width:26px;height:26px;opacity:.9;}
+
+  /* ===== PROPERTY LAYER ===== */
+  .layer{background:var(--paper);}
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,84px);align-items:center;}
+  .split .copy h2{margin-bottom:26px;}
+  .split .copy .body-copy + .body-copy{margin-top:1.1em;}
+  .monica-note{
+    margin-top:28px;padding:20px 22px;background:var(--sand-soft);border-radius:16px;
+    border:1px solid var(--line-soft);font-size:15px;line-height:1.7;color:var(--ink-soft);font-weight:300;
+  }
+  .monica-note b{font-weight:500;color:var(--ink);}
+
+  /* one-tap phone mock */
+  .mock{
+    background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;
+    box-shadow:var(--shadow);max-width:360px;margin:0 auto;width:100%;
+  }
+  .mock-head{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line-soft);margin-bottom:16px;}
+  .mock-dot{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--clay),var(--clay-deep));flex:none;}
+  .mock-head .mh1{font-family:'Fraunces',serif;font-size:18px;color:#2a241c;line-height:1.1;}
+  .mock-head .mh2{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-deep);font-weight:600;margin-top:3px;}
+  .mock-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-soft);}
+  .mock-row:last-child{border-bottom:none;}
+  .mr-ic{width:38px;height:38px;border-radius:11px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--sand-soft);}
+  .mr-ic svg{width:19px;height:19px;}
+  .mr-tx{flex:1;}
+  .mr-tx b{display:block;font-size:14.5px;font-weight:500;color:var(--ink);}
+  .mr-tx span{font-size:12.5px;color:var(--ink-faint);font-weight:300;}
+  .mr-go{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ocean);background:rgba(47,125,123,.1);padding:6px 11px;border-radius:999px;flex:none;}
+  .mock-cap{text-align:center;font-size:12px;color:var(--ink-faint);font-style:italic;margin-top:16px;}
+
+  /* ===== THROUGHLINE (dark band) ===== */
+  .through{background:linear-gradient(165deg,#1c3b38,#122c29);color:#eaf3f0;}
+  .through .inner{max-width:900px;}
+  .through .eyebrow{color:#f4dcae;}
+  .through .eyebrow::before{background:#f4dcae;}
+  .through h2{color:#fff;font-weight:300;margin-bottom:30px;}
+  .through h2 em{color:#f4dcae;}
+  .through .body-copy{color:rgba(234,243,240,.84);}
+  .through .soft{margin-top:26px;font-size:14.5px;color:rgba(234,243,240,.6);font-weight:300;font-style:italic;}
+
+  /* atmospheric strip */
+  .strip{position:relative;height:clamp(240px,34vw,440px);overflow:hidden;}
+  .strip img{width:100%;height:100%;object-fit:cover;object-position:center 64%;}
+
+  /* ===== HONEST SCOPE ===== */
+  .scope{background:var(--sand-soft);}
+  .scope .head{max-width:720px;margin-bottom:clamp(40px,5vw,64px);}
+  .scope h2{margin-bottom:24px;}
+  .scope-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);}
+  .scope-card{background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:clamp(26px,3vw,40px);box-shadow:var(--shadow-soft);}
+  .scope-card h3{font-size:clamp(19px,2vw,24px);font-weight:400;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+  .scope-card h3 .tag{font-family:'Spline Sans',sans-serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:5px 11px;border-radius:999px;}
+  .scope-card.build h3 .tag{background:rgba(47,125,123,.13);color:var(--ocean-deep);}
+  .scope-card.dont h3 .tag{background:rgba(156,93,54,.12);color:var(--clay-deep);}
+  .scope-list{list-style:none;}
+  .scope-list li{position:relative;padding:11px 0 11px 28px;font-size:15px;line-height:1.6;color:var(--ink-soft);font-weight:300;border-bottom:1px solid var(--line-soft);}
+  .scope-list li:last-child{border-bottom:none;}
+  .scope-list li::before{position:absolute;left:0;top:11px;font-size:14px;}
+  .scope-card.build .scope-list li::before{content:"+";color:var(--ocean);font-weight:600;}
+  .scope-card.dont .scope-list li::before{content:"–";color:var(--clay);font-weight:600;}
+  .partner{margin-top:clamp(32px,4vw,48px);max-width:760px;font-size:clamp(15.5px,1.3vw,17.5px);line-height:1.78;color:var(--ink-soft);font-weight:300;}
+  .partner b{font-weight:500;color:var(--ink);}
+
+  /* ===== WHO ===== */
+  .who{background:var(--cream);}
+  .who-wrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,4vw,52px);align-items:center;max-width:920px;}
+  .who-photo{width:clamp(120px,16vw,190px);height:clamp(120px,16vw,190px);border-radius:20px;object-fit:cover;object-position:center 30%;box-shadow:var(--shadow-soft);flex:none;}
+  .who h2{font-size:clamp(26px,3vw,40px);margin-bottom:20px;}
+  .who .body-copy{max-width:54ch;}
+  .who .name{margin-top:20px;font-size:14px;color:var(--ink-soft);}
+  .who .name b{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:18px;color:var(--ocean-deep);display:block;}
+
+  /* ===== CLOSE ===== */
+  .close{background:linear-gradient(165deg,var(--clay),var(--clay-deep));color:#fff7ef;text-align:center;}
+  .close .inner{max-width:720px;}
+  .close .eyebrow{color:#ffe7c6;justify-content:center;}
+  .close .eyebrow::before{background:#ffe7c6;}
+  .close h2{color:#fff;font-weight:300;margin-bottom:22px;}
+  .close p{font-size:clamp(16px,1.4vw,19px);line-height:1.72;color:rgba(255,247,239,.9);font-weight:300;max-width:44ch;margin:0 auto 36px;}
+  .btn-wa{
+    display:inline-flex;align-items:center;justify-content:center;gap:11px;
+    padding:17px 34px;border-radius:14px;font-family:'Spline Sans',sans-serif;
+    font-size:16px;font-weight:600;text-decoration:none;background:#fff;color:var(--clay-deep);
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.4);transition:transform .15s;
+  }
+  .btn-wa:active{transform:scale(.98);}
+  .btn-wa svg{width:20px;height:20px;}
+  .close .ps{margin-top:24px;font-size:13.5px;color:rgba(255,247,239,.66);font-style:italic;}
+
+  /* ===== FOOTER ===== */
+  .foot{background:var(--night);color:rgba(234,243,240,.7);text-align:center;padding:clamp(48px,7vw,76px) 24px;}
+  .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:#f4dcae;}
+  .foot .small{font-size:12px;letter-spacing:.04em;margin-top:10px;color:rgba(234,243,240,.5);}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1);}
+  .reveal.in{opacity:1;transform:none;}
+  .reveal.d1{transition-delay:.08s;}
+  .reveal.d2{transition-delay:.16s;}
+  .reveal.d3{transition-delay:.24s;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}.scroll-cue span{animation:none;}}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:920px){
+    .split{grid-template-columns:1fr;gap:48px;}
+    .split .mock-wrap{order:2;}
+    .tile-grid{grid-template-columns:1fr 1fr;}
+    .scope-cols{grid-template-columns:1fr;}
+    .who-wrap{grid-template-columns:1fr;text-align:left;}
+    .who-photo{width:140px;height:140px;}
+  }
+  @media(max-width:560px){
+    .tile-grid{grid-template-columns:1fr;}
+    .tile{min-height:200px;}
+    .hero h1{font-size:clamp(34px,9vw,52px);}
+    .pin-legend{gap:8px 16px;}
+  }
+</style>
+</head>
+<body data-lang="en">
+
+<div class="lang-toggle">
+  <button id="btnEN" class="active" onclick="setLang('en')">EN</button>
+  <button id="btnES" onclick="setLang('es')">ES</button>
+</div>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-in">
+    <div class="inner">
+      <div class="eyebrow"><span class="lang-en">Punta Pájaros · Oaxaca's Pacific coast</span><span class="lang-es">Punta Pájaros · costa del Pacífico de Oaxaca</span></div>
+      <h1>
+        <span class="lang-en">A quiet stretch of Pacific, <em>contemplated more than it is swum.</em></span>
+        <span class="lang-es">Un tramo silencioso del Pacífico, <em>más contemplado que nadado.</em></span>
+      </h1>
+      <p class="sub">
+        <span class="lang-en">Barefoot luxury, architecture by some of Mexico's and the world's finest, art at Casa Wabi, and a stretch of coast that has stayed its own. Imagine one calm place that lets a guest fall in love with all of it.</span>
+        <span class="lang-es">Lujo descalzo, arquitectura de algunos de los mejores de México y del mundo, arte en Casa Wabi y un tramo de costa que ha sabido seguir siendo suyo. Imagina un solo lugar, tranquilo, donde un huésped se enamore de todo ello.</span>
+      </p>
+      <div class="scroll-cue"><span class="lang-en">Scroll</span><span class="lang-es">Desliza</span> <span>↓</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== THE IDEA ===== -->
+<section class="idea reveal">
+  <div class="inner">
+    <div class="eyebrow"><span class="lang-en">The idea</span><span class="lang-es">La idea</span></div>
+    <h2>
+      <span class="lang-en">Extraordinary, but introduced in <em>fragments.</em></span>
+      <span class="lang-es">Extraordinario, pero presentado en <em>fragmentos.</em></span>
+    </h2>
+    <p class="body-copy">
+      <span class="lang-en">Punta Pájaros is one of the most special places on this coast. Right now, though, it introduces itself in pieces. A listing here, a hotel there, a name passed quietly between friends. A guest can stay a week and never feel the whole of it.</span>
+      <span class="lang-es">Punta Pájaros es uno de los lugares más especiales de esta costa. Pero hoy se presenta a sí mismo en pedazos. Un anuncio por aquí, un hotel por allá, un nombre que pasa en voz baja entre amigos. Un huésped puede quedarse una semana y nunca sentir el conjunto.</span>
+    </p>
+    <p class="body-copy">
+      <span class="lang-en">Picture instead one beautiful place that lets a guest take in the whole zone and fall for it, before they ever arrive and all through their stay. Not a brochure about the area. The living web version of everything a printed brief reaches for.</span>
+      <span class="lang-es">Imagina, en cambio, un solo lugar hermoso que le permita a un huésped tomar el conjunto de la zona y enamorarse de él, antes de llegar y durante toda su estancia. No un folleto sobre el área. La versión web, viva, de todo lo que un documento impreso intenta alcanzar.</span>
+    </p>
+    <p class="pull">
+      <span class="lang-en">The real product was never the page. It is a guest falling in love with this place.</span>
+      <span class="lang-es">El verdadero producto nunca fue la página. Es un huésped que se enamora de este lugar.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===== SHARED FRONT DOOR ===== -->
+<section class="door">
+  <div class="inner">
+    <div class="head reveal">
+      <div class="eyebrow"><span class="lang-en">The shared front door</span><span class="lang-es">La puerta de entrada común</span></div>
+      <h2>
+        <span class="lang-en">One page for the <em>whole zone.</em></span>
+        <span class="lang-es">Una página para <em>toda la zona.</em></span>
+      </h2>
+      <p class="body-copy">
+        <span class="lang-en">A single bilingual page that introduces and sells Punta Pájaros. It tells the story of the place. It holds a map, with every home as a pin, each one tapping through to that property's own site or guide. And it carries the curated layer, the part that makes a stay extraordinary: where to eat, the experiences, the massage, the morning on the water, the art and architecture. This is the connective tissue for the whole community.</span>
+        <span class="lang-es">Una sola página bilingüe que presenta y promueve Punta Pájaros. Cuenta la historia del lugar. Sostiene un mapa, con cada casa como un punto, y cada uno lleva al sitio o a la guía de esa propiedad. Y carga la capa curada, la parte que hace una estancia extraordinaria: dónde comer, las experiencias, el masaje, la mañana en el agua, el arte y la arquitectura. Este es el tejido que conecta a toda la comunidad.</span>
+      </p>
+    </div>
+
+    <!-- MAP CONCEPT -->
+    <div class="map-card reveal">
+      <div class="map-tag"><span class="lang-en">The map · a concept</span><span class="lang-es">El mapa · un concepto</span></div>
+      <div class="map-title"><span class="lang-en">Every home, one pin.</span><span class="lang-es">Cada casa, un punto.</span></div>
+      <div class="map-stage">
+        <svg viewBox="0 0 1000 300" role="img" aria-label="Concept map of the Punta Pajaros coast with property pins">
+          <defs>
+            <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#7fc1bd"/><stop offset="1" stop-color="#3a8f8c"/>
+            </linearGradient>
+            <linearGradient id="landG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#efe6d2"/><stop offset="1" stop-color="#e3d4b6"/>
+            </linearGradient>
+          </defs>
+          <!-- sea -->
+          <rect x="0" y="0" width="1000" height="300" fill="url(#seaG)" opacity="0.16"/>
+          <!-- coastline: land below a soft curve -->
+          <path d="M0,150 C150,118 300,168 460,150 C640,130 800,182 1000,150 L1000,300 L0,300 Z" fill="url(#landG)"/>
+          <path d="M0,150 C150,118 300,168 460,150 C640,130 800,182 1000,150" fill="none" stroke="#c5a25c" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.85"/>
+          <!-- gentle wave lines in the sea -->
+          <path d="M40,86 Q140,74 240,86 T440,86 T640,86 T840,86 T1040,86" fill="none" stroke="#2f7d7b" stroke-width="1.4" opacity="0.22"/>
+          <path d="M40,112 Q140,100 240,112 T440,112 T640,112 T840,112 T1040,112" fill="none" stroke="#2f7d7b" stroke-width="1.4" opacity="0.16"/>
+          <!-- property pins (homes) -->
+          <g font-family="'Spline Sans',sans-serif" font-size="13" font-weight="600" fill="#9c5d36">
+            <g><circle cx="150" cy="196" r="9" fill="#c07d54"/><circle cx="150" cy="196" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
+            <g><circle cx="300" cy="222" r="9" fill="#c07d54"/><circle cx="300" cy="222" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
+            <g><circle cx="445" cy="200" r="9" fill="#c07d54"/><circle cx="445" cy="200" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
+            <g><circle cx="600" cy="228" r="9" fill="#c07d54"/><circle cx="600" cy="228" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
+            <g><circle cx="745" cy="202" r="9" fill="#c07d54"/><circle cx="745" cy="202" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
+            <g><circle cx="880" cy="224" r="9" fill="#c07d54"/><circle cx="880" cy="224" r="16" fill="none" stroke="#c07d54" stroke-width="1.5" opacity="0.4"/></g>
+          </g>
+          <!-- curated spots (sea-side: a restaurant, an experience) -->
+          <g>
+            <circle cx="370" cy="118" r="7" fill="#2f7d7b"/><circle cx="370" cy="118" r="13" fill="none" stroke="#2f7d7b" stroke-width="1.4" opacity="0.4"/>
+            <circle cx="680" cy="108" r="7" fill="#2f7d7b"/><circle cx="680" cy="108" r="13" fill="none" stroke="#2f7d7b" stroke-width="1.4" opacity="0.4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pin-legend">
+        <span><i class="home"></i><span class="lang-en">Each property, its own page</span><span class="lang-es">Cada propiedad, su propia página</span></span>
+        <span><i class="spot"></i><span class="lang-en">The curated layer: table, water, art</span><span class="lang-es">La capa curada: mesa, mar, arte</span></span>
+      </div>
+      <p class="map-note">
+        <span class="lang-en">A concept sketch, not the real map yet. Each pin becomes a real home with its own photo and a tap through to its page. We build the real one once the homes are in.</span>
+        <span class="lang-es">Un boceto conceptual, todavía no el mapa real. Cada punto se convierte en una casa real con su propia foto y un toque que lleva a su página. Construimos el mapa de verdad cuando las casas estén dentro.</span>
+      </p>
+    </div>
+
+    <!-- CURATED LAYER -->
+    <div class="curated reveal">
+      <h3><span class="lang-en">The curated layer</span><span class="lang-es">La capa curada</span></h3>
+      <p class="sub"><span class="lang-en">The part a guest remembers. Real, personal, local. Not a generated list.</span><span class="lang-es">La parte que un huésped recuerda. Real, personal, local. No una lista generada.</span></p>
+      <div class="tile-grid">
+        <a class="tile" style="cursor:default" onclick="return false">
+          <div class="ph g1"></div>
+          <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M5 3v8M5 11a2 2 0 0 0 2-2V3M3 3v6a2 2 0 0 0 2 2M19 3c-1.7 0-3 2.5-3 5.5S17 14 19 14m0-11v18"/></svg>
+          <div class="tx">
+            <div class="lbl"><span class="lang-en">The table</span><span class="lang-es">La mesa</span></div>
+            <div class="d"><span class="lang-en">High-end dining and the chef who'll cook in your house.</span><span class="lang-es">Alta cocina y el chef que cocina en tu casa.</span></div>
+          </div>
+        </a>
+        <a class="tile" style="cursor:default" onclick="return false">
+          <div class="ph g2"></div>
+          <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M2 18c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1M4 14l8-9 8 9M9 14V9"/></svg>
+          <div class="tx">
+            <div class="lbl"><span class="lang-en">On the water</span><span class="lang-es">En el agua</span></div>
+            <div class="d"><span class="lang-en">Sunrise on the Pacific, the boat, the turtles, the swell.</span><span class="lang-es">Amanecer en el Pacífico, la lancha, las tortugas, el oleaje.</span></div>
+          </div>
+        </a>
+        <a class="tile" style="cursor:default" onclick="return false">
+          <img class="ph" src="images/wellness.jpg" alt="A wellness session in the zone" loading="lazy">
+          <div class="tx">
+            <div class="lbl"><span class="lang-en">Stillness</span><span class="lang-es">Quietud</span></div>
+            <div class="d"><span class="lang-en">The massage, the sound, the practice that slows a day down.</span><span class="lang-es">El masaje, el sonido, la práctica que desacelera el día.</span></div>
+          </div>
+        </a>
+        <a class="tile" style="cursor:default" onclick="return false">
+          <div class="ph g3"></div>
+          <svg class="ictop" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+          <div class="tx">
+            <div class="lbl"><span class="lang-en">Art &amp; form</span><span class="lang-es">Arte y forma</span></div>
+            <div class="d"><span class="lang-en">Casa Wabi, and the architecture that drew everyone here.</span><span class="lang-es">Casa Wabi, y la arquitectura que atrajo a todos aquí.</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROPERTY LAYER ===== -->
+<section class="layer">
+  <div class="inner">
+    <div class="split">
+      <div class="copy reveal">
+        <div class="eyebrow"><span class="lang-en">The next layer, home by home</span><span class="lang-es">La siguiente capa, casa por casa</span></div>
+        <h2>
+          <span class="lang-en">Each home, its <em>own welcome.</em></span>
+          <span class="lang-es">Cada casa, su <em>propia bienvenida.</em></span>
+        </h2>
+        <p class="body-copy">
+          <span class="lang-en">Under the shared page sits a layer that belongs to each owner: a welcome guide for every property, and a full website for owners who don't have one yet. These are separate arrangements, home by home, the natural next step rather than part of the community page.</span>
+          <span class="lang-es">Bajo la página común vive una capa que pertenece a cada propietario: una guía de bienvenida para cada propiedad, y un sitio web completo para quienes aún no tienen uno. Son acuerdos por separado, casa por casa, el siguiente paso natural más que parte de la página comunitaria.</span>
+        </p>
+        <p class="body-copy">
+          <span class="lang-en">The cross-linking is the whole point. The community page sends a guest to a home. Inside that home, one tap books the massage, reserves the chef's dinner, holds a spot on the sunrise boat. A guest discovers the zone, picks a house, and finds everything of value in and around it already within reach.</span>
+          <span class="lang-es">El cruce de enlaces es justo el punto. La página comunitaria lleva al huésped a una casa. Dentro de esa casa, un toque reserva el masaje, aparta la cena del chef, guarda un lugar en la lancha del amanecer. El huésped descubre la zona, elige una casa y encuentra todo lo valioso en ella y a su alrededor ya al alcance.</span>
+        </p>
+        <div class="monica-note">
+          <span class="lang-en"><b>Monica put it simply:</b> she wants her guests to know all the value available in and around her house. That is exactly what this layer does, for every home that wants it.</span>
+          <span class="lang-es"><b>Monica lo dijo claro:</b> quiere que sus huéspedes conozcan todo el valor disponible en su casa y alrededor de ella. Eso es exactamente lo que hace esta capa, para cada casa que la quiera.</span>
+        </div>
+      </div>
+
+      <div class="mock-wrap reveal d1">
+        <div class="mock">
+          <div class="mock-head">
+            <div class="mock-dot"></div>
+            <div>
+              <div class="mh1"><span class="lang-en">Inside your home</span><span class="lang-es">Dentro de tu casa</span></div>
+              <div class="mh2"><span class="lang-en">One tap to book</span><span class="lang-es">Reserva en un toque</span></div>
+            </div>
+          </div>
+          <div class="mock-row">
+            <div class="mr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9c5d36" stroke-width="1.6"><path d="M4 14c0-4 3.5-7 8-7s8 3 8 7M2 14h20M7 18h10"/></svg></div>
+            <div class="mr-tx"><b><span class="lang-en">A massage at the house</span><span class="lang-es">Un masaje en la casa</span></b><span><span class="lang-en">Today, on the terrace</span><span class="lang-es">Hoy, en la terraza</span></span></div>
+            <div class="mr-go"><span class="lang-en">Book</span><span class="lang-es">Reservar</span></div>
+          </div>
+          <div class="mock-row">
+            <div class="mr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9c5d36" stroke-width="1.6"><path d="M5 3v8M5 11a2 2 0 0 0 2-2V3M3 3v6a2 2 0 0 0 2 2M19 3c-1.7 0-3 2.5-3 5.5S17 14 19 14m0-11v18"/></svg></div>
+            <div class="mr-tx"><b><span class="lang-en">A chef dinner, just here</span><span class="lang-es">Una cena de chef, aquí</span></b><span><span class="lang-en">Set the menu together</span><span class="lang-es">Arma el menú juntos</span></span></div>
+            <div class="mr-go"><span class="lang-en">Reserve</span><span class="lang-es">Apartar</span></div>
+          </div>
+          <div class="mock-row">
+            <div class="mr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9c5d36" stroke-width="1.6"><path d="M2 18c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1M4 14l8-9 8 9"/></svg></div>
+            <div class="mr-tx"><b><span class="lang-en">Sunrise on the water</span><span class="lang-es">Amanecer en el agua</span></b><span><span class="lang-en">Boat leaves at six</span><span class="lang-es">La lancha sale a las seis</span></span></div>
+            <div class="mr-go"><span class="lang-en">Hold</span><span class="lang-es">Guardar</span></div>
+          </div>
+          <div class="mock-cap"><span class="lang-en">A concept of what lives inside each home's page.</span><span class="lang-es">Un concepto de lo que vive dentro de la página de cada casa.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THROUGHLINE ===== -->
+<section class="through reveal">
+  <div class="inner">
+    <div class="eyebrow"><span class="lang-en">Why it works</span><span class="lang-es">Por qué funciona</span></div>
+    <h2>
+      <span class="lang-en">Guests who fall in love <em>come back.</em></span>
+      <span class="lang-es">Los huéspedes que se enamoran <em>regresan.</em></span>
+    </h2>
+    <p class="body-copy">
+      <span class="lang-en">The meal they still talk about. The massage on the terrace. The one morning on the water they didn't expect. When a stay is worth talking about, people return, they bring friends, they recommend the zone by name, they post it without being asked.</span>
+      <span class="lang-es">La comida de la que todavía hablan. El masaje en la terraza. La mañana en el agua que no esperaban. Cuando una estancia vale la pena contarla, la gente regresa, trae amigos, recomienda la zona por su nombre, la publica sin que nadie se lo pida.</span>
+    </p>
+    <p class="body-copy">
+      <span class="lang-en">The bookings, the reviews, the influencer attention, the word of mouth: those are byproducts of one thing done well, a guest who genuinely loved being here. So we build that thing directly, the experience itself, rather than a strategy that describes it.</span>
+      <span class="lang-es">Las reservas, las reseñas, la atención de los creadores, el boca a boca: todo eso son subproductos de una sola cosa bien hecha, un huésped que de verdad amó estar aquí. Así que construimos esa cosa directamente, la experiencia misma, en vez de una estrategia que la describe.</span>
+    </p>
+    <p class="soft">
+      <span class="lang-en">Long-term guests, not one-time ones. The rest follows.</span>
+      <span class="lang-es">Huéspedes de largo plazo, no de una sola vez. Lo demás llega solo.</span>
+    </p>
+  </div>
+</section>
+
+<!-- atmospheric strip -->
+<div class="strip" aria-hidden="true">
+  <img src="images/sky.jpg" alt="" loading="lazy">
+</div>
+
+<!-- ===== HONEST SCOPE ===== -->
+<section class="scope">
+  <div class="inner">
+    <div class="head reveal">
+      <div class="eyebrow"><span class="lang-en">Honest about what this is</span><span class="lang-es">Honesto sobre lo que esto es</span></div>
+      <h2>
+        <span class="lang-en">What I build, and <em>what I don't.</em></span>
+        <span class="lang-es">Lo que construyo, y <em>lo que no.</em></span>
+      </h2>
+      <p class="body-copy">
+        <span class="lang-en">A quick word of clarity, not apology. I'm a builder, not a branding agency. I build beautiful pages and the experience around them. This proposal does not answer the full agency brief, and that's on purpose. It reframes around the part that actually creates value first: the guest's experience of the zone.</span>
+        <span class="lang-es">Una nota de claridad, no de disculpa. Soy un constructor, no una agencia de marca. Construyo páginas hermosas y la experiencia alrededor de ellas. Esta propuesta no responde el brief completo de agencia, y es a propósito. Lo replantea alrededor de la parte que de verdad crea valor primero: la experiencia del huésped en la zona.</span>
+      </p>
+    </div>
+    <div class="scope-cols">
+      <div class="scope-card build reveal">
+        <h3><span class="tag"><span class="lang-en">I build</span><span class="lang-es">Construyo</span></span></h3>
+        <ul class="scope-list">
+          <li><span class="lang-en">The community page: the story, the map, the curated layer</span><span class="lang-es">La página comunitaria: la historia, el mapa, la capa curada</span></li>
+          <li><span class="lang-en">A welcome guide for each property</span><span class="lang-es">Una guía de bienvenida para cada propiedad</span></li>
+          <li><span class="lang-en">A full website for owners who don't have one</span><span class="lang-es">Un sitio web completo para quienes no tienen uno</span></li>
+          <li><span class="lang-en">The cross-linking between the zone and each home</span><span class="lang-es">El cruce de enlaces entre la zona y cada casa</span></li>
+          <li><span class="lang-en">One-tap booking for the massage, the dinner, the experience</span><span class="lang-es">Reserva en un toque del masaje, la cena, la experiencia</span></li>
+          <li><span class="lang-en">Bilingual, beautiful on every phone and screen</span><span class="lang-es">Bilingüe, hermoso en cada teléfono y pantalla</span></li>
+        </ul>
+      </div>
+      <div class="scope-card dont reveal d1">
+        <h3><span class="tag"><span class="lang-en">I don't</span><span class="lang-es">No hago</span></span></h3>
+        <ul class="scope-list">
+          <li><span class="lang-en">Brand strategy, naming, and positioning</span><span class="lang-es">Estrategia de marca, naming y posicionamiento</span></li>
+          <li><span class="lang-en">How to drive traffic and run the media plan</span><span class="lang-es">Cómo atraer tráfico y manejar el plan de medios</span></li>
+          <li><span class="lang-en">What each owner should post on social</span><span class="lang-es">Qué debe publicar cada propietario en redes</span></li>
+          <li><span class="lang-en">How the community organizes itself internally</span><span class="lang-es">Cómo se organiza la comunidad por dentro</span></li>
+          <li><span class="lang-en">Influencer campaigns, PR, and SEO programs</span><span class="lang-es">Campañas con creadores, relaciones públicas y SEO</span></li>
+          <li><span class="lang-en">The wider agency strategy and KPIs</span><span class="lang-es">La estrategia de agencia más amplia y los KPIs</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="partner reveal">
+      <span class="lang-en">If the community wants that fuller scope down the line, I'm glad to bring in a strategist and designer partner for the parts that aren't mine. <b>Think of it as a possible later phase.</b> For now, this is the piece that creates value first, and the one I can genuinely make beautiful.</span>
+      <span class="lang-es">Si la comunidad quiere ese alcance más amplio más adelante, con gusto sumo a un socio estratega y diseñador para las partes que no son mías. <b>Pensémoslo como una posible fase posterior.</b> Por ahora, esta es la pieza que crea valor primero, y la que de verdad puedo hacer hermosa.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===== WHO ===== -->
+<section class="who reveal">
+  <div class="inner">
+    <div class="who-wrap">
+      <img class="who-photo" src="images/trevor.jpg" alt="Trevor">
+      <div>
+        <div class="eyebrow"><span class="lang-en">Who's behind it</span><span class="lang-es">Quién está detrás</span></div>
+        <h2><span class="lang-en">A neighbor who loves <em>this coast.</em></span><span class="lang-es">Un vecino que ama <em>esta costa.</em></span></h2>
+        <p class="body-copy">
+          <span class="lang-en">I'm Trevor. I live in La Punta, just down the coast, and I build these welcome experiences for homes around Puerto Escondido. I know this zone because I'm in it. I customize everything, because the whole point is that a place feels like itself. That's the work, and it's work I love.</span>
+          <span class="lang-es">Soy Trevor. Vivo en La Punta, un poco más abajo en la costa, y construyo estas experiencias de bienvenida para casas alrededor de Puerto Escondido. Conozco esta zona porque estoy en ella. Personalizo todo, porque el punto entero es que un lugar se sienta como sí mismo. Ese es el trabajo, y es un trabajo que amo.</span>
+        </p>
+        <div class="name"><b>Trevor</b><span class="lang-en">The Welcome Link · La Punta, Puerto Escondido</span><span class="lang-es">The Welcome Link · La Punta, Puerto Escondido</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLOSE ===== -->
+<section class="close reveal">
+  <div class="inner">
+    <div class="eyebrow"><span class="lang-en">The next step</span><span class="lang-es">El siguiente paso</span></div>
+    <h2><span class="lang-en">Let's talk it <em>through.</em></span><span class="lang-es">Hablémoslo <em>con calma.</em></span></h2>
+    <p>
+      <span class="lang-en">No deck, no pitch. The next step is a short conversation about the zone and what would actually help. If it feels right, we go from there.</span>
+      <span class="lang-es">Sin presentación, sin discurso de venta. El siguiente paso es una conversación breve sobre la zona y lo que de verdad ayudaría. Si se siente bien, avanzamos desde ahí.</span>
+    </p>
+    <a class="btn-wa" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20saw%20the%20Punta%20P%C3%A1jaros%20page%20and%20I%27d%20love%20to%20talk%20it%20through." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.2.84.85-3.12-.2-.32a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+      <span class="lang-en">Message Trevor on WhatsApp</span><span class="lang-es">Escríbele a Trevor por WhatsApp</span>
+    </a>
+    <div class="ps"><span class="lang-en">A proposal for Punta Pájaros, prepared with Monica.</span><span class="lang-es">Una propuesta para Punta Pájaros, preparada junto a Monica.</span></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div class="foot">
+  <div class="mark">The Welcome Link</div>
+  <div class="small"><span class="lang-en">A shared front door for Punta Pájaros · Oaxaca's Pacific coast</span><span class="lang-es">Una puerta de entrada común para Punta Pájaros · costa del Pacífico de Oaxaca</span></div>
+</div>
+
+<script>
+  function setLang(l){
+    document.body.setAttribute('data-lang', l);
+    document.documentElement.lang = l;
+    document.getElementById('btnEN').classList.toggle('active', l === 'en');
+    document.getElementById('btnES').classList.toggle('active', l === 'es');
+  }
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
