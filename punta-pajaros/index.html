@@ -261,6 +261,26 @@
   .who .name{margin-top:24px;font-size:14px;color:var(--ink-soft);}
   .who .name b{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:19px;color:var(--ocean-deep);display:block;margin-bottom:2px;}
 
+  /* ===== HOW IT WORKS (the practical back matter) ===== */
+  .how{background:var(--shell);padding-top:clamp(120px,17vw,240px);}
+  .how .head{max-width:780px;margin-bottom:clamp(54px,7vw,88px);}
+  .how h2{margin-bottom:clamp(18px,2.2vw,26px);}
+  .how .lead{font-size:clamp(16px,1.45vw,20px);line-height:1.7;color:var(--ink-soft);font-weight:300;max-width:42ch;}
+  .how-list{border-top:1px solid var(--line);}
+  .how-row{
+    display:grid;grid-template-columns:1fr 1.9fr;gap:clamp(16px,4vw,72px);align-items:start;
+    padding:clamp(30px,4vw,50px) 0;border-bottom:1px solid var(--line-soft);
+  }
+  .how-row:last-child{border-bottom:none;}
+  .how-row .t{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(21px,2.1vw,28px);line-height:1.12;letter-spacing:-.01em;color:#2a241c;}
+  .how-row .t .opt{display:block;font-family:'Spline Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--ink-faint);margin-top:9px;}
+  .how-row .d{font-size:clamp(15.5px,1.2vw,17.5px);line-height:1.78;color:var(--ink-soft);font-weight:300;max-width:62ch;}
+  .how-row .d p + p{margin-top:1em;}
+  .how-amount{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1;letter-spacing:-.02em;color:#2a241c;margin-bottom:.45em;}
+  .how-amount .unit{font-size:.5em;color:var(--ink-faint);letter-spacing:0;}
+  .how-terms{color:var(--ink-soft);}
+  .how-terms b{font-weight:500;color:var(--ink);}
+
   /* ===== CLOSE (calm sand field, one warm object) ===== */
   .close{background:linear-gradient(180deg,#f5eedd,#eee2cd);color:var(--ink);text-align:center;}
   .close .inner{max-width:760px;}
@@ -303,6 +323,7 @@
     .scope-cols{grid-template-columns:1fr;}
     .who-wrap{grid-template-columns:1fr;text-align:left;}
     .who-photo{width:148px;height:148px;}
+    .how-row{grid-template-columns:1fr;gap:14px;}
   }
   @media(max-width:560px){
     .tile-grid{grid-template-columns:1fr;}
@@ -604,11 +625,76 @@
   </div>
 </section>
 
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how">
+  <div class="inner">
+    <div class="topline reveal"></div>
+    <div class="head reveal">
+      <div class="eyebrow"><span class="ix">07</span><span class="lang-en">The practical part</span><span class="lang-es">La parte práctica</span></div>
+      <h2><span class="lang-en">How it works</span><span class="lang-es">Cómo funciona</span></h2>
+      <p class="lead"><span class="lang-en">The vision is above. Here is how we make it real.</span><span class="lang-es">La visión está arriba. Aquí, cómo la hacemos realidad.</span></p>
+    </div>
+
+    <div class="how-list reveal">
+      <div class="how-row">
+        <div class="t"><span class="lang-en">What I build</span><span class="lang-es">Lo que construyo</span></div>
+        <div class="d">
+          <p><span class="lang-en">A custom page for the whole zone: the story, the map with every participating home and the local businesses that make this place special, and the curated layer that points guests to the real tables, beaches, experiences, wellness, and art here. Bilingual, beautiful on every screen, designed with the same care the architecture here was. Each home links out to its own page, and the businesses are part of the map too.</span><span class="lang-es">Una página a medida para toda la zona: la historia, el mapa con cada casa participante y los negocios locales que hacen especial a este lugar, y la capa curada que lleva a los huéspedes a las mesas, las playas, las experiencias, el bienestar y el arte de verdad de aquí. Bilingüe, hermosa en cada pantalla, diseñada con el mismo cuidado con que se hizo la arquitectura de aquí. Cada casa enlaza a su propia página, y los negocios también son parte del mapa.</span></p>
+        </div>
+      </div>
+
+      <div class="how-row">
+        <div class="t"><span class="lang-en">Live in seven days</span><span class="lang-es">En línea en siete días</span></div>
+        <div class="d">
+          <p><span class="lang-en">A first version up within a week of starting, not months. Something real you can see, share, and shape, while the agencies are still drafting contracts.</span><span class="lang-es">Una primera versión lista en una semana desde que empezamos, no en meses. Algo real que puedes ver, compartir y moldear, mientras las agencias siguen redactando contratos.</span></p>
+        </div>
+      </div>
+
+      <div class="how-row">
+        <div class="t"><span class="lang-en">Built together</span><span class="lang-es">Construida en conjunto</span></div>
+        <div class="d">
+          <p><span class="lang-en">Two rounds of revisions as a group, so the page reflects the whole community. One person gathers the feedback, I build it in, then it's locked and live.</span><span class="lang-es">Dos rondas de cambios como grupo, para que la página refleje a toda la comunidad. Una persona reúne los comentarios, yo los integro, y luego queda fija y en línea.</span></p>
+        </div>
+      </div>
+
+      <div class="how-row">
+        <div class="t"><span class="lang-en">The investment</span><span class="lang-es">La inversión</span></div>
+        <div class="d">
+          <div class="how-amount">60,000 <span class="unit">pesos</span></div>
+          <p><span class="lang-en">for the full build, shared among the participating homes. How that's divided is for the community to decide together, in whatever way feels fair across the different property sizes.</span><span class="lang-es">por el desarrollo completo, repartido entre las casas participantes. Cómo se divide lo decide la comunidad en conjunto, de la forma que se sienta justa entre los distintos tamaños de propiedad.</span></p>
+          <p class="how-terms"><span class="lang-en">Simple terms: <b>half to begin, half on completion.</b> Homes that join after launch can be added anytime.</span><span class="lang-es">Términos simples: <b>la mitad para empezar, la mitad al terminar.</b> Las casas que se sumen después del lanzamiento se pueden agregar en cualquier momento.</span></p>
+        </div>
+      </div>
+
+      <div class="how-row">
+        <div class="t"><span class="lang-en">Keeping it alive</span><span class="lang-es">Mantenerla viva</span><span class="opt"><span class="lang-en">Optional</span><span class="lang-es">Opcional</span></span></div>
+        <div class="d">
+          <p><span class="lang-en">After the first year, a small annual fee keeps the page current: new homes as they're built, fresh seasonal picks, new restaurants and experiences, photos kept up to date, and hosting. Optional, and far smaller than the build. A living page, not a brochure that goes stale.</span><span class="lang-es">Después del primer año, una pequeña cuota anual mantiene la página al día: nuevas casas conforme se construyen, recomendaciones de temporada, nuevos restaurantes y experiencias, fotos actualizadas y el alojamiento. Opcional, y mucho menor que el desarrollo. Una página viva, no un folleto que se queda viejo.</span></p>
+        </div>
+      </div>
+
+      <div class="how-row">
+        <div class="t"><span class="lang-en">What this isn't</span><span class="lang-es">Lo que esto no es</span></div>
+        <div class="d">
+          <p><span class="lang-en">I build the experience: the page, the guides, the sites. I don't do brand strategy, social media, or marketing campaigns. If the community wants that someday, I'm glad to point you toward the right people. For now, this is the piece that creates the value and the connection first.</span><span class="lang-es">Construyo la experiencia: la página, las guías, los sitios. No hago estrategia de marca, redes sociales ni campañas de marketing. Si la comunidad lo quiere algún día, con gusto los conecto con las personas indicadas. Por ahora, esta es la pieza que crea el valor y la conexión primero.</span></p>
+        </div>
+      </div>
+
+      <div class="how-row">
+        <div class="t"><span class="lang-en">Yours to keep</span><span class="lang-es">Tuyo, para quedártelo</span></div>
+        <div class="d">
+          <p><span class="lang-en">You own your domain and your asset. I host and maintain it for you, and if you ever decide to move on, I hand over everything so you can take it anywhere. You're never locked in.</span><span class="lang-es">Tu dominio y tu activo son tuyos. Yo lo alojo y lo mantengo por ti, y si algún día decides seguir otro camino, te entrego todo para que puedas llevarlo a donde quieras. Nunca quedas atado.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CLOSE ===== -->
 <section class="close">
   <div class="inner">
     <div class="topline reveal"></div>
-    <div class="eyebrow reveal"><span class="ix">07</span><span class="lang-en">The next step</span><span class="lang-es">El siguiente paso</span></div>
+    <div class="eyebrow reveal"><span class="ix">08</span><span class="lang-en">The next step</span><span class="lang-es">El siguiente paso</span></div>
     <h2 class="reveal"><span class="lang-en">Let's talk it <em>through.</em></span><span class="lang-es">Hablémoslo <em>con calma.</em></span></h2>
     <p class="reveal">
       <span class="lang-en">No deck, no pitch. The next step is a short conversation about Punta Pájaros and what would actually help. If it feels right, we go from there.</span>
