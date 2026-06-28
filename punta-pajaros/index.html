@@ -122,6 +122,10 @@
   .scroll-cue span{display:inline-block;animation:bob 2.6s ease-in-out infinite;}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
+  /* ===== ORIENTATION BAND ===== */
+  .orient{background:var(--shell);text-align:center;padding:clamp(56px,9vw,110px) clamp(24px,6vw,80px);}
+  .orient p{font-family:'Spline Sans',sans-serif;font-weight:300;font-size:clamp(15px,1.55vw,19px);line-height:1.65;letter-spacing:.005em;color:var(--ink-soft);max-width:60ch;margin:0 auto;}
+
   /* ===== IDEA ===== */
   .idea{background:var(--cream);}
   .idea .inner{max-width:940px;}
@@ -276,10 +280,14 @@
   .how-row .t .opt{display:block;font-family:'Spline Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--ink-faint);margin-top:9px;}
   .how-row .d{font-size:clamp(15.5px,1.2vw,17.5px);line-height:1.78;color:var(--ink-soft);font-weight:300;max-width:62ch;}
   .how-row .d p + p{margin-top:1em;}
-  .how-amount{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1;letter-spacing:-.02em;color:var(--clay-deep);margin-bottom:.45em;}
-  .how-amount .unit{font-size:.5em;color:var(--ink-faint);letter-spacing:0;}
-  .how-terms{color:var(--ink-soft);}
-  .how-terms b{font-weight:500;color:var(--ink);}
+  .how-row.invest{display:block;text-align:center;padding:clamp(58px,8vw,108px) 0;}
+  .invest-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--ink-faint);margin-bottom:clamp(26px,3.5vw,42px);}
+  .invest-bridge{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(21px,2.6vw,32px);line-height:1.36;letter-spacing:-.015em;color:#2a241c;max-width:22ch;margin:0 auto clamp(32px,4.2vw,50px);}
+  .invest-amount{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(50px,7.2vw,86px);line-height:1;letter-spacing:-.03em;color:var(--clay-deep);margin-bottom:clamp(30px,3.8vw,46px);}
+  .invest-amount .unit{font-size:.3em;color:var(--ink-faint);letter-spacing:.03em;}
+  .invest-terms{font-size:clamp(15px,1.2vw,17px);line-height:1.78;color:var(--ink-soft);font-weight:300;max-width:50ch;margin:0 auto;}
+  .invest-terms + .invest-terms{margin-top:1em;}
+  .invest-terms b{font-weight:500;color:var(--ink);}
 
   /* ===== CLOSE (calm sand field, one warm object) ===== */
   .close{background:linear-gradient(180deg,#f5eedd,#eee2cd);color:var(--ink);text-align:center;}
@@ -361,6 +369,11 @@
     </div>
   </div>
 </header>
+
+<!-- ===== ORIENTATION BAND ===== -->
+<section class="orient">
+  <p class="reveal"><span class="lang-en">A proposal to give the whole community one shared page, and a way to welcome every guest.</span><span class="lang-es">Una propuesta para darle a toda la comunidad una sola página compartida, y una forma de recibir a cada huésped.</span></p>
+</section>
 
 <!-- ===== THE IDEA ===== -->
 <section class="idea">
@@ -657,13 +670,12 @@
         </div>
       </div>
 
-      <div class="how-row">
-        <div class="t"><span class="lang-en">The investment</span><span class="lang-es">La inversión</span></div>
-        <div class="d">
-          <div class="how-amount">60,000 <span class="unit">pesos</span></div>
-          <p><span class="lang-en">for the full build, shared among the participating homes. How that's divided is for the community to decide together, in whatever way feels fair across the different property sizes.</span><span class="lang-es">por el desarrollo completo, repartido entre las casas participantes. Cómo se divide lo decide la comunidad en conjunto, de la forma que se sienta justa entre los distintos tamaños de propiedad.</span></p>
-          <p class="how-terms"><span class="lang-en">Simple terms: <b>half to begin, half on completion.</b> Homes that join after launch can be added anytime.</span><span class="lang-es">Términos simples: <b>la mitad para empezar, la mitad al terminar.</b> Las casas que se sumen después del lanzamiento se pueden agregar en cualquier momento.</span></p>
-        </div>
+      <div class="how-row invest">
+        <div class="invest-label"><span class="lang-en">The investment</span><span class="lang-es">La inversión</span></div>
+        <p class="invest-bridge"><span class="lang-en">One page, built once, for the whole community to share.</span><span class="lang-es">Una página, hecha una vez, para que toda la comunidad la comparta.</span></p>
+        <div class="invest-amount">60,000 <span class="unit">pesos</span></div>
+        <p class="invest-terms"><span class="lang-en">for the full build, shared among the participating homes. How that's divided is for the community to decide together, in whatever way feels fair across the different property sizes.</span><span class="lang-es">por el desarrollo completo, repartido entre las casas participantes. Cómo se divide lo decide la comunidad en conjunto, de la forma que se sienta justa entre los distintos tamaños de propiedad.</span></p>
+        <p class="invest-terms"><span class="lang-en">Simple terms: <b>half to begin, half on completion.</b> Homes that join after launch can be added anytime.</span><span class="lang-es">Términos simples: <b>la mitad para empezar, la mitad al terminar.</b> Las casas que se sumen después del lanzamiento se pueden agregar en cualquier momento.</span></p>
       </div>
 
       <div class="how-row">
@@ -694,13 +706,13 @@
 <section class="close">
   <div class="inner">
     <div class="topline reveal"></div>
-    <div class="eyebrow reveal"><span class="ix">08</span><span class="lang-en">The next step</span><span class="lang-es">El siguiente paso</span></div>
-    <h2 class="reveal"><span class="lang-en">Let's talk it <em>through.</em></span><span class="lang-es">Hablémoslo <em>con calma.</em></span></h2>
+    <div class="eyebrow reveal"><span class="ix">08</span><span class="lang-en">Begin</span><span class="lang-es">Comenzar</span></div>
+    <h2 class="reveal"><span class="lang-en">Let's <em>begin.</em></span><span class="lang-es"><em>Comencemos.</em></span></h2>
     <p class="reveal">
-      <span class="lang-en">No deck, no pitch. The next step is a short conversation about Punta Pájaros and what would actually help. If it feels right, we go from there.</span>
-      <span class="lang-es">Sin presentación, sin discurso de venta. El siguiente paso es una conversación breve sobre Punta Pájaros y lo que de verdad ayudaría. Si se siente bien, avanzamos desde ahí.</span>
+      <span class="lang-en">If this feels right, we can start this week. The first version would be live within seven days.</span>
+      <span class="lang-es">Si esto tiene sentido, podemos empezar esta semana. La primera versión estaría lista en siete días.</span>
     </p>
-    <a class="btn-wa reveal" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20saw%20the%20Punta%20P%C3%A1jaros%20page%20and%20I%27d%20love%20to%20talk%20it%20through." target="_blank" rel="noopener">
+    <a class="btn-wa reveal" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20saw%20the%20Punta%20P%C3%A1jaros%20proposal%20and%20I%27d%20love%20to%20get%20started." target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.2.84.85-3.12-.2-.32a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
       <span class="lang-en">Message Trevor on WhatsApp</span><span class="lang-es">Escríbele a Trevor por WhatsApp</span>
     </a>
