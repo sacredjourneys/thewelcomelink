@@ -264,12 +264,14 @@
   .who .body-copy{max-width:54ch;}
   .who .name{margin-top:24px;font-size:14px;color:var(--ink-soft);}
   .who .name b{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:19px;color:var(--ocean-deep);display:block;margin-bottom:2px;}
+  .who-proof{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-size:14px;font-weight:500;color:var(--clay-deep);text-decoration:none;border-bottom:1px solid rgba(156,93,54,.32);padding-bottom:2px;transition:border-color .2s,gap .2s;}
+  .who-proof:hover{border-color:var(--clay-deep);gap:11px;}
 
   /* ===== HOW IT WORKS (the practical back matter) ===== */
   .how{background:var(--shell);padding-top:clamp(120px,17vw,240px);}
   .how .head{max-width:780px;margin-bottom:clamp(54px,7vw,88px);}
   .how h2{margin-bottom:clamp(18px,2.2vw,26px);}
-  .how .lead{font-size:clamp(16px,1.45vw,20px);line-height:1.7;color:var(--ink-soft);font-weight:300;max-width:42ch;}
+  .how .lead{font-size:clamp(16px,1.45vw,20px);line-height:1.72;color:var(--ink-soft);font-weight:300;max-width:60ch;}
   .how-list{border-top:1px solid var(--line);}
   .how-row{
     display:grid;grid-template-columns:1fr 1.9fr;gap:clamp(16px,4vw,72px);align-items:start;
@@ -574,48 +576,6 @@
   </div>
 </section>
 
-<!-- ===== HONEST SCOPE ===== -->
-<section class="scope">
-  <div class="inner">
-    <div class="topline reveal"></div>
-    <div class="head reveal">
-      <div class="eyebrow"><span class="ix">05</span><span class="lang-en">Honest about what this is</span><span class="lang-es">Honesto sobre lo que esto es</span></div>
-      <h2>
-        <span class="lang-en">What I build, and <em>what I don't.</em></span>
-        <span class="lang-es">Lo que construyo, y <em>lo que no.</em></span>
-      </h2>
-      <p class="body-copy" style="margin-top:clamp(24px,3vw,34px)">
-        <span class="lang-en">Plainly, and not as apology. This proposal does not try to answer the whole agency brief. I would rather grow into the bigger picture with the right people than overpromise now. So it focuses on the part that creates value first, and the part I can genuinely make beautiful: the guest's experience of the zone.</span>
-        <span class="lang-es">Con claridad, y sin disculpas. Esta propuesta no intenta responder todo el brief de agencia. Prefiero crecer hacia algo más grande, con las personas correctas, en vez de prometer de más ahora. Por eso se enfoca en la parte que crea valor primero, y la que de verdad puedo hacer hermosa: la experiencia del huésped en la zona.</span>
-      </p>
-    </div>
-    <div class="scope-cols">
-      <div class="scope-card build reveal">
-        <h3><span class="tag"><span class="lang-en">I build</span><span class="lang-es">Construyo</span></span></h3>
-        <ul class="scope-list">
-          <li><span class="lang-en">The community page: the story, the map, the curated layer</span><span class="lang-es">La página comunitaria: la historia, el mapa, la capa curada</span></li>
-          <li><span class="lang-en">A welcome guide for each home</span><span class="lang-es">Una guía de bienvenida para cada casa</span></li>
-          <li><span class="lang-en">A custom website for each property, built new or refreshed</span><span class="lang-es">Un sitio web a medida para cada propiedad, nuevo o renovado</span></li>
-          <li><span class="lang-en">The cross-linking, and one-tap booking inside each home</span><span class="lang-es">El cruce de enlaces, y la reserva en un toque dentro de cada casa</span></li>
-          <li><span class="lang-en">Bilingual, beautiful on every screen</span><span class="lang-es">Bilingüe, hermoso en cada pantalla</span></li>
-        </ul>
-      </div>
-      <div class="scope-card dont reveal d1">
-        <h3><span class="tag"><span class="lang-en">I don't</span><span class="lang-es">No hago</span></span></h3>
-        <ul class="scope-list">
-          <li><span class="lang-en">Brand strategy, naming, and positioning</span><span class="lang-es">Estrategia de marca, naming y posicionamiento</span></li>
-          <li><span class="lang-en">Driving traffic and the media plan</span><span class="lang-es">Atraer tráfico y el plan de medios</span></li>
-          <li><span class="lang-en">Influencer campaigns, PR, and SEO</span><span class="lang-es">Campañas con creadores, relaciones públicas y SEO</span></li>
-        </ul>
-      </div>
-    </div>
-    <p class="partner reveal">
-      <span class="lang-en">If the community wants that fuller scope down the line, I'm open to collaborating with the right people to bring the half of the team that's missing. <b>For now, I believe this is the most important part,</b> the piece that creates the value and the connection first.</span>
-      <span class="lang-es">Si la comunidad quiere ese alcance más amplio más adelante, estoy abierto a colaborar con las personas indicadas para sumar la otra mitad del equipo que falta. <b>Por ahora, creo que esta es la parte más importante,</b> la pieza que crea el valor y la conexión primero.</span>
-    </p>
-  </div>
-</section>
-
 <!-- ===== WHO ===== -->
 <section class="who">
   <div class="inner">
@@ -623,7 +583,7 @@
     <div class="who-wrap reveal">
       <img class="who-photo" src="images/trevor.jpg" alt="Trevor">
       <div>
-        <div class="eyebrow"><span class="ix">06</span><span class="lang-en">Who's behind it</span><span class="lang-es">Quién está detrás</span></div>
+        <div class="eyebrow"><span class="ix">05</span><span class="lang-en">Who's behind it</span><span class="lang-es">Quién está detrás</span></div>
         <h2><span class="lang-en">A neighbor who loves <em>this coast.</em></span><span class="lang-es">Un vecino que ama <em>esta costa.</em></span></h2>
         <p class="body-copy">
           <span class="lang-en">I'm Trevor. I live in La Punta, just down the coast, and I build these welcome experiences for homes around Puerto Escondido. I've lived in Puerto Escondido for almost four years, and I've spent real time in this zone, so I know what makes it different. I customize everything, because the whole point is that a place feels like itself. That's the work, and it's work I love.</span>
@@ -633,6 +593,7 @@
           <span class="lang-en">I want to be clear about what I am. I'm a builder, not a marketing agency. I make the experience itself, the part your guests actually open and feel.</span>
           <span class="lang-es">Quiero ser claro sobre lo que soy. Soy un constructor, no una agencia de marketing. Hago la experiencia misma, la parte que tus huéspedes de verdad abren y sienten.</span>
         </p>
+        <a class="who-proof" href="/casa-las-nubes/" target="_blank" rel="noopener"><span class="lang-en">See a guide I built, for my own home</span><span class="lang-es">Mira una guía que hice, para mi propia casa</span> <span aria-hidden="true">&rarr;</span></a>
         <div class="name"><b>Trevor</b><span class="lang-en">The Welcome Link · La Punta, Puerto Escondido</span><span class="lang-es">The Welcome Link · La Punta, Puerto Escondido</span></div>
       </div>
     </div>
@@ -644,19 +605,37 @@
   <div class="inner">
     <div class="topline reveal"></div>
     <div class="head reveal">
-      <div class="eyebrow"><span class="ix">07</span><span class="lang-en">The practical part</span><span class="lang-es">La parte práctica</span></div>
+      <div class="eyebrow"><span class="ix">06</span><span class="lang-en">The practical part</span><span class="lang-es">La parte práctica</span></div>
       <h2><span class="lang-en">How it <em>works.</em></span><span class="lang-es">Cómo <em>funciona.</em></span></h2>
-      <p class="lead"><span class="lang-en">The vision is above. Here is how we make it real.</span><span class="lang-es">La visión está arriba. Aquí, cómo la hacemos realidad.</span></p>
+      <p class="lead"><span class="lang-en">Plainly, and not as apology. This proposal does not try to answer the whole agency brief. I would rather grow into the bigger picture with the right people than overpromise now. So it starts with the part that creates the value first, the part your guests actually open and feel.</span><span class="lang-es">Con claridad, y sin disculpas. Esta propuesta no intenta responder todo el brief de agencia. Prefiero crecer hacia algo más grande, con las personas correctas, en vez de prometer de más ahora. Así que empieza por la parte que crea el valor primero, la parte que tus huéspedes de verdad abren y sienten.</span></p>
     </div>
 
-    <div class="how-list reveal">
-      <div class="how-row">
-        <div class="t"><span class="lang-en">What I build</span><span class="lang-es">Lo que construyo</span></div>
-        <div class="d">
-          <p><span class="lang-en">A custom page for Punta Pájaros: the story, the map with every participating home and the local businesses that make this place special, and the curated layer that points guests to the real tables, beaches, experiences, wellness, and art here. Bilingual, beautiful on every screen, designed with the same care the architecture here was. Each home links out to its own page, and the businesses are part of the map too.</span><span class="lang-es">Una página a la medida para Punta Pájaros: la historia, el mapa con cada casa participante y los negocios locales que hacen especial a este lugar, y la capa curada que lleva a los huéspedes a las mesas, las playas, las experiencias, el bienestar y el arte de verdad de aquí. Bilingüe, hermosa en cada pantalla, diseñada con el mismo cuidado con que se hizo la arquitectura de aquí. Cada casa enlaza a su propia página, y los negocios también son parte del mapa.</span></p>
-        </div>
+    <div class="scope-cols reveal">
+      <div class="scope-card build">
+        <h3><span class="tag"><span class="lang-en">I build</span><span class="lang-es">Construyo</span></span></h3>
+        <ul class="scope-list">
+          <li><span class="lang-en">The community page: the story, the map, the curated layer</span><span class="lang-es">La página comunitaria: la historia, el mapa, la capa curada</span></li>
+          <li><span class="lang-en">A welcome guide for each home</span><span class="lang-es">Una guía de bienvenida para cada casa</span></li>
+          <li><span class="lang-en">A custom website for each property, built new or refreshed</span><span class="lang-es">Un sitio web a medida para cada propiedad, nuevo o renovado</span></li>
+          <li><span class="lang-en">The cross-linking, and one-tap booking inside each home</span><span class="lang-es">El cruce de enlaces, y la reserva en un toque dentro de cada casa</span></li>
+          <li><span class="lang-en">Bilingual, beautiful on every screen</span><span class="lang-es">Bilingüe, hermoso en cada pantalla</span></li>
+        </ul>
       </div>
+      <div class="scope-card dont">
+        <h3><span class="tag"><span class="lang-en">I don't</span><span class="lang-es">No hago</span></span></h3>
+        <ul class="scope-list">
+          <li><span class="lang-en">Brand strategy, naming, and positioning</span><span class="lang-es">Estrategia de marca, naming y posicionamiento</span></li>
+          <li><span class="lang-en">Driving traffic and the media plan</span><span class="lang-es">Atraer tráfico y el plan de medios</span></li>
+          <li><span class="lang-en">Influencer campaigns, PR, and SEO</span><span class="lang-es">Campañas con creadores, relaciones públicas y SEO</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="partner reveal">
+      <span class="lang-en">If the community wants that fuller scope down the line, I'm open to collaborating with the right people to bring the half of the team that's missing.</span>
+      <span class="lang-es">Si la comunidad quiere ese alcance más amplio más adelante, estoy abierto a colaborar con las personas indicadas para sumar la otra mitad del equipo que falta.</span>
+    </p>
 
+    <div class="how-list reveal">
       <div class="how-row">
         <div class="t"><span class="lang-en">Live in seven days</span><span class="lang-es">En línea en siete días</span></div>
         <div class="d">
@@ -687,13 +666,6 @@
       </div>
 
       <div class="how-row">
-        <div class="t"><span class="lang-en">What this isn't</span><span class="lang-es">Lo que esto no es</span></div>
-        <div class="d">
-          <p><span class="lang-en">I build the experience: the page, the guides, the sites. I don't do brand strategy, social media, or marketing campaigns. If the community wants that someday, I'm glad to collaborate with the right people to bring it to life. For now, this is the piece that creates the value and the connection first.</span><span class="lang-es">Construyo la experiencia: la página, las guías, los sitios. No hago estrategia de marca, redes sociales ni campañas de marketing. Si la comunidad lo quiere algún día, con gusto colaboro con las personas indicadas para hacerlo realidad. Por ahora, esta es la pieza que crea el valor y la conexión primero.</span></p>
-        </div>
-      </div>
-
-      <div class="how-row">
         <div class="t"><span class="lang-en">Yours to keep</span><span class="lang-es">Tuyo, para quedártelo</span></div>
         <div class="d">
           <p><span class="lang-en">You own your domain and your asset. I host and maintain it for you, and if you ever decide to move on, I hand over everything so you can take it anywhere. You're never locked in.</span><span class="lang-es">Tu dominio y tu activo son tuyos. Yo lo alojo y lo mantengo por ti, y si algún día decides seguir otro camino, te entrego todo para que puedas llevarlo a donde quieras. Nunca quedas atado.</span></p>
@@ -707,7 +679,7 @@
 <section class="close">
   <div class="inner">
     <div class="topline reveal"></div>
-    <div class="eyebrow reveal"><span class="ix">08</span><span class="lang-en">Begin</span><span class="lang-es">Comenzar</span></div>
+    <div class="eyebrow reveal"><span class="ix">07</span><span class="lang-en">Begin</span><span class="lang-es">Comenzar</span></div>
     <h2 class="reveal"><span class="lang-en">Let's <em>begin.</em></span><span class="lang-es"><em>Comencemos.</em></span></h2>
     <p class="reveal">
       <span class="lang-en">If this feels right, we can start this week. The first version would be live within seven days.</span>
