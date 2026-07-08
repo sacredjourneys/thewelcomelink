@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Outreach Machine · The Welcome Link</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,500&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FBF7F0;
+  --sand: #F1E8DA;
+  --teal: #1A6B72;
+  --teal-dark: #0F4A50;
+  --terra: #C96F4A;
+  --gold: #C9A227;
+  --ink: #2B2622;
+  --soft: #8A7F72;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--cream);
+  font-family: 'Spline Sans', system-ui, sans-serif;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.wrap { max-width: 880px; margin: 0 auto; padding: 28px 18px 60px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terra); font-weight: 600; }
+h1 { font-family: 'Fraunces', serif; font-size: 30px; margin: 6px 0 4px; color: var(--teal-dark); }
+h2 { font-family: 'Fraunces', serif; font-size: 20px; color: var(--teal-dark); margin: 0 0 10px; }
+.sub { margin: 0 0 26px; color: var(--soft); font-size: 14px; }
+.card { background: #fff; border-radius: 16px; padding: 20px; border: 1px solid var(--sand); margin-bottom: 18px; }
+.card-dark { background: var(--teal-dark); border-radius: 16px; padding: 20px; margin-bottom: 18px; color: #FDF9F2; }
+label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); margin-bottom: 5px; display: block; font-weight: 600; }
+label.accent { color: var(--terra); }
+label.teal { color: var(--teal); }
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--sand);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+textarea { resize: vertical; min-height: 64px; }
+textarea.detail { border-color: rgba(201,111,74,0.35); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.field { margin-bottom: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; }
+.hint { font-size: 12px; color: var(--soft); margin-top: 4px; }
+.hint.warn { color: var(--terra); margin-top: 8px; }
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+button:disabled { cursor: wait; opacity: 0.7; }
+.btn-primary { background: var(--teal); color: #fff; }
+.btn-scan { background: var(--terra); color: #fff; padding: 10px 20px; border-radius: 10px; font-size: 14px; }
+.btn-copy { background: var(--gold); color: var(--ink); padding: 10px 18px; border-radius: 10px; font-size: 14px; }
+.btn-wa { background: #25D366; color: #fff; padding: 10px 18px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-block; }
+.btn-ghost { background: transparent; color: #FDF9F2; border: 1px solid rgba(253,249,242,0.35); padding: 10px 18px; border-radius: 10px; font-size: 14px; }
+.btn-revise { background: var(--terra); color: #fff; padding: 8px 16px; border-radius: 10px; font-size: 13px; }
+.gold-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+.message-pre { white-space: pre-wrap; color: #FDF9F2; font-size: 15px; line-height: 1.55; margin: 0 0 16px; font-family: inherit; }
+.detail-pill {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--sand);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.detail-pill.selected { background: var(--teal); color: #fff; border-color: var(--teal); }
+.detail-box { background: var(--cream); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+.airbnb-note { font-size: 13px; color: var(--terra); margin-bottom: 12px; }
+.pipeline-item {
+  background: #fff;
+  border: 1px solid var(--sand);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pipeline-item .name { flex: 1; min-width: 160px; font-weight: 600; font-size: 15px; }
+.pipeline-item .meta { font-size: 12px; color: var(--soft); font-weight: 400; }
+.pipeline-item select { width: 150px; padding: 8px 10px; font-size: 13px; }
+.pipeline-item .remove { background: transparent; border: none; color: var(--soft); cursor: pointer; font-size: 22px; padding: 0 4px; line-height: 1; }
+.empty { color: var(--soft); font-size: 14px; padding: 8px 0; }
+.error { color: var(--terra); font-size: 13px; margin-top: 10px; }
+.revise-area { border-top: 1px solid rgba(253,249,242,0.15); padding-top: 16px; margin-top: 4px; }
+.revise-area label { color: rgba(253,249,242,0.7); }
+.revise-input { background: rgba(253,249,242,0.1); border: 1px solid rgba(253,249,242,0.2); color: #FDF9F2; }
+.revise-input::placeholder { color: rgba(253,249,242,0.4); }
+.export-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.export-btn { background: transparent; border: 1px solid var(--sand); color: var(--soft); padding: 6px 12px; border-radius: 8px; font-size: 12px; }
+@media (max-width: 640px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  h1 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">The Welcome Link</div>
+    <h1>Outreach machine</h1>
+    <p class="sub">Paste a link, scan it, pick the detail that rings true, send.</p>
+  </header>
+
+  <div class="card">
+    <div class="field">
+      <label class="teal">Listing or website link</label>
+      <div class="row">
+        <input id="url" style="flex:1; min-width:220px;" placeholder="https://airbnb.com/rooms/... or their website" />
+        <button id="scanBtn" class="btn-scan">Scan it</button>
+      </div>
+    </div>
+
+    <div id="scanResults" style="display:none;" class="detail-box">
+      <label class="accent">Details found, tap the one that rings true</label>
+      <div id="detailPills"></div>
+      <div id="scanMeta" class="hint"></div>
+      <div id="scanNameWarn" class="hint warn" style="display:none;"></div>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <label>Property name *</label>
+        <input id="property" placeholder="Casa Sunshine PXM" />
+      </div>
+      <div>
+        <label>Contact first name</label>
+        <input id="contact" placeholder="Leave blank if unsure, never guess" />
+      </div>
+      <div>
+        <label>Zone</label>
+        <input id="zone" placeholder="Rancho Neptuno" />
+      </div>
+      <div>
+        <label>WhatsApp number</label>
+        <input id="phone" placeholder="+52 954 ..." />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="accent">The one true detail *</label>
+      <textarea id="detail" class="detail" placeholder="Pick one from the scan above, or write what you noticed yourself"></textarea>
+      <div class="hint">You are the taste filter. Edit it until it sounds like something you would actually say.</div>
+    </div>
+
+    <div class="grid-3">
+      <div>
+        <label>Register</label>
+        <select id="register">
+          <option value="standard">Standard host</option>
+          <option value="luxury">Luxury / design-forward</option>
+          <option value="manager">Manager / channel</option>
+          <option value="hotel">Boutique hotel</option>
+        </select>
+      </div>
+      <div>
+        <label>Channel</label>
+        <select id="channel">
+          <option value="whatsapp">WhatsApp</option>
+          <option value="instagram">Instagram</option>
+          <option value="airbnb">Airbnb (first contact)</option>
+        </select>
+      </div>
+      <div>
+        <label>Language</label>
+        <select id="language">
+          <option value="en">English</option>
+          <option value="es">Spanish (with EN translation)</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="airbnbNote" class="airbnb-note" style="display:none;">
+      Airbnb mode: no links, no numbers, business named so they find it themselves.
+    </div>
+
+    <div class="field" style="margin-bottom: 12px;">
+      <label>Anthropic API key (saved locally in your browser)</label>
+      <input id="apiKey" type="password" placeholder="sk-ant-..." />
+      <div class="hint">Needed to run scans and generate messages. Stays only on this device.</div>
+    </div>
+
+    <button id="generateBtn" class="btn-primary">Write the message</button>
+    <div id="mainError" class="error"></div>
+  </div>
+
+  <div id="messageCard" class="card-dark" style="display:none;">
+    <div class="gold-label">Ready to send</div>
+    <pre id="messageText" class="message-pre"></pre>
+    <div class="row" style="margin-bottom: 16px;">
+      <button id="copyBtn" class="btn-copy">Copy message</button>
+      <a id="waLink" class="btn-wa" style="display:none;" target="_blank" rel="noreferrer">Open in WhatsApp</a>
+      <button id="logBtn" class="btn-ghost">Log as sent</button>
+    </div>
+    <div class="revise-area">
+      <label>Want to change something?</label>
+      <div class="row">
+        <input id="reviseInput" class="revise-input" style="flex:1; min-width:220px;" placeholder="Make it shorter. Or, warmer. Or, lead with the design story." />
+        <button id="reviseBtn" class="btn-revise">Revise</button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="export-row">
+      <h2>Pipeline (<span id="pipelineCount">0</span>)</h2>
+      <div class="row" style="gap: 6px;">
+        <button id="exportBtn" class="export-btn">Export CSV</button>
+        <button id="clearBtn" class="export-btn">Clear all</button>
+      </div>
+    </div>
+    <div id="pipelineList"></div>
+    <div id="pipelineEmpty" class="empty">Nothing logged yet. Generate a message and hit "Log as sent" after you fire it.</div>
+  </div>
+</div>
+
+<script>
+const STORAGE = {
+  pipeline: 'wl-pipeline',
+  apiKey: 'wl-api-key',
+};
+
+const VOICE_RULES = `You write outreach messages for Trevor, founder of The Welcome Link (thewelcomelink.com), a done-for-you custom digital welcome guide service for rentals in Puerto Escondido, Mexico. Trevor lives in La Punta.
+
+VOICE: Grounded, warm, direct. Poetic without fluff. No guru tone, no sales hype. Write like a neighbor who loves this town welcoming a friend. NEVER use em dashes or en dashes anywhere. Plain sentences, commas where needed.
+
+CONTENT RULES:
+- Lead with genuine specific admiration of THEIR place using the true detail provided. This detail is the heart of the message, weave it in naturally, never as a list item.
+- Lead with guest experience and love of place. Host benefits (fewer repeat questions, better reviews) are byproducts, named softly if at all. Never lead with money.
+- Neighbor framing: Trevor lives in La Punta.
+- The pitch: one beautiful custom link a guest opens before and during their stay, arrival, the home, curated local picks, all designed around the property's own character. Done for you, not software.
+- Low-pressure close, an invitation not a push.
+- Keep it short enough for a DM, roughly 60 to 110 words.
+- Never invent or guess the contact's name. If no name is given, open without one.
+
+REGISTER ADJUSTMENTS:
+- standard: warm neighbor tone, mention https://thewelcomelink.com so they can see live examples.
+- luxury: design-forward. A home built with real intention deserves a welcome that feels the same. Slightly more elegant register. Include https://thewelcomelink.com.
+- manager: pitch them as the channel, not the buyer. A finder's-fee idea planted softly as "worth a conversation", no numbers. Include https://thewelcomelink.com.
+- hotel: lead with the pre-arrival and in-room concierge layer staff can't be at 11pm, guests tapping through the hotel's own curated picks. Include https://thewelcomelink.com.
+
+CHANNEL RULES:
+- whatsapp or instagram: include the link https://thewelcomelink.com naturally near the end.
+- airbnb: NO links and NO phone numbers allowed. Instead name the business ("The Welcome Link") so they can find it themselves. Keep it extra short.
+
+LANGUAGE:
+- If language is "es": write the message in natural Mexican Spanish, then on a new line after "---" give the full English translation.
+- If language is "en": English only.
+
+OUTPUT: Respond ONLY with the message text (and translation if Spanish). No preamble, no quotes, no markdown, no explanations.`;
+
+const SCAN_RULES = `You research a short-term rental property for Trevor of The Welcome Link in Puerto Escondido, Mexico. You are given a URL (a website or an Airbnb listing) and possibly a property name. Use web search to find the listing, the property's website, and reviews.
+
+Your job:
+1. Confirm the property name and neighborhood/zone.
+2. Find 3 candidate "one true details": warm, human, specific things about the place. Pull from the listing's own description prose, guest reviews, or the property's website. Good details are things a neighbor would genuinely notice: the palapa over the pool deck, the coffee setup the host is proud of, the lawn running into an empty beach, a design story, what reviewers keep repeating with affection. Specs alone (bedroom counts, AC) are weak; only use a spec if you can frame it warmly.
+3. Note the host's first name ONLY if it is clearly and confidently stated on their own website or listing as the host. If it might be a co-host or manager, leave it empty.
+4. Note anything useful: multi-unit (how many units), design story, whether they seem Spanish-first or English-first.
+
+After your research, end your response with ONLY a JSON object (no markdown fences, no text after it) in exactly this shape:
+{"property":"","zone":"","hostName":"","language":"en or es","units":"","details":["","",""],"notes":""}
+If you could not find the property at all, return {"error":"what happened"}.`;
+
+// State
+let currentMessage = '';
+let currentScan = null;
+
+// DOM helpers
+const $ = id => document.getElementById(id);
+const val = id => $(id).value.trim();
+const setVal = (id, v) => { $(id).value = v || ''; };
+
+// Load persisted state
+function loadState() {
+  const savedKey = localStorage.getItem(STORAGE.apiKey);
+  if (savedKey) setVal('apiKey', savedKey);
+  renderPipeline();
+}
+
+// API key persistence
+$('apiKey').addEventListener('change', () => {
+  localStorage.setItem(STORAGE.apiKey, val('apiKey'));
+});
+
+// Channel switching
+$('channel').addEventListener('change', () => {
+  $('airbnbNote').style.display = val('channel') === 'airbnb' ? 'block' : 'none';
+});
+
+// Anthropic API call helper
+async function callAnthropic(body) {
+  const key = val('apiKey');
+  if (!key) throw new Error('Add your Anthropic API key first.');
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': key,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true',
+    },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const errText = await res.text();
+    throw new Error('API error: ' + errText.slice(0, 200));
+  }
+  return res.json();
+}
+
+// Scan
+$('scanBtn').addEventListener('click', async () => {
+  const url = val('url');
+  if (!url) { showError('Paste the website or Airbnb link first.'); return; }
+  showError('');
+  $('scanBtn').disabled = true;
+  $('scanBtn').textContent = 'Reading...';
+  try {
+    const data = await callAnthropic({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 3000,
+      system: SCAN_RULES,
+      messages: [{
+        role: 'user',
+        content: `URL: ${url}${val('property') ? '\nProperty name (if known): ' + val('property') : ''}\nResearch this property and return the JSON.`
+      }],
+      tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+    });
+    const textBlocks = (data.content || []).filter(b => b.type === 'text').map(b => b.text);
+    const full = textBlocks.join('\n');
+    const jsonMatch = full.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) throw new Error('No JSON in response');
+    const parsed = JSON.parse(jsonMatch[0]);
+    if (parsed.error) {
+      showError('Scan came back empty: ' + parsed.error + ' You can still fill the detail by hand.');
+    } else {
+      currentScan = parsed;
+      renderScan(parsed);
+      if (parsed.property) setVal('property', parsed.property);
+      if (parsed.zone) setVal('zone', parsed.zone);
+      if (parsed.hostName) setVal('contact', parsed.hostName);
+      if (parsed.language === 'es') setVal('language', 'es');
+    }
+  } catch (e) {
+    showError('Scan failed. Airbnb sometimes blocks reading, try the property website or IG bio link, or fill the detail by hand. (' + e.message + ')');
+  }
+  $('scanBtn').disabled = false;
+  $('scanBtn').textContent = 'Scan it';
+});
+
+function renderScan(scan) {
+  $('scanResults').style.display = 'block';
+  const pills = $('detailPills');
+  pills.innerHTML = '';
+  (scan.details || []).filter(Boolean).forEach(d => {
+    const btn = document.createElement('button');
+    btn.className = 'detail-pill';
+    btn.textContent = d;
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.detail-pill').forEach(el => el.classList.remove('selected'));
+      btn.classList.add('selected');
+      setVal('detail', d);
+    });
+    pills.appendChild(btn);
+  });
+  $('scanMeta').textContent = scan.units ? `Units: ${scan.units}. If multi-unit, confirm the count before pricing talk. ${scan.notes || ''}` : (scan.notes || '');
+  if (scan.hostName) {
+    $('scanNameWarn').style.display = 'block';
+    $('scanNameWarn').textContent = `Found a possible name: "${scan.hostName}". Double check it is really who you are messaging before sending.`;
+  } else {
+    $('scanNameWarn').style.display = 'none';
+  }
+}
+
+// Generate
+$('generateBtn').addEventListener('click', () => generate(null));
+$('reviseBtn').addEventListener('click', () => {
+  const revision = val('reviseInput');
+  if (!revision) { showError('Type what you want changed first.'); return; }
+  generate(revision);
+});
+
+async function generate(revisionRequest) {
+  if (!val('property') || !val('detail')) {
+    showError('Property name and the one true detail are required.');
+    return;
+  }
+  showError('');
+  const btn = revisionRequest ? $('reviseBtn') : $('generateBtn');
+  btn.disabled = true;
+  btn.textContent = revisionRequest ? 'Revising...' : 'Writing...';
+  try {
+    let userContent;
+    if (revisionRequest) {
+      userContent = `Here is the current message:
+"""
+${currentMessage}
+"""
+
+Trevor wants this revised: ${revisionRequest}
+
+Keep all voice rules intact (no em/en dashes, guest experience first, neighbor framing). Return only the revised message text.`;
+    } else {
+      userContent = `Write the outreach opener.
+Contact first name: ${val('contact') || '(unknown, open without a name, do not guess one)'}
+Property: ${val('property')}
+Zone / neighborhood: ${val('zone') || 'Puerto Escondido'}
+The one true detail Trevor noticed: ${val('detail')}
+Register: ${val('register')}
+Channel: ${val('channel')}
+Language: ${val('language')}`;
+    }
+    const data = await callAnthropic({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 1000,
+      system: VOICE_RULES,
+      messages: [{ role: 'user', content: userContent }],
+    });
+    const text = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n').trim();
+    if (!text) throw new Error('Empty response');
+    currentMessage = text;
+    showMessage(text);
+    if (revisionRequest) setVal('reviseInput', '');
+  } catch (e) {
+    showError('Failed: ' + e.message);
+  }
+  btn.disabled = false;
+  btn.textContent = revisionRequest ? 'Revise' : 'Write the message';
+}
+
+function showMessage(text) {
+  $('messageText').textContent = text;
+  $('messageCard').style.display = 'block';
+  updateWaLink();
+}
+
+function updateWaLink() {
+  const digits = val('phone').replace(/[^0-9]/g, '');
+  if (digits && val('channel') === 'whatsapp' && currentMessage) {
+    $('waLink').style.display = 'inline-block';
+    $('waLink').href = `https://wa.me/${digits}?text=${encodeURIComponent(currentMessage)}`;
+  } else {
+    $('waLink').style.display = 'none';
+  }
+}
+
+$('phone').addEventListener('input', updateWaLink);
+$('channel').addEventListener('change', updateWaLink);
+
+// Copy
+$('copyBtn').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(currentMessage);
+    $('copyBtn').textContent = 'Copied';
+    setTimeout(() => $('copyBtn').textContent = 'Copy message', 1600);
+  } catch (e) {
+    showError('Copy failed, select the text manually.');
+  }
+});
+
+// Pipeline
+function loadPipeline() {
+  try { return JSON.parse(localStorage.getItem(STORAGE.pipeline) || '[]'); }
+  catch { return []; }
+}
+
+function savePipeline(list) {
+  localStorage.setItem(STORAGE.pipeline, JSON.stringify(list));
+  renderPipeline();
+}
+
+$('logBtn').addEventListener('click', () => {
+  const list = loadPipeline();
+  list.unshift({
+    id: Date.now(),
+    property: val('property'),
+    contact: val('contact'),
+    zone: val('zone'),
+    channel: val('channel'),
+    phone: val('phone'),
+    url: val('url'),
+    detail: val('detail'),
+    message: currentMessage,
+    status: 'Sent opener',
+    date: new Date().toLocaleDateString(),
+  });
+  savePipeline(list);
+});
+
+function renderPipeline() {
+  const list = loadPipeline();
+  $('pipelineCount').textContent = list.length;
+  $('pipelineEmpty').style.display = list.length ? 'none' : 'block';
+  const container = $('pipelineList');
+  container.innerHTML = '';
+  const statuses = ['Not contacted', 'Sent opener', 'Replied', 'Warm', 'Quoted', 'Closed', 'No', 'Resting'];
+  list.forEach(p => {
+    const item = document.createElement('div');
+    item.className = 'pipeline-item';
+    const meta = [p.contact, p.zone, p.channel, p.date].filter(Boolean).join(' · ');
+    item.innerHTML = `
+      <div class="name">${escapeHtml(p.property)}<div class="meta">${escapeHtml(meta)}</div></div>
+    `;
+    const sel = document.createElement('select');
+    statuses.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s; opt.textContent = s;
+      if (s === p.status) opt.selected = true;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', () => {
+      const updated = loadPipeline().map(x => x.id === p.id ? { ...x, status: sel.value } : x);
+      savePipeline(updated);
+    });
+    item.appendChild(sel);
+    const rem = document.createElement('button');
+    rem.className = 'remove';
+    rem.textContent = '×';
+    rem.title = 'Remove';
+    rem.addEventListener('click', () => {
+      if (confirm('Remove ' + p.property + ' from pipeline?')) {
+        savePipeline(loadPipeline().filter(x => x.id !== p.id));
+      }
+    });
+    item.appendChild(rem);
+    container.appendChild(item);
+  });
+}
+
+function escapeHtml(s) {
+  return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// Export CSV
+$('exportBtn').addEventListener('click', () => {
+  const list = loadPipeline();
+  if (!list.length) return;
+  const headers = ['Date', 'Property', 'Contact', 'Zone', 'Channel', 'Phone', 'Status', 'Detail', 'URL'];
+  const rows = list.map(p => [p.date, p.property, p.contact, p.zone, p.channel, p.phone, p.status, p.detail, p.url]);
+  const csv = [headers, ...rows].map(r => r.map(c => `"${(c || '').toString().replace(/"/g, '""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `welcome-link-pipeline-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+});
+
+$('clearBtn').addEventListener('click', () => {
+  if (confirm('Clear the entire pipeline? This cannot be undone.')) {
+    savePipeline([]);
+  }
+});
+
+function showError(msg) { $('mainError').textContent = msg; }
+
+loadState();
+</script>
+</body>
+</html>
