@@ -56,6 +56,7 @@ textarea.detail { border-color: rgba(201,111,74,0.35); }
 .row { display: flex; gap: 10px; flex-wrap: wrap; }
 .hint { font-size: 12px; color: var(--soft); margin-top: 4px; }
 .hint.warn { color: var(--terra); margin-top: 8px; }
+.step { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra); font-weight: 600; margin-bottom: 8px; }
 button {
   border: none;
   border-radius: 12px;
@@ -66,33 +67,33 @@ button {
   font-family: inherit;
   transition: opacity 0.15s;
 }
-button:disabled { cursor: wait; opacity: 0.7; }
-.btn-primary { background: var(--teal); color: #fff; }
-.btn-scan { background: var(--terra); color: #fff; padding: 10px 20px; border-radius: 10px; font-size: 14px; }
 .btn-copy { background: var(--gold); color: var(--ink); padding: 10px 18px; border-radius: 10px; font-size: 14px; }
+.btn-prompt { background: var(--teal); color: #fff; padding: 10px 18px; border-radius: 10px; font-size: 14px; }
 .btn-wa { background: #25D366; color: #fff; padding: 10px 18px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-block; }
 .btn-ghost { background: transparent; color: #FDF9F2; border: 1px solid rgba(253,249,242,0.35); padding: 10px 18px; border-radius: 10px; font-size: 14px; }
-.btn-revise { background: var(--terra); color: #fff; padding: 8px 16px; border-radius: 10px; font-size: 13px; }
 .gold-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
-.message-pre { white-space: pre-wrap; color: #FDF9F2; font-size: 15px; line-height: 1.55; margin: 0 0 16px; font-family: inherit; }
-.detail-pill {
-  display: block;
+.prompt-box {
   width: 100%;
-  text-align: left;
-  background: #fff;
-  color: var(--ink);
+  min-height: 150px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+  line-height: 1.5;
+  background: var(--cream);
   border: 1px solid var(--sand);
-  border-radius: 10px;
-  padding: 10px 12px;
-  margin-bottom: 8px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 1.4;
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
 }
-.detail-pill.selected { background: var(--teal); color: #fff; border-color: var(--teal); }
-.detail-box { background: var(--cream); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
 .airbnb-note { font-size: 13px; color: var(--terra); margin-bottom: 12px; }
+.msg-input {
+  background: rgba(253,249,242,0.1);
+  border: 1px solid rgba(253,249,242,0.2);
+  color: #FDF9F2;
+  min-height: 120px;
+  margin-bottom: 16px;
+}
+.msg-input::placeholder { color: rgba(253,249,242,0.4); }
 .pipeline-item {
   background: #fff;
   border: 1px solid var(--sand);
@@ -110,10 +111,6 @@ button:disabled { cursor: wait; opacity: 0.7; }
 .pipeline-item .remove { background: transparent; border: none; color: var(--soft); cursor: pointer; font-size: 22px; padding: 0 4px; line-height: 1; }
 .empty { color: var(--soft); font-size: 14px; padding: 8px 0; }
 .error { color: var(--terra); font-size: 13px; margin-top: 10px; }
-.revise-area { border-top: 1px solid rgba(253,249,242,0.15); padding-top: 16px; margin-top: 4px; }
-.revise-area label { color: rgba(253,249,242,0.7); }
-.revise-input { background: rgba(253,249,242,0.1); border: 1px solid rgba(253,249,242,0.2); color: #FDF9F2; }
-.revise-input::placeholder { color: rgba(253,249,242,0.4); }
 .export-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .export-btn { background: transparent; border: 1px solid var(--sand); color: var(--soft); padding: 6px 12px; border-radius: 8px; font-size: 12px; }
 @media (max-width: 640px) {
@@ -127,25 +124,10 @@ button:disabled { cursor: wait; opacity: 0.7; }
   <header>
     <div class="eyebrow">The Welcome Link</div>
     <h1>Outreach machine</h1>
-    <p class="sub">Paste a link, scan it, pick the detail that rings true, send.</p>
+    <p class="sub">Fill the lead, copy the prompt into Claude, paste the message back, send. No API, no cost, runs on your subscription.</p>
   </header>
 
   <div class="card">
-    <div class="field">
-      <label class="teal">Listing or website link</label>
-      <div class="row">
-        <input id="url" style="flex:1; min-width:220px;" placeholder="https://airbnb.com/rooms/... or their website" />
-        <button id="scanBtn" class="btn-scan">Scan it</button>
-      </div>
-    </div>
-
-    <div id="scanResults" style="display:none;" class="detail-box">
-      <label class="accent">Details found, tap the one that rings true</label>
-      <div id="detailPills"></div>
-      <div id="scanMeta" class="hint"></div>
-      <div id="scanNameWarn" class="hint warn" style="display:none;"></div>
-    </div>
-
     <div class="grid-2">
       <div>
         <label>Property name *</label>
@@ -166,9 +148,15 @@ button:disabled { cursor: wait; opacity: 0.7; }
     </div>
 
     <div class="field">
-      <label class="accent">The one true detail *</label>
-      <textarea id="detail" class="detail" placeholder="Pick one from the scan above, or write what you noticed yourself"></textarea>
-      <div class="hint">You are the taste filter. Edit it until it sounds like something you would actually say.</div>
+      <label class="teal">Listing or website link</label>
+      <input id="url" placeholder="https://airbnb.com/rooms/... or their website / IG" />
+      <div class="hint">Claude will read this to understand the place.</div>
+    </div>
+
+    <div class="field">
+      <label class="accent">The one true detail (optional)</label>
+      <textarea id="detail" class="detail" placeholder="Write what you noticed, or leave blank to let Claude find one from the listing"></textarea>
+      <div class="hint">You are the taste filter. If you leave it blank, Claude will suggest one, but check that it rings true before you send.</div>
     </div>
 
     <div class="grid-3">
@@ -201,32 +189,24 @@ button:disabled { cursor: wait; opacity: 0.7; }
     <div id="airbnbNote" class="airbnb-note" style="display:none;">
       Airbnb mode: no links, no numbers, business named so they find it themselves.
     </div>
-
-    <div class="field" style="margin-bottom: 12px;">
-      <label>Anthropic API key (saved locally in your browser)</label>
-      <input id="apiKey" type="password" placeholder="sk-ant-..." />
-      <div class="hint">Needed to run scans and generate messages. Stays only on this device.</div>
-    </div>
-
-    <button id="generateBtn" class="btn-primary">Write the message</button>
-    <div id="mainError" class="error"></div>
   </div>
 
-  <div id="messageCard" class="card-dark" style="display:none;">
-    <div class="gold-label">Ready to send</div>
-    <pre id="messageText" class="message-pre"></pre>
-    <div class="row" style="margin-bottom: 16px;">
+  <div class="card">
+    <div class="step">Step 1 &middot; Prompt for Claude</div>
+    <p class="hint" style="margin-top:0;margin-bottom:12px;">Copy this and paste it into Claude (claude.ai, or a saved project). It runs on your subscription, not the API, so it costs nothing. Claude researches the place and writes the opener.</p>
+    <textarea id="promptText" class="prompt-box" readonly></textarea>
+    <button id="copyPromptBtn" class="btn-prompt">Copy prompt</button>
+  </div>
+
+  <div class="card-dark">
+    <div class="gold-label">Step 2 &middot; Paste Claude's message</div>
+    <textarea id="messageInput" class="msg-input" placeholder="Paste the message Claude wrote here, then copy or send it."></textarea>
+    <div class="row">
       <button id="copyBtn" class="btn-copy">Copy message</button>
       <a id="waLink" class="btn-wa" style="display:none;" target="_blank" rel="noreferrer">Open in WhatsApp</a>
       <button id="logBtn" class="btn-ghost">Log as sent</button>
     </div>
-    <div class="revise-area">
-      <label>Want to change something?</label>
-      <div class="row">
-        <input id="reviseInput" class="revise-input" style="flex:1; min-width:220px;" placeholder="Make it shorter. Or, warmer. Or, lead with the design story." />
-        <button id="reviseBtn" class="btn-revise">Revise</button>
-      </div>
-    </div>
+    <div id="mainError" class="error"></div>
   </div>
 
   <div>
@@ -238,14 +218,13 @@ button:disabled { cursor: wait; opacity: 0.7; }
       </div>
     </div>
     <div id="pipelineList"></div>
-    <div id="pipelineEmpty" class="empty">Nothing logged yet. Generate a message and hit "Log as sent" after you fire it.</div>
+    <div id="pipelineEmpty" class="empty">Nothing logged yet. Copy the prompt, get the message from Claude, paste it back, and hit "Log as sent" after you fire it.</div>
   </div>
 </div>
 
 <script>
 const STORAGE = {
   pipeline: 'wl-pipeline',
-  apiKey: 'wl-api-key',
 };
 
 const VOICE_RULES = `You write outreach messages for Trevor, founder of The Welcome Link (thewelcomelink.com), a done-for-you custom digital welcome guide service for rentals in Puerto Escondido, Mexico. Trevor lives in La Punta.
@@ -253,7 +232,7 @@ const VOICE_RULES = `You write outreach messages for Trevor, founder of The Welc
 VOICE: Grounded, warm, direct. Poetic without fluff. No guru tone, no sales hype. Write like a neighbor who loves this town welcoming a friend. NEVER use em dashes or en dashes anywhere. Plain sentences, commas where needed.
 
 CONTENT RULES:
-- Lead with genuine specific admiration of THEIR place using the true detail provided. This detail is the heart of the message, weave it in naturally, never as a list item.
+- Lead with genuine specific admiration of THEIR place using the one true detail. This detail is the heart of the message, weave it in naturally, never as a list item.
 - Lead with guest experience and love of place. Host benefits (fewer repeat questions, better reviews) are byproducts, named softly if at all. Never lead with money.
 - Neighbor framing: Trevor lives in La Punta.
 - The pitch: one beautiful custom link a guest opens before and during their stay, arrival, the home, curated local picks, all designed around the property's own character. Done for you, not software.
@@ -277,39 +256,49 @@ LANGUAGE:
 
 OUTPUT: Respond ONLY with the message text (and translation if Spanish). No preamble, no quotes, no markdown, no explanations.`;
 
-const SCAN_RULES = `You research a short-term rental property for Trevor of The Welcome Link in Puerto Escondido, Mexico. You are given a URL (a website or an Airbnb listing) and possibly a property name. First use the web_fetch tool to open the exact URL you were given and read it. Then use web search to corroborate: the listing, the property's own website, and guest reviews.
-
-CRITICAL ACCURACY RULE: Everything you report must describe the specific place at the URL you were given. Never substitute a different, similarly named, or geographically nearby property just because it is easier to find. Airbnb listing pages (airbnb.com/rooms/<number>) are frequently bot-blocked or JavaScript-rendered, and the bare numeric room id is not searchable on its own, so you will often be unable to confirm which property it actually is. If you cannot confirm the real property behind the given URL, do NOT guess a plausible one. Return the error object instead.
-
-Your job:
-1. Confirm the property name and neighborhood/zone.
-2. Find 3 candidate "one true details": warm, human, specific things about the place. Pull from the listing's own description prose, guest reviews, or the property's website. Good details are things a neighbor would genuinely notice: the palapa over the pool deck, the coffee setup the host is proud of, the lawn running into an empty beach, a design story, what reviewers keep repeating with affection. Specs alone (bedroom counts, AC) are weak; only use a spec if you can frame it warmly.
-3. Note the host's first name ONLY if it is clearly and confidently stated on their own website or listing as the host. If it might be a co-host or manager, leave it empty.
-4. Note anything useful: multi-unit (how many units), design story, whether they seem Spanish-first or English-first.
-
-After your research, end your response with ONLY a JSON object (no markdown fences, no text after it) in exactly this shape:
-{"property":"","zone":"","hostName":"","language":"en or es","units":"","details":["","",""],"notes":""}
-If you could not open the URL, or could not confirm which specific property it is, return {"error":"what happened"} rather than a guess. A confident guess about the wrong property is worse than an honest failure: Trevor would send a message praising a place the host does not own.`;
-
 // State
 let currentMessage = '';
-let currentScan = null;
 
 // DOM helpers
 const $ = id => document.getElementById(id);
 const val = id => $(id).value.trim();
-const setVal = (id, v) => { $(id).value = v || ''; };
 
 // Load persisted state
 function loadState() {
-  const savedKey = localStorage.getItem(STORAGE.apiKey);
-  if (savedKey) setVal('apiKey', savedKey);
   renderPipeline();
+  buildPrompt();
 }
 
-// API key persistence
-$('apiKey').addEventListener('change', () => {
-  localStorage.setItem(STORAGE.apiKey, val('apiKey'));
+// Build the copy-paste prompt from the fields (no API call, pure string)
+function buildPrompt() {
+  const property = val('property') || '(property name)';
+  const detail = val('detail');
+  const detailLine = detail
+    ? `The one true detail I noticed: ${detail}`
+    : `The one true detail: (none provided, research the listing/website and choose ONE warm, specific, genuinely true detail to lead with. Do not invent anything you cannot verify. If you cannot confirm a real detail, say so instead of guessing.)`;
+  const lines = [
+    VOICE_RULES,
+    '',
+    'Now write one outreach opener using the rules above.',
+    '',
+    `Property: ${property}`,
+    `Contact first name: ${val('contact') || '(unknown, open without a name, do not guess one)'}`,
+    `Zone / neighborhood: ${val('zone') || 'Puerto Escondido'}`,
+    `Listing or website: ${val('url') || '(none given)'}`,
+    detailLine,
+    `Register: ${val('register')}`,
+    `Channel: ${val('channel')}`,
+    `Language: ${val('language')}`,
+    '',
+    'First look at the listing or website above to understand the place (use web search if you have it). Then write the message following every rule. Reply with only the message text.',
+  ];
+  $('promptText').value = lines.join('\n');
+}
+
+// Rebuild the prompt whenever a field changes
+['property', 'contact', 'zone', 'url', 'detail', 'register', 'channel', 'language'].forEach(id => {
+  $(id).addEventListener('input', buildPrompt);
+  $(id).addEventListener('change', buildPrompt);
 });
 
 // Channel switching
@@ -317,155 +306,24 @@ $('channel').addEventListener('change', () => {
   $('airbnbNote').style.display = val('channel') === 'airbnb' ? 'block' : 'none';
 });
 
-// Anthropic API call helper
-async function callAnthropic(body) {
-  const key = val('apiKey');
-  if (!key) throw new Error('Add your Anthropic API key first.');
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': key,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true',
-    },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    const errText = await res.text();
-    throw new Error('API error: ' + errText.slice(0, 200));
-  }
-  return res.json();
-}
-
-// Scan
-$('scanBtn').addEventListener('click', async () => {
-  const url = val('url');
-  if (!url) { showError('Paste the website or Airbnb link first.'); return; }
-  showError('');
-  $('scanBtn').disabled = true;
-  $('scanBtn').textContent = 'Reading...';
+// Copy prompt
+$('copyPromptBtn').addEventListener('click', async () => {
   try {
-    const data = await callAnthropic({
-      model: 'claude-opus-4-8',
-      max_tokens: 4096,
-      system: SCAN_RULES,
-      messages: [{
-        role: 'user',
-        content: `URL: ${url}${val('property') ? '\nProperty name (if known): ' + val('property') : ''}\nResearch this property and return the JSON.`
-      }],
-      tools: [
-        { type: 'web_fetch_20260209', name: 'web_fetch' },
-        { type: 'web_search_20260209', name: 'web_search' },
-      ],
-    });
-    const textBlocks = (data.content || []).filter(b => b.type === 'text').map(b => b.text);
-    const full = textBlocks.join('\n');
-    const jsonMatch = full.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) throw new Error('No JSON in response');
-    const parsed = JSON.parse(jsonMatch[0]);
-    if (parsed.error) {
-      showError('Scan came back empty: ' + parsed.error + ' You can still fill the detail by hand.');
-    } else {
-      currentScan = parsed;
-      renderScan(parsed);
-      if (parsed.property) setVal('property', parsed.property);
-      if (parsed.zone) setVal('zone', parsed.zone);
-      if (parsed.hostName) setVal('contact', parsed.hostName);
-      if (parsed.language === 'es') setVal('language', 'es');
-    }
+    await navigator.clipboard.writeText($('promptText').value);
+    $('copyPromptBtn').textContent = 'Copied';
+    setTimeout(() => $('copyPromptBtn').textContent = 'Copy prompt', 1600);
   } catch (e) {
-    showError('Scan failed. Airbnb sometimes blocks reading, try the property website or IG bio link, or fill the detail by hand. (' + e.message + ')');
+    $('promptText').focus();
+    $('promptText').select();
+    showError('Copy failed, the prompt is selected, press Cmd/Ctrl+C.');
   }
-  $('scanBtn').disabled = false;
-  $('scanBtn').textContent = 'Scan it';
 });
 
-function renderScan(scan) {
-  $('scanResults').style.display = 'block';
-  const pills = $('detailPills');
-  pills.innerHTML = '';
-  (scan.details || []).filter(Boolean).forEach(d => {
-    const btn = document.createElement('button');
-    btn.className = 'detail-pill';
-    btn.textContent = d;
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.detail-pill').forEach(el => el.classList.remove('selected'));
-      btn.classList.add('selected');
-      setVal('detail', d);
-    });
-    pills.appendChild(btn);
-  });
-  $('scanMeta').textContent = scan.units ? `Units: ${scan.units}. If multi-unit, confirm the count before pricing talk. ${scan.notes || ''}` : (scan.notes || '');
-  if (scan.hostName) {
-    $('scanNameWarn').style.display = 'block';
-    $('scanNameWarn').textContent = `Found a possible name: "${scan.hostName}". Double check it is really who you are messaging before sending.`;
-  } else {
-    $('scanNameWarn').style.display = 'none';
-  }
-}
-
-// Generate
-$('generateBtn').addEventListener('click', () => generate(null));
-$('reviseBtn').addEventListener('click', () => {
-  const revision = val('reviseInput');
-  if (!revision) { showError('Type what you want changed first.'); return; }
-  generate(revision);
-});
-
-async function generate(revisionRequest) {
-  if (!val('property') || !val('detail')) {
-    showError('Property name and the one true detail are required.');
-    return;
-  }
-  showError('');
-  const btn = revisionRequest ? $('reviseBtn') : $('generateBtn');
-  btn.disabled = true;
-  btn.textContent = revisionRequest ? 'Revising...' : 'Writing...';
-  try {
-    let userContent;
-    if (revisionRequest) {
-      userContent = `Here is the current message:
-"""
-${currentMessage}
-"""
-
-Trevor wants this revised: ${revisionRequest}
-
-Keep all voice rules intact (no em/en dashes, guest experience first, neighbor framing). Return only the revised message text.`;
-    } else {
-      userContent = `Write the outreach opener.
-Contact first name: ${val('contact') || '(unknown, open without a name, do not guess one)'}
-Property: ${val('property')}
-Zone / neighborhood: ${val('zone') || 'Puerto Escondido'}
-The one true detail Trevor noticed: ${val('detail')}
-Register: ${val('register')}
-Channel: ${val('channel')}
-Language: ${val('language')}`;
-    }
-    const data = await callAnthropic({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 1000,
-      system: VOICE_RULES,
-      messages: [{ role: 'user', content: userContent }],
-    });
-    const text = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n').trim();
-    if (!text) throw new Error('Empty response');
-    currentMessage = text;
-    showMessage(text);
-    if (revisionRequest) setVal('reviseInput', '');
-  } catch (e) {
-    showError('Failed: ' + e.message);
-  }
-  btn.disabled = false;
-  btn.textContent = revisionRequest ? 'Revise' : 'Write the message';
-}
-
-function showMessage(text) {
-  $('messageText').textContent = text;
-  $('messageCard').style.display = 'block';
+// The pasted message drives the WhatsApp link + copy + log
+$('messageInput').addEventListener('input', () => {
+  currentMessage = val('messageInput');
   updateWaLink();
-}
+});
 
 function updateWaLink() {
   const digits = val('phone').replace(/[^0-9]/g, '');
@@ -480,8 +338,9 @@ function updateWaLink() {
 $('phone').addEventListener('input', updateWaLink);
 $('channel').addEventListener('change', updateWaLink);
 
-// Copy
+// Copy message
 $('copyBtn').addEventListener('click', async () => {
+  if (!currentMessage) { showError('Paste the message from Claude first.'); return; }
   try {
     await navigator.clipboard.writeText(currentMessage);
     $('copyBtn').textContent = 'Copied';
@@ -503,6 +362,8 @@ function savePipeline(list) {
 }
 
 $('logBtn').addEventListener('click', () => {
+  if (!val('property')) { showError('Add a property name before logging.'); return; }
+  showError('');
   const list = loadPipeline();
   list.unshift({
     id: Date.now(),
