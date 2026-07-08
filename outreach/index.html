@@ -277,7 +277,9 @@ LANGUAGE:
 
 OUTPUT: Respond ONLY with the message text (and translation if Spanish). No preamble, no quotes, no markdown, no explanations.`;
 
-const SCAN_RULES = `You research a short-term rental property for Trevor of The Welcome Link in Puerto Escondido, Mexico. You are given a URL (a website or an Airbnb listing) and possibly a property name. Use web search to find the listing, the property's website, and reviews.
+const SCAN_RULES = `You research a short-term rental property for Trevor of The Welcome Link in Puerto Escondido, Mexico. You are given a URL (a website or an Airbnb listing) and possibly a property name. First use the web_fetch tool to open the exact URL you were given and read it. Then use web search to corroborate: the listing, the property's own website, and guest reviews.
+
+CRITICAL ACCURACY RULE: Everything you report must describe the specific place at the URL you were given. Never substitute a different, similarly named, or geographically nearby property just because it is easier to find. Airbnb listing pages (airbnb.com/rooms/<number>) are frequently bot-blocked or JavaScript-rendered, and the bare numeric room id is not searchable on its own, so you will often be unable to confirm which property it actually is. If you cannot confirm the real property behind the given URL, do NOT guess a plausible one. Return the error object instead.
 
 Your job:
 1. Confirm the property name and neighborhood/zone.
@@ -287,7 +289,7 @@ Your job:
 
 After your research, end your response with ONLY a JSON object (no markdown fences, no text after it) in exactly this shape:
 {"property":"","zone":"","hostName":"","language":"en or es","units":"","details":["","",""],"notes":""}
-If you could not find the property at all, return {"error":"what happened"}.`;
+If you could not open the URL, or could not confirm which specific property it is, return {"error":"what happened"} rather than a guess. A confident guess about the wrong property is worse than an honest failure: Trevor would send a message praising a place the host does not own.`;
 
 // State
 let currentMessage = '';
@@ -345,14 +347,17 @@ $('scanBtn').addEventListener('click', async () => {
   $('scanBtn').textContent = 'Reading...';
   try {
     const data = await callAnthropic({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 3000,
+      model: 'claude-opus-4-8',
+      max_tokens: 4096,
       system: SCAN_RULES,
       messages: [{
         role: 'user',
         content: `URL: ${url}${val('property') ? '\nProperty name (if known): ' + val('property') : ''}\nResearch this property and return the JSON.`
       }],
-      tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+      tools: [
+        { type: 'web_fetch_20260209', name: 'web_fetch' },
+        { type: 'web_search_20260209', name: 'web_search' },
+      ],
     });
     const textBlocks = (data.content || []).filter(b => b.type === 'text').map(b => b.text);
     const full = textBlocks.join('\n');
