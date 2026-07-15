@@ -227,34 +227,43 @@ const STORAGE = {
   pipeline: 'wl-pipeline',
 };
 
-const VOICE_RULES = `You write outreach messages for Trevor, founder of The Welcome Link (thewelcomelink.com), a done-for-you custom digital welcome guide service for rentals in Puerto Escondido, Mexico. Trevor lives in La Punta.
+const VOICE_RULES = `You are helping Trevor write a first outreach message to a short term rental host or manager in Puerto Escondido, Mexico. Trevor runs The Welcome Link and lives in La Punta. Write it in Trevor's own voice, as if he wrote it himself.
 
-VOICE: Grounded, warm, direct. Poetic without fluff. No guru tone, no sales hype. Write like a neighbor who loves this town welcoming a friend. NEVER use em dashes or en dashes anywhere. Plain sentences, commas where needed.
+USE WHAT YOU ALREADY KNOW: If this project or conversation has Trevor's master files, brand notes, or past example messages, lean on them. They are the source of truth for his voice, his story, and how he talks, and they override anything generic in this brief. You have real authority here. Write like Trevor, not like a marketer describing him.
 
-CONTENT RULES:
-- Lead with genuine specific admiration of THEIR place using the one true detail. This detail is the heart of the message, weave it in naturally, never as a list item.
-- Lead with guest experience and love of place. Host benefits (fewer repeat questions, better reviews) are byproducts, named softly if at all. Never lead with money.
-- Neighbor framing: Trevor lives in La Punta.
-- The pitch: one beautiful custom link a guest opens before and during their stay, arrival, the home, curated local picks, all designed around the property's own character. Done for you, not software.
-- Low-pressure close, an invitation not a push.
-- Keep it short enough for a DM, roughly 60 to 110 words.
+WHAT THIS IS ACTUALLY ABOUT (this is the heart, always):
+This is not selling a website, a link, a check in system, or "done for you" software. That framing is boring and it misses the point. What Trevor is really offering is that this host's guests have the best possible time in Puerto Escondido, a place Trevor genuinely loves, and that they start their trip on the best foot, set up for success and already falling for the town. The host's own wins, fewer repeat questions, smoother stays, better reviews, guests who want to come back and rebook the same place, all follow naturally from that one thing done well. Name them softly if at all, never lead with them, and never lead with money or mechanics.
+
+THE FEEL:
+Grounded, warm, direct. A neighbor who loves this town saying hi to another neighbor, not a pitch. Poetic without fluff, from force to flow. Specific and sensory over generic. It should read as handwritten for this one place, never like a template. No guru tone, no hype, no salesy energy.
+
+HOW TO OPEN:
+This usually lands as an unexpected message, so gently disarm it early in Trevor's own words, that this is not about a booking. Then lead with something true and vivid about THEIR specific place, the one detail a guest would carry home, tied to how it would feel to be there. Make it clear you actually looked at their place.
+
+STRUCTURE IS LOOSE, NOT A FORMULA:
+Roughly a warm disarming open plus that vivid detail, a light neighborly line on who Trevor is and what he really does (guests falling in love with here, set up for the best trip), the lightest possible touch on the actual deliverable only if it helps, live examples at thewelcomelink.com, and an easy neighborly close. Vary the shape and the wording every single time. Let it breathe. It can run a little longer than a one liner but should still feel like a message between two people, not an essay or a brochure.
+
+THE ONLY HARD LINES:
+- Never use em dashes or en dashes anywhere. Plain sentences, commas where needed.
 - Never invent or guess the contact's name. If no name is given, open without one.
+- Channel: on WhatsApp or Instagram, include thewelcomelink.com naturally near the end. On Airbnb first contact, use NO links and NO phone numbers, just name The Welcome Link so they can find it, and keep it a touch shorter.
+- Register: luxury / design-forward leans a little more elegant, a home made with real intention deserves a welcome that feels the same. Manager / channel is pitched as the connector who could open this for their owners, a finder's fee idea only as "worth a conversation," no numbers. Boutique hotel leans on the pre arrival and in room concierge layer staff cannot be at 11pm. Standard host is the warm neighbor default.
+- Language: if Spanish, write natural Mexican Spanish, then a line containing only "---", then the full English translation. If English, English only.
 
-REGISTER ADJUSTMENTS:
-- standard: warm neighbor tone, mention https://thewelcomelink.com so they can see live examples.
-- luxury: design-forward. A home built with real intention deserves a welcome that feels the same. Slightly more elegant register. Include https://thewelcomelink.com.
-- manager: pitch them as the channel, not the buyer. A finder's-fee idea planted softly as "worth a conversation", no numbers. Include https://thewelcomelink.com.
-- hotel: lead with the pre-arrival and in-room concierge layer staff can't be at 11pm, guests tapping through the hotel's own curated picks. Include https://thewelcomelink.com.
+A MESSAGE THAT LANDS (this is the north star, match this feeling and warmth, not the specific words or place):
+"""
+Hi, I'm not writing about a booking. I am looking at Altavista and it caught my attention, for me that rooftop, sunsets over the ocean on one side and seeing the mountains on the other, the whole day bookended from a single deck. In a corner as calm as La Barra, that kind of view is what a guest carries home.
 
-CHANNEL RULES:
-- whatsapp or instagram: include the link https://thewelcomelink.com naturally near the end.
-- airbnb: NO links and NO phone numbers allowed. Instead name the business ("The Welcome Link") so they can find it themselves. Keep it extra short.
+I'm Trevor, I live just over in La Punta. I make sure guests of short term renters in Puerto Escondido have a great experience starting with the place they are staying. I make one beautiful link a guest opens before they arrive: how to get there, the home, the local spots actually worth their time, any offers within the house, all shaped around the property's own character. Done for you, custom designed, not software.
 
-LANGUAGE:
-- If language is "es": write the message in natural Mexican Spanish, then on a new line after "---" give the full English translation.
-- If language is "en": English only.
+Being sure they fall in love with here just like me.
 
-OUTPUT: Respond ONLY with the message text (and translation if Spanish). No preamble, no quotes, no markdown, no explanations.`;
+A couple live examples are here: https://thewelcomelink.com
+
+No pressure, just good to say hi as a neighbor.
+"""
+
+OUTPUT: Reply with only the message text, nothing else. If Spanish, the message, then a line with only "---", then the English translation. No preamble, no quotes, no labels, no explanations.`;
 
 // State
 let currentMessage = '';
@@ -279,7 +288,7 @@ function buildPrompt() {
   const lines = [
     VOICE_RULES,
     '',
-    'Now write one outreach opener using the rules above.',
+    'Now write one first-touch message in Trevor\'s voice for the lead below. Make it feel handwritten for this exact place, warm and specific, never template-y. This is a fresh one, so do not reuse phrasing from earlier messages.',
     '',
     `Property: ${property}`,
     `Contact first name: ${val('contact') || '(unknown, open without a name, do not guess one)'}`,
@@ -290,7 +299,7 @@ function buildPrompt() {
     `Channel: ${val('channel')}`,
     `Language: ${val('language')}`,
     '',
-    'First look at the listing or website above to understand the place (use web search if you have it). Then write the message following every rule. Reply with only the message text.',
+    'First actually look at the listing or website above so you understand this specific place (use web search if you have it). Then write the message in Trevor\'s voice. Reply with only the message text.',
   ];
   $('promptText').value = lines.join('\n');
 }
