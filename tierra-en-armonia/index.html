@@ -72,39 +72,48 @@
   h1,h2,h3{font-family:'Fraunces',serif;font-weight:300;line-height:1.08;letter-spacing:-0.01em}
   em{font-style:italic;color:var(--jade-deep)}
 
-  /* ---------- HERO ---------- */
+  /* ---------- HERO (photo leads, text lands below) ---------- */
   .hero{
-    min-height:100svh;position:relative;
-    display:flex;flex-direction:column;justify-content:flex-end;
-    padding:0 0 8vh;overflow:hidden;
+    height:100svh;min-height:520px;position:relative;overflow:hidden;
+    display:flex;align-items:flex-end;justify-content:center;
   }
   .hero-bg{
     position:absolute;inset:0;z-index:0;
     background:
-      linear-gradient(180deg,rgba(28,22,16,0.28) 0%,rgba(28,22,16,0.05) 30%,rgba(28,22,16,0.10) 60%,rgba(28,22,16,0.66) 100%),
+      linear-gradient(180deg,rgba(28,22,16,0.24) 0%,rgba(28,22,16,0) 20%,rgba(28,22,16,0) 76%,rgba(28,22,16,0.34) 100%),
       var(--ink);
     background-size:cover;background-position:center;
   }
   .hero-bg.has-photo{background-image:
-      linear-gradient(180deg,rgba(28,22,16,0.40) 0%,rgba(28,22,16,0.18) 26%,rgba(28,22,16,0.42) 55%,rgba(28,22,16,0.86) 100%),
+      linear-gradient(180deg,rgba(28,22,16,0.24) 0%,rgba(28,22,16,0) 20%,rgba(28,22,16,0) 76%,rgba(28,22,16,0.34) 100%),
       var(--hero-photo);}
-  .hero-inner{position:relative;z-index:2;color:var(--white);
-    text-shadow:0 1px 24px rgba(20,14,8,0.5),0 1px 3px rgba(20,14,8,0.4)}
-  .hero .eyebrow{color:rgba(251,249,245,0.85)}
-  .hero h1{
-    font-size:clamp(3rem,9vw,6.6rem);color:var(--white);
-    margin:.28em 0 .5em;max-width:14ch;font-weight:300;
+  .hero-cue{
+    position:relative;z-index:2;margin-bottom:32px;
+    display:flex;flex-direction:column;align-items:center;gap:9px;
+    color:rgba(251,249,245,0.94);
+    font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    text-shadow:0 1px 12px rgba(20,14,8,0.55);
+    animation:cueFloat 2.6s ease-in-out infinite;
   }
-  .hero h1 em{color:#E8D6B8}
-  .hero-sub{
-    font-size:clamp(1rem,2vw,1.22rem);max-width:40ch;
-    color:rgba(251,249,245,0.92);font-weight:300;
+  .hero-cue svg{width:17px;height:17px;stroke:currentColor}
+  @keyframes cueFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+  /* ---------- title / intro (the words, on plaster) ---------- */
+  .intro{background:var(--plaster)}
+  .intro .eyebrow{display:block;margin-bottom:1.2em}
+  .intro h1{
+    font-size:clamp(2.6rem,7vw,5.2rem);color:var(--ink);
+    max-width:15ch;margin-bottom:.52em;font-weight:300;
   }
-  .hero-tag{
-    margin-top:2.4em;display:inline-flex;align-items:center;gap:9px;
-    font-size:12px;letter-spacing:0.12em;color:rgba(251,249,245,0.82);
+  .intro-sub{
+    font-size:clamp(1.08rem,2vw,1.3rem);max-width:46ch;
+    color:var(--ink-soft);font-weight:300;
   }
-  .hero-tag::before{content:"";width:26px;height:1px;background:rgba(251,249,245,0.5)}
+  .intro-tag{
+    margin-top:2.4em;display:inline-flex;align-items:center;gap:10px;
+    font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:0.14em;color:var(--ink-soft);
+  }
+  .intro-tag::before{content:"";width:26px;height:1px;background:var(--jade)}
 
   /* ---------- shared section rhythm ---------- */
   section{padding:clamp(72px,11vw,140px) 0}
@@ -244,11 +253,19 @@
   <button data-set="es">ES</button>
 </div>
 
-<!-- ============ HERO ============ -->
+<!-- ============ HERO (photo does the talking) ============ -->
 <header class="hero">
   <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-inner wrap">
-    <!-- PERSONALIZE: hero tagline + eyebrow -->
+  <div class="hero-cue">
+    <span class="lang-en">Scroll</span><span class="lang-es">Desliza</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+  </div>
+</header>
+
+<!-- ============ TITLE / INTRO (the words land here) ============ -->
+<section class="intro">
+  <div class="wrap reveal">
+    <!-- PERSONALIZE: title + eyebrow -->
     <span class="eyebrow">
       <span class="lang-en">A proposal · Puerto Escondido</span>
       <span class="lang-es">Una propuesta · Puerto Escondido</span>
@@ -257,16 +274,16 @@
       <span class="lang-en">Tierra en <em>Armonia,</em> online the way it feels in person.</span>
       <span class="lang-es">Tierra en <em>Armonia,</em> en línea como se siente en persona.</span>
     </h1>
-    <p class="hero-sub">
+    <p class="intro-sub">
       <span class="lang-en">A contemporary tropical Mexican retreat. Fifteen years of love built into the land. Here is how that same feeling could greet a guest before they ever arrive.</span>
       <span class="lang-es">Un retiro mexicano tropical y contemporáneo. Quince años de amor construidos en esta tierra. Así es como ese mismo sentir podría recibir a un huésped antes de llegar.</span>
     </p>
-    <span class="hero-tag">
+    <span class="intro-tag">
       <span class="lang-en">Prepared for Arianna, by The Welcome Link</span>
       <span class="lang-es">Preparada para Arianna, por The Welcome Link</span>
     </span>
   </div>
-</header>
+</section>
 
 <!-- ============ OPENING NOTE ============ -->
 <section class="note">
