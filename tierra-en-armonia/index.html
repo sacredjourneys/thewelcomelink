@@ -26,6 +26,7 @@
     --ink-soft:#5C5142;
     --jade:#4E6B5A;         /* muted Oaxacan glaze green */
     --jade-deep:#3B5245;
+    --terracotta:#B25A34;   /* warm Puerto clay, the accent that pops */
     --line:rgba(51,41,31,0.14);
     --white:#FBF9F5;
   }
@@ -100,11 +101,13 @@
 
   /* ---------- title / intro (the words, on plaster) ---------- */
   .intro{background:var(--plaster)}
-  .intro .eyebrow{display:block;margin-bottom:1.2em}
+  .intro .eyebrow{display:block;margin-bottom:1.1em;color:var(--terracotta)}
   .intro h1{
-    font-size:clamp(2.6rem,7vw,5.2rem);color:var(--ink);
-    max-width:15ch;margin-bottom:.52em;font-weight:300;
+    font-size:clamp(2.9rem,7.6vw,5.8rem);color:var(--ink);
+    max-width:14ch;margin-bottom:.5em;font-weight:400;
+    line-height:1.02;letter-spacing:-0.02em;
   }
+  .intro h1 em{color:var(--terracotta);font-weight:400}
   .intro-sub{
     font-size:clamp(1.08rem,2vw,1.3rem);max-width:46ch;
     color:var(--ink-soft);font-weight:300;
@@ -220,8 +223,8 @@
 
   @media(max-width:760px){
     .read-grid,.homes,.screens,.pk-grid,.trust-grid{grid-template-columns:1fr}
+    .guides .guides-grid{grid-template-columns:1fr 1fr;gap:12px}
     .home.feature{grid-column:auto}
-    .hero{padding-bottom:12vh}
     section{padding:64px 0}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -244,6 +247,22 @@
   .map-sub{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
   .map-chip{font-family:'Outfit',sans-serif;font-size:.82rem;color:var(--ink-soft);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
   .map-node.nested{padding-left:34px;margin-left:22px;border-left:1px dashed var(--line)}
+
+  /* ---------- the welcome guides (the second pillar) ---------- */
+  .guides{background:var(--jade-deep);color:var(--plaster)}
+  .guides .eyebrow{color:#D8B784}
+  .guides h2{color:var(--plaster);font-size:clamp(2rem,4.6vw,3.2rem);max-width:20ch;margin-bottom:.55em}
+  .guides h2 em{color:#E8C79A}
+  .guides .lede{color:rgba(243,238,230,0.94)}
+  .guides .body-copy{color:rgba(243,238,230,0.74)}
+  .guides-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+  .guide-item{border:1px solid rgba(243,238,230,0.16);border-radius:3px;padding:24px 22px;background:rgba(243,238,230,0.04)}
+  .guide-item .lbl{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#D8B784;margin-bottom:.9em;display:block}
+  .guide-item p{font-size:.93rem;color:rgba(243,238,230,0.72)}
+  .guides-value{margin-top:44px;padding:28px 30px;border:1px solid rgba(243,238,230,0.22);border-radius:4px;background:rgba(243,238,230,0.05);display:flex;gap:8px 26px;align-items:baseline;flex-wrap:wrap}
+  .guides-value .big{font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.2rem);font-weight:300;color:var(--plaster);line-height:1.1}
+  .guides-value .big em{color:#E8C79A}
+  .guides-value .txt{color:rgba(243,238,230,0.82);font-size:1rem;max-width:44ch}
 </style>
 </head>
 <body data-lang="en">
@@ -366,8 +385,8 @@
       </div>
       <div class="screen">
         <span class="lbl"><span class="lang-en">The collection</span><span class="lang-es">La colección</span></span>
-        <h3><span class="lang-en">Seven villas, one main house</span><span class="lang-es">Siete villas, una casa principal</span></h3>
-        <p><span class="lang-en">A calm grid of every house, each a single beautiful photo and its name. A guest browses like walking a gallery, choosing the room that calls them.</span><span class="lang-es">Una cuadrícula tranquila de cada casa, cada una con una sola foto hermosa y su nombre. El huésped explora como quien camina una galería, eligiendo el espacio que lo llama.</span></p>
+        <h3><span class="lang-en">Casa Nova and seven villas</span><span class="lang-es">Casa Nova y siete villas</span></h3>
+        <p><span class="lang-en">A calm grid of every house, each a single beautiful photo and its name. A guest browses like walking a gallery, choosing the space that calls them.</span><span class="lang-es">Una cuadrícula tranquila de cada casa, cada una con una sola foto hermosa y su nombre. El huésped explora como quien camina una galería, eligiendo el espacio que lo llama.</span></p>
       </div>
       <div class="screen">
         <span class="lbl"><span class="lang-en">Inside a house</span><span class="lang-es">Dentro de una casa</span></span>
@@ -449,6 +468,52 @@
   </div>
 </section>
 
+<!-- ============ THE WELCOME GUIDES (second pillar) ============ -->
+<section class="guides">
+  <div class="wrap reveal">
+    <span class="eyebrow">
+      <span class="lang-en">The other half of the welcome</span>
+      <span class="lang-es">La otra mitad de la bienvenida</span>
+    </span>
+    <h2>
+      <span class="lang-en">A beautiful site wins the booking. The welcome guide wins the <em>review</em>.</span>
+      <span class="lang-es">Un sitio hermoso gana la reserva. La guía de bienvenida gana la <em>reseña</em>.</span>
+    </h2>
+    <p class="lede">
+      <span class="lang-en">The website is only half of what I do. It tells your story and earns the yes. But the stay itself is where five-star reviews and returning guests are made, and that is exactly what a welcome guide is for.</span>
+      <span class="lang-es">El sitio web es solo la mitad de lo que hago. Cuenta tu historia y gana el sí. Pero la estancia misma es donde nacen las reseñas de cinco estrellas y los huéspedes que regresan, y para eso es justo una guía de bienvenida.</span>
+    </p>
+    <p class="body-copy">
+      <span class="lang-en">Every one of your eight homes gets its own guide, the same page a guest opens the moment they arrive. Exact directions to the door, the WiFi, how the house works, and my own picks as someone who actually lives here: where to eat, where to surf, where the sunset is best, and one tap to reach you for anything. Your guest never feels lost in a new place. They feel hosted. That feeling is what they write about when they get home.</span>
+      <span class="lang-es">Cada una de tus ocho casas tiene su propia guía, la misma página que un huésped abre en el momento en que llega. Indicaciones exactas hasta la puerta, el WiFi, cómo funciona la casa, y mis propias recomendaciones como alguien que de verdad vive aquí: dónde comer, dónde surfear, dónde es mejor el atardecer, y un toque para encontrarte para lo que sea. Tu huésped nunca se siente perdido en un lugar nuevo. Se siente recibido. Ese sentir es lo que escriben cuando vuelven a casa.</span>
+    </p>
+
+    <div class="guides-grid">
+      <div class="guide-item">
+        <span class="lbl"><span class="lang-en">Arrival</span><span class="lang-es">Llegada</span></span>
+        <p><span class="lang-en">Turn-by-turn directions to the door, ready before they land. No lost guests, no calls at midnight.</span><span class="lang-es">Indicaciones paso a paso hasta la puerta, listas antes de que aterricen. Sin huéspedes perdidos, sin llamadas a medianoche.</span></p>
+      </div>
+      <div class="guide-item">
+        <span class="lbl"><span class="lang-en">Essentials</span><span class="lang-es">Lo esencial</span></span>
+        <p><span class="lang-en">WiFi, check-in, how everything works, the signature touches of the house. All at their fingertips.</span><span class="lang-es">WiFi, check-in, cómo funciona todo, los detalles especiales de la casa. Todo a la mano.</span></p>
+      </div>
+      <div class="guide-item">
+        <span class="lbl"><span class="lang-en">Local picks</span><span class="lang-es">Recomendaciones</span></span>
+        <p><span class="lang-en">Where to eat, surf, and watch the sunset, chosen by a local. Never a generic AI list.</span><span class="lang-es">Dónde comer, surfear y ver el atardecer, elegido por un local. Nunca una lista genérica de IA.</span></p>
+      </div>
+      <div class="guide-item">
+        <span class="lbl"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></span>
+        <p><span class="lang-en">One tap to WhatsApp for anything, and a gentle nudge for a review at the right moment.</span><span class="lang-es">Un toque a WhatsApp para lo que sea, y un recordatorio amable para una reseña en el momento justo.</span></p>
+      </div>
+    </div>
+
+    <div class="guides-value">
+      <span class="big"><span class="lang-en">On their own, each guide runs 3,000 MXN. <em>All eight, bundled in.</em></span><span class="lang-es">Por separado, cada guía cuesta 3,000 MXN. <em>Las ocho, incluidas.</em></span></span>
+      <span class="txt"><span class="lang-en">That is 8,000 MXN of guest-experience value built into this proposal, at no extra cost. The site earns the booking. The guides make sure every stay earns its stars.</span><span class="lang-es">Son 8,000 MXN de valor en experiencia del huésped incluidos en esta propuesta, sin costo extra. El sitio gana la reserva. Las guías aseguran que cada estancia se gane sus estrellas.</span></span>
+    </div>
+  </div>
+</section>
+
 <!-- ============ THE COLLECTION (real units) ============ -->
 <section class="collection">
   <div class="wrap reveal">
@@ -474,7 +539,7 @@
         </div>
         <div class="home-body">
           <div class="home-meta">
-            <span class="lang-en">The main house</span><span class="lang-es">La casa principal</span>
+            <span class="lang-en">The largest house</span><span class="lang-es">La casa más grande</span>
             <span class="dot"></span><span>19 <span class="lang-en">guests</span><span class="lang-es">huéspedes</span></span>
             <span class="dot"></span><span class="lang-en">Ocean view · pool</span><span class="lang-es">Vista al mar · alberca</span>
           </div>
@@ -546,7 +611,7 @@
           <li><span class="lang-en">Full English and Spanish, on every page</span><span class="lang-es">Español e inglés completos, en cada página</span></li>
           <li><span class="lang-en">Fast, mobile-first, built to last, made to be shown off Airbnb and directly to guests</span><span class="lang-es">Rápido, mobile-first, hecho para durar, pensado para mostrarse fuera de Airbnb y directo a huéspedes</span></li>
           <li><span class="lang-en">Direct booking and contact, so a guest can reach you without a middleman</span><span class="lang-es">Reserva y contacto directos, para que un huésped te encuentre sin intermediario</span></li>
-          <li class="gift"><span class="strike">$6,000</span><span class="lang-en">Welcome links for your guests, included as a gift, the guide layer that carries your site's soul onto the guest's phone: arrival, WiFi, your local picks, one-tap contact</span><span class="lang-es">Enlaces de bienvenida para tus huéspedes, incluidos de regalo, la capa de guía que lleva el alma del sitio al teléfono del huésped: llegada, WiFi, tus recomendaciones locales, contacto a un toque</span></li>
+          <li class="gift"><span class="strike">$8,000</span><span class="lang-en">Eight welcome guides, one for every home (normally 3,000 MXN each), included: the guide layer that greets each guest on arrival with directions, WiFi, your local picks, and one-tap contact</span><span class="lang-es">Ocho guías de bienvenida, una por cada casa (normalmente 3,000 MXN cada una), incluidas: la capa de guía que recibe a cada huésped al llegar con indicaciones, WiFi, tus recomendaciones locales, y contacto a un toque</span></li>
           <li class="gift"><span class="lang-en">Three rounds of small changes included through the first year</span><span class="lang-es">Tres rondas de cambios pequeños incluidas durante el primer año</span></li>
         </ul>
       </div>
@@ -603,12 +668,6 @@
       <span class="lang-en">💬 Let's talk on WhatsApp</span>
       <span class="lang-es">💬 Hablemos por WhatsApp</span>
     </a>
-    <span class="secondary">
-      <a href="https://thewelcomelink.com/villas-alebrijes/" target="_blank" rel="noopener">
-        <span class="lang-en">Or see the welcome guide I already built for Villas Alebrijes →</span>
-        <span class="lang-es">O mira la guía de bienvenida que ya hice para Villas Alebrijes →</span>
-      </a>
-    </span>
   </div>
 </section>
 
@@ -645,7 +704,7 @@
     img.onload = () => {
       if(isHero){
         el.style.backgroundImage =
-          'linear-gradient(180deg,rgba(28,22,16,0.30) 0%,rgba(28,22,16,0.04) 32%,rgba(28,22,16,0.10) 60%,rgba(28,22,16,0.68) 100%), url("'+src+'")';
+          'linear-gradient(180deg,rgba(28,22,16,0.24) 0%,rgba(28,22,16,0) 20%,rgba(28,22,16,0) 76%,rgba(28,22,16,0.34) 100%), url("'+src+'")';
         el.style.backgroundSize='cover';
         el.style.backgroundPosition='center';
       } else {
