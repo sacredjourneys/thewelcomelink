@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Tierra en Armonia · A proposal by The Welcome Link</title>
+<meta name="description" content="A website proposal for Tierra en Armonia, Casa Nova and Villas Alebrijes. Built by The Welcome Link.">
+<meta property="og:title" content="Tierra en Armonia · A proposal">
+<meta property="og:description" content="A contemporary tropical Mexican retreat, represented online the way it deserves. A proposal built by The Welcome Link.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thewelcomelink.com/tierra-en-armonia/">
+<meta property="og:image" content="https://thewelcomelink.com/tierra-en-armonia/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://thewelcomelink.com/tierra-en-armonia/images/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plaster:#F3EEE6;      /* warm limestone plaster */
+    --plaster-deep:#E9E1D4;
+    --ink:#33291F;          /* deep Oaxacan clay-brown, near black */
+    --ink-soft:#5C5142;
+    --jade:#4E6B5A;         /* muted Oaxacan glaze green */
+    --jade-deep:#3B5245;
+    --line:rgba(51,41,31,0.14);
+    --white:#FBF9F5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--plaster);
+    color:var(--ink);
+    font-family:'Outfit',sans-serif;
+    font-weight:300;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .lang-en,.lang-es{display:contents}
+  body[data-lang="en"] .lang-es{display:none}
+  body[data-lang="es"] .lang-en{display:none}
+
+  /* language toggle */
+  .lang-toggle{
+    position:fixed;top:18px;right:18px;z-index:100;
+    display:flex;gap:2px;padding:4px;
+    background:rgba(251,249,245,0.72);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border:1px solid var(--line);border-radius:999px;
+    font-family:'Outfit',sans-serif;font-weight:400;
+  }
+  .lang-toggle button{
+    border:none;background:none;cursor:pointer;
+    font:inherit;font-size:12px;letter-spacing:0.08em;
+    padding:6px 13px;border-radius:999px;color:var(--ink-soft);
+    transition:all .25s ease;
+  }
+  .lang-toggle button.active{background:var(--ink);color:var(--plaster)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  .narrow{max-width:720px;margin:0 auto;padding:0 28px}
+
+  .eyebrow{
+    font-family:'Outfit',sans-serif;font-weight:400;
+    font-size:12px;letter-spacing:0.26em;text-transform:uppercase;
+    color:var(--jade);
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:300;line-height:1.08;letter-spacing:-0.01em}
+  em{font-style:italic;color:var(--jade-deep)}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;position:relative;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:0 0 8vh;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      linear-gradient(180deg,rgba(28,22,16,0.28) 0%,rgba(28,22,16,0.05) 30%,rgba(28,22,16,0.10) 60%,rgba(28,22,16,0.66) 100%),
+      var(--ink);
+    background-size:cover;background-position:center;
+  }
+  .hero-bg.has-photo{background-image:
+      linear-gradient(180deg,rgba(28,22,16,0.30) 0%,rgba(28,22,16,0.04) 32%,rgba(28,22,16,0.10) 60%,rgba(28,22,16,0.68) 100%),
+      var(--hero-photo);}
+  .hero-inner{position:relative;z-index:2;color:var(--white)}
+  .hero .eyebrow{color:rgba(251,249,245,0.85)}
+  .hero h1{
+    font-size:clamp(3rem,9vw,6.6rem);color:var(--white);
+    margin:.28em 0 .5em;max-width:14ch;font-weight:300;
+  }
+  .hero h1 em{color:#E8D6B8}
+  .hero-sub{
+    font-size:clamp(1rem,2vw,1.22rem);max-width:40ch;
+    color:rgba(251,249,245,0.92);font-weight:300;
+  }
+  .hero-tag{
+    margin-top:2.4em;display:inline-flex;align-items:center;gap:9px;
+    font-size:12px;letter-spacing:0.12em;color:rgba(251,249,245,0.82);
+  }
+  .hero-tag::before{content:"";width:26px;height:1px;background:rgba(251,249,245,0.5)}
+
+  /* ---------- shared section rhythm ---------- */
+  section{padding:clamp(72px,11vw,140px) 0}
+  .lede{font-size:clamp(1.28rem,2.5vw,1.7rem);font-family:'Fraunces',serif;font-weight:300;line-height:1.4;color:var(--ink)}
+  .body-copy{font-size:1.04rem;color:var(--ink-soft);margin-top:1.4em}
+  .body-copy + .body-copy{margin-top:1em}
+
+  /* opening note */
+  .note{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .note .eyebrow{margin-bottom:1.6em}
+
+  /* ---------- the read (what I see) ---------- */
+  .read h2{font-size:clamp(2rem,4.5vw,3.1rem);max-width:16ch;margin-bottom:.7em}
+  .read-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+  .read-card{background:var(--white);border:1px solid var(--line);border-radius:2px;padding:34px 32px}
+  .read-card .n{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--jade);margin-bottom:.9em;display:block}
+  .read-card h3{font-size:1.32rem;margin-bottom:.5em}
+  .read-card p{font-size:.98rem;color:var(--ink-soft)}
+
+  /* ---------- vision / how it feels (the site walkthrough) ---------- */
+  .vision{background:var(--ink);color:var(--plaster)}
+  .vision .eyebrow{color:#C9A876}
+  .vision h2{color:var(--plaster);font-size:clamp(2rem,4.5vw,3.1rem);max-width:18ch;margin-bottom:.6em}
+  .vision .lede{color:rgba(243,238,230,0.9)}
+  .vision .body-copy{color:rgba(243,238,230,0.66)}
+  .screens{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:64px}
+  .screen{border:1px solid rgba(243,238,230,0.16);border-radius:3px;padding:30px 26px;background:rgba(243,238,230,0.03)}
+  .screen .lbl{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A876;margin-bottom:1.3em}
+  .screen h3{font-size:1.24rem;color:var(--plaster);margin-bottom:.5em}
+  .screen p{font-size:.94rem;color:rgba(243,238,230,0.6)}
+
+  /* ---------- the collection (their real units) ---------- */
+  .collection h2{font-size:clamp(2rem,4.5vw,3.1rem);margin-bottom:.35em}
+  .collection .sub{color:var(--ink-soft);max-width:44ch;margin-bottom:56px}
+  .homes{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .home{background:var(--white);border:1px solid var(--line);border-radius:2px;overflow:hidden;display:flex;flex-direction:column}
+  .home.feature{grid-column:1 / -1}
+  .home-photo{aspect-ratio:16/10;background:var(--plaster-deep);position:relative;
+    background-size:cover;background-position:center;
+    display:flex;align-items:flex-end;padding:22px}
+  .home.feature .home-photo{aspect-ratio:21/9}
+  .home-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(28,22,16,0.5) 100%)}
+  .home-tagname{position:relative;z-index:2;color:var(--white)}
+  .home-tagname .nm{font-family:'Fraunces',serif;font-weight:400;font-size:1.5rem;display:block;line-height:1.1}
+  .home-tagname .by{font-size:11px;letter-spacing:0.14em;opacity:.85}
+  .home-body{padding:22px 24px 26px}
+  .home-meta{display:flex;gap:18px;flex-wrap:wrap;font-size:.86rem;color:var(--ink-soft);margin-top:2px}
+  .home-meta span{display:inline-flex;align-items:center;gap:6px}
+  .home-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--jade)}
+
+  /* ---------- packages ---------- */
+  .packages{background:var(--white);border-top:1px solid var(--line)}
+  .packages h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:.4em}
+  .packages .sub{color:var(--ink-soft);max-width:46ch;margin-bottom:12px}
+  .pk-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px}
+  .pk-solo{max-width:620px;margin:52px auto 0}
+  .pk{border:1px solid var(--line);border-radius:3px;padding:38px 34px;background:var(--plaster);position:relative;display:flex;flex-direction:column}
+  .pk.headline{background:var(--ink);color:var(--plaster);border-color:var(--ink)}
+  .pk-flag{position:absolute;top:-11px;left:34px;background:var(--jade);color:var(--white);font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:5px 14px;border-radius:999px}
+  .pk .kicker{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--jade);margin-bottom:1.1em}
+  .pk.headline .kicker{color:#C9A876}
+  .pk h3{font-size:1.7rem;margin-bottom:.3em}
+  .pk.headline h3{color:var(--plaster)}
+  .pk .price{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:300;margin:.2em 0 .1em}
+  .pk .price small{font-size:.9rem;font-family:'Outfit',sans-serif;color:var(--ink-soft);letter-spacing:.02em}
+  .pk.headline .price small{color:rgba(243,238,230,0.6)}
+  .pk .price-note{font-size:.86rem;color:var(--ink-soft);margin-bottom:1.6em}
+  .pk.headline .price-note{color:rgba(243,238,230,0.6)}
+  .pk ul{list-style:none;margin-top:.4em;flex-grow:1}
+  .pk li{font-size:.97rem;padding:11px 0;border-top:1px solid var(--line);display:flex;gap:11px;color:var(--ink-soft)}
+  .pk.headline li{border-color:rgba(243,238,230,0.14);color:rgba(243,238,230,0.82)}
+  .pk li::before{content:"";flex:none;width:6px;height:6px;margin-top:8px;border-radius:50%;background:var(--jade)}
+  .pk.headline li::before{background:#C9A876}
+  .pk li.gift{color:var(--ink);font-weight:400}
+  .pk.headline li.gift{color:var(--plaster)}
+  .pk li .strike{text-decoration:line-through;opacity:.55;margin-right:6px}
+  .pk-terms{margin-top:44px;font-size:.9rem;color:var(--ink-soft);max-width:60ch}
+  .pk-terms strong{color:var(--ink);font-weight:400}
+
+  /* ---------- why me / trust ---------- */
+  .trust{background:var(--plaster-deep)}
+  .trust h2{font-size:clamp(1.8rem,4vw,2.7rem);max-width:18ch;margin-bottom:.6em}
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:52px}
+  .trust-item .eyebrow{margin-bottom:.9em}
+  .trust-item p{font-size:.98rem;color:var(--ink-soft)}
+
+  /* ---------- close ---------- */
+  .close{background:var(--jade-deep);color:var(--white);text-align:center}
+  .close h2{color:var(--white);font-size:clamp(2rem,5vw,3.4rem);max-width:16ch;margin:0 auto .6em}
+  .close p{color:rgba(251,249,245,0.82);max-width:42ch;margin:0 auto 2.6em;font-size:1.05rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--white);color:var(--jade-deep);
+    font-family:'Outfit',sans-serif;font-weight:500;font-size:1.02rem;letter-spacing:.01em;
+    padding:17px 38px;border-radius:999px;text-decoration:none;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,0.22)}
+  .secondary{display:block;margin-top:22px}
+  .secondary a{color:rgba(251,249,245,0.7);font-size:.92rem;text-decoration:none;border-bottom:1px solid rgba(251,249,245,0.28);padding-bottom:2px}
+
+  footer{background:var(--ink);color:rgba(243,238,230,0.5);text-align:center;padding:44px 20px;font-size:.85rem}
+  footer .mark{font-family:'Fraunces',serif;font-style:italic;color:rgba(243,238,230,0.8);font-size:1.05rem;display:block;margin-bottom:.5em}
+
+  @media(max-width:760px){
+    .read-grid,.homes,.screens,.pk-grid,.trust-grid{grid-template-columns:1fr}
+    .home.feature{grid-column:auto}
+    .hero{padding-bottom:12vh}
+    section{padding:64px 0}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  /* subtle scroll reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- design map ---------- */
+  .plan{background:var(--plaster-deep)}
+  .plan h2{font-size:clamp(2rem,4.5vw,3.1rem);max-width:16ch;margin-bottom:.5em}
+  .plan .intro{color:var(--ink-soft);max-width:52ch;margin-bottom:56px;font-size:1.04rem}
+  .map{border-left:2px solid var(--jade);margin-left:6px}
+  .map-node{position:relative;padding:0 0 40px 34px}
+  .map-node:last-child{padding-bottom:0}
+  .map-node::before{content:"";position:absolute;left:-8px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--jade);border:3px solid var(--plaster-deep)}
+  .map-node .tier{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--jade);margin-bottom:.5em}
+  .map-node h3{font-size:1.4rem;margin-bottom:.35em}
+  .map-node p{font-size:.98rem;color:var(--ink-soft);max-width:56ch}
+  .map-sub{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .map-chip{font-family:'Outfit',sans-serif;font-size:.82rem;color:var(--ink-soft);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+  .map-node.nested{padding-left:34px;margin-left:22px;border-left:1px dashed var(--line)}
+</style>
+</head>
+<body data-lang="en">
+
+<div class="lang-toggle">
+  <button data-set="en" class="active">EN</button>
+  <button data-set="es">ES</button>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-inner wrap">
+    <!-- PERSONALIZE: hero tagline + eyebrow -->
+    <span class="eyebrow">
+      <span class="lang-en">A proposal · Puerto Escondido</span>
+      <span class="lang-es">Una propuesta · Puerto Escondido</span>
+    </span>
+    <h1>
+      <span class="lang-en">Tierra en <em>Armonia,</em> online the way it feels in person.</span>
+      <span class="lang-es">Tierra en <em>Armonia,</em> en línea como se siente en persona.</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="lang-en">A contemporary tropical Mexican retreat. Fifteen years of love built into the land. Here is how that same feeling could greet a guest before they ever arrive.</span>
+      <span class="lang-es">Un retiro mexicano tropical y contemporáneo. Quince años de amor construidos en esta tierra. Así es como ese mismo sentir podría recibir a un huésped antes de llegar.</span>
+    </p>
+    <span class="hero-tag">
+      <span class="lang-en">Prepared for Arianna, by The Welcome Link</span>
+      <span class="lang-es">Preparada para Arianna, por The Welcome Link</span>
+    </span>
+  </div>
+</header>
+
+<!-- ============ OPENING NOTE ============ -->
+<section class="note">
+  <div class="narrow reveal">
+    <span class="eyebrow">
+      <span class="lang-en">A note first</span>
+      <span class="lang-es">Primero, una nota</span>
+    </span>
+    <p class="lede">
+      <span class="lang-en">Hi Arianna. You told me you wanted something clean and elegant, photos that breathe, only the words that matter. I took that to heart. This page is not the final site, it is a taste of the direction, built on your real houses so you can feel it, not just imagine it.</span>
+      <span class="lang-es">Hola Arianna. Me dijiste que querías algo limpio y elegante, fotos que respiren, solo las palabras que importan. Lo tomé muy en serio. Esta página no es el sitio final, es una muestra de la dirección, hecha con tus casas reales para que la sientas, no solo la imagines.</span>
+    </p>
+    <p class="body-copy">
+      <span class="lang-en">What you and your husband have built over fifteen years, one of the first to believe in the Labara side when no one else did, deserves to be represented with real care. I believe that representation starts online. It is the first room a guest walks into. This is my proposal for that room.</span>
+      <span class="lang-es">Lo que tú y tu esposo han construido en quince años, de los primeros en creer en el lado de La Barra cuando nadie más lo hacía, merece representarse con verdadero cuidado. Creo que esa representación empieza en línea. Es la primera habitación en la que entra un huésped. Esta es mi propuesta para esa habitación.</span>
+    </p>
+    <p class="body-copy">
+      <span class="lang-en">You said it yourself: the market has changed, and there are far more houses to choose from now. On Airbnb, every home becomes a small photo in a long list, and the easiest thing left to compete on is price. But a place with fifteen years of soul cannot be felt in a thumbnail. A website is the one place that story is fully yours to tell, where you are not one tile among hundreds, and where a guest can book you directly instead of through a channel that keeps a cut of every stay. That is what this is really for.</span>
+      <span class="lang-es">Tú misma lo dijiste: el mercado cambió, y ahora hay muchas más casas para elegir. En Airbnb, cada hogar se vuelve una foto pequeña en una lista larga, y lo más fácil que queda para competir es el precio. Pero un lugar con quince años de alma no se siente en una miniatura. Un sitio web es el único lugar donde esa historia es totalmente tuya para contarla, donde no eres una casilla entre cientos, y donde un huésped puede reservarte directo en lugar de por un canal que se queda con parte de cada estancia. Para eso es esto, en realidad.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ WHAT I SEE (the read) ============ -->
+<section class="read">
+  <div class="wrap reveal">
+    <span class="eyebrow">
+      <span class="lang-en">What I understood</span>
+      <span class="lang-es">Lo que entendí</span>
+    </span>
+    <h2>
+      <span class="lang-en">Your brief, in my words.</span>
+      <span class="lang-es">Tu visión, en mis palabras.</span>
+    </h2>
+    <div class="read-grid">
+      <div class="read-card">
+        <span class="n">01</span>
+        <h3><span class="lang-en">One photo that breathes</span><span class="lang-es">Una foto que respira</span></h3>
+        <p><span class="lang-en">A single strong image on the front page, no text crowding it. Below it, the houses laid out like a gallery. Clean and calm, the way you asked.</span><span class="lang-es">Una sola imagen fuerte en la portada, sin texto encima. Debajo, las casas presentadas como una galería. Limpio y en calma, como lo pediste.</span></p>
+      </div>
+      <div class="read-card">
+        <span class="n">02</span>
+        <h3><span class="lang-en">Open a house, find only what matters</span><span class="lang-es">Abres una casa, encuentras lo esencial</span></h3>
+        <p><span class="lang-en">Click into Casa Nova or any villa and see capacity, amenities, the feel of the space. The most important information, nothing more. No walls of text.</span><span class="lang-es">Entras a Casa Nova o cualquier villa y ves capacidad, amenidades, el carácter del espacio. Lo más importante, nada más. Sin muros de texto.</span></p>
+      </div>
+      <div class="read-card">
+        <span class="n">03</span>
+        <h3><span class="lang-en">One identity, two names</span><span class="lang-es">Una identidad, dos nombres</span></h3>
+        <p><span class="lang-en">Tierra en Armonia holds it all. Each house carries its own name, Casa Nova, and quietly beneath, "by Tierra en Armonia." One family, many rooms.</span><span class="lang-es">Tierra en Armonia lo cobija todo. Cada casa lleva su nombre, Casa Nova, y en pequeño debajo, "by Tierra en Armonia". Una familia, muchas habitaciones.</span></p>
+      </div>
+      <div class="read-card">
+        <span class="n">04</span>
+        <h3><span class="lang-en">Quiet luxury, on any phone</span><span class="lang-es">Lujo tranquilo, en cualquier teléfono</span></h3>
+        <p><span class="lang-en">Quiet luxury of the Mexican Pacific, at an honest price. Fully bilingual, and finally built to feel right on a phone, which is where almost every guest will meet you.</span><span class="lang-es">El lujo tranquilo del Pacífico mexicano, a un precio honesto. Totalmente bilingüe, y por fin hecho para verse bien en el teléfono, que es donde casi todo huésped te va a conocer.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW THE SITE FEELS ============ -->
+<section class="vision">
+  <div class="wrap reveal">
+    <span class="eyebrow">
+      <span class="lang-en">The experience</span>
+      <span class="lang-es">La experiencia</span>
+    </span>
+    <h2>
+      <span class="lang-en">How the site would carry a guest.</span>
+      <span class="lang-es">Cómo el sitio acompañaría a un huésped.</span>
+    </h2>
+    <p class="lede">
+      <span class="lang-en">The love your husband pours into the design of each space is the thing I want a guest to feel the instant a page loads. Not read about. Feel.</span>
+      <span class="lang-es">El amor que tu esposo pone en el diseño de cada espacio es lo que quiero que un huésped sienta en el instante en que abre la página. No que lo lea. Que lo sienta.</span>
+    </p>
+    <div class="screens">
+      <div class="screen">
+        <span class="lbl"><span class="lang-en">Landing</span><span class="lang-es">Portada</span></span>
+        <h3><span class="lang-en">The arrival</span><span class="lang-es">La llegada</span></h3>
+        <p><span class="lang-en">One full-bleed image of the land, the name resting lightly over it, a slow scroll into the collection. Silence and space, so the photography does the talking.</span><span class="lang-es">Una imagen a toda página de la tierra, el nombre posado ligero encima, un scroll lento hacia la colección. Silencio y espacio, para que la fotografía hable.</span></p>
+      </div>
+      <div class="screen">
+        <span class="lbl"><span class="lang-en">The collection</span><span class="lang-es">La colección</span></span>
+        <h3><span class="lang-en">Seven villas, one main house</span><span class="lang-es">Siete villas, una casa principal</span></h3>
+        <p><span class="lang-en">A calm grid of every house, each a single beautiful photo and its name. A guest browses like walking a gallery, choosing the room that calls them.</span><span class="lang-es">Una cuadrícula tranquila de cada casa, cada una con una sola foto hermosa y su nombre. El huésped explora como quien camina una galería, eligiendo el espacio que lo llama.</span></p>
+      </div>
+      <div class="screen">
+        <span class="lbl"><span class="lang-en">Inside a house</span><span class="lang-es">Dentro de una casa</span></span>
+        <h3><span class="lang-en">Only the essentials</span><span class="lang-es">Solo lo esencial</span></h3>
+        <p><span class="lang-en">Capacity, amenities, the character of the space, and a clear way to book. Everything a guest needs to say yes, and nothing that gets in the way.</span><span class="lang-es">Capacidad, amenidades, el carácter del espacio, y una forma clara de reservar. Todo lo que un huésped necesita para decir que sí, y nada que estorbe.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE PLAN / DESIGN MAP ============ -->
+<section class="plan">
+  <div class="wrap reveal">
+    <span class="eyebrow">
+      <span class="lang-en">The plan</span>
+      <span class="lang-es">El plan</span>
+    </span>
+    <h2>
+      <span class="lang-en">How the whole site is laid out.</span>
+      <span class="lang-es">Cómo se organiza todo el sitio.</span>
+    </h2>
+    <p class="intro">
+      <span class="lang-en">So you can see the thinking, not just the look. A small, focused site, every page with one clear job. Nothing bloated, nothing to maintain, nothing in a guest's way.</span>
+      <span class="lang-es">Para que veas el pensamiento, no solo el diseño. Un sitio pequeño y enfocado, cada página con un trabajo claro. Nada recargado, nada que mantener, nada que estorbe al huésped.</span>
+    </p>
+
+    <div class="map">
+      <div class="map-node">
+        <span class="tier"><span class="lang-en">Page 1</span><span class="lang-es">Página 1</span></span>
+        <h3><span class="lang-en">The homepage</span><span class="lang-es">La portada</span></h3>
+        <p>
+          <span class="lang-en">One full-screen photo of the land, the name Tierra en Armonia resting lightly over it, almost no words. A guest feels the place before they read a thing, then scrolls down into the collection.</span>
+          <span class="lang-es">Una foto a pantalla completa de la tierra, el nombre Tierra en Armonia posado ligero encima, casi sin palabras. El huésped siente el lugar antes de leer nada, y baja hacia la colección.</span>
+        </p>
+        <div class="map-sub">
+          <span class="map-chip"><span class="lang-en">One hero photo</span><span class="lang-es">Una foto principal</span></span>
+          <span class="map-chip"><span class="lang-en">A line on who you are</span><span class="lang-es">Una línea sobre quiénes son</span></span>
+          <span class="map-chip"><span class="lang-en">English / Spanish</span><span class="lang-es">Inglés / Español</span></span>
+        </div>
+      </div>
+
+      <div class="map-node">
+        <span class="tier"><span class="lang-en">Page 1, lower</span><span class="lang-es">Página 1, abajo</span></span>
+        <h3><span class="lang-en">The collection</span><span class="lang-es">La colección</span></h3>
+        <p>
+          <span class="lang-en">All eight spaces laid out like a gallery, Casa Nova and the seven villas. Each is one beautiful photo, its own name, and "by Tierra en Armonia" quietly beneath. A guest browses and chooses the space that calls them.</span>
+          <span class="lang-es">Los ocho espacios presentados como una galería, Casa Nova y las siete villas. Cada uno con una foto hermosa, su propio nombre, y "by Tierra en Armonia" en pequeño debajo. El huésped explora y elige el espacio que lo llama.</span>
+        </p>
+        <div class="map-sub">
+          <span class="map-chip"><span class="lang-en">Casa Nova featured</span><span class="lang-es">Casa Nova destacada</span></span>
+          <span class="map-chip"><span class="lang-en">7 villas in a calm grid</span><span class="lang-es">7 villas en cuadrícula tranquila</span></span>
+        </div>
+      </div>
+
+      <div class="map-node nested">
+        <span class="tier"><span class="lang-en">Pages 2 through 9</span><span class="lang-es">Páginas 2 a 9</span></span>
+        <h3><span class="lang-en">One page per house</span><span class="lang-es">Una página por casa</span></h3>
+        <p>
+          <span class="lang-en">Click any space and it opens to its own quiet page: a gallery of that home, then only the essentials. Capacity, the amenities that matter, the character of the space in a sentence, the rate, and a clear way to book direct. The most important information, nothing more, exactly as you asked.</span>
+          <span class="lang-es">Entras a cualquier espacio y abre su propia página tranquila: una galería de esa casa, y luego solo lo esencial. Capacidad, las amenidades que importan, el carácter del espacio en una frase, la tarifa, y una forma clara de reservar directo. Lo más importante, nada más, justo como lo pediste.</span>
+        </p>
+        <div class="map-sub">
+          <span class="map-chip"><span class="lang-en">Photo gallery</span><span class="lang-es">Galería de fotos</span></span>
+          <span class="map-chip"><span class="lang-en">Essentials only</span><span class="lang-es">Solo lo esencial</span></span>
+          <span class="map-chip"><span class="lang-en">Book direct</span><span class="lang-es">Reserva directa</span></span>
+          <span class="map-chip">Casa Nova · by Tierra en Armonia</span>
+        </div>
+      </div>
+
+      <div class="map-node">
+        <span class="tier"><span class="lang-en">Throughout</span><span class="lang-es">En todo el sitio</span></span>
+        <h3><span class="lang-en">The feel that ties it together</span><span class="lang-es">El sentir que lo une todo</span></h3>
+        <p>
+          <span class="lang-en">Fully English and Spanish on every page, fast and beautiful on a phone, and built to be shown anywhere, sent direct to a guest or opened away from Airbnb. Clean, calm, quietly luxurious. The way the place already feels in person.</span>
+          <span class="lang-es">Español e inglés completos en cada página, rápido y hermoso en el teléfono, y hecho para mostrarse donde sea, enviado directo a un huésped o abierto fuera de Airbnb. Limpio, en calma, con un lujo tranquilo. Como el lugar ya se siente en persona.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE COLLECTION (real units) ============ -->
+<section class="collection">
+  <div class="wrap reveal">
+    <span class="eyebrow">
+      <span class="lang-en">Built on your real houses</span>
+      <span class="lang-es">Hecho con tus casas reales</span>
+    </span>
+    <h2>
+      <span class="lang-en">The collection.</span>
+      <span class="lang-es">La colección.</span>
+    </h2>
+    <p class="sub">
+      <span class="lang-en">Your eight spaces, gathered under one roof. This is roughly how the front-page gallery would feel, each opening into its own quiet page.</span>
+      <span class="lang-es">Tus ocho espacios, reunidos bajo un mismo techo. Así se sentiría, más o menos, la galería de la portada, cada una abriendo a su propia página tranquila.</span>
+    </p>
+    <div class="homes">
+      <div class="home feature">
+        <div class="home-photo" id="ph-nova">
+          <div class="home-tagname">
+            <span class="nm">Casa Nova</span>
+            <span class="by">by Tierra en Armonia</span>
+          </div>
+        </div>
+        <div class="home-body">
+          <div class="home-meta">
+            <span class="lang-en">The main house</span><span class="lang-es">La casa principal</span>
+            <span class="dot"></span><span>19 <span class="lang-en">guests</span><span class="lang-es">huéspedes</span></span>
+            <span class="dot"></span><span class="lang-en">Ocean view · pool</span><span class="lang-es">Vista al mar · alberca</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="home">
+        <div class="home-photo" id="ph-1">
+          <div class="home-tagname">
+            <span class="nm">Villa Alebrije</span>
+            <span class="by">by Tierra en Armonia</span>
+          </div>
+        </div>
+        <div class="home-body">
+          <div class="home-meta">
+            <span>2 to 4 <span class="lang-en">guests</span><span class="lang-es">huéspedes</span></span>
+            <span class="dot"></span><span>Starlink · A/C</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="home">
+        <div class="home-photo" id="ph-2">
+          <div class="home-tagname">
+            <span class="nm">Villa Pacifica</span>
+            <span class="by">by Tierra en Armonia</span>
+          </div>
+        </div>
+        <div class="home-body">
+          <div class="home-meta">
+            <span>7 <span class="lang-en">guests</span><span class="lang-es">huéspedes</span></span>
+            <span class="dot"></span><span class="lang-en">Sea view</span><span class="lang-es">Vista al mar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:30px;margin-bottom:0">
+      <span class="lang-en">Plus the rest of the villas, each with its own name and character, all living under Tierra en Armonia. The photos here are placeholders. On the real site they would be your own, chosen to lead with the design your family is proud of.</span>
+      <span class="lang-es">Más el resto de las villas, cada una con su nombre y carácter, todas bajo Tierra en Armonia. Las fotos aquí son de muestra. En el sitio real serían las tuyas, elegidas para destacar el diseño del que tu familia se siente orgullosa.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ PACKAGES ============ -->
+<section class="packages">
+  <div class="wrap reveal">
+    <span class="eyebrow">
+      <span class="lang-en">The offer</span>
+      <span class="lang-es">La propuesta</span>
+    </span>
+    <h2>
+      <span class="lang-en">One site, fully yours.</span>
+      <span class="lang-es">Un sitio, totalmente tuyo.</span>
+    </h2>
+    <p class="sub">
+      <span class="lang-en">Fully custom, built on your own domain, bilingual, and made to feel right on a phone. Simple and clear, the way good work should be.</span>
+      <span class="lang-es">Totalmente a la medida, en tu propio dominio, bilingüe, y hecho para verse bien en el teléfono. Simple y claro, como debe ser el buen trabajo.</span>
+    </p>
+
+    <div class="pk-solo">
+      <div class="pk headline">
+        <span class="kicker"><span class="lang-en">The Tierra en Armonia website</span><span class="lang-es">El sitio de Tierra en Armonia</span></span>
+        <h3><span class="lang-en">Eight spaces, one home online</span><span class="lang-es">Ocho espacios, un hogar en línea</span></h3>
+        <div class="price">$20,000 <small class="lang-en">MXN · one-time</small><small class="lang-es">MXN · pago único</small></div>
+        <div class="price-note"><span class="lang-en">custom build, on your own domain, yours to keep</span><span class="lang-es">construcción a la medida, en tu propio dominio, tuyo para siempre</span></div>
+        <ul>
+          <li><span class="lang-en">Custom homepage, one breathing photo and the gallery of all eight spaces</span><span class="lang-es">Portada a la medida, una foto que respira y la galería de los ocho espacios</span></li>
+          <li><span class="lang-en">An individual page for every house, Casa Nova and each villa, essentials only</span><span class="lang-es">Una página propia para cada casa, Casa Nova y cada villa, solo lo esencial</span></li>
+          <li><span class="lang-en">Full English and Spanish, on every page</span><span class="lang-es">Español e inglés completos, en cada página</span></li>
+          <li><span class="lang-en">Fast, mobile-first, built to last, made to be shown off Airbnb and directly to guests</span><span class="lang-es">Rápido, mobile-first, hecho para durar, pensado para mostrarse fuera de Airbnb y directo a huéspedes</span></li>
+          <li><span class="lang-en">Direct booking and contact, so a guest can reach you without a middleman</span><span class="lang-es">Reserva y contacto directos, para que un huésped te encuentre sin intermediario</span></li>
+          <li class="gift"><span class="strike">$6,000</span><span class="lang-en">Welcome links for your guests, included as a gift, the guide layer that carries your site's soul onto the guest's phone: arrival, WiFi, your local picks, one-tap contact</span><span class="lang-es">Enlaces de bienvenida para tus huéspedes, incluidos de regalo, la capa de guía que lleva el alma del sitio al teléfono del huésped: llegada, WiFi, tus recomendaciones locales, contacto a un toque</span></li>
+          <li class="gift"><span class="lang-en">Three rounds of small changes included through the first year</span><span class="lang-es">Tres rondas de cambios pequeños incluidas durante el primer año</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="pk-terms">
+      <span class="lang-en"><strong>How it works.</strong> A 50% deposit starts the work, and within a few days you see the homepage direction, not silence. The balance is due on completion, after we have refined it together. You get three rounds of small changes through the first year, so the site stays current as your seasons and spaces change; beyond those, changes are a simple flat rate per update. I build remotely, the way I always do, and I know these houses, I have stayed at Casa Nova myself.</span>
+      <span class="lang-es"><strong>Cómo funciona.</strong> Un anticipo del 50% arranca el trabajo, y en pocos días ves la dirección de la portada, no silencio. El resto se paga al terminar, después de afinarlo juntos. Tienes tres rondas de cambios pequeños durante el primer año, para que el sitio siga vigente conforme cambian tus temporadas y espacios; más allá de eso, los cambios son una tarifa plana simple por actualización. Trabajo de forma remota, como siempre lo hago, y conozco estas casas, yo mismo me he quedado en Casa Nova.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="trust">
+  <div class="wrap reveal">
+    <span class="eyebrow">
+      <span class="lang-en">Why me</span>
+      <span class="lang-es">Por qué yo</span>
+    </span>
+    <h2>
+      <span class="lang-en">Someone here, who actually shows up.</span>
+      <span class="lang-es">Alguien de aquí, que de verdad aparece.</span>
+    </h2>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <span class="eyebrow"><span class="lang-en">I know the place</span><span class="lang-es">Conozco el lugar</span></span>
+        <p><span class="lang-en">I live around the corner in La Punta and I have stayed at Casa Nova. I am not a stranger sending files from another country. I am a neighbor.</span><span class="lang-es">Vivo a la vuelta en La Punta y me he quedado en Casa Nova. No soy un desconocido mandando archivos desde otro país. Soy un vecino.</span></p>
+      </div>
+      <div class="trust-item">
+        <span class="eyebrow"><span class="lang-en">Remote, but present</span><span class="lang-es">Remoto, pero presente</span></span>
+        <p><span class="lang-en">The build happens online, so we can start now, not in November. But I am here in the community, easy to find, and I finish what I start.</span><span class="lang-es">La construcción es en línea, así que podemos empezar ahora, no en noviembre. Pero estoy aquí en la comunidad, fácil de encontrar, y termino lo que empiezo.</span></p>
+      </div>
+      <div class="trust-item">
+        <span class="eyebrow"><span class="lang-en">Honest scope</span><span class="lang-es">Alcance honesto</span></span>
+        <p><span class="lang-en">I build websites and guest experiences. I will tell you plainly what I do and do not do, so you always know exactly what you are getting. No surprises.</span><span class="lang-es">Hago sitios web y experiencias de bienvenida. Te digo con claridad qué hago y qué no, para que siempre sepas exactamente qué recibes. Sin sorpresas.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section class="close">
+  <div class="narrow reveal">
+    <h2>
+      <span class="lang-en">Let's give Tierra en Armonia the home online it already is in person.</span>
+      <span class="lang-es">Démosle a Tierra en Armonia el hogar en línea que ya es en persona.</span>
+    </h2>
+    <p>
+      <span class="lang-en">If this feels right, tell me and we can start. Happy to walk through any of it with you and your husband.</span>
+      <span class="lang-es">Si esto se siente bien, dime y podemos empezar. Con gusto lo repaso con ustedes dos.</span>
+    </p>
+    <!-- PERSONALIZE: prefilled WhatsApp message -->
+    <a class="btn" href="https://wa.me/529542061152?text=Hola%20Trevor%2C%20acabo%20de%20ver%20la%20propuesta%20de%20Tierra%20en%20Armonia%20y%20me%20encant%C3%B3.%20Hablemos.">
+      <span class="lang-en">💬 Let's talk on WhatsApp</span>
+      <span class="lang-es">💬 Hablemos por WhatsApp</span>
+    </a>
+    <span class="secondary">
+      <a href="https://thewelcomelink.com/villas-alebrijes/" target="_blank" rel="noopener">
+        <span class="lang-en">Or see the welcome guide I already built for Villas Alebrijes →</span>
+        <span class="lang-es">O mira la guía de bienvenida que ya hice para Villas Alebrijes →</span>
+      </a>
+    </span>
+  </div>
+</section>
+
+<footer>
+  <span class="mark">The Welcome Link</span>
+  <span class="lang-en">Websites and done-for-you guest guides · Puerto Escondido</span>
+  <span class="lang-es">Sitios web y guías de bienvenida hechas para ti · Puerto Escondido</span>
+</footer>
+
+<script>
+  // language toggle
+  const body=document.body;
+  document.querySelectorAll('.lang-toggle button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const set=b.dataset.set;
+      body.dataset.lang=set;
+      document.documentElement.lang=set;
+      document.querySelectorAll('.lang-toggle button').forEach(x=>x.classList.toggle('active',x===b));
+    });
+  });
+
+  // scroll reveal
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Photos auto-load from the images/ folder when present.
+  // Just drop correctly-named files into tierra-en-armonia/images/ and they appear.
+  // Needed files: hero.jpg, casa-nova.jpg, villa-1.jpg, villa-2.jpg
+  // (add the rest of the villa tiles as the gallery grows)
+  function loadPhoto(el, src, isHero){
+    const img = new Image();
+    img.onload = () => {
+      if(isHero){
+        el.style.backgroundImage =
+          'linear-gradient(180deg,rgba(28,22,16,0.30) 0%,rgba(28,22,16,0.04) 32%,rgba(28,22,16,0.10) 60%,rgba(28,22,16,0.68) 100%), url("'+src+'")';
+        el.style.backgroundSize='cover';
+        el.style.backgroundPosition='center';
+      } else {
+        el.style.backgroundImage='url("'+src+'")';
+      }
+    };
+    img.src = src; // if the file is not there yet, onload never fires and the placeholder tone stays
+  }
+  loadPhoto(document.getElementById('heroBg'), 'images/hero.jpg', true);
+  loadPhoto(document.getElementById('ph-nova'), 'images/casa-nova.jpg', false);
+  loadPhoto(document.getElementById('ph-1'), 'images/villa-1.jpg', false);
+  loadPhoto(document.getElementById('ph-2'), 'images/villa-2.jpg', false);
+</script>
+
+</body>
+</html>
