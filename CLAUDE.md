@@ -63,7 +63,12 @@ Two options to offer: (A) one-time build fee, host keeps it; (B) smaller build f
 
 ## Standard guide structure (per property)
 
-Hero with welcome → personal welcome note → essentials (WiFi, check-in, checkout, any signature touches) → getting here (arrival directions, often the highest-value section) → the home / what's special → get around & referrals (routed via prefilled WhatsApp to the host) → beaches/local highlights → eat & drink (curated, personal) → provisions → move & wellness → community/events (light touch) → contact + gentle review nudge.
+Guides follow a four-movement, time-based spine that mirrors the guest's own journey, not a flat list of categories. casa-yani/index.html is the reference template: duplicate it to start a new guide. Each movement is marked with an HTML comment banner, and every property-specific value carries a FILL-in comment, so the template is duplicate-and-fill.
+
+1. Before You Come. The personal welcome note, then a short pre-arrival prep block with only what a guest needs days ahead: cash, arriving in daylight, off-grid readiness, and pre-booking any experiences that need notice.
+2. Getting Here. Arrival directions, often the highest-value section. Per-origin, tap-to-expand routes that all end at one meeting point. Entry and meeting always route to the host via prefilled WhatsApp, never a door code on the page.
+3. While You're Here. One continuous movement: the home (how we live here), the essentials (WiFi, check-in, checkout time, quiet hours, guests), experiences (curated, local, book-on-request), eat & drink, and any in-stay practical notes.
+4. Heading Out. The checkout checklist, then the warm closing note and one-tap contact with a gentle, Airbnb-safe review nudge.
 
 ## Build conventions
 
