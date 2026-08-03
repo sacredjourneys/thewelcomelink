@@ -220,6 +220,9 @@
   .eatcard .veg{font-size:11px;color:var(--moss);font-weight:600;letter-spacing:.05em;}
   .more-list{font-size:13.5px;color:var(--ink-soft);margin-top:16px;line-height:1.7;}
   .more-list b{color:var(--clay-deep);font-weight:600;}
+  .pin-link{display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-size:12px;font-weight:600;
+    letter-spacing:.02em;color:var(--clay-deep);text-decoration:none;border-bottom:1px solid rgba(139,112,84,.35);padding-bottom:1px;}
+  .pin-link + .pin-link{margin-left:14px;}
 
   /* ===== beaches on sand ground ===== */
   .beaches{background:linear-gradient(180deg,#f2ead9,#efe7d8);}
@@ -299,7 +302,7 @@
   <!-- FILL(host): real review stats if Arianna wants them shown (rating, count) -->
   <section class="welcome reveal">
     <div class="sec-label" data-i18n="welcome-label">A note from your host</div>
-    <p class="note" data-i18n="welcome-note">"Copal is the sacred resin we burn to purify a space and carry an intention. That is what we wish for your stay: a clearing, a deep breath, a return to yourself. This is a complete little home for two, cared for every day, a few minutes from a wild and quiet beach. We are so glad you came."</p>
+    <p class="note" data-i18n="welcome-note">"Copal is the sacred resin we burn to purify a space and carry an intention. That is what we wish for your stay: a clearing, a deep breath, a return to yourself. This is a complete little home, cared for every day, a few minutes from a wild and quiet beach. We are so glad you came."</p>
     <div class="host-sign">
       <div class="avatar">A</div>
       <div class="meta"><b>Arianna</b> · Superhost<br><span data-i18n="host-reviews">4.94 ★ · 233 reviews · 9 years hosting</span></div>
@@ -346,7 +349,7 @@
     </div>
     <div class="rule">
       <div class="ic">🧭</div>
-      <div class="txt"><b data-i18n="prep4-title">Use Waze, not Google Maps</b><span data-i18n="prep4-text">Google Maps can lead you the wrong way out here. Waze brings you straight in. Full directions are just below.</span></div>
+      <div class="txt"><b data-i18n="prep4-title">Best to use Waze</b><span data-i18n="prep4-text">We have found Google Maps doesn't always get the directions right out here, and Waze brings you straight to the door. Both map buttons are below.</span></div>
     </div>
   </section>
 
@@ -354,7 +357,7 @@
 
   <!-- ============================================================
        MOVEMENT 2: GETTING HERE
-       Every route ends at Privada Alebrijes; Luis meets guests. Never a code on the page.
+       Every route ends at Villas Alebrijes; Luis meets guests. Never a code on the page.
        FILL(host): the exact property map pin / Waze link (map button below uses a Cinema Zicatela search for now)
        ============================================================ -->
   <section class="arrival reveal">
@@ -366,7 +369,7 @@
       <summary><span data-i18n="routeA-title">From the airport · by taxi</span><span class="tag" data-i18n="routeA-tag">Taxi</span><span class="chev">›</span></summary>
       <ol>
         <li data-i18n="a1">Puerto Escondido airport (PXM) is a short ride away. Take an official taxi from the stand outside.</li>
-        <li data-i18n="a2">Show the driver the map link below, or ask for <b>Privada Alebrijes</b> in La Barra, near <b>Cinema Zicatela</b>.</li>
+        <li data-i18n="a2">Show the driver the map link below, or ask for <b>Villas Alebrijes</b> in La Barra, near <b>Cinema Zicatela</b>.</li>
         <li data-i18n="a3">Message us when you land so Luis has everything ready and can meet you.</li>
       </ol>
     </details>
@@ -374,9 +377,9 @@
     <details class="route">
       <summary><span data-i18n="routeB-title">By car · with Waze</span><span class="tag" data-i18n="routeB-tag">Driving</span><span class="chev">›</span></summary>
       <ol>
-        <li data-i18n="b1">Open <b>Waze</b>, not Google Maps. Google can lead you the wrong way here.</li>
+        <li data-i18n="b1">Open <b>Waze</b> if you can. We have found it more reliable than Google Maps for the last stretch out here.</li>
         <li data-i18n="b2">Search for <b>Cinema Zicatela</b> as your landmark.</li>
-        <li data-i18n="b3">From the cinema, head to <b>Privada Alebrijes</b>, the private entrance to our community.</li>
+        <li data-i18n="b3">From the cinema, head to <b>Villas Alebrijes</b>, the private entrance to our community.</li>
         <li data-i18n="b4">Message us when you are close and Luis will guide you the last stretch and let you in.</li>
       </ol>
     </details>
@@ -385,7 +388,7 @@
       <summary><span data-i18n="routeC-title">From Zicatela or La Punta · by taxi</span><span class="tag" data-i18n="routeC-tag">Taxi</span><span class="chev">›</span></summary>
       <ol>
         <li data-i18n="c1">We are just a few minutes from Zicatela. Any taxi knows <b>Cinema Zicatela</b>.</li>
-        <li data-i18n="c2">From the cinema, it is a moment more to <b>Privada Alebrijes</b>.</li>
+        <li data-i18n="c2">From the cinema, it is a moment more to <b>Villas Alebrijes</b>.</li>
         <li data-i18n="c3">Message us when you set off and Luis will meet you at the entrance.</li>
       </ol>
     </details>
@@ -399,7 +402,7 @@
     </div>
     <div class="landmark" style="margin-top:8px;">
       <span>📍</span>
-      <div data-i18n="landmark1"><b>Arriving or turned around?</b> Message us on WhatsApp and someone from the team will come meet you and walk you in.</div>
+      <div data-i18n="landmark1"><b>Having trouble or getting lost?</b> Message or call us on WhatsApp and we will be happy to help you.</div>
     </div>
   </section>
 
@@ -414,11 +417,23 @@
     <p class="lead" style="margin-bottom:8px" data-i18n="home-lead">A few things that make Copal special.</p>
     <div class="rule">
       <div class="ic">🌿</div>
-      <div class="txt"><b data-i18n="rule1-title">A sanctuary for two</b><span data-i18n="rule1-text">Copal is built for a couple: a king bed, a waterfall shower, a private pool on the terrace, and Oaxacan craft in every corner.</span></div>
+      <div class="txt"><b data-i18n="rule1-title">A calm little sanctuary</b><span data-i18n="rule1-text">A king bed, a waterfall shower, a private pool on the terrace, and Oaxacan craft in every corner. Made for a couple, and just as restful for one.</span></div>
     </div>
     <div class="rule">
       <div class="ic">🧹</div>
       <div class="txt"><b data-i18n="rule2-title">Cared for every day</b><span data-i18n="rule2-text">Housekeeping and pool care come daily. Relax, it is handled.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🏋️</div>
+      <div class="txt"><b data-i18n="gym-title">A private gym</b><span data-i18n="gym-text">Good equipment, shared quietly across the collection and rarely busy. It is private, and there whenever you want it.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🧘</div>
+      <div class="txt"><b data-i18n="calm-title">Space for calm</b><span data-i18n="calm-text">An open space for yoga and stillness, with a beautiful view over the trees to the sea.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🎾</div>
+      <div class="txt"><b data-i18n="play-title">A game of pétanque</b><span data-i18n="play-text">A court for slow afternoons. The simplest games make the longest memories.</span></div>
     </div>
     <div class="rule">
       <div class="ic">🐴</div>
@@ -558,7 +573,7 @@
       <div class="band"><span class="emoji">🧭</span></div>
       <div class="body">
         <h3 data-i18n="exp8-title">Tours &amp; adventures</h3>
-        <p data-i18n="exp8-desc">Bioluminescence, surf lessons, turtle releases, coast trips, and more, through a local partner we trust. Tell us what you're curious about.</p>
+        <p data-i18n="exp8-desc">Bioluminescence, surf lessons, turtle releases, dolphin and whale tours, fishing, and more, through a local partner we trust. Tell us what you're curious about.</p>
         <span class="pre" data-i18n="exp8-pre">Book on request</span>
       </div>
     </div>
@@ -569,36 +584,36 @@
   <!-- BEACHES -->
   <section class="beaches reveal">
     <div class="sec-label" data-i18n="beach-label">By the water</div>
-    <h2 data-i18n="beach-h2">Beaches worth <em>the walk</em></h2>
-    <p class="lead" style="margin-bottom:6px" data-i18n="beach-lead">You are minutes from some of the best beaches in Puerto. A few to start with.</p>
+    <h2 data-i18n="beach-h2">The <em>beaches</em></h2>
+    <p class="lead" style="margin-bottom:6px" data-i18n="beach-lead">Playa La Barra is a five-minute walk from the garden. The others are a short taxi or drive around town. Tap a pin to see where each one is.</p>
 
     <div class="eatcard">
       <div class="num">01</div>
-      <div><h3>Playa La Barra</h3><p data-i18n="beach1-desc">Your nearest, a wild and quiet beach a few minutes away. Take your time, it is worth it.</p></div>
+      <div><h3>Playa La Barra</h3><p data-i18n="beach1-desc">Your nearest, a wild and quiet beach five minutes on foot through the garden. Take your time, it is worth it.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+La+Barra+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">02</div>
-      <div><h3>La Punta, Zicatela</h3><p data-i18n="beach2-desc">The laid-back end of Zicatela: mellow surf, taco spots, and the best sunset beers.</p></div>
+      <div><h3>La Punta, Zicatela</h3><p data-i18n="beach2-desc">The laid-back end of Zicatela: mellow surf, taco spots, and the best sunset beers.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=La+Punta+Zicatela+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">03</div>
-      <div><h3>Playa Zicatela</h3><p data-i18n="beach3-desc">The famous one, powerful surf. More for watching the waves than swimming.</p></div>
+      <div><h3>Playa Zicatela</h3><p data-i18n="beach3-desc">The famous one, powerful surf. More for watching the waves than swimming.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Zicatela+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">04</div>
-      <div><h3>Carrizalillo</h3><p data-i18n="beach4-desc">A cove down a long stairway, calmer water, good for a swim and a beach beer.</p></div>
+      <div><h3>Carrizalillo</h3><p data-i18n="beach4-desc">A cove down a long stairway, calmer water, good for a swim and a beach beer.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Carrizalillo+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">05</div>
-      <div><h3>Manzanillo &amp; Puerto Angelito</h3><p data-i18n="beach5-desc">Small, calm coves, the easiest swimming and snorkeling.</p></div>
+      <div><h3>Manzanillo &amp; Puerto Angelito</h3><p data-i18n="beach5-desc">Small, calm coves, the easiest swimming and snorkeling.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Manzanillo+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">06</div>
-      <div><h3>Playa Bacocho</h3><p data-i18n="beach6-desc">A long, quiet stretch, and where baby turtles are released at sunset.</p></div>
+      <div><h3>Playa Bacocho</h3><p data-i18n="beach6-desc">A long, quiet stretch, and where baby turtles are released at sunset.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Bacocho+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">07</div>
-      <div><h3>Playa Coral</h3><p data-i18n="beach7-desc">A quieter local gem worth finding.</p></div>
+      <div><h3>Playa Coral</h3><p data-i18n="beach7-desc">A quieter local gem worth finding.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Coral+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
   </section>
 
@@ -613,29 +628,29 @@
 
     <div class="eatcard">
       <div class="num">✦</div>
-      <div><h3 data-i18n="eat0-title">Delivery to your door</h3><p data-i18n="eat0-desc">A restaurant nearby delivers straight to the villa, a little like room service for La Barra. Ask us and we will send the menu.</p></div>
+      <div><h3 data-i18n="eat0-title">Delivery to your door</h3><p data-i18n="eat0-desc">D'Coral, a restaurant nearby, delivers straight to the villa, a little like room service for La Barra.</p><a class="pin-link" href="dcoral-menu.pdf" target="_blank" rel="noopener" data-i18n="seemenu">📄 See the menu</a><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=D%27Coral+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">01</div>
-      <div><h3>Almoraduz</h3><p data-i18n="eat1-desc">Thoughtful, modern Oaxacan cooking. A special dinner out.</p></div>
+      <div><h3>Almoraduz</h3><p data-i18n="eat1-desc">Thoughtful, modern Oaxacan cooking. A special dinner out.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Almoraduz+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">02</div>
-      <div><h3>Chicama</h3><p data-i18n="eat2-desc">Ceviche, seafood, and cocktails by the water.</p></div>
+      <div><h3>Chicama</h3><p data-i18n="eat2-desc">Ceviche, seafood, and cocktails by the water.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Chicama+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">03</div>
-      <div><h3>Malagua Café</h3><p data-i18n="eat3-desc">A lovely spot for coffee and a slow breakfast.</p></div>
+      <div><h3>Malagua Café</h3><p data-i18n="eat3-desc">A lovely spot for coffee and a slow breakfast.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Malagua+Cafe+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">04</div>
-      <div><h3>Pan, Amor y Fantasía</h3><p data-i18n="eat4-desc">The bakery for fresh bread and pastries.</p></div>
+      <div><h3>Pan, Amor y Fantasía</h3><p data-i18n="eat4-desc">The bakery for fresh bread and pastries.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Pan+Amor+y+Fantasia+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
     <div class="eatcard">
       <div class="num">05</div>
-      <div><h3>Pozolería Las Cazuelas</h3><p data-i18n="eat5-desc">Big, comforting bowls of pozole, local and easy on the wallet.</p></div>
+      <div><h3>Pozolería Las Cazuelas</h3><p data-i18n="eat5-desc">Big, comforting bowls of pozole, local and easy on the wallet.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Pozoleria+Las+Cazuelas+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
     </div>
-    <p class="more-list" data-i18n="eat-more"><b>More the team loves:</b> Café Olé, El Cafecito, Panadería El Bejuco, D'Coral, Anthonieta, Elephant Garden, El Nene, Lychee, Non Solo, La Juquileña, La Barra, and the Zicatela market.</p>
+    <p class="more-list" data-i18n="eat-more"><b>More the team loves:</b> Café Olé, El Cafecito, Panadería El Bejuco, Anthonieta, Elephant Garden, El Nene, Lychee, Non Solo, La Juquileña, La Barra, and the Zicatela market.</p>
   </section>
 
   <!-- LOCAL NOTES -->
@@ -648,7 +663,7 @@
     </div>
     <div class="pcard">
       <span class="ic">🌴</span>
-      <div><b data-i18n="pcard2-title">You're in La Barra</b><span data-i18n="pcard2-text">A calm, local pocket of Puerto Escondido, minutes from Zicatela and its beaches, away from the noise.</span></div>
+      <div><b data-i18n="pcard2-title">You're in La Barra</b><span data-i18n="pcard2-text">A calm, natural pocket of Puerto Escondido, away from the noise. Close enough to head into town or over to La Punta whenever you like.</span></div>
     </div>
   </section>
 
@@ -675,8 +690,9 @@
     <div class="sec-label" style="justify-content:center" data-i18n="contact-label">Here for you</div>
     <h2 data-i18n="contact-h2">Anything you <em>need</em></h2>
     <p class="lead" data-i18n="contact-lead">We love sharing this place. Reach us anytime.</p>
-    <a class="btn btn-wa" href="https://wa.me/529541102386?text=Hola%2C%20escribo%20sobre%20Copal%20(Tierra%20en%20Armon%C3%ADa)." data-i18n="btn-wa">💬 Message us on WhatsApp</a>
-    <a class="btn btn-ghost" href="tel:+529541102386" data-i18n="btn-call">📞 Call us</a>
+    <a class="btn btn-wa" href="https://wa.me/529541347276?text=Hola%2C%20escribo%20sobre%20Copal%20(Tierra%20en%20Armon%C3%ADa)." data-i18n="btn-wa">💬 Message us on WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+529541347276" data-i18n="btn-call">📞 Call us</a>
+    <a class="btn btn-ghost" href="https://www.tierraenarmonia.com/" target="_blank" rel="noopener" data-i18n="btn-web">🌐 Visit our website</a>
   </section>
 
   <div class="foot">
@@ -693,7 +709,7 @@
       'hero-sub': 'A calm little world for two, a few minutes from a wild, quiet beach. Everything you need for an easy, beautiful stay is here.',
       'scroll-cue': 'Scroll to begin <span>↓</span>',
       'welcome-label': 'A note from your host',
-      'welcome-note': '"Copal is the sacred resin we burn to purify a space and carry an intention. That is what we wish for your stay: a clearing, a deep breath, a return to yourself. This is a complete little home for two, cared for every day, a few minutes from a wild and quiet beach. We are so glad you came."',
+      'welcome-note': '"Copal is the sacred resin we burn to purify a space and carry an intention. That is what we wish for your stay: a clearing, a deep breath, a return to yourself. This is a complete little home, cared for every day, a few minutes from a wild and quiet beach. We are so glad you came."',
       'host-reviews': '4.94 ★ · 233 reviews · 9 years hosting',
       'team-label': "You're looked after",
       'team-h2': 'A team, and your <em>privacy</em>',
@@ -713,38 +729,44 @@
       'prep2-text': 'The question we hear most: yes, the beach is close. Playa La Barra, the nearest, is a wild and quiet stretch a few minutes from the door.',
       'prep3-title': 'Pre-book the extras',
       'prep3-text': 'A private chef for your first night, a massage at the house, an airport pickup, a little celebration setup. These need a little notice. Tell us before you arrive and we will arrange it.',
-      'prep4-title': 'Use Waze, not Google Maps',
-      'prep4-text': 'Google Maps can lead you the wrong way out here. Waze brings you straight in. Full directions are just below.',
+      'prep4-title': 'Best to use Waze',
+      'prep4-text': "We have found Google Maps doesn't always get the directions right out here, and Waze brings you straight to the door. Both map buttons are below.",
       'arrival-label': 'Getting here',
       'arrival-h2': 'Finding your way to <em>La Barra</em>',
       'arrival-lead': 'We are in La Barra, a quiet pocket of Puerto Escondido, just past Zicatela. Tap your route below. When you are close, message us and Luis, our manager, will meet you and open up.',
       'routeA-title': 'From the airport · by taxi',
       'routeA-tag': 'Taxi',
       'a1': 'Puerto Escondido airport (PXM) is a short ride away. Take an official taxi from the stand outside.',
-      'a2': 'Show the driver the map link below, or ask for <b>Privada Alebrijes</b> in La Barra, near <b>Cinema Zicatela</b>.',
+      'a2': 'Show the driver the map link below, or ask for <b>Villas Alebrijes</b> in La Barra, near <b>Cinema Zicatela</b>.',
       'a3': 'Message us when you land so Luis has everything ready and can meet you.',
       'routeB-title': 'By car · with Waze',
       'routeB-tag': 'Driving',
-      'b1': 'Open <b>Waze</b>, not Google Maps. Google can lead you the wrong way here.',
+      'b1': 'Open <b>Waze</b> if you can. We have found it more reliable than Google Maps for the last stretch out here.',
       'b2': 'Search for <b>Cinema Zicatela</b> as your landmark.',
-      'b3': 'From the cinema, head to <b>Privada Alebrijes</b>, the private entrance to our community.',
+      'b3': 'From the cinema, head to <b>Villas Alebrijes</b>, the private entrance to our community.',
       'b4': 'Message us when you are close and Luis will guide you the last stretch and let you in.',
       'routeC-title': 'From Zicatela or La Punta · by taxi',
       'routeC-tag': 'Taxi',
       'c1': 'We are just a few minutes from Zicatela. Any taxi knows <b>Cinema Zicatela</b>.',
-      'c2': 'From the cinema, it is a moment more to <b>Privada Alebrijes</b>.',
+      'c2': 'From the cinema, it is a moment more to <b>Villas Alebrijes</b>.',
       'c3': 'Message us when you set off and Luis will meet you at the entrance.',
       'map-btn': '📍 Open in Waze',
       'map-btn2': '🗺️ Open in Google Maps',
       'landmark-checkin': "<b>Checking in:</b> message us when you're close. If you arrive after 5 PM, Alex, who lives on site, will have your keys ready. Earlier in the day, Luis or Valentina will welcome you.",
-      'landmark1': '<b>Arriving or turned around?</b> Message us on WhatsApp and someone from the team will come meet you and walk you in.',
+      'landmark1': '<b>Having trouble or getting lost?</b> Message or call us on WhatsApp and we will be happy to help you.',
       'home-label': 'The home',
       'home-h2': 'How we <em>live here</em>',
       'home-lead': 'A few things that make Copal special.',
-      'rule1-title': 'A sanctuary for two',
-      'rule1-text': 'Copal is built for a couple: a king bed, a waterfall shower, a private pool on the terrace, and Oaxacan craft in every corner.',
+      'rule1-title': 'A calm little sanctuary',
+      'rule1-text': 'A king bed, a waterfall shower, a private pool on the terrace, and Oaxacan craft in every corner. Made for a couple, and just as restful for one.',
       'rule2-title': 'Cared for every day',
       'rule2-text': 'Housekeeping and pool care come daily. Relax, it is handled.',
+      'gym-title': 'A private gym',
+      'gym-text': 'Good equipment, shared quietly across the collection and rarely busy. It is private, and there whenever you want it.',
+      'calm-title': 'Space for calm',
+      'calm-text': 'An open space for yoga and stillness, with a beautiful view over the trees to the sea.',
+      'play-title': 'A game of pétanque',
+      'play-text': 'A court for slow afternoons. The simplest games make the longest memories.',
       'rule3-title': 'Meet the little farm',
       'rule3-text': 'A few steps away is our farm: two donkeys named Lula and Medhi, plus chickens, ducks, and other friends. Guests love it, grown-ups and kids both.',
       'rule4-title': 'A wild beach to explore',
@@ -794,12 +816,12 @@
       'exp7-desc': 'The easiest way to explore the coast on your own time. We arrange it with a rental we trust, delivered to you.',
       'exp7-pre': 'Arrange in advance',
       'exp8-title': 'Tours & adventures',
-      'exp8-desc': "Bioluminescence, surf lessons, turtle releases, coast trips, and more, through a local partner we trust. Tell us what you're curious about.",
+      'exp8-desc': "Bioluminescence, surf lessons, turtle releases, dolphin and whale tours, fishing, and more, through a local partner we trust. Tell us what you're curious about.",
       'exp8-pre': 'Book on request',
       'beach-label': 'By the water',
-      'beach-h2': 'Beaches worth <em>the walk</em>',
-      'beach-lead': 'You are minutes from some of the best beaches in Puerto. A few to start with.',
-      'beach1-desc': 'Your nearest, a wild and quiet beach a few minutes away. Take your time, it is worth it.',
+      'beach-h2': 'The <em>beaches</em>',
+      'beach-lead': 'Playa La Barra is a five-minute walk from the garden. The others are a short taxi or drive around town. Tap a pin to see where each one is.',
+      'beach1-desc': 'Your nearest, a wild and quiet beach five minutes on foot through the garden. Take your time, it is worth it.',
       'beach2-desc': 'The laid-back end of Zicatela: mellow surf, taco spots, and the best sunset beers.',
       'beach3-desc': 'The famous one, powerful surf. More for watching the waves than swimming.',
       'beach4-desc': 'A cove down a long stairway, calmer water, good for a swim and a beach beer.',
@@ -810,19 +832,19 @@
       'eat-h2': 'Where we <em>eat</em>',
       'eat-lead': "Arianna's own picks around town. A few favorites, then more worth trying.",
       'eat0-title': 'Delivery to your door',
-      'eat0-desc': 'A restaurant nearby delivers straight to the villa, a little like room service for La Barra. Ask us and we will send the menu.',
+      'eat0-desc': "D'Coral, a restaurant nearby, delivers straight to the villa, a little like room service for La Barra.",
       'eat1-desc': 'Thoughtful, modern Oaxacan cooking. A special dinner out.',
       'eat2-desc': 'Ceviche, seafood, and cocktails by the water.',
       'eat3-desc': 'A lovely spot for coffee and a slow breakfast.',
       'eat4-desc': 'The bakery for fresh bread and pastries.',
       'eat5-desc': 'Big, comforting bowls of pozole, local and easy on the wallet.',
-      'eat-more': "<b>More the team loves:</b> Café Olé, El Cafecito, Panadería El Bejuco, D'Coral, Anthonieta, Elephant Garden, El Nene, Lychee, Non Solo, La Juquileña, La Barra, and the Zicatela market.",
+      'eat-more': "<b>More the team loves:</b> Café Olé, El Cafecito, Panadería El Bejuco, Anthonieta, Elephant Garden, El Nene, Lychee, Non Solo, La Juquileña, La Barra, and the Zicatela market.",
       'practical-label': 'Local notes',
       'practical-h2': 'A few <em>practical</em> things',
       'pcard1-title': 'Reaching us',
       'pcard1-text': 'Message us anytime on WhatsApp. Luis, our manager, is here on the ground for anything you need: bookings, tours, taxis, and recommendations.',
       'pcard2-title': "You're in La Barra",
-      'pcard2-text': 'A calm, local pocket of Puerto Escondido, minutes from Zicatela and its beaches, away from the noise.',
+      'pcard2-text': 'A calm, natural pocket of Puerto Escondido, away from the noise. Close enough to head into town or over to La Punta whenever you like.',
       'checkout-section-label': 'Before you go',
       'checkout-h2': 'Check-out by <em>11 AM</em>',
       'checkout-lead': 'The team cleans everything after you, so there is very little to do.',
@@ -836,6 +858,9 @@
       'contact-lead': 'We love sharing this place. Reach us anytime.',
       'btn-wa': '💬 Message us on WhatsApp',
       'btn-call': '📞 Call us',
+      'btn-web': '🌐 Visit our website',
+      'seemap': '📍 See on map',
+      'seemenu': '📄 See the menu',
       'foot-mark': 'Between the green and the blue. Welcome home.'
     },
     es: {
@@ -843,7 +868,7 @@
       'hero-sub': 'Un mundo tranquilo para dos, a unos minutos de una playa salvaje y tranquila. Aquí tienes todo lo que necesitas para una estancia fácil y hermosa.',
       'scroll-cue': 'Desliza para comenzar <span>↓</span>',
       'welcome-label': 'Una nota de tu anfitriona',
-      'welcome-note': '"El copal es la resina sagrada que quemamos para purificar un espacio y llevar una intención. Eso deseamos para tu estancia: un respiro, una pausa, un regreso a ti. Esta es una casa completa para dos, cuidada cada día, a unos minutos de una playa salvaje y tranquila. Nos alegra mucho que hayas venido."',
+      'welcome-note': '"El copal es la resina sagrada que quemamos para purificar un espacio y llevar una intención. Eso deseamos para tu estancia: un respiro, una pausa, un regreso a ti. Esta es una casa completa, cuidada cada día, a unos minutos de una playa salvaje y tranquila. Nos alegra mucho que hayas venido."',
       'host-reviews': '4.94 ★ · 233 reseñas · 9 años como anfitriona',
       'team-label': 'Estás en buenas manos',
       'team-h2': 'Un equipo, y tu <em>privacidad</em>',
@@ -863,38 +888,44 @@
       'prep2-text': 'La pregunta que más escuchamos: sí, la playa está cerca. Playa La Barra, la más cercana, es un tramo salvaje y tranquilo a unos minutos de la puerta.',
       'prep3-title': 'Reserva los extras con tiempo',
       'prep3-text': 'Un chef privado para tu primera noche, un masaje en la casa, transporte del aeropuerto, una pequeña decoración de celebración. Esto necesita aviso previo. Dinos antes de llegar y lo organizamos.',
-      'prep4-title': 'Usa Waze, no Google Maps',
-      'prep4-text': 'Google Maps puede llevarte por el camino equivocado por aquí. Waze te trae directo. Las indicaciones completas están justo abajo.',
+      'prep4-title': 'Mejor usa Waze',
+      'prep4-text': 'Hemos visto que Google Maps no siempre da bien las indicaciones por aquí, y Waze te trae directo a la puerta. Los dos botones de mapa están abajo.',
       'arrival-label': 'Cómo llegar',
       'arrival-h2': 'Cómo llegar a <em>La Barra</em>',
       'arrival-lead': 'Estamos en La Barra, un rincón tranquilo de Puerto Escondido, justo pasando Zicatela. Toca tu ruta abajo. Cuando estés cerca, escríbenos y Luis, nuestro encargado, te recibe y te abre.',
       'routeA-title': 'Desde el aeropuerto · en taxi',
       'routeA-tag': 'Taxi',
       'a1': 'El aeropuerto de Puerto Escondido (PXM) está a un viaje corto. Toma un taxi oficial en la parada de afuera.',
-      'a2': 'Muestra al conductor el enlace del mapa de abajo, o pide <b>Privada Alebrijes</b> en La Barra, cerca del <b>Cinema Zicatela</b>.',
+      'a2': 'Muestra al conductor el enlace del mapa de abajo, o pide <b>Villas Alebrijes</b> en La Barra, cerca del <b>Cinema Zicatela</b>.',
       'a3': 'Escríbenos cuando aterrices para que Luis tenga todo listo y te reciba.',
       'routeB-title': 'En coche · con Waze',
       'routeB-tag': 'En coche',
-      'b1': 'Abre <b>Waze</b>, no Google Maps. Google puede llevarte por el camino equivocado aquí.',
+      'b1': 'Abre <b>Waze</b> si puedes. Lo hemos encontrado más confiable que Google Maps para el último tramo por aquí.',
       'b2': 'Busca <b>Cinema Zicatela</b> como referencia.',
-      'b3': 'Desde el cine, dirígete a <b>Privada Alebrijes</b>, la entrada privada de nuestra comunidad.',
+      'b3': 'Desde el cine, dirígete a <b>Villas Alebrijes</b>, la entrada privada de nuestra comunidad.',
       'b4': 'Escríbenos cuando estés cerca y Luis te guía el último tramo y te abre.',
       'routeC-title': 'Desde Zicatela o La Punta · en taxi',
       'routeC-tag': 'Taxi',
       'c1': 'Estamos a unos minutos de Zicatela. Cualquier taxi conoce el <b>Cinema Zicatela</b>.',
-      'c2': 'Desde el cine, es un momento más hasta <b>Privada Alebrijes</b>.',
+      'c2': 'Desde el cine, es un momento más hasta <b>Villas Alebrijes</b>.',
       'c3': 'Escríbenos cuando salgas y Luis te recibe en la entrada.',
       'map-btn': '📍 Abrir en Waze',
       'map-btn2': '🗺️ Abrir en Google Maps',
       'landmark-checkin': '<b>Tu llegada:</b> escríbenos cuando estés cerca. Si llegas después de las 5 PM, Alex, que vive en el lugar, tendrá tus llaves listas. Más temprano, Luis o Valentina te reciben.',
-      'landmark1': '<b>¿Llegando o perdido?</b> Escríbenos por WhatsApp y alguien del equipo viene a recibirte y te acompaña.',
+      'landmark1': '<b>¿Con problemas o perdido?</b> Escríbenos o llámanos por WhatsApp y con gusto te ayudamos.',
       'home-label': 'El espacio',
       'home-h2': 'Cómo <em>vivimos aquí</em>',
       'home-lead': 'Algunas cosas que hacen especial a Copal.',
-      'rule1-title': 'Un santuario para dos',
-      'rule1-text': 'Copal está hecha para una pareja: cama king, regadera de cascada, alberca privada en la terraza, y arte oaxaqueño en cada rincón.',
+      'rule1-title': 'Un pequeño santuario tranquilo',
+      'rule1-text': 'Cama king, regadera de cascada, alberca privada en la terraza, y arte oaxaqueño en cada rincón. Hecha para una pareja, e igual de descansada para uno.',
       'rule2-title': 'Cuidada cada día',
       'rule2-text': 'La limpieza y el mantenimiento de la alberca son diarios. Relájate, está resuelto.',
+      'gym-title': 'Un gimnasio privado',
+      'gym-text': 'Buen equipo, compartido con discreción en toda la colección y rara vez ocupado. Es privado, y está ahí cuando lo quieras.',
+      'calm-title': 'Espacio para la calma',
+      'calm-text': 'Un espacio abierto para yoga y quietud, con una vista hermosa sobre los árboles hacia el mar.',
+      'play-title': 'Un juego de petanca',
+      'play-text': 'Una cancha para las tardes lentas. Los juegos más simples dejan los recuerdos más largos.',
       'rule3-title': 'Conoce la pequeña granja',
       'rule3-text': 'A unos pasos está nuestra granja: dos burros, Lula y Medhi, además de gallinas, patos y otros amigos. A los huéspedes les encanta, a grandes y chicos.',
       'rule4-title': 'Una playa salvaje por explorar',
@@ -944,12 +975,12 @@
       'exp7-desc': 'La forma más fácil de explorar la costa a tu ritmo. Lo organizamos con una renta de confianza, entregada a ti.',
       'exp7-pre': 'Organizar con anticipación',
       'exp8-title': 'Tours y aventuras',
-      'exp8-desc': 'Bioluminiscencia, clases de surf, liberación de tortugas, viajes por la costa y más, con un socio local de confianza. Dinos qué te da curiosidad.',
+      'exp8-desc': 'Bioluminiscencia, clases de surf, liberación de tortugas, tours de delfines y ballenas, pesca y más, con un socio local de confianza. Dinos qué te da curiosidad.',
       'exp8-pre': 'Reservar bajo petición',
       'beach-label': 'Junto al mar',
-      'beach-h2': 'Playas que <em>valen la pena</em>',
-      'beach-lead': 'Estás a minutos de algunas de las mejores playas de Puerto. Algunas para empezar.',
-      'beach1-desc': 'La más cercana, una playa salvaje y tranquila a unos minutos. Tómate tu tiempo, vale la pena.',
+      'beach-h2': 'Las <em>playas</em>',
+      'beach-lead': 'Playa La Barra está a cinco minutos a pie desde el jardín. Las demás son un taxi o viaje corto por el pueblo. Toca un pin para ver dónde está cada una.',
+      'beach1-desc': 'La más cercana, una playa salvaje y tranquila a cinco minutos a pie por el jardín. Tómate tu tiempo, vale la pena.',
       'beach2-desc': 'El extremo relajado de Zicatela: olas suaves, taquerías y las mejores cervezas al atardecer.',
       'beach3-desc': 'La famosa, oleaje fuerte. Más para ver las olas que para nadar.',
       'beach4-desc': 'Una caleta bajando una larga escalera, agua más tranquila, buena para nadar y una cerveza en la playa.',
@@ -960,19 +991,19 @@
       'eat-h2': 'Dónde <em>comemos</em>',
       'eat-lead': 'Los lugares favoritos de Arianna por el pueblo. Algunos imprescindibles, y más que vale la pena probar.',
       'eat0-title': 'Entrega a tu puerta',
-      'eat0-desc': 'Un restaurante cercano entrega directo a la villa, un poco como servicio a la habitación para La Barra. Pídenos y te enviamos el menú.',
+      'eat0-desc': "D'Coral, un restaurante cercano, entrega directo a la villa, un poco como servicio a la habitación para La Barra.",
       'eat1-desc': 'Cocina oaxaqueña moderna y cuidada. Una cena especial.',
       'eat2-desc': 'Ceviche, mariscos y cócteles junto al mar.',
       'eat3-desc': 'Un lugar encantador para café y un desayuno sin prisa.',
       'eat4-desc': 'La panadería para pan fresco y repostería.',
       'eat5-desc': 'Grandes tazones de pozole reconfortante, local y económico.',
-      'eat-more': "<b>Más que el equipo ama:</b> Café Olé, El Cafecito, Panadería El Bejuco, D'Coral, Anthonieta, Elephant Garden, El Nene, Lychee, Non Solo, La Juquileña, La Barra y el mercado de Zicatela.",
+      'eat-more': "<b>Más que el equipo ama:</b> Café Olé, El Cafecito, Panadería El Bejuco, Anthonieta, Elephant Garden, El Nene, Lychee, Non Solo, La Juquileña, La Barra y el mercado de Zicatela.",
       'practical-label': 'Notas locales',
       'practical-h2': 'Algunas cosas <em>prácticas</em>',
       'pcard1-title': 'Contactarnos',
       'pcard1-text': 'Escríbenos cuando quieras por WhatsApp. Luis, nuestro encargado, está aquí en persona para lo que necesites: reservas, tours, taxis y recomendaciones.',
       'pcard2-title': 'Estás en La Barra',
-      'pcard2-text': 'Un rincón tranquilo y local de Puerto Escondido, a minutos de Zicatela y sus playas, lejos del ruido.',
+      'pcard2-text': 'Un rincón tranquilo y natural de Puerto Escondido, lejos del ruido. Lo bastante cerca para ir al pueblo o a La Punta cuando quieras.',
       'checkout-section-label': 'Antes de irte',
       'checkout-h2': 'Salida a las <em>11 AM</em>',
       'checkout-lead': 'El equipo limpia todo después de ti, así que hay muy poco que hacer.',
@@ -986,6 +1017,9 @@
       'contact-lead': 'Nos encanta compartir este lugar. Escríbenos cuando quieras.',
       'btn-wa': '💬 Escríbenos por WhatsApp',
       'btn-call': '📞 Llámanos',
+      'btn-web': '🌐 Visita nuestro sitio',
+      'seemap': '📍 Ver en el mapa',
+      'seemenu': '📄 Ver el menú',
       'foot-mark': 'Entre el verde y el azul. Bienvenido a casa.'
     }
   };
