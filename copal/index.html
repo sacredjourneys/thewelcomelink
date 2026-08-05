@@ -178,6 +178,9 @@
   .fact.tint{background:linear-gradient(135deg,var(--clay),var(--clay-deep));color:#fff;border:none;}
   .fact.tint .k{color:rgba(255,255,255,.82);}
   .fact.tint .v small{color:rgba(255,255,255,.85);}
+  .wifi-row{display:flex;justify-content:space-between;align-items:center;margin-top:7px;gap:12px;}
+  .wifi-row .label{font-size:12px;opacity:.82;}
+  .wifi-row .val{font-family:'Fraunces',serif;font-size:17px;}
 
   /* ===== rules list ===== */
   .rule{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);}
@@ -351,6 +354,10 @@
       <div class="ic">🧭</div>
       <div class="txt"><b data-i18n="prep4-title">Best to use Waze</b><span data-i18n="prep4-text">We have found Google Maps doesn't always get the directions right out here, and Waze brings you straight to the door. Both map buttons are below.</span></div>
     </div>
+    <div class="rule">
+      <div class="ic">🛒</div>
+      <div class="txt"><b data-i18n="prep5-title">Stop for groceries on the way in</b><span data-i18n="prep5-text">The kitchen has the basics, and there is always purified water. For anything more, pick up supplies before you arrive at Chedraui (the big supermarket), Abarrotes Rubí in La Punta, or the Mercado Zicatela.</span></div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -425,7 +432,7 @@
     </div>
     <div class="rule">
       <div class="ic">🏋️</div>
-      <div class="txt"><b data-i18n="gym-title">A private gym</b><span data-i18n="gym-text">Good equipment, shared quietly across the collection and rarely busy. It is private, and there whenever you want it.</span></div>
+      <div class="txt"><b data-i18n="gym-title">A private gym</b><span data-i18n="gym-text">Good equipment, shared quietly across the collection and rarely busy. Open daily, 8:00 AM to 1:00 PM.</span></div>
     </div>
     <div class="rule">
       <div class="ic">🧘</div>
@@ -492,10 +499,11 @@
         <div class="k" data-i18n="cared-label">Cared for daily</div>
         <div class="v" data-i18n="cared-val">Housekeeping and pool cleaning every day, included.</div>
       </div>
-      <div class="fact full">
+      <div class="fact tint full">
         <span class="ic">📶</span>
         <div class="k" data-i18n="wifi-label">WiFi</div>
-        <div class="v" data-i18n="wifi-val">The network and password are in your Airbnb check-in details.</div>
+        <div class="wifi-row"><span class="label" data-i18n="wifi-network">Network</span><span class="val">Villas Alebrijes</span></div>
+        <div class="wifi-row"><span class="label" data-i18n="wifi-password">Password</span><span class="val">Alebrijes26</span></div>
       </div>
     </div>
   </section>
@@ -530,15 +538,6 @@
         <h3 data-i18n="exp3-title">A little celebration</h3>
         <p data-i18n="exp3-desc">Honeymoon, birthday, or anniversary? Flowers, a cake, and simple decoration, set up before you arrive.</p>
         <span class="pre" data-i18n="exp3-pre">Arrange in advance</span>
-      </div>
-    </div>
-
-    <div class="exp e4">
-      <div class="band"><span class="emoji">🛒</span></div>
-      <div class="body">
-        <h3 data-i18n="exp4-title">A welcome fridge</h3>
-        <p data-i18n="exp4-desc">Arrive to a stocked fridge: cold drinks, fruit, coffee, and snacks. Ask Luis for options and price.</p>
-        <span class="pre" data-i18n="exp4-pre">Ask in advance</span>
       </div>
     </div>
 
@@ -577,6 +576,8 @@
         <span class="pre" data-i18n="exp8-pre">Book on request</span>
       </div>
     </div>
+
+    <p class="lead" style="margin-top:18px;text-align:center" data-i18n="exp-outro">Looking for something that is not here? Just ask Luis, anytime. If it can be done, we will make it happen.</p>
   </section>
 
   <div class="divider"></div>
@@ -731,6 +732,8 @@
       'prep3-text': 'A private chef for your first night, a massage at the house, an airport pickup, a little celebration setup. These need a little notice. Tell us before you arrive and we will arrange it.',
       'prep4-title': 'Best to use Waze',
       'prep4-text': "We have found Google Maps doesn't always get the directions right out here, and Waze brings you straight to the door. Both map buttons are below.",
+      'prep5-title': 'Stop for groceries on the way in',
+      'prep5-text': 'The kitchen has the basics, and there is always purified water. For anything more, pick up supplies before you arrive at Chedraui (the big supermarket), Abarrotes Rubí in La Punta, or the Mercado Zicatela.',
       'arrival-label': 'Getting here',
       'arrival-h2': 'Finding your way to <em>La Barra</em>',
       'arrival-lead': 'We are in La Barra, a quiet pocket of Puerto Escondido, just past Zicatela. Tap your route below. When you are close, message us and Luis, our manager, will meet you and open up.',
@@ -762,7 +765,7 @@
       'rule2-title': 'Cared for every day',
       'rule2-text': 'Housekeeping and pool care come daily. Relax, it is handled.',
       'gym-title': 'A private gym',
-      'gym-text': 'Good equipment, shared quietly across the collection and rarely busy. It is private, and there whenever you want it.',
+      'gym-text': 'Good equipment, shared quietly across the collection and rarely busy. Open daily, 8:00 AM to 1:00 PM.',
       'calm-title': 'Space for calm',
       'calm-text': 'An open space for yoga and stillness, with a beautiful view over the trees to the sea.',
       'play-title': 'A game of pétanque',
@@ -790,7 +793,8 @@
       'cared-label': 'Cared for daily',
       'cared-val': 'Housekeeping and pool cleaning every day, included.',
       'wifi-label': 'WiFi',
-      'wifi-val': 'The network and password are in your Airbnb check-in details.',
+      'wifi-network': 'Network',
+      'wifi-password': 'Password',
       'exp-label': "While you're here",
       'exp-h2': 'Arrange it <em>through us</em>',
       'exp-lead': 'Everything here is arranged through us, just message and we will set it up with Luis. Prices are shared privately and shift a little with the season.',
@@ -803,9 +807,6 @@
       'exp3-title': 'A little celebration',
       'exp3-desc': 'Honeymoon, birthday, or anniversary? Flowers, a cake, and simple decoration, set up before you arrive.',
       'exp3-pre': 'Arrange in advance',
-      'exp4-title': 'A welcome fridge',
-      'exp4-desc': 'Arrive to a stocked fridge: cold drinks, fruit, coffee, and snacks. Ask Luis for options and price.',
-      'exp4-pre': 'Ask in advance',
       'exp5-title': 'Airport pickup',
       'exp5-desc': 'A driver we trust, waiting for you when you land.',
       'exp5-pre': 'Arrange in advance',
@@ -818,6 +819,7 @@
       'exp8-title': 'Tours & adventures',
       'exp8-desc': "Bioluminescence, surf lessons, turtle releases, dolphin and whale tours, fishing, and more, through a local partner we trust. Tell us what you're curious about.",
       'exp8-pre': 'Book on request',
+      'exp-outro': 'Looking for something that is not here? Just ask Luis, anytime. If it can be done, we will make it happen.',
       'beach-label': 'By the water',
       'beach-h2': 'The <em>beaches</em>',
       'beach-lead': 'Playa La Barra is a five-minute walk from the garden. The others are a short taxi or drive around town. Tap a pin to see where each one is.',
@@ -890,6 +892,8 @@
       'prep3-text': 'Un chef privado para tu primera noche, un masaje en la casa, transporte del aeropuerto, una pequeña decoración de celebración. Esto necesita aviso previo. Dinos antes de llegar y lo organizamos.',
       'prep4-title': 'Mejor usa Waze',
       'prep4-text': 'Hemos visto que Google Maps no siempre da bien las indicaciones por aquí, y Waze te trae directo a la puerta. Los dos botones de mapa están abajo.',
+      'prep5-title': 'Pasa por el súper antes de llegar',
+      'prep5-text': 'La cocina tiene lo básico, y siempre hay agua purificada. Para algo más, compra provisiones antes de llegar en Chedraui (el supermercado grande), Abarrotes Rubí en La Punta, o el Mercado de Zicatela.',
       'arrival-label': 'Cómo llegar',
       'arrival-h2': 'Cómo llegar a <em>La Barra</em>',
       'arrival-lead': 'Estamos en La Barra, un rincón tranquilo de Puerto Escondido, justo pasando Zicatela. Toca tu ruta abajo. Cuando estés cerca, escríbenos y Luis, nuestro encargado, te recibe y te abre.',
@@ -921,7 +925,7 @@
       'rule2-title': 'Cuidada cada día',
       'rule2-text': 'La limpieza y el mantenimiento de la alberca son diarios. Relájate, está resuelto.',
       'gym-title': 'Un gimnasio privado',
-      'gym-text': 'Buen equipo, compartido con discreción en toda la colección y rara vez ocupado. Es privado, y está ahí cuando lo quieras.',
+      'gym-text': 'Buen equipo, compartido con discreción en toda la colección y rara vez ocupado. Abierto todos los días, de 8:00 AM a 1:00 PM.',
       'calm-title': 'Espacio para la calma',
       'calm-text': 'Un espacio abierto para yoga y quietud, con una vista hermosa sobre los árboles hacia el mar.',
       'play-title': 'Un juego de petanca',
@@ -949,7 +953,8 @@
       'cared-label': 'Cuidada a diario',
       'cared-val': 'Limpieza y mantenimiento de la alberca cada día, incluidos.',
       'wifi-label': 'WiFi',
-      'wifi-val': 'La red y la contraseña están en los datos de llegada de tu Airbnb.',
+      'wifi-network': 'Red',
+      'wifi-password': 'Contraseña',
       'exp-label': 'Mientras estés aquí',
       'exp-h2': 'Organízalo <em>con nosotros</em>',
       'exp-lead': 'Todo aquí se organiza con nosotros, solo escríbenos y lo coordinamos con Luis. Los precios se comparten en privado y cambian un poco según la temporada.',
@@ -962,9 +967,6 @@
       'exp3-title': 'Una pequeña celebración',
       'exp3-desc': '¿Luna de miel, cumpleaños o aniversario? Flores, un pastel y decoración sencilla, listos antes de que llegues.',
       'exp3-pre': 'Organizar con anticipación',
-      'exp4-title': 'Un refri de bienvenida',
-      'exp4-desc': 'Llega a un refri surtido: bebidas frías, fruta, café y botanas. Pregunta a Luis por opciones y precio.',
-      'exp4-pre': 'Pedir con anticipación',
       'exp5-title': 'Transporte del aeropuerto',
       'exp5-desc': 'Un conductor de confianza, esperándote cuando aterrices.',
       'exp5-pre': 'Organizar con anticipación',
@@ -977,6 +979,7 @@
       'exp8-title': 'Tours y aventuras',
       'exp8-desc': 'Bioluminiscencia, clases de surf, liberación de tortugas, tours de delfines y ballenas, pesca y más, con un socio local de confianza. Dinos qué te da curiosidad.',
       'exp8-pre': 'Reservar bajo petición',
+      'exp-outro': '¿Buscas algo que no está aquí? Solo pídeselo a Luis, cuando quieras. Si se puede hacer, lo hacemos.',
       'beach-label': 'Junto al mar',
       'beach-h2': 'Las <em>playas</em>',
       'beach-lead': 'Playa La Barra está a cinco minutos a pie desde el jardín. Las demás son un taxi o viaje corto por el pueblo. Toca un pin para ver dónde está cada una.',
