@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Your guide to Casa Nova, everything you need for a calm, beautiful stay in La Barra, Puerto Escondido.">
+<meta property="og:title" content="Welcome to Casa Nova · Puerto Escondido">
+<meta property="og:description" content="The whole house for up to nineteen, seven ensuite bedrooms, infinity pool, ocean views. Tierra en Armonía, La Barra.">
+<meta property="og:image" content="https://thewelcomelink.com/casa-nova/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thewelcomelink.com/casa-nova/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://thewelcomelink.com/casa-nova/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://thewelcomelink.com/casa-nova/images/og.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Welcome · Casa Nova · Tierra en Armonía</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Palette flexed to the Tierra en Armonía brand (verde, bronce, madera, arena, luz, carbon) */
+  :root{
+    --forest:#3a4a34;      /* deep jungle green, section backgrounds */
+    --moss:#5C705E;        /* Tierra verde */
+    --clay:#B28A62;        /* Tierra madera */
+    --clay-deep:#8B7054;   /* Tierra bronce (signature) */
+    --sand:#DDD1BC;        /* Tierra arena */
+    --paper:#F7F4EC;       /* Tierra luz */
+    --ink:#403A35;         /* Tierra carbon */
+    --ink-soft:#5c5247;
+    --line:rgba(64,58,53,.12);
+    --shadow:0 18px 40px -18px rgba(58,74,52,.45);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Spline Sans',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:480px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative;}
+
+  /* texture overlay */
+  .wrap::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    max-width:480px;left:50%;transform:translateX(-50%);
+  }
+
+  /* language toggle */
+  #langToggle{
+    position:fixed;top:14px;left:50%;transform:translateX(calc(240px - 100% - 14px));z-index:999;
+    display:flex;gap:2px;padding:3px;border-radius:999px;
+    background:rgba(28,18,12,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.26);box-shadow:0 6px 18px -8px rgba(0,0,0,.4);
+  }
+  @media(max-width:508px){#langToggle{left:auto;right:14px;transform:none;}}
+  .lang-opt{
+    border:none;background:transparent;color:rgba(255,255,255,.82);cursor:pointer;
+    font-family:'Spline Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;
+    padding:6px 13px;border-radius:999px;transition:background .2s,color .2s;
+  }
+  .lang-opt.active{background:#fff;color:#34291f;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:32px 26px 46px;color:#f5efe2;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      linear-gradient(180deg,rgba(30,40,26,.12) 0%,rgba(30,40,26,.5) 55%,rgba(25,33,22,.86) 100%),
+      url("images/hero.jpg");
+    background-size:cover;
+    background-position:center;
+  }
+  .hero-content{position:relative;z-index:2;}
+  .eyebrow{
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    font-weight:500;opacity:.85;margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6;}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:400;font-size:44px;line-height:1.02;
+    letter-spacing:-.01em;margin-bottom:6px;
+  }
+  .hero h1 em{font-style:italic;color:#e9c9a8;}
+  .hero .sub{font-size:16px;opacity:.9;max-width:30ch;margin-top:14px;}
+  .scroll-cue{
+    position:relative;z-index:2;margin-top:34px;font-size:12.5px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.7;display:flex;align-items:center;gap:8px;
+  }
+  .scroll-cue span{animation:bob 2.2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+  /* ===== SECTIONS ===== */
+  section{position:relative;z-index:2;padding:44px 26px;}
+  .sec-label{
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--clay-deep);
+    font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;
+  }
+  .sec-label::before{content:"";width:22px;height:1px;background:var(--clay);}
+  h2{font-family:'Fraunces',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin-bottom:16px;}
+  h2 em{font-style:italic;color:var(--clay-deep);}
+  p.lead{color:var(--ink-soft);font-size:15.5px;}
+
+  .divider{height:1px;background:var(--line);margin:0 26px;position:relative;z-index:2;}
+
+  /* welcome note */
+  .welcome{background:linear-gradient(180deg,#fbf6ec,#f7f1e6);}
+  .welcome .note{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:19px;
+    line-height:1.5;color:var(--forest);margin-top:6px;
+  }
+  .host-sign{display:flex;align-items:center;gap:12px;margin-top:22px;}
+  .host-sign .avatar{
+    width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--clay),var(--clay-deep));
+    display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:20px;
+  }
+  .host-sign .meta{font-size:13.5px;line-height:1.3;}
+  .host-sign .meta b{font-weight:600;}
+  .host-sign .meta span{color:var(--ink-soft);font-size:12.5px;}
+
+  /* ===== getting here / steps ===== */
+  .arrival{background:var(--forest);color:#f0ecdf;}
+  .arrival .sec-label{color:#e9c9a8;}
+  .arrival .sec-label::before{background:#e9c9a8;}
+  .arrival h2{color:#f5efe2;}
+  .arrival h2 em{color:#e9c9a8;}
+  .arrival .lead{color:rgba(240,236,223,.78);}
+  .route{
+    background:rgba(255,255,255,.05);border:1px solid rgba(233,201,168,.18);border-radius:16px;
+    padding:18px 18px 16px;margin-top:14px;
+  }
+  .route summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    font-weight:500;font-size:15.5px;color:#f5efe2;
+  }
+  .route summary::-webkit-details-marker{display:none;}
+  .route .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e9c9a8;
+    border:1px solid rgba(233,201,168,.4);padding:3px 9px;border-radius:20px;white-space:nowrap;}
+  .route .chev{transition:transform .3s;color:#e9c9a8;font-size:18px;}
+  .route[open] .chev{transform:rotate(90deg);}
+  .route ol{margin:14px 0 0;padding-left:0;list-style:none;counter-reset:step;}
+  .route ol li{
+    counter-increment:step;position:relative;padding:0 0 14px 34px;font-size:14px;
+    color:rgba(240,236,223,.85);line-height:1.5;
+  }
+  .route ol li::before{
+    content:counter(step);position:absolute;left:0;top:-1px;width:22px;height:22px;border-radius:50%;
+    background:var(--clay);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:600;
+  }
+  .route ol li:not(:last-child)::after{
+    content:"";position:absolute;left:10.5px;top:24px;bottom:2px;width:1px;background:rgba(233,201,168,.3);
+  }
+  .landmark{
+    margin-top:8px;background:rgba(233,201,168,.12);border-radius:12px;padding:12px 14px;
+    font-size:13.5px;color:#f0ecdf;display:flex;gap:10px;align-items:flex-start;
+  }
+  .landmark b{color:#e9c9a8;}
+
+  /* ===== quick facts grid ===== */
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;}
+  .fact{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);
+  }
+  .fact .ic{font-size:20px;margin-bottom:8px;display:block;}
+  .fact .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-deep);font-weight:600;}
+  .fact .v{font-size:14.5px;font-weight:500;margin-top:3px;}
+  .fact .v small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
+  .fact.full{grid-column:1/-1;}
+  .fact.tint{background:linear-gradient(135deg,var(--clay),var(--clay-deep));color:#fff;border:none;}
+  .fact.tint .k{color:rgba(255,255,255,.82);}
+  .fact.tint .v small{color:rgba(255,255,255,.85);}
+  .wifi-row{display:flex;justify-content:space-between;align-items:center;margin-top:7px;gap:12px;}
+  .wifi-row .label{font-size:12px;opacity:.82;}
+  .wifi-row .val{font-family:'Fraunces',serif;font-size:17px;}
+
+  /* ===== rules list ===== */
+  .rule{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);}
+  .rule:last-child{border-bottom:none;}
+  .rule .ic{
+    flex:none;width:38px;height:38px;border-radius:11px;background:var(--sand);
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+  }
+  .rule .txt b{display:block;font-weight:600;font-size:14.5px;}
+  .rule .txt span{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ===== experiences ===== */
+  .experiences{background:linear-gradient(180deg,#f2ead9,#efe7d8);}
+  .exp{
+    background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-top:14px;
+    border:1px solid var(--line);
+  }
+  .exp .band{height:88px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px 14px;}
+  .exp .band .emoji{font-size:34px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.2));}
+  .exp.e1 .band{background:radial-gradient(120% 140% at 20% 10%,#b5764f,#7d4a2c);}
+  .exp.e2 .band{background:radial-gradient(120% 140% at 20% 10%,#6f7d54,#3f4a30);}
+  .exp.e3 .band{background:radial-gradient(120% 140% at 20% 10%,#c79a5c,#8a6531);}
+  .exp.e4 .band{background:radial-gradient(120% 140% at 20% 10%,#5f8a8f,#31555a);}
+  .exp.e5 .band{background:radial-gradient(120% 140% at 20% 10%,#8a6d3f,#5a4528);}
+  .exp.e6 .band{background:radial-gradient(120% 140% at 20% 10%,#6b7f6a,#3a4a37);}
+  .exp.e7 .band{background:radial-gradient(120% 140% at 20% 10%,#8a5a3f,#4e2f1e);}
+  .exp.e8 .band{background:radial-gradient(120% 140% at 20% 10%,#5f8a6a,#31513c);}
+  .exp .body{padding:15px 16px 17px;}
+  .exp .body h3{font-family:'Fraunces',serif;font-weight:500;font-size:18px;margin-bottom:5px;}
+  .exp .body p{font-size:13.5px;color:var(--ink-soft);}
+  .exp .pre{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--clay-deep);font-weight:600;background:var(--sand);padding:4px 10px;border-radius:20px;}
+
+  /* ===== eat / beaches numbered ===== */
+  .eatcard{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .eatcard:last-child{border-bottom:none;}
+  .eatcard .num{font-family:'Fraunces',serif;font-size:22px;color:var(--clay);flex:none;width:34px;line-height:1.1;}
+  .eatcard h3{font-size:15.5px;font-weight:600;}
+  .eatcard p{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
+  .eatcard .veg{font-size:11px;color:var(--moss);font-weight:600;letter-spacing:.05em;}
+  .more-list{font-size:13.5px;color:var(--ink-soft);margin-top:16px;line-height:1.7;}
+  .more-list b{color:var(--clay-deep);font-weight:600;}
+  .pin-link{display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-size:12px;font-weight:600;
+    letter-spacing:.02em;color:var(--clay-deep);text-decoration:none;border-bottom:1px solid rgba(139,112,84,.35);padding-bottom:1px;}
+  .pin-link + .pin-link{margin-left:14px;}
+
+  /* ===== beaches on sand ground ===== */
+  .beaches{background:linear-gradient(180deg,#f2ead9,#efe7d8);}
+
+  /* ===== practical ===== */
+  .practical{background:var(--forest);color:#f0ecdf;}
+  .practical .sec-label{color:#e9c9a8;}
+  .practical .sec-label::before{background:#e9c9a8;}
+  .practical h2{color:#f5efe2;}
+  .practical h2 em{color:#e9c9a8;}
+  .pcard{
+    background:rgba(255,255,255,.05);border:1px solid rgba(233,201,168,.18);border-radius:14px;
+    padding:15px 16px;margin-top:12px;display:flex;gap:13px;align-items:flex-start;
+  }
+  .pcard .ic{font-size:20px;flex:none;}
+  .pcard b{display:block;font-size:14.5px;color:#f5efe2;margin-bottom:2px;}
+  .pcard span{font-size:13.5px;color:rgba(240,236,223,.8);}
+
+  /* ===== checkout ===== */
+  .checkout .step{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .checkout .step:last-child{border-bottom:none;}
+  .checkout .step .box{
+    flex:none;width:24px;height:24px;border:2px solid var(--clay);border-radius:7px;
+  }
+  .checkout .step span{font-size:14.5px;}
+
+  /* ===== contact ===== */
+  .contact{background:linear-gradient(180deg,#fbf6ec,#f2ead9);text-align:center;padding-bottom:30px;}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:16px;border-radius:14px;font-family:'Spline Sans';font-size:15.5px;font-weight:600;
+    text-decoration:none;margin-top:12px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn-wa{background:#25845a;color:#fff;box-shadow:0 10px 24px -10px rgba(37,132,90,.7);}
+  .btn-ghost{background:transparent;color:var(--forest);border:1.5px solid var(--line);}
+
+  /* footer */
+  .foot{text-align:center;padding:30px 26px 44px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--moss);}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+
+  /* arrival warning */
+  .arrival-warn{font-size:13px;color:var(--clay-deep);background:#fff8f2;border:1.5px solid var(--clay);border-radius:10px;padding:10px 12px;margin-top:10px;font-weight:500;line-height:1.55;}
+
+  /* google maps / waze button */
+  .btn-map{display:flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(233,201,168,.4);border-radius:13px;padding:14px 18px;text-decoration:none;color:#f5efe2;font-weight:600;font-size:15px;margin-top:14px;}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<div id="langToggle">
+  <button class="lang-opt active" id="btnEN" onclick="setLang('en')">EN</button>
+  <button class="lang-opt" id="btnES" onclick="setLang('es')">ES</button>
+</div>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Casa Nova · La Barra, Puerto Escondido</div>
+      <h1 data-i18n="hero-h1">Welcome to <em>the whole house<br>by the sea</em></h1>
+      <p class="sub" data-i18n="hero-sub">The signature home of Tierra en Armonía, for up to nineteen, with an infinity pool over the ocean and room for everyone. Everything you need is here.</p>
+    </div>
+    <div class="scroll-cue" data-i18n="scroll-cue">Scroll to begin <span>↓</span></div>
+  </header>
+
+  <!-- ============================================================
+       MOVEMENT 1: BEFORE YOU COME
+       ============================================================ -->
+
+  <!-- WELCOME NOTE -->
+  <!-- FILL(host): real review stats if Arianna wants them shown (rating, count) -->
+  <section class="welcome reveal">
+    <div class="sec-label" data-i18n="welcome-label">A note from your host</div>
+    <p class="note" data-i18n="welcome-note">"Casa Nova was the first home we built to welcome others, the seed the whole collection grew around. It holds up to nineteen, with the ocean in every view. Fill it with your people, gather at the long table, and make the days your own. We are so glad you came."</p>
+    <div class="host-sign">
+      <div class="avatar">A</div>
+      <div class="meta"><b>Arianna</b> · Superhost<br><span data-i18n="host-reviews">4.9 ★ Superhost · 9 years hosting</span></div>
+    </div>
+  </section>
+
+  <!-- YOUR TEAM (staff, privacy, everything through Luis) -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="team-label">You're looked after</div>
+    <h2 data-i18n="team-h2">A team, and your <em>privacy</em></h2>
+    <p class="lead" style="margin-bottom:8px" data-i18n="team-lead">Casa Nova is part of Villas Alebrijes, with a full staff team on site so you never have to arrange the basics.</p>
+    <div class="rule">
+      <div class="ic">🛎️</div>
+      <div class="txt"><b data-i18n="team1-title">A team that has you covered</b><span data-i18n="team1-text">Daily housekeeping and pool care, on-site maintenance, and a concierge-manager, all part of the stay.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🤍</div>
+      <div class="txt"><b data-i18n="team2-title">Your privacy, always</b><span data-i18n="team2-text">The team is discreet and respectful. They honor your space, your quiet, and your requests. This is your home while you are here.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🙋</div>
+      <div class="txt"><b data-i18n="team3-title">Luis can arrange anything</b><span data-i18n="team3-text">Your manager Luis, and his assistant Valentina, can set up tours, moto and ATV rental, a chef, a massage, airport pickup, and more, all through people we trust. Just ask.</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PREP -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="prep-label">Before you come</div>
+    <h2 data-i18n="prep-h2">A little <em>prep</em></h2>
+    <p class="lead" style="margin-bottom:8px" data-i18n="prep-lead">A few things worth sorting before you travel.</p>
+    <div class="rule">
+      <div class="ic">💵</div>
+      <div class="txt"><b data-i18n="prep1-title">Bring a little cash</b><span data-i18n="prep1-text">Many taxis, beach kitchens, and local spots are cash only. There are ATMs in town, but bring some pesos for your first day so nothing slows you down.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🏖️</div>
+      <div class="txt"><b data-i18n="prep2-title">The beach is a short walk</b><span data-i18n="prep2-text">The question we hear most: yes, the beach is close. Playa La Barra, the nearest, is a wild and quiet stretch a few minutes from the door.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">📅</div>
+      <div class="txt"><b data-i18n="prep3-title">Pre-book the extras</b><span data-i18n="prep3-text">A private chef for your first night, a massage at the house, an airport pickup, a little celebration setup. These need a little notice. Tell us before you arrive and we will arrange it.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🧭</div>
+      <div class="txt"><b data-i18n="prep4-title">Best to use Waze</b><span data-i18n="prep4-text">We have found Google Maps doesn't always get the directions right out here, and Waze brings you straight to the door. Both map buttons are below.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🛒</div>
+      <div class="txt"><b data-i18n="prep5-title">Stop for groceries on the way in</b><span data-i18n="prep5-text">The kitchen has the basics, and there is always purified water. For anything more, pick up supplies before you arrive at Chedraui (the big supermarket), Abarrotes Rubí in La Punta, or the Mercado Zicatela.</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       MOVEMENT 2: GETTING HERE
+       Every route ends at Villas Alebrijes; Luis meets guests. Never a code on the page.
+       FILL(host): the exact property map pin / Waze link (map button below uses a Cinema Zicatela search for now)
+       ============================================================ -->
+  <section class="arrival reveal">
+    <div class="sec-label" data-i18n="arrival-label">Getting here</div>
+    <h2 data-i18n="arrival-h2">Finding your way to <em>La Barra</em></h2>
+    <p class="lead" data-i18n="arrival-lead">We are in La Barra, a quiet pocket of Puerto Escondido, just past Zicatela. Tap your route below. When you are close, message us and Luis, our manager, will meet you and open up.</p>
+
+    <details class="route">
+      <summary><span data-i18n="routeA-title">From the airport · by taxi</span><span class="tag" data-i18n="routeA-tag">Taxi</span><span class="chev">›</span></summary>
+      <ol>
+        <li data-i18n="a1">Puerto Escondido airport (PXM) is a short ride away. Take an official taxi from the stand outside.</li>
+        <li data-i18n="a2">Show the driver the map link below, or ask for <b>Villas Alebrijes</b> in La Barra, near <b>Cinema Zicatela</b>.</li>
+        <li data-i18n="a3">Message us when you land so Luis has everything ready and can meet you.</li>
+      </ol>
+    </details>
+
+    <details class="route">
+      <summary><span data-i18n="routeB-title">By car · with Waze</span><span class="tag" data-i18n="routeB-tag">Driving</span><span class="chev">›</span></summary>
+      <ol>
+        <li data-i18n="b1">Open <b>Waze</b> if you can. We have found it more reliable than Google Maps for the last stretch out here.</li>
+        <li data-i18n="b2">Search for <b>Cinema Zicatela</b> as your landmark.</li>
+        <li data-i18n="b3">From the cinema, head to <b>Villas Alebrijes</b>, the private entrance to our community.</li>
+        <li data-i18n="b4">Message us when you are close and Luis will guide you the last stretch and let you in.</li>
+      </ol>
+    </details>
+
+    <details class="route">
+      <summary><span data-i18n="routeC-title">From Zicatela or La Punta · by taxi</span><span class="tag" data-i18n="routeC-tag">Taxi</span><span class="chev">›</span></summary>
+      <ol>
+        <li data-i18n="c1">We are just a few minutes from Zicatela. Any taxi knows <b>Cinema Zicatela</b>.</li>
+        <li data-i18n="c2">From the cinema, it is a moment more to <b>Villas Alebrijes</b>.</li>
+        <li data-i18n="c3">Message us when you set off and Luis will meet you at the entrance.</li>
+      </ol>
+    </details>
+
+    <a class="btn-map" href="https://waze.com/ul?ll=15.8235374%2C-97.0369527&navigate=yes" target="_blank" rel="noopener" data-i18n="map-btn">📍 Open in Waze</a>
+    <a class="btn-map" href="https://maps.app.goo.gl/Jv5mkmsfRYrZT1KK8" target="_blank" rel="noopener" style="margin-top:8px;background:rgba(255,255,255,.05);" data-i18n="map-btn2">🗺️ Open in Google Maps</a>
+
+    <div class="landmark">
+      <span>🔑</span>
+      <div data-i18n="landmark-checkin"><b>Checking in:</b> message us when you're close. If you arrive after 5 PM, Alex, who lives on site, will have your keys ready. Earlier in the day, Luis or Valentina will welcome you.</div>
+    </div>
+    <div class="landmark" style="margin-top:8px;">
+      <span>📍</span>
+      <div data-i18n="landmark1"><b>Having trouble or getting lost?</b> Message or call us on WhatsApp and we will be happy to help you.</div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MOVEMENT 3: WHILE YOU'RE HERE
+       ============================================================ -->
+
+  <!-- THE HOME -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="home-label">The home</div>
+    <h2 data-i18n="home-h2">How we <em>live here</em></h2>
+    <p class="lead" style="margin-bottom:8px" data-i18n="home-lead">A few things that make Casa Nova special.</p>
+    <div class="rule">
+      <div class="ic">🌿</div>
+      <div class="txt"><b data-i18n="rule1-title">The whole house, for everyone</b><span data-i18n="rule1-text">Seven ensuite bedrooms sleep nineteen, a table for twenty-five, an infinity pool and a jacuzzi, a cinema lounge, and a private path to the beach. Room for a big group to breathe.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🧹</div>
+      <div class="txt"><b data-i18n="rule2-title">Cared for every day</b><span data-i18n="rule2-text">Housekeeping and pool care come daily. Relax, it is handled.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🏋️</div>
+      <div class="txt"><b data-i18n="gym-title">A private gym</b><span data-i18n="gym-text">Good equipment, shared quietly across the collection and rarely busy. Open daily, 8:00 AM to 1:00 PM.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🧘</div>
+      <div class="txt"><b data-i18n="calm-title">Space for calm</b><span data-i18n="calm-text">An open space for yoga and stillness, with a beautiful view over the trees to the sea.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🎾</div>
+      <div class="txt"><b data-i18n="play-title">A game of pétanque</b><span data-i18n="play-text">A court for slow afternoons. The simplest games make the longest memories.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🐴</div>
+      <div class="txt"><b data-i18n="rule3-title">Meet the little farm</b><span data-i18n="rule3-text">A few steps away is our farm: two donkeys named Lula and Medhi, plus chickens, ducks, and other friends. Guests love it, grown-ups and kids both.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🌊</div>
+      <div class="txt"><b data-i18n="rule4-title">A wild beach to explore</b><span data-i18n="rule4-text">A private path from the garden crosses the street to Playa La Barra in about five minutes, a wild, virgin beach with spectacular sunsets. Our neighbors care for it, so please tread gently and take your trash with you.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🦎</div>
+      <div class="txt"><b data-i18n="rule5-title">We live with nature</b><span data-i18n="rule5-text">You may meet a gecko or a praying mantis; they are gentle neighbors. We compost too, so you'll find a steel can by the sink for organic scraps.</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ESSENTIALS -->
+  <!-- FILL(host): confirm Casa Nova WiFi network/password (using the collection network as a placeholder); confirm check-in and check-out times (placeholders below). WiFi kept off the guide per host; guests get it from Airbnb. -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="facts-label">The essentials</div>
+    <h2 data-i18n="facts-h2">Good to <em>know</em></h2>
+    <div class="facts">
+      <div class="fact">
+        <span class="ic">🕒</span>
+        <div class="k" data-i18n="checkin-label">Check-in</div>
+        <div class="v" data-i18n="checkin-val">From <strong style="font-size:17px;">3:00 PM</strong></div>
+      </div>
+      <div class="fact">
+        <span class="ic">🌙</span>
+        <div class="k" data-i18n="checkout-label">Check-out</div>
+        <div class="v" data-i18n="checkout-val">Before 11:00 AM</div>
+      </div>
+      <div class="fact">
+        <span class="ic">👥</span>
+        <div class="k" data-i18n="guests-label">Guests</div>
+        <div class="v" data-i18n="guests-val">Up to 19</div>
+      </div>
+      <div class="fact">
+        <span class="ic">🏊</span>
+        <div class="k" data-i18n="pool-label">Infinity pool</div>
+        <div class="v" data-i18n="pool-val">Over the ocean, and a jacuzzi too</div>
+      </div>
+      <div class="fact">
+        <span class="ic">💧</span>
+        <div class="k" data-i18n="water-label">Purified water</div>
+        <div class="v" data-i18n="water-val">A jug is always here, no need to buy it</div>
+      </div>
+      <div class="fact">
+        <span class="ic">🔕</span>
+        <div class="k" data-i18n="quiet-label">Quiet after 10 PM</div>
+        <div class="v" data-i18n="quiet-val">A calm place, no parties</div>
+      </div>
+      <div class="fact tint full">
+        <span class="ic">🧺</span>
+        <div class="k" data-i18n="cared-label">Cared for daily</div>
+        <div class="v" data-i18n="cared-val">Housekeeping and pool cleaning every day, included.</div>
+      </div>
+      <div class="fact tint full">
+        <span class="ic">📶</span>
+        <div class="k" data-i18n="wifi-label">WiFi</div>
+        <div class="wifi-row"><span class="label" data-i18n="wifi-network">Network</span><span class="val">Villas Alebrijes</span></div>
+        <div class="wifi-row"><span class="label" data-i18n="wifi-password">Password</span><span class="val">Alebrijes26</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCES (host upsells, book on request via Luis) -->
+  <section class="experiences reveal">
+    <div class="sec-label" data-i18n="exp-label">While you're here</div>
+    <h2 data-i18n="exp-h2">Arrange it <em>through us</em></h2>
+    <p class="lead" data-i18n="exp-lead">Everything here is arranged through us, just message and we will set it up with Luis. Prices are shared privately and shift a little with the season.</p>
+
+    <div class="exp e1">
+      <div class="band"><span class="emoji">🍽️</span></div>
+      <div class="body">
+        <h3 data-i18n="exp1-title">A private chef</h3>
+        <p data-i18n="exp1-desc">A warm first-night meal, or dinners through your stay, cooked right at the house. Tell us your tastes and we will bring the right person.</p>
+        <span class="pre" data-i18n="exp1-pre">Book on request</span>
+      </div>
+    </div>
+
+    <div class="exp e2">
+      <div class="band"><span class="emoji">💆</span></div>
+      <div class="body">
+        <h3 data-i18n="exp2-title">Massage at the house</h3>
+        <p data-i18n="exp2-desc">Our trusted therapist comes to you, by the pool or in the room.</p>
+        <span class="pre" data-i18n="exp2-pre">Book on request</span>
+      </div>
+    </div>
+
+    <div class="exp e3">
+      <div class="band"><span class="emoji">🎉</span></div>
+      <div class="body">
+        <h3 data-i18n="exp3-title">A little celebration</h3>
+        <p data-i18n="exp3-desc">Honeymoon, birthday, or anniversary? Flowers, a cake, and simple decoration, set up before you arrive.</p>
+        <span class="pre" data-i18n="exp3-pre">Arrange in advance</span>
+      </div>
+    </div>
+
+    <div class="exp e5">
+      <div class="band"><span class="emoji">🚐</span></div>
+      <div class="body">
+        <h3 data-i18n="exp5-title">Airport pickup</h3>
+        <p data-i18n="exp5-desc">A driver we trust, waiting for you when you land.</p>
+        <span class="pre" data-i18n="exp5-pre">Arrange in advance</span>
+      </div>
+    </div>
+
+    <div class="exp e6">
+      <div class="band"><span class="emoji">🕒</span></div>
+      <div class="body">
+        <h3 data-i18n="exp6-title">Early check-in or late checkout</h3>
+        <p data-i18n="exp6-desc">When the calendar allows, we can flex your times. Just ask.</p>
+        <span class="pre" data-i18n="exp6-pre">When available</span>
+      </div>
+    </div>
+
+    <div class="exp e7">
+      <div class="band"><span class="emoji">🛵</span></div>
+      <div class="body">
+        <h3 data-i18n="exp7-title">Moto &amp; ATV rental</h3>
+        <p data-i18n="exp7-desc">The easiest way to explore the coast on your own time. We arrange it with a rental we trust, delivered to you.</p>
+        <span class="pre" data-i18n="exp7-pre">Arrange in advance</span>
+      </div>
+    </div>
+
+    <div class="exp e8">
+      <div class="band"><span class="emoji">🧭</span></div>
+      <div class="body">
+        <h3 data-i18n="exp8-title">Tours &amp; adventures</h3>
+        <p data-i18n="exp8-desc">Bioluminescence, surf lessons, turtle releases, dolphin and whale tours, fishing, and more, through a local partner we trust. Tell us what you're curious about.</p>
+        <span class="pre" data-i18n="exp8-pre">Book on request</span>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:18px;text-align:center" data-i18n="exp-outro">Looking for something that is not here? Just ask Luis, anytime. If it can be done, we will make it happen.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BEACHES -->
+  <section class="beaches reveal">
+    <div class="sec-label" data-i18n="beach-label">By the water</div>
+    <h2 data-i18n="beach-h2">The <em>beaches</em></h2>
+    <p class="lead" style="margin-bottom:6px" data-i18n="beach-lead">Playa La Barra is a five-minute walk from the garden. The others are a short taxi or drive around town. Tap a pin to see where each one is.</p>
+
+    <div class="eatcard">
+      <div class="num">01</div>
+      <div><h3>Playa La Barra</h3><p data-i18n="beach1-desc">Your nearest, a wild and quiet beach five minutes on foot through the garden. Take your time, it is worth it.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+La+Barra+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">02</div>
+      <div><h3>La Punta, Zicatela</h3><p data-i18n="beach2-desc">The laid-back end of Zicatela: mellow surf, taco spots, and the best sunset beers.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=La+Punta+Zicatela+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">03</div>
+      <div><h3>Playa Zicatela</h3><p data-i18n="beach3-desc">The famous one, powerful surf. More for watching the waves than swimming.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Zicatela+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">04</div>
+      <div><h3>Carrizalillo</h3><p data-i18n="beach4-desc">A cove down a long stairway, calmer water, good for a swim and a beach beer.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Carrizalillo+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">05</div>
+      <div><h3>Manzanillo &amp; Puerto Angelito</h3><p data-i18n="beach5-desc">Small, calm coves, the easiest swimming and snorkeling.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Manzanillo+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">06</div>
+      <div><h3>Playa Bacocho</h3><p data-i18n="beach6-desc">A long, quiet stretch, and where baby turtles are released at sunset.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Bacocho+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">07</div>
+      <div><h3>Playa Coral</h3><p data-i18n="beach7-desc">A quieter local gem worth finding.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Coral+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EAT -->
+  <!-- FILL(host/Trevor): add local color to the standouts; the "more" line holds the rest of Arianna's picks -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="eat-label">Eat &amp; drink</div>
+    <h2 data-i18n="eat-h2">Where we <em>eat</em></h2>
+    <p class="lead" style="margin-bottom:6px" data-i18n="eat-lead">Arianna's own picks around town. A few favorites, then more worth trying.</p>
+
+    <div class="eatcard">
+      <div class="num">✦</div>
+      <div><h3 data-i18n="eat0-title">Delivery to your door</h3><p data-i18n="eat0-desc">D'Coral, a restaurant nearby, delivers straight to the villa, a little like room service for La Barra.</p><a class="pin-link" href="https://thewelcomelink.com/copal/dcoral-menu.pdf" target="_blank" rel="noopener" data-i18n="seemenu">📄 See the menu</a><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=D%27Coral+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">01</div>
+      <div><h3>Almoraduz</h3><p data-i18n="eat1-desc">One of the only fine dining spots in town. Thoughtful, modern Oaxacan cooking, for a special dinner out.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Almoraduz+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">02</div>
+      <div><h3>Chicama</h3><p data-i18n="eat2-desc">Ceviche, seafood, and cocktails by the water.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Chicama+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">03</div>
+      <div><h3>Malagua Café</h3><p data-i18n="eat3-desc">A lovely spot for coffee and a slow breakfast.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Malagua+Cafe+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">04</div>
+      <div><h3>Pan, Amor y Fantasía</h3><p data-i18n="eat4-desc">The bakery for fresh bread and pastries.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Pan+Amor+y+Fantasia+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <div class="eatcard">
+      <div class="num">05</div>
+      <div><h3>Pozolería Las Cazuelas</h3><p data-i18n="eat5-desc">Big, comforting bowls of pozole, local and easy on the wallet.</p><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=Pozoleria+Las+Cazuelas+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="seemap">📍 See on map</a></div>
+    </div>
+    <p class="more-list" data-i18n="eat-more"><b>More the team loves:</b> Café Olé, El Cafecito, Panadería El Bejuco, Anthonieta, Elephant Garden, El Nene, Lychee, Non Solo (pizza), La Juquileña, Campestre, and the Zicatela market.</p>
+  </section>
+
+  <!-- LOCAL NOTES -->
+  <section class="practical reveal">
+    <div class="sec-label" data-i18n="practical-label">Local notes</div>
+    <h2 data-i18n="practical-h2">A few <em>practical</em> things</h2>
+    <div class="pcard">
+      <span class="ic">📱</span>
+      <div><b data-i18n="pcard1-title">Reaching us</b><span data-i18n="pcard1-text">Message us anytime on WhatsApp. Luis, our manager, is here on the ground for anything you need: bookings, tours, taxis, and recommendations.</span></div>
+    </div>
+    <div class="pcard">
+      <span class="ic">🌴</span>
+      <div><b data-i18n="pcard2-title">You're in La Barra</b><span data-i18n="pcard2-text">A calm, natural pocket of Puerto Escondido, away from the noise. Close enough to head into town or over to La Punta whenever you like.</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MOVEMENT 4: HEADING OUT
+       ============================================================ -->
+
+  <!-- CHECKOUT -->
+  <!-- FILL(host): confirm checkout time -->
+  <section class="checkout reveal">
+    <div class="sec-label" data-i18n="checkout-section-label">Before you go</div>
+    <h2 data-i18n="checkout-h2">Check-out by <em>11 AM</em></h2>
+    <p class="lead" style="margin-bottom:8px" data-i18n="checkout-lead">The team cleans everything after you, so there is very little to do.</p>
+    <div class="step"><div class="box"></div><span data-i18n="step1">Turn off the AC and the lights</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step2">Close the windows and doors</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step3">Return the keys to Luis, or leave them in the door if you leave very early</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step4">Take any trash out with you</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step5">Message us to say you got off safely 🙏</span></div>
+  </section>
+
+  <!-- CONTACT -->
+  <!-- FILL(host): if guest messages should route to Luis's direct number, swap the WhatsApp/tel below (currently Arianna's number from the intake) -->
+  <section class="contact reveal">
+    <div class="sec-label" style="justify-content:center" data-i18n="contact-label">Here for you</div>
+    <h2 data-i18n="contact-h2">Anything you <em>need</em></h2>
+    <p class="lead" data-i18n="contact-lead">We love sharing this place. Reach us anytime.</p>
+    <a class="btn btn-wa" href="https://wa.me/529541347276?text=Hola%2C%20escribo%20sobre%20Casa Nova%20(Tierra%20en%20Armon%C3%ADa)." data-i18n="btn-wa">💬 Message us on WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+529541347276" data-i18n="btn-call">📞 Call us</a>
+    <a class="btn btn-ghost" href="https://www.tierraenarmonia.com/" target="_blank" rel="noopener" data-i18n="btn-web">🌐 Visit our website</a>
+  </section>
+
+  <div class="foot">
+    <div class="mark" data-i18n="foot-mark">Between the green and the blue. Welcome home.</div>
+    <div class="small">Casa Nova · Tierra en Armonía · La Barra, Puerto Escondido, Oaxaca</div>
+  </div>
+
+</div>
+
+<script>
+  const T = {
+    en: {
+      'hero-h1': 'Welcome to <em>the whole house<br>by the sea</em>',
+      'hero-sub': 'The signature home of Tierra en Armonía, for up to nineteen, with an infinity pool over the ocean and room for everyone. Everything you need is here.',
+      'scroll-cue': 'Scroll to begin <span>↓</span>',
+      'welcome-label': 'A note from your host',
+      'welcome-note': '"Casa Nova was the first home we built to welcome others, the seed the whole collection grew around. It holds up to nineteen, with the ocean in every view. Fill it with your people, gather at the long table, and make the days your own. We are so glad you came."',
+      'host-reviews': '4.9 ★ Superhost · 9 years hosting',
+      'team-label': "You're looked after",
+      'team-h2': 'A team, and your <em>privacy</em>',
+      'team-lead': 'Casa Nova is part of Villas Alebrijes, with a full staff team on site so you never have to arrange the basics.',
+      'team1-title': 'A team that has you covered',
+      'team1-text': 'Daily housekeeping and pool care, on-site maintenance, and a concierge-manager, all part of the stay.',
+      'team2-title': 'Your privacy, always',
+      'team2-text': 'The team is discreet and respectful. They honor your space, your quiet, and your requests. This is your home while you are here.',
+      'team3-title': 'Luis can arrange anything',
+      'team3-text': 'Your manager Luis, and his assistant Valentina, can set up tours, moto and ATV rental, a chef, a massage, airport pickup, and more, all through people we trust. Just ask.',
+      'prep-label': 'Before you come',
+      'prep-h2': 'A little <em>prep</em>',
+      'prep-lead': 'A few things worth sorting before you travel.',
+      'prep1-title': 'Bring a little cash',
+      'prep1-text': 'Many taxis, beach kitchens, and local spots are cash only. There are ATMs in town, but bring some pesos for your first day so nothing slows you down.',
+      'prep2-title': 'The beach is a short walk',
+      'prep2-text': 'The question we hear most: yes, the beach is close. Playa La Barra, the nearest, is a wild and quiet stretch a few minutes from the door.',
+      'prep3-title': 'Pre-book the extras',
+      'prep3-text': 'A private chef for your first night, a massage at the house, an airport pickup, a little celebration setup. These need a little notice. Tell us before you arrive and we will arrange it.',
+      'prep4-title': 'Best to use Waze',
+      'prep4-text': "We have found Google Maps doesn't always get the directions right out here, and Waze brings you straight to the door. Both map buttons are below.",
+      'prep5-title': 'Stop for groceries on the way in',
+      'prep5-text': 'The kitchen has the basics, and there is always purified water. For anything more, pick up supplies before you arrive at Chedraui (the big supermarket), Abarrotes Rubí in La Punta, or the Mercado Zicatela.',
+      'arrival-label': 'Getting here',
+      'arrival-h2': 'Finding your way to <em>La Barra</em>',
+      'arrival-lead': 'We are in La Barra, a quiet pocket of Puerto Escondido, just past Zicatela. Tap your route below. When you are close, message us and Luis, our manager, will meet you and open up.',
+      'routeA-title': 'From the airport · by taxi',
+      'routeA-tag': 'Taxi',
+      'a1': 'Puerto Escondido airport (PXM) is a short ride away. Take an official taxi from the stand outside.',
+      'a2': 'Show the driver the map link below, or ask for <b>Villas Alebrijes</b> in La Barra, near <b>Cinema Zicatela</b>.',
+      'a3': 'Message us when you land so Luis has everything ready and can meet you.',
+      'routeB-title': 'By car · with Waze',
+      'routeB-tag': 'Driving',
+      'b1': 'Open <b>Waze</b> if you can. We have found it more reliable than Google Maps for the last stretch out here.',
+      'b2': 'Search for <b>Cinema Zicatela</b> as your landmark.',
+      'b3': 'From the cinema, head to <b>Villas Alebrijes</b>, the private entrance to our community.',
+      'b4': 'Message us when you are close and Luis will guide you the last stretch and let you in.',
+      'routeC-title': 'From Zicatela or La Punta · by taxi',
+      'routeC-tag': 'Taxi',
+      'c1': 'We are just a few minutes from Zicatela. Any taxi knows <b>Cinema Zicatela</b>.',
+      'c2': 'From the cinema, it is a moment more to <b>Villas Alebrijes</b>.',
+      'c3': 'Message us when you set off and Luis will meet you at the entrance.',
+      'map-btn': '📍 Open in Waze',
+      'map-btn2': '🗺️ Open in Google Maps',
+      'landmark-checkin': "<b>Checking in:</b> message us when you're close. If you arrive after 5 PM, Alex, who lives on site, will have your keys ready. Earlier in the day, Luis or Valentina will welcome you.",
+      'landmark1': '<b>Having trouble or getting lost?</b> Message or call us on WhatsApp and we will be happy to help you.',
+      'home-label': 'The home',
+      'home-h2': 'How we <em>live here</em>',
+      'home-lead': 'A few things that make Casa Nova special.',
+      'rule1-title': 'The whole house, for everyone',
+      'rule1-text': 'Seven ensuite bedrooms sleep nineteen, a table for twenty-five, an infinity pool and a jacuzzi, a cinema lounge, and a private path to the beach. Room for a big group to breathe.',
+      'rule2-title': 'Cared for every day',
+      'rule2-text': 'Housekeeping and pool care come daily. Relax, it is handled.',
+      'gym-title': 'A private gym',
+      'gym-text': 'Good equipment, shared quietly across the collection and rarely busy. Open daily, 8:00 AM to 1:00 PM.',
+      'calm-title': 'Space for calm',
+      'calm-text': 'An open space for yoga and stillness, with a beautiful view over the trees to the sea.',
+      'play-title': 'A game of pétanque',
+      'play-text': 'A court for slow afternoons. The simplest games make the longest memories.',
+      'rule3-title': 'Meet the little farm',
+      'rule3-text': 'A few steps away is our farm: two donkeys named Lula and Medhi, plus chickens, ducks, and other friends. Guests love it, grown-ups and kids both.',
+      'rule4-title': 'A wild beach to explore',
+      'rule4-text': 'A private path from the garden crosses the street to Playa La Barra in about five minutes, a wild, virgin beach with spectacular sunsets. Our neighbors care for it, so please tread gently and take your trash with you.',
+      'rule5-title': 'We live with nature',
+      'rule5-text': "You may meet a gecko or a praying mantis; they are gentle neighbors. We compost too, so you'll find a steel can by the sink for organic scraps.",
+      'facts-label': 'The essentials',
+      'facts-h2': 'Good to <em>know</em>',
+      'checkin-label': 'Check-in',
+      'checkin-val': 'From <strong style="font-size:17px;">3:00 PM</strong>',
+      'checkout-label': 'Check-out',
+      'checkout-val': 'Before 11:00 AM',
+      'guests-label': 'Guests',
+      'guests-val': 'Up to 19',
+      'pool-label': 'Infinity pool',
+      'pool-val': 'Over the ocean, and a jacuzzi too',
+      'water-label': 'Purified water',
+      'water-val': 'A jug is always here, no need to buy it',
+      'quiet-label': 'Quiet after 10 PM',
+      'quiet-val': 'A calm place, no parties',
+      'cared-label': 'Cared for daily',
+      'cared-val': 'Housekeeping and pool cleaning every day, included.',
+      'wifi-label': 'WiFi',
+      'wifi-network': 'Network',
+      'wifi-password': 'Password',
+      'exp-label': "While you're here",
+      'exp-h2': 'Arrange it <em>through us</em>',
+      'exp-lead': 'Everything here is arranged through us, just message and we will set it up with Luis. Prices are shared privately and shift a little with the season.',
+      'exp1-title': 'A private chef',
+      'exp1-desc': 'A warm first-night meal, or dinners through your stay, cooked right at the house. Tell us your tastes and we will bring the right person.',
+      'exp1-pre': 'Book on request',
+      'exp2-title': 'Massage at the house',
+      'exp2-desc': 'Our trusted therapist comes to you, by the pool or in the room.',
+      'exp2-pre': 'Book on request',
+      'exp3-title': 'A little celebration',
+      'exp3-desc': 'Honeymoon, birthday, or anniversary? Flowers, a cake, and simple decoration, set up before you arrive.',
+      'exp3-pre': 'Arrange in advance',
+      'exp5-title': 'Airport pickup',
+      'exp5-desc': 'A driver we trust, waiting for you when you land.',
+      'exp5-pre': 'Arrange in advance',
+      'exp6-title': 'Early check-in or late checkout',
+      'exp6-desc': 'When the calendar allows, we can flex your times. Just ask.',
+      'exp6-pre': 'When available',
+      'exp7-title': 'Moto & ATV rental',
+      'exp7-desc': 'The easiest way to explore the coast on your own time. We arrange it with a rental we trust, delivered to you.',
+      'exp7-pre': 'Arrange in advance',
+      'exp8-title': 'Tours & adventures',
+      'exp8-desc': "Bioluminescence, surf lessons, turtle releases, dolphin and whale tours, fishing, and more, through a local partner we trust. Tell us what you're curious about.",
+      'exp8-pre': 'Book on request',
+      'exp-outro': 'Looking for something that is not here? Just ask Luis, anytime. If it can be done, we will make it happen.',
+      'beach-label': 'By the water',
+      'beach-h2': 'The <em>beaches</em>',
+      'beach-lead': 'Playa La Barra is a five-minute walk from the garden. The others are a short taxi or drive around town. Tap a pin to see where each one is.',
+      'beach1-desc': 'Your nearest, a wild and quiet beach five minutes on foot through the garden. Take your time, it is worth it.',
+      'beach2-desc': 'The laid-back end of Zicatela: mellow surf, taco spots, and the best sunset beers.',
+      'beach3-desc': 'The famous one, powerful surf. More for watching the waves than swimming.',
+      'beach4-desc': 'A cove down a long stairway, calmer water, good for a swim and a beach beer.',
+      'beach5-desc': 'Small, calm coves, the easiest swimming and snorkeling.',
+      'beach6-desc': 'A long, quiet stretch, and where baby turtles are released at sunset.',
+      'beach7-desc': 'A quieter local gem worth finding.',
+      'eat-label': 'Eat & drink',
+      'eat-h2': 'Where we <em>eat</em>',
+      'eat-lead': "Arianna's own picks around town. A few favorites, then more worth trying.",
+      'eat0-title': 'Delivery to your door',
+      'eat0-desc': "D'Coral, a restaurant nearby, delivers straight to the villa, a little like room service for La Barra.",
+      'eat1-desc': 'One of the only fine dining spots in town. Thoughtful, modern Oaxacan cooking, for a special dinner out.',
+      'eat2-desc': 'Ceviche, seafood, and cocktails by the water.',
+      'eat3-desc': 'A lovely spot for coffee and a slow breakfast.',
+      'eat4-desc': 'The bakery for fresh bread and pastries.',
+      'eat5-desc': 'Big, comforting bowls of pozole, local and easy on the wallet.',
+      'eat-more': "<b>More the team loves:</b> Café Olé, El Cafecito, Panadería El Bejuco, Anthonieta, Elephant Garden, El Nene, Lychee, Non Solo (pizza), La Juquileña, Campestre, and the Zicatela market.",
+      'practical-label': 'Local notes',
+      'practical-h2': 'A few <em>practical</em> things',
+      'pcard1-title': 'Reaching us',
+      'pcard1-text': 'Message us anytime on WhatsApp. Luis, our manager, is here on the ground for anything you need: bookings, tours, taxis, and recommendations.',
+      'pcard2-title': "You're in La Barra",
+      'pcard2-text': 'A calm, natural pocket of Puerto Escondido, away from the noise. Close enough to head into town or over to La Punta whenever you like.',
+      'checkout-section-label': 'Before you go',
+      'checkout-h2': 'Check-out by <em>11 AM</em>',
+      'checkout-lead': 'The team cleans everything after you, so there is very little to do.',
+      'step1': 'Turn off the AC and the lights',
+      'step2': 'Close the windows and doors',
+      'step3': 'Return the keys to Luis, or leave them in the door if you leave very early',
+      'step4': 'Take any trash out with you',
+      'step5': "Message us to say you got off safely 🙏",
+      'contact-label': 'Here for you',
+      'contact-h2': 'Anything you <em>need</em>',
+      'contact-lead': 'We love sharing this place. Reach us anytime.',
+      'btn-wa': '💬 Message us on WhatsApp',
+      'btn-call': '📞 Call us',
+      'btn-web': '🌐 Visit our website',
+      'seemap': '📍 See on map',
+      'seemenu': '📄 See the menu',
+      'foot-mark': 'Between the green and the blue. Welcome home.'
+    },
+    es: {
+      'hero-h1': 'Bienvenido a <em>la casa entera<br>junto al mar</em>',
+      'hero-sub': 'La casa insignia de Tierra en Armonía, para hasta diecinueve, con una alberca infinita sobre el mar y espacio para todos. Aquí tienes todo lo que necesitas.',
+      'scroll-cue': 'Desliza para comenzar <span>↓</span>',
+      'welcome-label': 'Una nota de tu anfitriona',
+      'welcome-note': '"Casa Nova fue la primera casa que construimos para recibir a otros, la semilla alrededor de la cual creció toda la colección. Aloja hasta diecinueve, con el mar en cada vista. Llénala con tu gente, reúnanse en la mesa larga, y hagan suyos los días. Nos alegra mucho que hayas venido."',
+      'host-reviews': '4.9 ★ Superhost · 9 años como anfitriona',
+      'team-label': 'Estás en buenas manos',
+      'team-h2': 'Un equipo, y tu <em>privacidad</em>',
+      'team-lead': 'Casa Nova es parte de Villas Alebrijes, con un equipo completo en el lugar para que nunca tengas que resolver lo básico.',
+      'team1-title': 'Un equipo que te respalda',
+      'team1-text': 'Limpieza y mantenimiento de la alberca a diario, mantenimiento en el lugar, y un encargado tipo concierge, todo incluido en tu estancia.',
+      'team2-title': 'Tu privacidad, siempre',
+      'team2-text': 'El equipo es discreto y respetuoso. Honran tu espacio, tu silencio y tus peticiones. Esta es tu casa mientras estés aquí.',
+      'team3-title': 'Luis organiza lo que sea',
+      'team3-text': 'Tu encargado Luis, y su asistente Valentina, pueden organizar tours, renta de moto y cuatrimoto, un chef, un masaje, transporte del aeropuerto y más, todo con gente de confianza. Solo pide.',
+      'prep-label': 'Antes de venir',
+      'prep-h2': 'Un poco de <em>preparación</em>',
+      'prep-lead': 'Algunas cosas que vale la pena resolver antes de viajar.',
+      'prep1-title': 'Trae algo de efectivo',
+      'prep1-text': 'Muchos taxis, cocinas de playa y lugares locales son solo en efectivo. Hay cajeros en el pueblo, pero trae algunos pesos para tu primer día para que nada te detenga.',
+      'prep2-title': 'La playa está a unos pasos',
+      'prep2-text': 'La pregunta que más escuchamos: sí, la playa está cerca. Playa La Barra, la más cercana, es un tramo salvaje y tranquilo a unos minutos de la puerta.',
+      'prep3-title': 'Reserva los extras con tiempo',
+      'prep3-text': 'Un chef privado para tu primera noche, un masaje en la casa, transporte del aeropuerto, una pequeña decoración de celebración. Esto necesita aviso previo. Dinos antes de llegar y lo organizamos.',
+      'prep4-title': 'Mejor usa Waze',
+      'prep4-text': 'Hemos visto que Google Maps no siempre da bien las indicaciones por aquí, y Waze te trae directo a la puerta. Los dos botones de mapa están abajo.',
+      'prep5-title': 'Pasa por el súper antes de llegar',
+      'prep5-text': 'La cocina tiene lo básico, y siempre hay agua purificada. Para algo más, compra provisiones antes de llegar en Chedraui (el supermercado grande), Abarrotes Rubí en La Punta, o el Mercado de Zicatela.',
+      'arrival-label': 'Cómo llegar',
+      'arrival-h2': 'Cómo llegar a <em>La Barra</em>',
+      'arrival-lead': 'Estamos en La Barra, un rincón tranquilo de Puerto Escondido, justo pasando Zicatela. Toca tu ruta abajo. Cuando estés cerca, escríbenos y Luis, nuestro encargado, te recibe y te abre.',
+      'routeA-title': 'Desde el aeropuerto · en taxi',
+      'routeA-tag': 'Taxi',
+      'a1': 'El aeropuerto de Puerto Escondido (PXM) está a un viaje corto. Toma un taxi oficial en la parada de afuera.',
+      'a2': 'Muestra al conductor el enlace del mapa de abajo, o pide <b>Villas Alebrijes</b> en La Barra, cerca del <b>Cinema Zicatela</b>.',
+      'a3': 'Escríbenos cuando aterrices para que Luis tenga todo listo y te reciba.',
+      'routeB-title': 'En coche · con Waze',
+      'routeB-tag': 'En coche',
+      'b1': 'Abre <b>Waze</b> si puedes. Lo hemos encontrado más confiable que Google Maps para el último tramo por aquí.',
+      'b2': 'Busca <b>Cinema Zicatela</b> como referencia.',
+      'b3': 'Desde el cine, dirígete a <b>Villas Alebrijes</b>, la entrada privada de nuestra comunidad.',
+      'b4': 'Escríbenos cuando estés cerca y Luis te guía el último tramo y te abre.',
+      'routeC-title': 'Desde Zicatela o La Punta · en taxi',
+      'routeC-tag': 'Taxi',
+      'c1': 'Estamos a unos minutos de Zicatela. Cualquier taxi conoce el <b>Cinema Zicatela</b>.',
+      'c2': 'Desde el cine, es un momento más hasta <b>Villas Alebrijes</b>.',
+      'c3': 'Escríbenos cuando salgas y Luis te recibe en la entrada.',
+      'map-btn': '📍 Abrir en Waze',
+      'map-btn2': '🗺️ Abrir en Google Maps',
+      'landmark-checkin': '<b>Tu llegada:</b> escríbenos cuando estés cerca. Si llegas después de las 5 PM, Alex, que vive en el lugar, tendrá tus llaves listas. Más temprano, Luis o Valentina te reciben.',
+      'landmark1': '<b>¿Con problemas o perdido?</b> Escríbenos o llámanos por WhatsApp y con gusto te ayudamos.',
+      'home-label': 'El espacio',
+      'home-h2': 'Cómo <em>vivimos aquí</em>',
+      'home-lead': 'Algunas cosas que hacen especial a Casa Nova.',
+      'rule1-title': 'La casa entera, para todos',
+      'rule1-text': 'Siete recámaras en suite alojan a diecinueve, una mesa para veinticinco, una alberca infinita y un jacuzzi, una sala de cine, y un camino privado a la playa. Espacio para que un grupo grande respire.',
+      'rule2-title': 'Cuidada cada día',
+      'rule2-text': 'La limpieza y el mantenimiento de la alberca son diarios. Relájate, está resuelto.',
+      'gym-title': 'Un gimnasio privado',
+      'gym-text': 'Buen equipo, compartido con discreción en toda la colección y rara vez ocupado. Abierto todos los días, de 8:00 AM a 1:00 PM.',
+      'calm-title': 'Espacio para la calma',
+      'calm-text': 'Un espacio abierto para yoga y quietud, con una vista hermosa sobre los árboles hacia el mar.',
+      'play-title': 'Un juego de petanca',
+      'play-text': 'Una cancha para las tardes lentas. Los juegos más simples dejan los recuerdos más largos.',
+      'rule3-title': 'Conoce la pequeña granja',
+      'rule3-text': 'A unos pasos está nuestra granja: dos burros, Lula y Medhi, además de gallinas, patos y otros amigos. A los huéspedes les encanta, a grandes y chicos.',
+      'rule4-title': 'Una playa salvaje por explorar',
+      'rule4-text': 'Un camino privado desde el jardín cruza la calle hasta Playa La Barra en unos cinco minutos, una playa salvaje y virgen con atardeceres espectaculares. Nuestros vecinos la cuidan, así que por favor pisa suave y llévate tu basura.',
+      'rule5-title': 'Vivimos con la naturaleza',
+      'rule5-text': 'Puede que te encuentres un gecko o una mantis; son vecinos amables. También hacemos composta, así que encontrarás un bote de acero junto al fregadero para los residuos orgánicos.',
+      'facts-label': 'Lo esencial',
+      'facts-h2': 'Bueno <em>saberlo</em>',
+      'checkin-label': 'Llegada',
+      'checkin-val': 'Desde las <strong style="font-size:17px;">3:00 PM</strong>',
+      'checkout-label': 'Salida',
+      'checkout-val': 'Antes de las 11:00 AM',
+      'guests-label': 'Huéspedes',
+      'guests-val': 'Hasta 19',
+      'pool-label': 'Alberca infinita',
+      'pool-val': 'Sobre el mar, y también un jacuzzi',
+      'water-label': 'Agua purificada',
+      'water-val': 'Siempre hay una jarra, no necesitas comprarla',
+      'quiet-label': 'Silencio después de las 10 PM',
+      'quiet-val': 'Un lugar tranquilo, sin fiestas',
+      'cared-label': 'Cuidada a diario',
+      'cared-val': 'Limpieza y mantenimiento de la alberca cada día, incluidos.',
+      'wifi-label': 'WiFi',
+      'wifi-network': 'Red',
+      'wifi-password': 'Contraseña',
+      'exp-label': 'Mientras estés aquí',
+      'exp-h2': 'Organízalo <em>con nosotros</em>',
+      'exp-lead': 'Todo aquí se organiza con nosotros, solo escríbenos y lo coordinamos con Luis. Los precios se comparten en privado y cambian un poco según la temporada.',
+      'exp1-title': 'Un chef privado',
+      'exp1-desc': 'Una cena cálida para la primera noche, o cenas durante tu estancia, preparadas en la casa. Dinos tus gustos y traemos a la persona indicada.',
+      'exp1-pre': 'Reservar bajo petición',
+      'exp2-title': 'Masaje en la casa',
+      'exp2-desc': 'Nuestra terapeuta de confianza viene a ti, junto a la alberca o en la habitación.',
+      'exp2-pre': 'Reservar bajo petición',
+      'exp3-title': 'Una pequeña celebración',
+      'exp3-desc': '¿Luna de miel, cumpleaños o aniversario? Flores, un pastel y decoración sencilla, listos antes de que llegues.',
+      'exp3-pre': 'Organizar con anticipación',
+      'exp5-title': 'Transporte del aeropuerto',
+      'exp5-desc': 'Un conductor de confianza, esperándote cuando aterrices.',
+      'exp5-pre': 'Organizar con anticipación',
+      'exp6-title': 'Llegada temprana o salida tardía',
+      'exp6-desc': 'Cuando el calendario lo permite, podemos ajustar tus horarios. Solo pregunta.',
+      'exp6-pre': 'Según disponibilidad',
+      'exp7-title': 'Renta de moto y cuatrimoto',
+      'exp7-desc': 'La forma más fácil de explorar la costa a tu ritmo. Lo organizamos con una renta de confianza, entregada a ti.',
+      'exp7-pre': 'Organizar con anticipación',
+      'exp8-title': 'Tours y aventuras',
+      'exp8-desc': 'Bioluminiscencia, clases de surf, liberación de tortugas, tours de delfines y ballenas, pesca y más, con un socio local de confianza. Dinos qué te da curiosidad.',
+      'exp8-pre': 'Reservar bajo petición',
+      'exp-outro': '¿Buscas algo que no está aquí? Solo pídeselo a Luis, cuando quieras. Si se puede hacer, lo hacemos.',
+      'beach-label': 'Junto al mar',
+      'beach-h2': 'Las <em>playas</em>',
+      'beach-lead': 'Playa La Barra está a cinco minutos a pie desde el jardín. Las demás son un taxi o viaje corto por el pueblo. Toca un pin para ver dónde está cada una.',
+      'beach1-desc': 'La más cercana, una playa salvaje y tranquila a cinco minutos a pie por el jardín. Tómate tu tiempo, vale la pena.',
+      'beach2-desc': 'El extremo relajado de Zicatela: olas suaves, taquerías y las mejores cervezas al atardecer.',
+      'beach3-desc': 'La famosa, oleaje fuerte. Más para ver las olas que para nadar.',
+      'beach4-desc': 'Una caleta bajando una larga escalera, agua más tranquila, buena para nadar y una cerveza en la playa.',
+      'beach5-desc': 'Caletas pequeñas y tranquilas, lo más fácil para nadar y esnorquelear.',
+      'beach6-desc': 'Un tramo largo y tranquilo, y donde liberan tortuguitas al atardecer.',
+      'beach7-desc': 'Una joya local más tranquila que vale la pena encontrar.',
+      'eat-label': 'Comer y beber',
+      'eat-h2': 'Dónde <em>comemos</em>',
+      'eat-lead': 'Los lugares favoritos de Arianna por el pueblo. Algunos imprescindibles, y más que vale la pena probar.',
+      'eat0-title': 'Entrega a tu puerta',
+      'eat0-desc': "D'Coral, un restaurante cercano, entrega directo a la villa, un poco como servicio a la habitación para La Barra.",
+      'eat1-desc': 'Uno de los pocos lugares de alta cocina en el pueblo. Cocina oaxaqueña moderna y cuidada, para una cena especial.',
+      'eat2-desc': 'Ceviche, mariscos y cócteles junto al mar.',
+      'eat3-desc': 'Un lugar encantador para café y un desayuno sin prisa.',
+      'eat4-desc': 'La panadería para pan fresco y repostería.',
+      'eat5-desc': 'Grandes tazones de pozole reconfortante, local y económico.',
+      'eat-more': "<b>Más que el equipo ama:</b> Café Olé, El Cafecito, Panadería El Bejuco, Anthonieta, Elephant Garden, El Nene, Lychee, Non Solo (pizza), La Juquileña, Campestre y el mercado de Zicatela.",
+      'practical-label': 'Notas locales',
+      'practical-h2': 'Algunas cosas <em>prácticas</em>',
+      'pcard1-title': 'Contactarnos',
+      'pcard1-text': 'Escríbenos cuando quieras por WhatsApp. Luis, nuestro encargado, está aquí en persona para lo que necesites: reservas, tours, taxis y recomendaciones.',
+      'pcard2-title': 'Estás en La Barra',
+      'pcard2-text': 'Un rincón tranquilo y natural de Puerto Escondido, lejos del ruido. Lo bastante cerca para ir al pueblo o a La Punta cuando quieras.',
+      'checkout-section-label': 'Antes de irte',
+      'checkout-h2': 'Salida a las <em>11 AM</em>',
+      'checkout-lead': 'El equipo limpia todo después de ti, así que hay muy poco que hacer.',
+      'step1': 'Apaga el aire acondicionado y las luces',
+      'step2': 'Cierra ventanas y puertas',
+      'step3': 'Devuelve las llaves a Luis, o déjalas en la puerta si sales muy temprano',
+      'step4': 'Llévate la basura contigo',
+      'step5': 'Escríbenos para avisar que saliste con bien 🙏',
+      'contact-label': 'Aquí para ti',
+      'contact-h2': 'Lo que <em>necesites</em>',
+      'contact-lead': 'Nos encanta compartir este lugar. Escríbenos cuando quieras.',
+      'btn-wa': '💬 Escríbenos por WhatsApp',
+      'btn-call': '📞 Llámanos',
+      'btn-web': '🌐 Visita nuestro sitio',
+      'seemap': '📍 Ver en el mapa',
+      'seemenu': '📄 Ver el menú',
+      'foot-mark': 'Entre el verde y el azul. Bienvenido a casa.'
+    }
+  };
+
+  let lang = 'en';
+
+  function setLang(target) {
+    lang = target;
+    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+    document.getElementById('btnES').classList.toggle('active', lang === 'es');
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+    });
+  }
+
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const routes = document.querySelectorAll('.route');
+  routes.forEach(r => r.addEventListener('toggle', () => {
+    if (r.open) routes.forEach(o => { if (o !== r) o.open = false; });
+  }));
+</script>
+</body>
+</html>
