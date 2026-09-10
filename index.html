@@ -162,6 +162,84 @@
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
   .reveal.in{opacity:1;transform:none;}
+
+  /* hero positioning line (built here, for anywhere) */
+  .hero-anywhere{display:inline-flex;align-items:center;gap:9px;margin-top:20px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#fff;opacity:.82;text-shadow:0 1px 10px rgba(0,0,0,.45);}
+  .hero-anywhere::before{content:"";width:18px;height:1px;background:rgba(255,255,255,.6);flex:none;}
+
+  /* RECENT WORK (case studies) */
+  .work-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:10px;}
+  .work-card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s;}
+  .work-card:active{transform:scale(.99);}
+  .work-card .work-img{width:100%;height:220px;object-fit:cover;object-position:center 55%;display:block;}
+  .work-card .work-body{padding:18px 18px 20px;}
+  .work-card .loc{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;}
+  .work-card .name{font-family:'Fraunces',serif;font-size:22px;font-weight:400;margin:4px 0 10px;color:#352c1f;}
+  .work-card .wq{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:16px;line-height:1.5;color:var(--sea-deep);}
+  .work-card .go{font-size:13px;font-weight:600;color:var(--sea);margin-top:12px;}
+
+  /* wrappers that become grids on desktop (single column on mobile) */
+  .feat-grid,.diff-grid,.steps-grid{display:block;}
+
+  /* ============================================================
+     DESKTOP LAYOUT
+     Full-bleed section backgrounds, content centered in a capped
+     column via padding-inline, prose capped near 65ch, stacks
+     become grids. Not the mobile page scaled up.
+     ============================================================ */
+  :root{--content:1200px;--gutter:40px;}
+
+  @media(min-width:768px){
+    .wrap{max-width:100%;}
+
+    /* center every band's content in the capped column, keep bg full width */
+    section,.phil,.roi,.founding,.cta-foot,.about,.hero,.foot{
+      padding-inline:max(var(--gutter),calc((100% - var(--content)) / 2));
+    }
+    section,.phil,.roi,.founding,.about{padding-top:72px;padding-bottom:72px;}
+    .divider{margin-inline:max(var(--gutter),calc((100% - var(--content)) / 2));}
+
+    /* language toggle aligns to the content column */
+    #langToggle{left:auto;transform:none;right:max(var(--gutter),calc((100vw - var(--content)) / 2));}
+
+    /* HERO: full-width photo, desktop-scaled headline, constrained text */
+    .hero{min-height:80vh;padding-top:64px;padding-bottom:56px;justify-content:flex-end;gap:24px;}
+    .hero-in{max-width:760px;}
+    .hero h1{font-size:64px;max-width:15ch;}
+    .hero .sub{font-size:18px;max-width:46ch;margin-top:20px;}
+    .hero-anywhere{margin-top:24px;font-size:12.5px;}
+
+    /* prose should not run the full column width */
+    .body-copy,.phil p,.about p,.roi p{max-width:64ch;}
+
+    /* stacks become grids */
+    .inc-grid{grid-template-columns:repeat(3,1fr);gap:16px;}
+    .diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px;}
+    .diff-item{border-bottom:1px solid var(--line);}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;}
+    .steps-grid .step{flex-direction:column;border-bottom:none;align-items:flex-start;gap:12px;}
+    .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .feat-grid .card-feat{margin-bottom:0;}
+    .card-feat .feat-img{height:280px;}
+    /* auto-fill of fixed-width cards: one card looks intentional, two or three fill the row */
+    .work-grid{grid-template-columns:repeat(auto-fill,minmax(300px,360px));justify-content:center;gap:22px;}
+
+    /* accent strips get more presence on desktop */
+    .strip img{height:360px;}
+    .strip.medium img{height:400px;}
+    .strip.tall img{height:460px;}
+
+    /* type scale nudge for larger headings */
+    h2{font-size:34px;}
+    .phil h2{font-size:38px;}
+  }
+
+  @media(min-width:1200px){
+    .hero h1{font-size:72px;}
+    h2{font-size:38px;}
+    .phil h2{font-size:44px;}
+    .inc-grid{gap:18px;}
+  }
 </style>
 </head>
 <body>
@@ -177,6 +255,7 @@
       <div class="brandmark">The Welcome Link</div>
       <h1 data-i18n="hero-h1">Welcome your guests <em>beautifully.</em></h1>
       <p class="sub" data-i18n="hero-sub">A custom digital guide built around your home, your town, and the experience you want guests to have. Done for you in 48 hours.</p>
+      <div class="hero-anywhere" data-i18n="hero-anywhere">Built in Puerto Escondido. Built for hosts anywhere.</div>
     </div>
     <div class="scroll-cue" data-i18n="scroll-cue">See how it works <span>↓</span></div>
   </header>
@@ -200,21 +279,23 @@
     <p class="body-copy" style="margin-bottom:18px" data-i18n="why-p2">You already know the best restaurants, the café that's worth the sit, the experience that's worth the investment, the thing every guest should do and always asks about. The guide puts all of it in one beautiful place, so you're not typing the same suggestions out again for every new arrival.</p>
     <p class="body-copy" style="margin-bottom:22px" data-i18n="why-p2b">And when guests can actually see what's possible, they do more of it. They book the experiences, they use the house the way it's meant to be used, they eat where you'd send a friend. They have a genuinely better time, and better times have a way of turning into better reviews and a fuller stay. That part takes care of itself.</p>
     <p class="body-copy" style="margin-bottom:22px;font-weight:600;color:var(--ink)" data-i18n="why-plain">No software, no login, no property management system. Nothing for you to set up or maintain. Just a link you send.</p>
-    <div class="diff-item">
-      <div class="diff-ic">✓</div>
-      <div class="diff-txt"><b data-i18n="diff1-b">We build it, you don't</b><span data-i18n="diff1-s">Answer a few questions about your home and town. We handle the writing, design, and setup. No dashboard to learn, no template to fill in.</span></div>
-    </div>
-    <div class="diff-item">
-      <div class="diff-ic">✓</div>
-      <div class="diff-txt"><b data-i18n="diff2-b">Fully your brand</b><span data-i18n="diff2-s">No platform badge, no generic feel. Your guests see your guide, your personality, your picks.</span></div>
-    </div>
-    <div class="diff-item">
-      <div class="diff-ic">✓</div>
-      <div class="diff-txt"><b data-i18n="diff3-b">Real local knowledge</b><span data-i18n="diff3-s">Every recommendation comes from someone who actually lives here. Not a generated list, not a travel blog from five years ago.</span></div>
-    </div>
-    <div class="diff-item">
-      <div class="diff-ic">✓</div>
-      <div class="diff-txt"><b data-i18n="diff4-b">Designed, not templated</b><span data-i18n="diff4-s">A guest can feel the difference between a template and something built specifically for where they're staying.</span></div>
+    <div class="diff-grid">
+      <div class="diff-item">
+        <div class="diff-ic">✓</div>
+        <div class="diff-txt"><b data-i18n="diff1-b">We build it, you don't</b><span data-i18n="diff1-s">Answer a few questions about your home and town. We handle the writing, design, and setup. No dashboard to learn, no template to fill in.</span></div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-ic">✓</div>
+        <div class="diff-txt"><b data-i18n="diff2-b">Fully your brand</b><span data-i18n="diff2-s">No platform badge, no generic feel. Your guests see your guide, your personality, your picks.</span></div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-ic">✓</div>
+        <div class="diff-txt"><b data-i18n="diff3-b">Real local knowledge</b><span data-i18n="diff3-s">Every recommendation comes from someone who actually lives here. Not a generated list, not a travel blog from five years ago.</span></div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-ic">✓</div>
+        <div class="diff-txt"><b data-i18n="diff4-b">Designed, not templated</b><span data-i18n="diff4-s">A guest can feel the difference between a template and something built specifically for where they're staying.</span></div>
+      </div>
     </div>
   </section>
 
@@ -263,6 +344,7 @@
     <div class="sec-label" data-i18n="live-label">See it live</div>
     <h2 data-i18n="live-h2">What a guide <em>looks like.</em></h2>
     <p class="body-copy" style="margin-bottom:20px" data-i18n="live-lead">Two very different homes, two very different guides. Casa Las Nubes on the coast, and Casa Yani, a remote mountain guide packed with the kind of local knowledge no template could fake. Yours would be entirely its own.</p>
+    <div class="feat-grid">
     <a class="card-feat" href="/casa-las-nubes/">
       <img class="feat-img" src="/casa-las-nubes/images/hero.jpg" alt="Casa Las Nubes terrace, Puerto Escondido" loading="lazy">
       <div class="feat-body">
@@ -281,16 +363,35 @@
         <div class="go" data-i18n="card2-go">View the guide →</div>
       </div>
     </a>
+    </div>
   </section>
 
   <div class="divider"></div>
 
   <!-- ============================================================
-       CASE STUDIES: add named testimonials + results as clients land
-       Empty for now. Fill when Janet's testimonial and the first
-       client's live site are ready. Suggested shape: a short quote,
-       the host's name + property, and one concrete result.
+       RECENT WORK: one card per case study, linking to /work/<name>.
+       Grid is centered auto-fill of fixed-width cards, so one card
+       reads as intentional and two or three fill the row. Add the
+       next card (Tierra en Armonia) as a sibling .work-card when live.
        ============================================================ -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="work-label">Recent work</div>
+    <h2 data-i18n="work-h2">Guides we've <em>built.</em></h2>
+    <p class="body-copy" style="margin-bottom:20px" data-i18n="work-lead">Real homes, real hosts, real stays made easier. A closer look at what one guide changed for its host.</p>
+    <div class="work-grid">
+      <a class="work-card" href="/work/casa-yani/">
+        <img class="work-img" src="/casa-yani/images/card.jpg" alt="Casa Yani, San Sebastian Rio Hondo, Oaxaca" loading="lazy">
+        <div class="work-body">
+          <div class="loc">San Sebastian Rio Hondo · Oaxaca</div>
+          <div class="name">Casa Yani</div>
+          <div class="wq" data-i18n="work-yani-q">"The extra time I save, and happier guests. And not forgetting to tell them about something."</div>
+          <div class="go" data-i18n="work-yani-go">Read the story →</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
 
   <section class="roi reveal">
     <div class="sec-label" data-i18n="roi-label">The return</div>
@@ -305,17 +406,19 @@
   <section class="reveal">
     <div class="sec-label" data-i18n="proc-label">The process</div>
     <h2 data-i18n="proc-h2">Three <em>steps.</em></h2>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div><b data-i18n="step1-b">Quick chat</b><span data-i18n="step1-s">15 minutes. Tell us about your home, your town, and the experience you want guests to have.</span></div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div><b data-i18n="step2-b">We build it</b><span data-i18n="step2-s">In 48 hours, your guide is ready. Review it, request any changes.</span></div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div><b data-i18n="step3-b">Share the link</b><span data-i18n="step3-s">Send it to every guest before arrival. Update it any time.</span></div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div><b data-i18n="step1-b">Quick chat</b><span data-i18n="step1-s">15 minutes. Tell us about your home, your town, and the experience you want guests to have.</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div><b data-i18n="step2-b">We build it</b><span data-i18n="step2-s">In 48 hours, your guide is ready. Review it, request any changes.</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div><b data-i18n="step3-b">Share the link</b><span data-i18n="step3-s">Send it to every guest before arrival. Update it any time.</span></div>
+      </div>
     </div>
     <p class="body-copy" style="margin-top:22px" data-i18n="proc-guarantee">The easiest way to know is to see it. I build the first version, you see your guide live on its own page, and then you decide. No pressure, and nothing to keep going on if it isn't right for you.</p>
   </section>
@@ -357,6 +460,7 @@
     en: {
       'hero-h1': 'Welcome your guests <em>beautifully.</em>',
       'hero-sub': 'A custom digital guide built around your home, your town, and the experience you want guests to have. Done for you in 48 hours.',
+      'hero-anywhere': 'Built in Puerto Escondido. Built for hosts anywhere.',
       'scroll-cue': 'See how it works <span>↓</span>',
       'phil-label': 'The idea',
       'phil-h2': "It's not a guidebook. It's a <em>welcome.</em>",
@@ -398,6 +502,11 @@
       'card1-go': 'View the full guide →',
       'card2-desc': 'A remote Superhost retreat high in the Sierra Sur. Its guide goes deep on real local life: forest hikes, cacao making, a temazcal, cooking with a neighbor, the picks that only come from someone who actually lives there. The clearest showcase of the local-knowledge edge.',
       'card2-go': 'View the guide →',
+      'work-label': 'Recent work',
+      'work-h2': "Guides we've <em>built.</em>",
+      'work-lead': 'Real homes, real hosts, real stays made easier. A closer look at what one guide changed for its host.',
+      'work-yani-q': '"The extra time I save, and happier guests. And not forgetting to tell them about something."',
+      'work-yani-go': 'Read the story →',
       'roi-label': 'The return',
       'roi-h2': 'More than a <em>welcome.</em>',
       'roi-p': "Guests reading a guide like this are already in planning mode, so they tend to book the experiences and add-ons you suggest, a surf lesson, a stocked fridge, a late checkout. That can mean a little extra income for you, but it's a side effect of the real thing: guests who feel looked after and a stay that runs itself. The welcome comes first. The rest follows.",
@@ -425,6 +534,7 @@
     es: {
       'hero-h1': 'Dale la bienvenida a tus huéspedes <em>de forma hermosa.</em>',
       'hero-sub': 'Una guía digital personalizada construida en torno a tu casa, tu ciudad y la experiencia que quieres que tus huéspedes tengan. Hecha para ti en 48 horas.',
+      'hero-anywhere': 'Hecha en Puerto Escondido. Hecha para anfitriones en cualquier lugar.',
       'scroll-cue': 'Descubre cómo funciona <span>↓</span>',
       'phil-label': 'La idea',
       'phil-h2': 'No es una guía. Es una <em>bienvenida.</em>',
@@ -466,6 +576,11 @@
       'card1-go': 'Ver la guía completa →',
       'card2-desc': 'Un retiro de Superanfitrión remoto en lo alto de la Sierra Sur. Su guía profundiza en la vida local real: caminatas por el bosque, elaboración de cacao, un temazcal, cocinar con una vecina, las recomendaciones que solo vienen de alguien que de verdad vive ahí. La muestra más clara de la ventaja del conocimiento local.',
       'card2-go': 'Ver la guía →',
+      'work-label': 'Trabajo reciente',
+      'work-h2': 'Guías que hemos <em>construido.</em>',
+      'work-lead': 'Casas reales, anfitriones reales, estancias que de verdad se volvieron más fáciles. Una mirada cercana a lo que una guía cambió para su anfitriona.',
+      'work-yani-q': '"El tiempo que me ahorro, y huéspedes más felices. Y no olvidarme de contarles sobre algo."',
+      'work-yani-go': 'Leer la historia →',
       'roi-label': 'El retorno',
       'roi-h2': 'Más que una <em>bienvenida.</em>',
       'roi-p': 'Los huéspedes que leen una guía como esta ya están en modo de planificación, así que tienden a reservar las experiencias y extras que sugieres: una clase de surf, un refrigerador surtido, una salida tardía. Eso puede significar un poco de ingreso extra para ti, pero es un efecto secundario de lo real: huéspedes que se sienten bien atendidos y una estancia que se maneja sola. La bienvenida va primero. Lo demás la sigue.',
