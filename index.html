@@ -15,7 +15,7 @@
 <title>The Welcome Link</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --sea:#2a7d7b;--sea-deep:#1d5e5c;--terra:#dd8a52;--terra-deep:#c06d36;--sun:#f0b35e;
@@ -24,7 +24,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
-  body{font-family:'Spline Sans',sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+  body{font-family:'Hanken Grotesk',sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;}
   .wrap{max-width:600px;margin:0 auto;background:var(--shell);min-height:100vh;}
 
   /* language toggle */
@@ -37,19 +37,19 @@
   @media(max-width:628px){#langToggle{left:auto;right:14px;transform:none;}}
   .lang-opt{
     border:none;background:transparent;color:rgba(255,255,255,.82);cursor:pointer;
-    font-family:'Spline Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;
+    font-family:'Hanken Grotesk',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;
     padding:6px 13px;border-radius:999px;transition:background .2s,color .2s;
   }
   .lang-opt.active{background:#fff;color:#34291f;}
 
   /* HERO */
-  .hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:space-between;padding:52px 28px 38px;color:#fff;overflow:hidden;}
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:52px 28px 38px;color:#fff;overflow:hidden;}
   .hero-bg{position:absolute;inset:0;z-index:0;background:#1a3530;}
   .hero-bg::before{content:"";position:absolute;inset:-5%;background:url('/casa-las-nubes/images/hero.jpg') center 52%/cover no-repeat;}
   .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,12,30,0.60) 0%,rgba(5,22,45,0.44) 35%,rgba(8,35,50,0.32) 65%,rgba(12,48,45,0.58) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='160'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.2' opacity='.15'%3E%3Cpath d='M0 100 Q150 82 300 100 T600 100'/%3E%3Cpath d='M0 128 Q150 112 300 128 T600 128'/%3E%3C/g%3E%3C/svg%3E") bottom no-repeat;background-size:auto,100% auto;}
   .hero-in{position:relative;z-index:2;}
   .brandmark{font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-weight:600;opacity:.88;margin-bottom:30px;}
-  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:46px;line-height:1.0;letter-spacing:-.02em;text-shadow:0 2px 28px rgba(0,0,0,0.5);}
+  .hero h1{font-family:'Newsreader',serif;font-weight:400;font-size:46px;line-height:1.0;letter-spacing:-.02em;text-shadow:0 2px 28px rgba(0,0,0,0.5);}
   .hero h1 em{font-style:italic;}
   .hero .sub{font-size:16px;opacity:.92;max-width:34ch;margin-top:16px;line-height:1.6;text-shadow:0 1px 10px rgba(0,0,0,0.4);}
   .btn-hero{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:#25845a;color:#fff;font-size:15px;font-weight:600;padding:13px 22px;border-radius:12px;text-decoration:none;box-shadow:0 10px 26px -10px rgba(37,132,90,.65);}
@@ -61,7 +61,7 @@
   section{position:relative;z-index:2;padding:48px 28px;}
   .sec-label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
   .sec-label::before{content:"";width:20px;height:1px;background:var(--terra);}
-  h2{font-family:'Fraunces',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin-bottom:16px;color:#352c1f;}
+  h2{font-family:'Newsreader',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin-bottom:16px;color:#352c1f;}
   h2 em{font-style:italic;color:var(--terra-deep);}
   .body-copy{font-size:15.5px;color:var(--ink-soft);line-height:1.72;}
   .divider{height:1px;background:var(--line);margin:0 28px;position:relative;z-index:2;}
@@ -74,7 +74,7 @@
   .phil h2 em{color:#ffd9a8;}
   .phil p{color:rgba(234,243,241,.85);font-size:15.5px;line-height:1.75;margin-bottom:16px;}
   .phil p:last-child{margin-bottom:0;}
-  .pullquote{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:19px;line-height:1.55;color:#ffd9a8;border-left:2px solid rgba(255,217,168,.38);padding-left:18px;margin:22px 0;}
+  .pullquote{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:19px;line-height:1.55;color:#ffd9a8;border-left:2px solid rgba(255,217,168,.38);padding-left:18px;margin:22px 0;}
 
   /* ACCENT STRIP */
   .strip{position:relative;z-index:2;overflow:hidden;}
@@ -102,7 +102,7 @@
   /* PROCESS */
   .step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
   .step:last-child{border-bottom:none;}
-  .step-num{flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--terra),var(--terra-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:17px;}
+  .step-num{flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--terra),var(--terra-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Newsreader',serif;font-size:17px;}
   .step b{display:block;font-size:15px;font-weight:600;margin-bottom:3px;}
   .step span{font-size:13.5px;color:var(--ink-soft);}
 
@@ -112,7 +112,7 @@
   .card-feat .feat-img{width:100%;height:230px;object-fit:cover;object-position:center 58%;display:block;}
   .card-feat .feat-body{padding:18px 18px 20px;}
   .card-feat .loc{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;}
-  .card-feat .name{font-family:'Fraunces',serif;font-size:24px;font-weight:400;margin:4px 0 8px;color:#352c1f;}
+  .card-feat .name{font-family:'Newsreader',serif;font-size:24px;font-weight:400;margin:4px 0 8px;color:#352c1f;}
   .card-feat .desc{font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
   .card-feat .go{font-size:13px;font-weight:600;color:var(--sea);margin-top:12px;}
   .cards-small{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -122,16 +122,16 @@
   .card-sm.mar .band{background:linear-gradient(135deg,#f0b35e,#2a7d7b);}
   .card-sm.janet .band{background:linear-gradient(135deg,#6f7d54,#2f3d2a);}
   .card-sm .card-img{width:100%;height:230px;object-fit:cover;object-position:right top;display:block;}
-  .card-sm .band .t{font-family:'Fraunces',serif;font-size:16px;}
+  .card-sm .band .t{font-family:'Newsreader',serif;font-size:16px;}
   .card-sm .sm-body{padding:10px 12px 14px;}
   .card-sm .loc{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;}
-  .card-sm .name{font-family:'Fraunces',serif;font-size:20px;font-weight:400;margin:4px 0 6px;color:#352c1f;}
+  .card-sm .name{font-family:'Newsreader',serif;font-size:20px;font-weight:400;margin:4px 0 6px;color:#352c1f;}
   .card-sm .desc{font-size:12.5px;color:var(--ink-soft);margin-top:2px;line-height:1.4;}
   .card-sm .go{font-size:12px;font-weight:600;color:var(--sea);margin-top:8px;}
 
   /* ABOUT */
   .about{background:linear-gradient(180deg,#fffaf3,#fdf6ec);}
-  .about p{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:18px;line-height:1.65;color:var(--sea-deep);}
+  .about p{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:18px;line-height:1.65;color:var(--sea-deep);}
   .sig{display:flex;align-items:center;gap:12px;margin-top:22px;}
   .sig .avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center center;flex:none;display:block;}
   .sig .meta{font-size:13.5px;line-height:1.4;color:var(--ink-soft);}
@@ -140,7 +140,7 @@
   /* FOUNDING OFFER */
   .founding{background:linear-gradient(160deg,#f1e4d0,#eddbca);}
   .founding-card{background:#fff;border:2px solid var(--terra);border-radius:18px;padding:24px 20px;box-shadow:var(--shadow);}
-  .founding-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:23px;margin-bottom:12px;color:#352c1f;}
+  .founding-card h3{font-family:'Newsreader',serif;font-weight:400;font-size:23px;margin-bottom:12px;color:#352c1f;}
   .founding-card h3 em{font-style:italic;color:var(--terra-deep);}
   .founding-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:20px;}
 
@@ -153,11 +153,11 @@
   .cta-foot p{color:rgba(234,243,241,.82);font-size:15px;margin-bottom:26px;max-width:32ch;margin-left:auto;margin-right:auto;}
 
   /* BUTTONS */
-  .btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;font-family:'Spline Sans',sans-serif;font-size:15.5px;font-weight:600;text-decoration:none;background:#25845a;color:#fff;box-shadow:0 10px 24px -10px rgba(37,132,90,.6);}
-  .btn-terra{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;font-family:'Spline Sans',sans-serif;font-size:15.5px;font-weight:600;text-decoration:none;background:var(--terra-deep);color:#fff;box-shadow:0 10px 24px -10px rgba(192,109,54,.5);}
+  .btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;font-family:'Hanken Grotesk',sans-serif;font-size:15.5px;font-weight:600;text-decoration:none;background:#25845a;color:#fff;box-shadow:0 10px 24px -10px rgba(37,132,90,.6);}
+  .btn-terra{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;font-family:'Hanken Grotesk',sans-serif;font-size:15.5px;font-weight:600;text-decoration:none;background:var(--terra-deep);color:#fff;box-shadow:0 10px 24px -10px rgba(192,109,54,.5);}
 
   .foot{text-align:center;padding:28px 28px 46px;position:relative;z-index:2;}
-  .foot .mark{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--sea);}
+  .foot .mark{font-family:'Newsreader',serif;font-style:italic;font-size:17px;color:var(--sea);}
   .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
@@ -174,8 +174,8 @@
   .work-card .work-img{width:100%;height:220px;object-fit:cover;object-position:center 55%;display:block;}
   .work-card .work-body{padding:18px 18px 20px;}
   .work-card .loc{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;}
-  .work-card .name{font-family:'Fraunces',serif;font-size:22px;font-weight:400;margin:4px 0 10px;color:#352c1f;}
-  .work-card .wq{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:16px;line-height:1.5;color:var(--sea-deep);}
+  .work-card .name{font-family:'Newsreader',serif;font-size:22px;font-weight:400;margin:4px 0 10px;color:#352c1f;}
+  .work-card .wq{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:16px;line-height:1.5;color:var(--sea-deep);}
   .work-card .go{font-size:13px;font-weight:600;color:var(--sea);margin-top:12px;}
 
   /* wrappers that become grids on desktop (single column on mobile) */
@@ -203,7 +203,7 @@
     #langToggle{left:auto;transform:none;right:max(var(--gutter),calc((100vw - var(--content)) / 2));}
 
     /* HERO: full-width photo, desktop-scaled headline, constrained text */
-    .hero{min-height:80vh;padding-top:64px;padding-bottom:56px;justify-content:flex-end;gap:24px;}
+    .hero{min-height:100vh;min-height:100svh;padding-top:64px;padding-bottom:56px;justify-content:flex-end;gap:24px;}
     .hero-in{max-width:760px;}
     .hero h1{font-size:64px;max-width:15ch;}
     .hero .sub{font-size:18px;max-width:46ch;margin-top:20px;}
@@ -377,7 +377,7 @@
   <section class="reveal">
     <div class="sec-label" data-i18n="work-label">Recent work</div>
     <h2 data-i18n="work-h2">Guides we've <em>built.</em></h2>
-    <p class="body-copy" style="margin-bottom:20px" data-i18n="work-lead">Real homes, real hosts, real stays made easier. A closer look at what one guide changed for its host.</p>
+    <p class="body-copy" style="margin-bottom:20px" data-i18n="work-lead">Real homes, real hosts, real work. A closer look at what we have built and what it changed.</p>
     <div class="work-grid">
       <a class="work-card" href="/work/casa-yani/">
         <img class="work-img" src="/casa-yani/images/card.jpg" alt="Casa Yani, San Sebastian Rio Hondo, Oaxaca" loading="lazy">
@@ -386,6 +386,15 @@
           <div class="name">Casa Yani</div>
           <div class="wq" data-i18n="work-yani-q">"The extra time I save, and happier guests. And not forgetting to tell them about something."</div>
           <div class="go" data-i18n="work-yani-go">Read the story →</div>
+        </div>
+      </a>
+      <a class="work-card" href="/work/tierra-en-armonia/">
+        <img class="work-img" src="/work/tierra-en-armonia/images/hero.jpg" alt="Tierra en Armonia, La Barra, Puerto Escondido" loading="lazy">
+        <div class="work-body">
+          <div class="loc">La Barra · Puerto Escondido</div>
+          <div class="name">Tierra en Armonía</div>
+          <div class="wq" data-i18n="work-tierra-q">"Each house has its own identity, but everything still belongs to Tierra en Armonía."</div>
+          <div class="go" data-i18n="work-tierra-go">Read the story →</div>
         </div>
       </a>
     </div>
@@ -504,9 +513,11 @@
       'card2-go': 'View the guide →',
       'work-label': 'Recent work',
       'work-h2': "Guides we've <em>built.</em>",
-      'work-lead': 'Real homes, real hosts, real stays made easier. A closer look at what one guide changed for its host.',
+      'work-lead': 'Real homes, real hosts, real work. A closer look at what we have built and what it changed.',
       'work-yani-q': '"The extra time I save, and happier guests. And not forgetting to tell them about something."',
       'work-yani-go': 'Read the story →',
+      'work-tierra-q': '"Each house has its own identity, but everything still belongs to Tierra en Armonía."',
+      'work-tierra-go': 'Read the story →',
       'roi-label': 'The return',
       'roi-h2': 'More than a <em>welcome.</em>',
       'roi-p': "Guests reading a guide like this are already in planning mode, so they tend to book the experiences and add-ons you suggest, a surf lesson, a stocked fridge, a late checkout. That can mean a little extra income for you, but it's a side effect of the real thing: guests who feel looked after and a stay that runs itself. The welcome comes first. The rest follows.",
@@ -578,9 +589,11 @@
       'card2-go': 'Ver la guía →',
       'work-label': 'Trabajo reciente',
       'work-h2': 'Guías que hemos <em>construido.</em>',
-      'work-lead': 'Casas reales, anfitriones reales, estancias que de verdad se volvieron más fáciles. Una mirada cercana a lo que una guía cambió para su anfitriona.',
+      'work-lead': 'Casas reales, anfitriones reales, trabajo real. Una mirada cercana a lo que hemos construido y lo que cambió.',
       'work-yani-q': '"El tiempo que me ahorro, y huéspedes más felices. Y no olvidarme de contarles sobre algo."',
       'work-yani-go': 'Leer la historia →',
+      'work-tierra-q': '"Cada casa tiene su propia identidad, pero todo sigue perteneciendo a Tierra en Armonía."',
+      'work-tierra-go': 'Leer la historia →',
       'roi-label': 'El retorno',
       'roi-h2': 'Más que una <em>bienvenida.</em>',
       'roi-p': 'Los huéspedes que leen una guía como esta ya están en modo de planificación, así que tienden a reservar las experiencias y extras que sugieres: una clase de surf, un refrigerador surtido, una salida tardía. Eso puede significar un poco de ingreso extra para ti, pero es un efecto secundario de lo real: huéspedes que se sienten bien atendidos y una estancia que se maneja sola. La bienvenida va primero. Lo demás la sigue.',

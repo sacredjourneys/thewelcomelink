@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- FILL: per-case-study meta description -->
+<meta name="description" content="How The Welcome Link brought Tierra en Armonia online: eight homes on one piece of land in La Barra, Puerto Escondido, gathered into one identity.">
+<meta property="og:title" content="Case study · Tierra en Armonía · The Welcome Link">
+<meta property="og:description" content="Eight homes, one identity. A full property experience brought online as one place.">
+<!-- FILL: per-case-study OG image -->
+<meta property="og:image" content="https://thewelcomelink.com/work/tierra-en-armonia/images/hero.jpg">
+<meta property="og:url" content="https://thewelcomelink.com/work/tierra-en-armonia/">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://thewelcomelink.com/work/tierra-en-armonia/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<!-- FILL: per-case-study title -->
+<title>Case study · Tierra en Armonía · The Welcome Link</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#2a7d7b;--sea-deep:#1d5e5c;--terra:#dd8a52;--terra-deep:#c06d36;--sun:#f0b35e;
+    --shell:#fdf6ec;--cream:#fffaf3;--sand:#f1e4d0;--ink:#3f3528;--ink-soft:#7c6e5c;
+    --line:rgba(63,53,40,.12);--shadow:0 22px 50px -24px rgba(192,109,54,.4);
+    --content:1120px;--gutter:40px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Hanken Grotesk',sans-serif;background:var(--shell);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+  .wrap{max-width:600px;margin:0 auto;background:var(--shell);min-height:100vh;}
+
+  /* language toggle */
+  #langToggle{
+    position:fixed;top:14px;left:50%;transform:translateX(calc(300px - 100% - 14px));z-index:999;
+    display:flex;gap:2px;padding:3px;border-radius:999px;
+    background:rgba(28,18,12,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.26);box-shadow:0 6px 18px -8px rgba(0,0,0,.4);
+  }
+  @media(max-width:628px){#langToggle{left:auto;right:14px;transform:none;}}
+  .lang-opt{
+    border:none;background:transparent;color:rgba(255,255,255,.82);cursor:pointer;
+    font-family:'Hanken Grotesk',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;
+    padding:6px 13px;border-radius:999px;transition:background .2s,color .2s;
+  }
+  .lang-opt.active{background:#fff;color:#34291f;}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:52px 28px 40px;color:#fff;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:#1a3530;}
+  /* FILL: per-case-study hero image */
+  .hero-bg::before{content:"";position:absolute;inset:-5%;background:url('images/hero.jpg') center 52%/cover no-repeat;}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,12,30,0.50) 0%,rgba(5,22,45,0.36) 38%,rgba(8,35,50,0.34) 66%,rgba(12,40,38,0.62) 100%);}
+  .hero-in{position:relative;z-index:2;}
+  .brandmark{font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-weight:600;opacity:.9;text-decoration:none;color:#fff;display:inline-flex;align-items:center;gap:8px;}
+  .brandmark::before{content:"←";font-size:13px;opacity:.8;}
+  .study-tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:#ffd9a8;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
+  .study-tag::before{content:"";width:20px;height:1px;background:#ffd9a8;}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.92;margin-bottom:10px;}
+  .hero h1{font-family:'Newsreader',serif;font-weight:400;font-size:48px;line-height:1.0;letter-spacing:-.02em;text-shadow:0 2px 28px rgba(0,0,0,0.5);}
+  .hero .lede{margin-top:18px;max-width:42ch;}
+  .hero .lede p{font-size:15.5px;opacity:.94;line-height:1.6;text-shadow:0 1px 10px rgba(0,0,0,0.4);}
+  .hero .lede p + p{margin-top:8px;}
+
+  /* SECTIONS */
+  section{position:relative;z-index:2;padding:52px 28px;}
+  .sec-label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
+  .sec-label::before{content:"";width:20px;height:1px;background:var(--terra);}
+  h2{font-family:'Newsreader',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin-bottom:16px;color:#352c1f;}
+  h2 em{font-style:italic;color:var(--terra-deep);}
+  .body-copy{font-size:15.5px;color:var(--ink-soft);line-height:1.72;}
+  .body-copy + .body-copy{margin-top:14px;}
+
+  /* SITUATION */
+  .situation{background:linear-gradient(180deg,#fffaf3,#fdf6ec);}
+
+  /* WHAT WE BUILT + phone frames */
+  .built .lead{margin-bottom:26px;}
+  .phones{display:flex;gap:16px;overflow-x:auto;padding:4px 0 14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+  .phone-wrap{flex:0 0 auto;width:62vw;max-width:240px;scroll-snap-align:center;text-align:center;}
+  .phone{position:relative;border-radius:34px;background:#1c1712;padding:9px;box-shadow:0 26px 50px -22px rgba(28,23,18,.6);}
+  .phone::before{content:"";position:absolute;top:15px;left:50%;transform:translateX(-50%);width:34%;height:5px;border-radius:999px;background:rgba(255,255,255,.28);z-index:2;}
+  .phone img{width:100%;display:block;border-radius:26px;}
+  .phone-cap{font-size:12px;letter-spacing:.04em;color:var(--ink-soft);margin-top:12px;font-weight:500;}
+
+  /* COLLECTION (wide shot + quote near the homes) */
+  .collection{background:linear-gradient(180deg,#fdf6ec,#f7ede0);}
+  .wide{margin:6px 0 0;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff;}
+  .wide img{width:100%;display:block;}
+  .wide-cap{font-size:12.5px;color:var(--ink-soft);margin-top:12px;letter-spacing:.02em;}
+  .quote-homes{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:20px;line-height:1.5;color:var(--sea-deep);border-left:2px solid rgba(29,94,92,.3);padding-left:18px;margin-top:30px;max-width:34ch;}
+
+  /* QUOTE CENTREPIECE */
+  .quote-hero{background:linear-gradient(160deg,#1b3836,#122c2a);color:#eaf3f1;text-align:center;padding:66px 28px;}
+  .quote-hero .mark{font-family:'Newsreader',serif;font-size:64px;line-height:.6;color:#ffd9a8;opacity:.7;height:34px;display:block;}
+  .quote-hero blockquote{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:26px;line-height:1.4;color:#fff;max-width:22ch;margin:0 auto;}
+  .quote-hero .cite{margin-top:26px;font-size:13px;letter-spacing:.06em;color:#ffd9a8;text-transform:uppercase;font-weight:600;}
+
+  /* SECOND QUOTE + CTA */
+  .close{background:linear-gradient(160deg,#f1e4d0,#eddbca);}
+  .quote-2{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:20px;line-height:1.5;color:var(--sea-deep);border-left:2px solid rgba(29,94,92,.3);padding-left:18px;max-width:34ch;margin-bottom:30px;}
+  .btn-live{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:14px;font-size:15.5px;font-weight:600;text-decoration:none;background:#25845a;color:#fff;box-shadow:0 10px 24px -10px rgba(37,132,90,.6);}
+  .closing-line{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:18px;line-height:1.6;color:var(--ink-soft);margin-top:34px;max-width:40ch;}
+
+  .foot{text-align:center;padding:30px 28px 46px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Newsreader',serif;font-style:italic;font-size:17px;color:var(--sea);text-decoration:none;}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ============================================================
+     DESKTOP LAYOUT — full-bleed bands, content centered in a
+     capped column, phone screenshots as a real row of phones,
+     wide shot given room to breathe.
+     ============================================================ */
+  @media(min-width:768px){
+    .wrap{max-width:100%;}
+    section,.hero,.foot{padding-inline:max(var(--gutter),calc((100% - var(--content)) / 2));}
+    section{padding-top:76px;padding-bottom:76px;}
+    #langToggle{left:auto;transform:none;right:max(var(--gutter),calc((100vw - var(--content)) / 2));}
+
+    .hero{min-height:100vh;min-height:100svh;justify-content:flex-end;padding-top:64px;padding-bottom:60px;}
+    .hero h1{font-size:72px;}
+    .hero .lede{max-width:54ch;}
+    .hero .lede p{font-size:17px;}
+
+    h2{font-size:36px;}
+    .body-copy{font-size:16.5px;max-width:60ch;}
+    .built .lead{max-width:62ch;}
+
+    /* phones become a grid, no scroll */
+    .phones{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 26px;overflow:visible;padding:0;justify-items:center;}
+    .phone-wrap{width:100%;max-width:250px;}
+
+    /* collection: wide image with the homes quote alongside */
+    .collection .collection-in{display:grid;grid-template-columns:1.55fr 1fr;gap:44px;align-items:center;margin-top:10px;}
+    .quote-homes{margin-top:0;font-size:23px;max-width:none;}
+
+    .quote-hero{padding:96px 28px;}
+    .quote-hero blockquote{font-size:38px;max-width:24ch;}
+    .quote-hero .mark{font-size:86px;height:46px;}
+
+    .close .close-in{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+    .quote-2{font-size:23px;margin-bottom:0;}
+    .closing-line{margin-top:22px;font-size:19px;}
+  }
+
+  @media(min-width:1200px){
+    .hero h1{font-size:84px;}
+    .phones{grid-template-columns:repeat(4,1fr);gap:30px 22px;}
+    .phone-wrap{max-width:100%;}
+    .quote-hero blockquote{font-size:42px;}
+  }
+</style>
+</head>
+<body>
+<div id="langToggle">
+  <button class="lang-opt active" id="btnEN" onclick="setLang('en')">EN</button>
+  <button class="lang-opt" id="btnES" onclick="setLang('es')">ES</button>
+</div>
+<div class="wrap">
+
+  <!-- ===== HERO =====
+       FILL per property: hero image (in .hero-bg::before), location
+       eyebrow, property name (h1), and the two lede lines. -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-in">
+      <a class="brandmark" href="/">The Welcome Link</a>
+    </div>
+    <div class="hero-in">
+      <div class="study-tag" data-i18n="study-tag">Case study</div>
+      <div class="eyebrow">La Barra · Puerto Escondido</div>
+      <h1>Tierra en Armonía</h1>
+      <div class="lede">
+        <p data-i18n="hero-l1">A collection of eight homes on one piece of land, with nature all around, animals, a path down to the beach, a gym, and a garden.</p>
+        <p data-i18n="hero-l2">It is a whole place to be in, not just a place to sleep.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== THE SITUATION ===== -->
+  <section class="situation reveal">
+    <div class="sec-label" data-i18n="sit-label">The situation</div>
+    <h2 data-i18n="sit-h2">The story was there. The <em>place for it wasn't.</em></h2>
+    <p class="body-copy" data-i18n="sit-p1">Arianna had the story and the ideas. What she did not have was a way to organize all of it, or to show a visitor what makes this place different from anywhere else they could stay.</p>
+    <p class="body-copy" data-i18n="sit-p2">And eight homes is a lot to hold together. Eight sets of photos, eight personalities, eight kinds of information, all needing to feel like one place, without any single house losing what makes it its own.</p>
+  </section>
+
+  <!-- ===== WHAT WE BUILT (phone screenshots) =====
+       FILL per property: swap the four screenshots in
+       work/<name>/images/ and their captions below. -->
+  <section class="built reveal">
+    <div class="sec-label" data-i18n="built-label">What we built</div>
+    <h2 data-i18n="built-h2">Eight homes, <em>one place.</em></h2>
+    <p class="body-copy lead" data-i18n="built-lead">We built the whole property a home online: one identity that holds all eight houses, a page for each with its own character, the land and its story, and a simple way to ask about a stay. Not a guide bolted onto a listing, a place of its own.</p>
+    <div class="phones">
+      <div class="phone-wrap">
+        <div class="phone"><img src="images/shot1-home.jpg" alt="Tierra en Armonia site, home page" loading="lazy"></div>
+        <div class="phone-cap" data-i18n="cap1">The identity</div>
+      </div>
+      <div class="phone-wrap">
+        <div class="phone"><img src="images/shot2-collection.jpg" alt="Tierra en Armonia site, the collection of homes" loading="lazy"></div>
+        <div class="phone-cap" data-i18n="cap2">The collection</div>
+      </div>
+      <div class="phone-wrap">
+        <div class="phone"><img src="images/shot3-casanova.jpg" alt="Tierra en Armonia site, a single home page" loading="lazy"></div>
+        <div class="phone-cap" data-i18n="cap3">Each home</div>
+      </div>
+      <div class="phone-wrap">
+        <div class="phone"><img src="images/shot4-story.jpg" alt="Tierra en Armonia site, the story behind the names" loading="lazy"></div>
+        <div class="phone-cap" data-i18n="cap4">The story</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE COLLECTION (wide shot + quote near the homes) ===== -->
+  <section class="collection reveal">
+    <div class="sec-label" data-i18n="coll-label">The collection</div>
+    <h2 data-i18n="coll-h2">Each home, its <em>own character.</em></h2>
+    <p class="body-copy" data-i18n="coll-lead">Casa Nova, Raíz, Copal, Arrazola, Nahual, Tonal, Ensueño, Tilcajete. Eight names that came to Arianna in a single night, gathered on one page where a visitor can choose the home that calls them.</p>
+    <div class="collection-in">
+      <figure class="wide">
+        <img src="images/wide-collection.jpg" alt="The Tierra en Armonia collection page, several homes shown together" loading="lazy">
+      </figure>
+      <blockquote class="quote-homes" data-i18n="quote-homes">Each house has its own identity, but everything still belongs to Tierra en Armonía.</blockquote>
+    </div>
+  </section>
+
+  <!-- ===== MAIN QUOTE CENTREPIECE ===== -->
+  <section class="quote-hero reveal">
+    <span class="mark">&ldquo;</span>
+    <blockquote data-i18n="quote-main">It felt much more personal than just someone building a website or a digital guide.</blockquote>
+    <div class="cite" data-i18n="quote-main-cite">Arianna Aguilar · Owner, Tierra en Armonía</div>
+  </section>
+
+  <!-- ===== THIRD QUOTE + CTA + CLOSING ===== -->
+  <section class="close reveal">
+    <div class="close-in">
+      <div>
+        <blockquote class="quote-2" data-i18n="quote-2">It finally feels like the online version of what we have created here.</blockquote>
+        <p class="closing-line" data-i18n="closing">Eight homes brought online as one property. Built together with Arianna over several rounds, until it felt like the place itself.</p>
+      </div>
+      <div>
+        <a class="btn-live" href="https://tierra-en-armonia.vercel.app" target="_blank" rel="noopener" data-i18n="cta">Visit the live site →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <a class="mark" href="/">The Welcome Link</a>
+    <div class="small" data-i18n="foot-small">Custom guest welcome experiences · Puerto Escondido</div>
+  </div>
+
+</div>
+<script>
+  const T = {
+    en: {
+      'study-tag': 'Case study',
+      'hero-l1': 'A collection of eight homes on one piece of land, with nature all around, animals, a path down to the beach, a gym, and a garden.',
+      'hero-l2': 'It is a whole place to be in, not just a place to sleep.',
+      'sit-label': 'The situation',
+      'sit-h2': "The story was there. The <em>place for it wasn't.</em>",
+      'sit-p1': 'Arianna had the story and the ideas. What she did not have was a way to organize all of it, or to show a visitor what makes this place different from anywhere else they could stay.',
+      'sit-p2': 'And eight homes is a lot to hold together. Eight sets of photos, eight personalities, eight kinds of information, all needing to feel like one place, without any single house losing what makes it its own.',
+      'built-label': 'What we built',
+      'built-h2': 'Eight homes, <em>one place.</em>',
+      'built-lead': 'We built the whole property a home online: one identity that holds all eight houses, a page for each with its own character, the land and its story, and a simple way to ask about a stay. Not a guide bolted onto a listing, a place of its own.',
+      'cap1': 'The identity',
+      'cap2': 'The collection',
+      'cap3': 'Each home',
+      'cap4': 'The story',
+      'coll-label': 'The collection',
+      'coll-h2': 'Each home, its <em>own character.</em>',
+      'coll-lead': 'Casa Nova, Raíz, Copal, Arrazola, Nahual, Tonal, Ensueño, Tilcajete. Eight names that came to Arianna in a single night, gathered on one page where a visitor can choose the home that calls them.',
+      'quote-homes': 'Each house has its own identity, but everything still belongs to Tierra en Armonía.',
+      'quote-main': 'It felt much more personal than just someone building a website or a digital guide.',
+      'quote-main-cite': 'Arianna Aguilar · Owner, Tierra en Armonía',
+      'quote-2': 'It finally feels like the online version of what we have created here.',
+      'closing': 'Eight homes brought online as one property. Built together with Arianna over several rounds, until it felt like the place itself.',
+      'cta': 'Visit the live site →',
+      'foot-small': 'Custom guest welcome experiences · Puerto Escondido'
+    },
+    es: {
+      'study-tag': 'Caso de estudio',
+      'hero-l1': 'Una colección de ocho casas en un mismo terreno, rodeadas de naturaleza, con animales, un camino que baja a la playa, un gimnasio y un jardín.',
+      'hero-l2': 'Es un lugar entero para habitar, no solo un lugar donde dormir.',
+      'sit-label': 'La situación',
+      'sit-h2': 'La historia ya existía. <em>Faltaba el lugar</em> para contarla.',
+      'sit-p1': 'Arianna tenía la historia y las ideas. Lo que no tenía era una forma de organizarlo todo, ni de mostrarle a un visitante qué hace a este lugar distinto de cualquier otro donde podría hospedarse.',
+      'sit-p2': 'Y ocho casas son muchas cosas que reunir. Ocho juegos de fotos, ocho personalidades, ocho tipos de información, todo con que sentirse un solo lugar, sin que ninguna casa pierda lo que la hace suya.',
+      'built-label': 'Lo que construimos',
+      'built-h2': 'Ocho casas, <em>un solo lugar.</em>',
+      'built-lead': 'Le construimos a toda la propiedad un hogar en línea: una identidad que reúne las ocho casas, una página para cada una con su propio carácter, la tierra y su historia, y una forma sencilla de preguntar por una estancia. No una guía pegada a un anuncio, sino un lugar propio.',
+      'cap1': 'La identidad',
+      'cap2': 'La colección',
+      'cap3': 'Cada casa',
+      'cap4': 'La historia',
+      'coll-label': 'La colección',
+      'coll-h2': 'Cada casa, con su <em>propio carácter.</em>',
+      'coll-lead': 'Casa Nova, Raíz, Copal, Arrazola, Nahual, Tonal, Ensueño, Tilcajete. Ocho nombres que le llegaron a Arianna en una sola noche, reunidos en una página donde el visitante elige la casa que lo llama.',
+      'quote-homes': 'Cada casa tiene su propia identidad, pero todo sigue perteneciendo a Tierra en Armonía.',
+      'quote-main': 'Se sintió mucho más personal que alguien simplemente construyendo un sitio web o una guía digital.',
+      'quote-main-cite': 'Arianna Aguilar · Propietaria, Tierra en Armonía',
+      'quote-2': 'Por fin se siente como la versión en línea de lo que hemos creado aquí.',
+      'closing': 'Ocho casas llevadas a línea como una sola propiedad. Construido junto a Arianna a lo largo de varias rondas, hasta que se sintió como el lugar mismo.',
+      'cta': 'Ver el sitio en vivo →',
+      'foot-small': 'Experiencias de bienvenida personalizadas · Puerto Escondido'
+    }
+  };
+
+  let lang = 'en';
+  function setLang(target){
+    lang = target;
+    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+    document.getElementById('btnES').classList.toggle('active', lang === 'es');
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+    });
+  }
+
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
