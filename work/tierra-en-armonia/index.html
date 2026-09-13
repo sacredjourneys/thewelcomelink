@@ -84,6 +84,16 @@
   .phone img{width:100%;display:block;border-radius:26px;}
   .phone-cap{font-size:12px;letter-spacing:.04em;color:var(--ink-soft);margin-top:12px;font-weight:500;}
 
+  /* FEATURE HIGHLIGHTS (interactive map + capabilities) */
+  .features{margin-top:34px;}
+  .feat-lead{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:19px;line-height:1.5;color:var(--sea-deep);}
+  .feat-grid{display:flex;flex-direction:column;gap:30px;margin-top:20px;}
+  .feat-map{width:100%;max-width:230px;margin:0 auto;text-align:center;}
+  .feat-list{display:flex;flex-direction:column;gap:24px;}
+  .feat{border-left:2px solid rgba(29,94,92,.28);padding-left:16px;}
+  .feat h4{font-family:'Newsreader',serif;font-weight:500;font-size:20px;line-height:1.2;color:#352c1f;margin-bottom:6px;}
+  .feat p{font-size:15px;line-height:1.65;color:var(--ink-soft);max-width:54ch;}
+
   /* COLLECTION (wide shot + quote near the homes) */
   .collection{background:linear-gradient(180deg,#fdf6ec,#f7ede0);}
   .wide{margin:6px 0 0;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff;}
@@ -133,6 +143,11 @@
     /* phones become a grid, no scroll */
     .phones{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 26px;overflow:visible;padding:0;justify-items:center;}
     .phone-wrap{width:100%;max-width:250px;}
+
+    /* features: map alongside the capability list */
+    .feat-grid{display:grid;grid-template-columns:240px 1fr;gap:52px;align-items:center;}
+    .feat-map{margin:0;}
+    .feat p{font-size:15.5px;}
 
     /* collection: wide image with the homes quote alongside */
     .collection .collection-in{display:grid;grid-template-columns:1.55fr 1fr;gap:44px;align-items:center;margin-top:10px;}
@@ -214,6 +229,30 @@
         <div class="phone-cap" data-i18n="cap4">The story</div>
       </div>
     </div>
+
+    <div class="features">
+      <p class="feat-lead" data-i18n="feat-lead">And the touches that make it feel effortless.</p>
+      <div class="feat-grid">
+        <div class="feat-map">
+          <div class="phone"><img src="images/shot5-map.jpg" alt="Tierra en Armonia site, interactive map of the property" loading="lazy"></div>
+          <div class="phone-cap" data-i18n="cap5">The property map</div>
+        </div>
+        <div class="feat-list">
+          <div class="feat">
+            <h4 data-i18n="feat1-h">A custom interactive map</h4>
+            <p data-i18n="feat1-p">A hand built map of the land itself. Every home and shared space is a marker a visitor can tap to open, so eight houses on one hillside finally make sense at a glance.</p>
+          </div>
+          <div class="feat">
+            <h4 data-i18n="feat2-h">One-tap WhatsApp</h4>
+            <p data-i18n="feat2-p">Every inquiry button opens WhatsApp with the message already written, and it knows which home they were looking at. Reaching out takes one tap, and Arianna knows what they are asking about before she reads a word.</p>
+          </div>
+          <div class="feat">
+            <h4 data-i18n="feat3-h">Bilingual, end to end</h4>
+            <p data-i18n="feat3-p">The whole site lives in English and Spanish, a tap apart, so guests from anywhere and neighbors from down the coast each read it in their own language, with nothing lost between the two.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ===== THE COLLECTION (wide shot + quote near the homes) ===== -->
@@ -272,6 +311,14 @@
       'cap2': 'The collection',
       'cap3': 'Each home',
       'cap4': 'The story',
+      'feat-lead': 'And the touches that make it feel effortless.',
+      'cap5': 'The property map',
+      'feat1-h': 'A custom interactive map',
+      'feat1-p': 'A hand built map of the land itself. Every home and shared space is a marker a visitor can tap to open, so eight houses on one hillside finally make sense at a glance.',
+      'feat2-h': 'One-tap WhatsApp',
+      'feat2-p': 'Every inquiry button opens WhatsApp with the message already written, and it knows which home they were looking at. Reaching out takes one tap, and Arianna knows what they are asking about before she reads a word.',
+      'feat3-h': 'Bilingual, end to end',
+      'feat3-p': 'The whole site lives in English and Spanish, a tap apart, so guests from anywhere and neighbors from down the coast each read it in their own language, with nothing lost between the two.',
       'coll-label': 'The collection',
       'coll-h2': 'Each home, its <em>own character.</em>',
       'coll-lead': 'Casa Nova, Raíz, Copal, Arrazola, Nahual, Tonal, Ensueño, Tilcajete. Eight names that came to Arianna in a single night, gathered on one page where a visitor can choose the home that calls them.',
@@ -298,6 +345,14 @@
       'cap2': 'La colección',
       'cap3': 'Cada casa',
       'cap4': 'La historia',
+      'feat-lead': 'Y los detalles que lo hacen sentir sin esfuerzo.',
+      'cap5': 'El mapa de la propiedad',
+      'feat1-h': 'Un mapa interactivo a medida',
+      'feat1-p': 'Un mapa hecho a mano de la tierra misma. Cada casa y cada espacio compartido es un punto que el visitante puede tocar para abrir, así ocho casas en una ladera por fin se entienden de un vistazo.',
+      'feat2-h': 'WhatsApp en un toque',
+      'feat2-p': 'Cada botón de contacto abre WhatsApp con el mensaje ya escrito, y sabe qué casa estaban viendo. Escribir toma un solo toque, y Arianna sabe por cuál casa preguntan antes de leer una palabra.',
+      'feat3-h': 'Bilingüe, de principio a fin',
+      'feat3-p': 'Todo el sitio vive en inglés y español, a un toque de distancia, para que huéspedes de cualquier lugar y vecinos de la costa lo lean cada uno en su propio idioma, sin que nada se pierda entre los dos.',
       'coll-label': 'La colección',
       'coll-h2': 'Cada casa, con su <em>propio carácter.</em>',
       'coll-lead': 'Casa Nova, Raíz, Copal, Arrazola, Nahual, Tonal, Ensueño, Tilcajete. Ocho nombres que le llegaron a Arianna en una sola noche, reunidos en una página donde el visitante elige la casa que lo llama.',
