@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
+<title>A proposal for Valley Bloom Co.</title>
+<meta property="og:title" content="A proposal for Valley Bloom Co.">
+<meta property="og:description" content="A second brand for the couples you already say no to.">
+<meta property="og:image" content="https://thewelcomelink.com/valley-bloom/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thewelcomelink.com/valley-bloom/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://thewelcomelink.com/valley-bloom/images/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..500,100;1,9..144,300..500,100&family=DM+Sans:opsz,wght@9..40,300..500&display=swap" rel="stylesheet">
+<style>
+/* Direction B, "the younger sister": warm cream, sage, peach, garden green.
+   Soft and rounded, related to Valley Bloom but clearly its own thing. */
+:root{
+  --cream:#F6F1E8;
+  --paper:#FCF9F3;
+  --ink:#2F3B34;
+  --soft:#66706A;
+  --line:#E4DCCD;
+  --sage:#DDE4D6;
+  --garden:#4F6B5E;
+  --peach:#D98B6F;
+  --peach-ink:#B5664B;
+  --blush:#F4DDD0;
+  --ivory:#EADFC8;
+  --on-garden:#F6F1E8;
+  --r-lg:28px;
+  --r-md:18px;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:"DM Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:350;font-size:17px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:350;margin:0;
+  font-variation-settings:"SOFT" 100,"opsz" 96;color:var(--ink)}
+em,.it{font-style:italic;color:var(--peach-ink)}
+p{margin:0 0 20px}
+p:last-child{margin-bottom:0}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+.wrap{max-width:680px;margin:0 auto;padding-left:24px;padding-right:24px}
+.wide{max-width:1080px;margin:0 auto;padding-left:24px;padding-right:24px}
+.band{padding-top:72px;padding-bottom:72px}
+
+.shot{background:var(--sage);overflow:hidden;border-radius:var(--r-lg)}
+
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;
+  font-size:13.5px;letter-spacing:.01em;line-height:1.3}
+.pill-sage{background:var(--sage);color:var(--garden)}
+.pill-blush{background:var(--blush);color:var(--peach-ink)}
+
+/* masthead */
+.mast{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:26px}
+.mark{font-family:"Fraunces",serif;font-style:italic;font-size:16px;color:var(--soft);
+  font-variation-settings:"SOFT" 100}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;
+  padding-top:56px;padding-bottom:72px}
+h1{font-size:clamp(2.6rem,6.4vw,4.3rem);line-height:1.02;letter-spacing:-0.02em;margin-top:22px}
+.dek{margin-top:26px;font-size:19px;color:var(--soft);max-width:31em}
+.where{margin-top:26px;font-size:14px;color:var(--soft);display:flex;align-items:center;gap:10px}
+.where::before{content:"";width:28px;height:1px;background:var(--peach)}
+.hero .shot{aspect-ratio:4/5;border-radius:180px 180px var(--r-lg) var(--r-lg)}
+
+.reveal{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards}
+.d1{animation-delay:.08s}.d2{animation-delay:.2s}.d3{animation-delay:.32s}.d4{animation-delay:.44s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+
+h1,h2{text-wrap:balance}
+h2{font-size:clamp(1.9rem,4.8vw,2.6rem);line-height:1.1;letter-spacing:-0.015em;margin-bottom:24px}
+h3{font-size:1.22rem;line-height:1.3;margin-bottom:8px}
+.lede{font-size:20px;line-height:1.6}
+.quiet{color:var(--soft)}
+.eyebrow{margin-bottom:18px}
+
+.land{aspect-ratio:3/2}
+.wide-shot{aspect-ratio:2/1}
+
+/* pull quote */
+.pull{background:var(--sage);border-radius:var(--r-lg);padding:64px 36px;text-align:center}
+.pull p{font-family:"Fraunces",serif;font-style:italic;font-weight:320;
+  font-variation-settings:"SOFT" 100;font-size:clamp(1.55rem,4vw,2.25rem);
+  line-height:1.3;color:var(--garden);margin:0 auto;max-width:22em;text-wrap:balance}
+
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pair .shot{aspect-ratio:3/4}
+.pair .shot:nth-child(2){margin-top:44px}
+
+/* the sketch */
+.sketch{background:var(--garden);color:var(--on-garden);border-radius:var(--r-lg);overflow:hidden}
+.sketch-in{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:72px 56px}
+.sketch h2{color:var(--on-garden)}
+.sketch .it{color:#F2B9A1}
+.sketch p{color:rgba(246,241,232,.8)}
+.sketch .pill{background:rgba(246,241,232,.14);color:var(--on-garden)}
+.notes{list-style:none;margin:30px 0 0;padding:0}
+.notes li{display:flex;gap:14px;align-items:baseline;padding:14px 0;border-top:1px solid rgba(246,241,232,.18);
+  color:rgba(246,241,232,.86);font-size:15.5px;line-height:1.5}
+.notes li:last-child{border-bottom:1px solid rgba(246,241,232,.18)}
+.notes b{font-weight:450;color:var(--on-garden);display:block}
+.num{font-family:"Fraunces",serif;font-style:italic;color:#F2B9A1;flex:0 0 18px}
+
+.phone{width:300px;max-width:100%;margin:0 auto;background:#1F2622;border-radius:46px;padding:10px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.45)}
+.screen{background:var(--paper);border-radius:37px;overflow:hidden;color:var(--ink);font-size:12px;line-height:1.45}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:20px 18px 10px}
+.logo{font-family:"Fraunces",serif;font-style:italic;font-size:17px;font-variation-settings:"SOFT" 100;color:var(--garden)}
+.bag{width:18px;height:16px;border:1.5px solid var(--garden);border-radius:3px 3px 6px 6px;position:relative}
+.bag::before{content:"";position:absolute;left:4px;right:4px;top:-6px;height:6px;border:1.5px solid var(--garden);border-bottom:0;border-radius:6px 6px 0 0}
+.m-hero{margin:0 12px;height:168px;border-radius:22px;overflow:hidden}
+.m-body{padding:16px 16px 20px}
+.m-title{font-family:"Fraunces",serif;font-weight:350;font-size:23px;line-height:1.08;letter-spacing:-0.01em;
+  font-variation-settings:"SOFT" 100,"opsz" 60}
+.m-title i{color:var(--peach-ink)}
+.m-sub{color:var(--soft);margin-top:6px}
+.m-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:16px 0 8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{padding:5px 11px;border-radius:999px;font-size:11px}
+.c1{background:var(--peach);color:#fff}
+.c2{background:var(--garden);color:#fff}
+.c3{background:var(--ivory);color:#5C4F36}
+.tier{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border:1px solid var(--line);
+  border-radius:14px;margin-bottom:6px;background:#fff}
+.tier b{font-family:"Fraunces",serif;font-weight:400;font-size:14px;display:block;font-variation-settings:"SOFT" 100}
+.tier span{color:var(--soft);font-size:10.5px}
+.tier .go{width:22px;height:22px;border-radius:50%;background:var(--sage);flex:0 0 auto;position:relative}
+.tier .go::after{content:"";position:absolute;left:7px;top:8px;width:5px;height:5px;border-top:1.5px solid var(--garden);border-right:1.5px solid var(--garden);transform:rotate(45deg)}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.days div{padding:6px 0;border-radius:9px;font-size:11px;background:#fff;border:1px solid var(--line)}
+.days .off{color:#B9B2A6;text-decoration:line-through;background:transparent;border-color:transparent}
+.days .on{background:var(--peach);border-color:var(--peach);color:#fff}
+.m-btn{margin-top:14px;background:var(--garden);color:#fff;text-align:center;padding:11px;border-radius:999px;font-size:12px}
+.m-foot{margin-top:10px;text-align:center;color:var(--soft);font-size:10.5px}
+
+/* stem */
+.stem{position:relative;padding-left:44px}
+.stem::before{content:"";position:absolute;left:8px;top:14px;bottom:16px;width:0;border-left:1.5px dashed var(--peach)}
+.node{position:relative;padding-bottom:44px}
+.node:last-child{padding-bottom:0}
+.node::before{content:"";position:absolute;left:-44px;top:6px;width:18px;height:18px;border-radius:50%;
+  background:var(--cream);border:1.5px solid var(--peach);box-shadow:inset 0 0 0 4px var(--cream);background-color:var(--peach)}
+.step{font-family:"Fraunces",serif;font-style:italic;font-size:15px;color:var(--peach-ink);margin-bottom:2px;
+  font-variation-settings:"SOFT" 100}
+.node p{margin-bottom:0;color:var(--soft)}
+.node p+p{margin-top:13px}
+
+/* included */
+.card{background:var(--paper);border-radius:var(--r-lg);padding:40px 36px}
+.list{list-style:none;margin:0;padding:0}
+.list li{padding:15px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:baseline}
+.list li:last-child{border-bottom:0;padding-bottom:0}
+.list li:first-child{padding-top:0}
+.tick{flex:0 0 20px;height:20px;border-radius:50%;background:var(--blush);position:relative;top:4px}
+.tick::after{content:"";position:absolute;left:7px;top:4px;width:5px;height:9px;border-right:1.5px solid var(--peach-ink);
+  border-bottom:1.5px solid var(--peach-ink);transform:rotate(45deg)}
+.note{color:var(--soft);font-size:15px;margin-top:2px;display:block}
+
+.yours{border:1.5px solid var(--line);border-radius:var(--r-lg);padding:36px 32px}
+.yours ul{margin:0;padding-left:20px;color:var(--soft)}
+.yours li{margin-bottom:12px}
+.yours li::marker{color:var(--peach)}
+.yours li:last-child{margin-bottom:0}
+
+.later{background:var(--blush);border-radius:var(--r-md);padding:28px 28px}
+.later .quiet{color:#8A6556}
+
+/* investment */
+.invest{background:var(--garden);color:var(--on-garden);border-radius:var(--r-lg);padding:64px 40px}
+.invest h2{color:var(--on-garden)}
+.invest p{color:rgba(246,241,232,.8)}
+.fee{font-family:"Fraunces",serif;font-weight:320;font-size:clamp(3.4rem,13vw,5.2rem);line-height:1;
+  letter-spacing:-0.03em;color:var(--on-garden);margin:4px 0 14px;font-variation-settings:"SOFT" 100,"opsz" 144}
+.fee small{font-family:"DM Sans",sans-serif;font-size:.2em;letter-spacing:.14em;vertical-align:1.9em;margin-left:12px;
+  color:#F2B9A1}
+.terms{margin-top:34px;display:grid;gap:10px}
+.term{background:rgba(246,241,232,.08);border-radius:var(--r-md);padding:20px 22px}
+.term h3{font-size:1.08rem;color:var(--on-garden);margin-bottom:4px}
+.term p{margin:0;font-size:15.5px}
+
+.weeks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.weeks li{display:flex;gap:18px;align-items:baseline;padding:16px 20px;background:var(--paper);border-radius:var(--r-md)}
+.weeks .w{flex:0 0 118px;font-family:"Fraunces",serif;font-style:italic;color:var(--peach-ink);font-size:16px;
+  font-variation-settings:"SOFT" 100}
+
+a:focus-visible{outline:2px solid var(--garden);outline-offset:3px}
+.foot{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--soft);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot .mark{font-size:15px}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:40px;padding-top:36px;padding-bottom:56px}
+  .hero .shot{max-width:440px;width:100%;margin:0 auto}
+  .sketch-in{grid-template-columns:1fr;gap:44px;padding:56px 28px}
+  .sketch-in .phone{order:2}
+}
+@media (max-width:560px){
+  body{font-size:16.5px}
+  .band{padding-top:56px;padding-bottom:56px}
+  .wrap,.wide{padding-left:18px;padding-right:18px}
+  .lede{font-size:18.5px}
+  .dek{font-size:17.5px}
+  .pull{padding:48px 24px}
+  .pair{gap:10px}
+  .pair .shot:nth-child(2){margin-top:28px}
+  .card{padding:30px 22px}
+  .yours{padding:28px 22px}
+  .invest{padding:48px 24px}
+  .sketch-in{padding:48px 22px}
+  .stem{padding-left:38px}
+  .node::before{left:-38px}
+  .weeks li{flex-direction:column;gap:2px}
+  .weeks .w{flex:none}
+  .land{aspect-ratio:4/3}
+  .wide-shot{aspect-ratio:3/2}
+}
+</style>
+</head>
+<body>
+
+<header class="wide mast">
+  <div class="mark">Prepared by Trevor</div>
+  <span class="pill pill-sage">For Valley Bloom Co.</span>
+</header>
+
+<div class="wide hero">
+  <div class="copy">
+    <span class="pill pill-blush reveal">A proposal</span>
+    <h1 class="reveal d1">A second brand for the couples you <span class="it">already say no to.</span></h1>
+    <p class="dek reveal d2">A small online store that sells set wedding collections at a friendly price, runs without a consultation, and never touches a date your full service team is already working.</p>
+    <p class="where reveal d3">Kelowna, British Columbia</p>
+  </div>
+  <div class="shot reveal d4">
+    <!-- IMAGE 01: strongest ceremony shot, portrait. Shown in an arch frame. -->
+    <img src="images/01.jpg" alt="A lakeside ceremony under a white floral arch" loading="eager">
+  </div>
+</div>
+
+<section class="wrap band" style="padding-top:24px">
+  <h2>What I see</h2>
+  <p class="lede">Your four thousand dollar minimum is the right number. It protects the design boards, the rentals, the setup, the teardown, the whole weight of a full service day. It is also a door that closes on couples every season who already love what you make.</p>
+  <p>They found you. They read the Style Me Pretty feature. They wanted you. Their budget was twelve hundred dollars. Right now that is a polite no and a lost lead.</p>
+</section>
+
+<div class="wide">
+  <div class="shot land">
+    <!-- IMAGE 02: wide reception or tablescape, landscape -->
+    <img src="images/02.jpg" alt="A sweetheart table dressed in peach roses and greenery" loading="lazy">
+  </div>
+</div>
+
+<section class="wrap band">
+  <p class="lede">A second brand catches them. Set collections, chosen online, no meeting, no site visit, pickup or one drop off. It costs almost nothing in new marketing because the demand is already arriving in your inbox.</p>
+  <p>And it protects Valley Bloom, because the price lives somewhere else, under a different name, where it cannot pull your floor down.</p>
+  <p class="quiet">The top collection lands just under four thousand on purpose. Anyone who wants more comes home to you.</p>
+</section>
+
+<div class="wide">
+  <div class="pull">
+    <p>You are not adding a cheaper service. You are opening a second door in a wall that is already being knocked on.</p>
+  </div>
+</div>
+
+<!-- THE SKETCH: a first look at the sister store. Working name only; the name and mark are the client's. -->
+<section class="wide band">
+  <div class="sketch">
+    <div class="sketch-in">
+      <div>
+        <span class="pill eyebrow">A first sketch</span>
+        <h2>What the sister <span class="it">could feel like</span></h2>
+        <p>Related to Valley Bloom, clearly its own thing. Lighter, warmer, a little more playful, built for a couple planning on their phone at eleven at night.</p>
+        <p style="font-size:15px">The name is a placeholder and the colours are a starting point. Both get decided with you in the design session.</p>
+        <ul class="notes">
+          <li><span class="num">1</span><span><b>Set collections, set palettes</b>Chosen in a few taps. No custom quotes, no back and forth.</span></li>
+          <li><span class="num">2</span><span><b>Only dates you can cover</b>Booked Saturdays are closed before a couple ever sees them.</span></li>
+          <li><span class="num">3</span><span><b>Pickup or one drop off</b>No setup, no site visit. The wall that protects Valley Bloom.</span></li>
+        </ul>
+      </div>
+      <div class="phone" aria-label="A sketch of the sister store on a phone">
+        <div class="screen">
+          <div class="bar"><span class="logo">name to come</span><span class="bag" aria-hidden="true"></span></div>
+          <div class="m-hero">
+            <!-- IMAGE 05: an arrangement shot the way a package would ship -->
+            <img src="images/05.jpg" alt="" loading="lazy">
+          </div>
+          <div class="m-body">
+            <div class="m-title">Wedding flowers, <i>picked and packed.</i></div>
+            <div class="m-sub">Made in Kelowna. Ready for pickup or drop off.</div>
+            <div class="m-label">Choose a palette</div>
+            <div class="chips"><span class="chip c1">Blush</span><span class="chip c2">Garden</span><span class="chip c3">Ivory</span></div>
+            <div class="m-label">Collections</div>
+            <div class="tier"><div><b>Elopement</b><span>Bouquet and a boutonniere</span></div><i class="go"></i></div>
+            <div class="tier"><div><b>Petite</b><span>Bridal party and a few bud vases</span></div><i class="go"></i></div>
+            <div class="tier"><div><b>Classic</b><span>Ceremony, party and reception tables</span></div><i class="go"></i></div>
+            <div class="m-label">Your date, June</div>
+            <div class="days"><div>12</div><div class="off">13</div><div>14</div><div>19</div><div class="off">20</div><div class="on">21</div><div class="off">27</div></div>
+            <div class="m-btn">Check this date</div>
+            <div class="m-foot">Want more? Meet Valley Bloom full service</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wide">
+  <div class="pair">
+    <!-- IMAGES 03, 04: two from their portfolio, portrait -->
+    <div class="shot"><img src="images/03.jpg" alt="A bride holding a white rose bouquet under a floral arch" loading="lazy"></div>
+    <div class="shot"><img src="images/04.jpg" alt="A white cake on a table ringed with florals above the lake" loading="lazy"></div>
+  </div>
+</div>
+
+<section class="wrap band">
+  <h2>How we build it <span class="it">together</span></h2>
+  <div class="stem">
+    <div class="node">
+      <div class="step">One</div>
+      <h3>The design session</h3>
+      <p>We get on a call and play. Who is this couple, what does she care about, what has she already saved. Colour, type, the feel of the first screen, which photographs carry the brand. We go through your portfolio together and pull the images that do the work.</p>
+      <p>You know flowers better than anyone I could hire. I know how this needs to behave online. The session is where those two things meet.</p>
+    </div>
+    <div class="node">
+      <div class="step">Two</div>
+      <h3>I build the first draft</h3>
+      <p>The store, the collection pages, the palettes, the copy, the questions couples always ask answered before they ask them. The booking calendar with your blackout dates and your order limits, so the store can only ever sell a date you can actually cover.</p>
+      <p>You do nothing during this stage except send photos when I ask.</p>
+    </div>
+    <div class="node">
+      <div class="step">Three</div>
+      <h3>We refine it</h3>
+      <p>You walk the whole thing and tell me what is wrong. Two full rounds are included, and in practice I keep going until it feels like yours. This is where a store stops looking like a template and starts looking like a florist made it.</p>
+    </div>
+    <div class="node">
+      <div class="step">Four</div>
+      <h3>Launch, then four months covered</h3>
+      <p>We go live. For four months I look after it. Broken things, small changes, a new collection, a price adjustment, a photo swap, a question about how something works. You are not paying a separate bill while you are still finding your feet.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:72px">
+  <div class="card">
+    <h2>What is included</h2>
+    <ul class="list">
+      <li><span class="tick"></span><span>The brand and design session<span class="note">A working call, not a questionnaire</span></span></li>
+      <li><span class="tick"></span><span>A complete Shopify store designed for this brand<span class="note">Premium theme, custom sections, mobile first</span></span></li>
+      <li><span class="tick"></span><span>Your collections, written and laid out<span class="note">Palettes, tiers, inclusions, add ons</span></span></li>
+      <li><span class="tick"></span><span>The booking calendar<span class="note">Minimum lead time, blackout dates you control, and a hard cap on orders per date</span></span></li>
+      <li><span class="tick"></span><span>A route for couples who need it sooner<span class="note">Rather than a dead end, an enquiry that reaches you directly so you can say yes or no on your own terms</span></span></li>
+      <li><span class="tick"></span><span>A production view for the workroom<span class="note">Orders grouped by date and by item, so a Saturday is one list rather than nine</span></span></li>
+      <li><span class="tick"></span><span>Pickup and drop off logic at checkout<span class="note">Zones, fees, windows</span></span></li>
+      <li><span class="tick"></span><span>All the writing<span class="note">Every page, and the questions section that sells for you</span></span></li>
+      <li><span class="tick"></span><span>Search setup for Google<span class="note">Built for terms like affordable wedding flowers Kelowna and elopement flowers Okanagan, which nobody local currently owns</span></span></li>
+      <li><span class="tick"></span><span>Follow up for couples who do not finish<span class="note">Abandoned checkout recovery and email capture, so a curious couple who leaves still hears from you</span></span></li>
+      <li><span class="tick"></span><span>A quiet bridge to Valley Bloom<span class="note">Anyone wanting more than a collection lands on your full service enquiry</span></span></li>
+      <li><span class="tick"></span><span>Two rounds of revisions</span></li>
+      <li><span class="tick"></span><span>A walkthrough and a short written guide<span class="note">So your team runs it without calling me</span></span></li>
+      <li><span class="tick"></span><span>Four months of support after launch</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:72px">
+  <div class="yours">
+    <h3>What stays yours</h3>
+    <p class="quiet" style="margin-bottom:18px">I would rather tell you this now than surprise you later.</p>
+    <ul>
+      <li>The Shopify account opens in your name, on your card. I work inside it as a collaborator. You own the store outright and you can remove me at any time.</li>
+      <li>Shopify Basic is forty nine Canadian a month, or thirty seven a month if you pay for the year up front. Basic covers everything this store needs. With the booking app added, expect seventy to a hundred and ten Canadian a month to run.</li>
+      <li>The Shopify plan starts when the build starts, not at launch, because the theme and the apps need a live account to sit on. That is roughly one month of the plan before anything is earning. I would rather you see that now than on a statement.</li>
+      <li>The theme is a one time purchase, roughly three to five hundred Canadian, licensed to your store and yours to keep.</li>
+      <li>One photography session. Your editorial work sells the brand, but each collection needs one honest photograph of exactly what arrives. Showing an arch on a nine hundred dollar page creates the disappointment this whole model exists to avoid.</li>
+      <li>The name and the logo. I do not do branding strategy and I am not going to pretend otherwise. Bring me a name and a mark, or a designer you like, and I will build everything around it.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:72px">
+  <h2>Later, <span class="it">if it earns it</span></h2>
+  <div class="later">
+    <p>There is a version of this with a palette finder that walks a couple through colour and season and lands them on the right collection, and a visual preview so they can see the shape of what they are buying. I would love to build that. It is real software and it belongs in a second phase, once the store is bringing money in and we know what couples actually get stuck on.</p>
+    <p class="quiet">Not included here, not charged for here. I am telling you it exists so you know where this can go.</p>
+  </div>
+</section>
+
+<section class="wide">
+  <div class="invest">
+    <div style="max-width:620px;margin:0 auto">
+      <h2>The investment</h2>
+      <div class="fee">$2,000<small>CAD</small></div>
+      <p>Everything above, start to launch, plus four months of support.</p>
+      <div class="terms">
+        <div class="term">
+          <h3>How it is paid</h3>
+          <p>One thousand to begin, one thousand when the store goes live.</p>
+        </div>
+        <div class="term">
+          <h3>How long it takes</h3>
+          <p>Four to five weeks from the design session, assuming photography and the name are ready.</p>
+        </div>
+        <div class="term">
+          <h3>After four months</h3>
+          <p>If you want me to keep looking after it, we talk then, somewhere between one and three hundred a month depending on what you actually need. If you would rather take it in house, it is yours and I hand it over cleanly. No lock in either way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap band">
+  <h2>The shape of it</h2>
+  <ul class="weeks">
+    <li><span class="w">Week one</span><span>The design session, and the name locked</span></li>
+    <li><span class="w">Weeks two, three</span><span>I build. Photography happens in parallel</span></li>
+    <li><span class="w">Week four</span><span>You review, we refine</span></li>
+    <li><span class="w">Week five</span><span>Live</span></li>
+  </ul>
+  <p class="quiet" style="margin-top:24px">Worth knowing: couples book flowers six to twelve months out. Live by January means the store is open for the whole 2027 Okanagan season.</p>
+</section>
+
+<div class="wide">
+  <div class="shot wide-shot">
+    <!-- IMAGE 07: strongest wide shot, the last thing before the close -->
+    <img src="images/07.jpg" alt="A long reception table beneath the trees above the lake" loading="lazy">
+  </div>
+</div>
+
+<section class="wrap band">
+  <h2>Where to <span class="it">start</span></h2>
+  <p>Book the design session. It is the fun part and it costs you nothing to find out whether we work well together. If after that call you do not want to go ahead, we shake hands and I will still send you my notes on the collections.</p>
+  <div class="foot">
+    <span class="mark">Trevor</span>
+    <span>Kelowna</span>
+  </div>
+</section>
+
+</body>
+</html>
