@@ -36,6 +36,7 @@
   --on-garden:#F6F1E8;
   --r-lg:28px;
   --r-md:18px;
+  --space:128px;
   color-scheme:light;
 }
 
@@ -50,13 +51,14 @@ body{
 h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:350;margin:0;
   font-variation-settings:"SOFT" 100,"opsz" 96;color:var(--ink)}
 em,.it{font-style:italic;color:var(--peach-ink)}
-p{margin:0 0 20px}
+p{margin:0 0 24px}
 p:last-child{margin-bottom:0}
 img{display:block;width:100%;height:100%;object-fit:cover}
 
 .wrap{max-width:680px;margin:0 auto;padding-left:24px;padding-right:24px}
 .wide{max-width:1080px;margin:0 auto;padding-left:24px;padding-right:24px}
-.band{padding-top:72px;padding-bottom:72px}
+.band{padding-top:var(--space);padding-bottom:var(--space)}
+.gap-b{padding-bottom:var(--space)}
 
 .shot{background:var(--sage);overflow:hidden;border-radius:var(--r-lg)}
 
@@ -71,8 +73,8 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   font-variation-settings:"SOFT" 100}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;
-  padding-top:56px;padding-bottom:72px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;
+  min-height:min(calc(100svh - 70px),900px);padding-top:48px;padding-bottom:48px}
 h1{font-size:clamp(2.6rem,6.4vw,4.3rem);line-height:1.02;letter-spacing:-0.02em;margin-top:22px}
 .dek{margin-top:26px;font-size:19px;color:var(--soft);max-width:31em}
 .where{margin-top:26px;font-size:14px;color:var(--soft);display:flex;align-items:center;gap:10px}
@@ -85,7 +87,7 @@ h1{font-size:clamp(2.6rem,6.4vw,4.3rem);line-height:1.02;letter-spacing:-0.02em;
 @media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
 
 h1,h2{text-wrap:balance}
-h2{font-size:clamp(1.9rem,4.8vw,2.6rem);line-height:1.1;letter-spacing:-0.015em;margin-bottom:24px}
+h2{font-size:clamp(1.9rem,4.8vw,2.6rem);line-height:1.1;letter-spacing:-0.015em;margin-bottom:32px}
 h3{font-size:1.22rem;line-height:1.3;margin-bottom:8px}
 .lede{font-size:20px;line-height:1.6}
 .quiet{color:var(--soft)}
@@ -206,14 +208,15 @@ a:focus-visible{outline:2px solid var(--garden);outline-offset:3px}
 .foot .mark{font-size:15px}
 
 @media (max-width:860px){
-  .hero{grid-template-columns:1fr;gap:40px;padding-top:36px;padding-bottom:56px}
+  :root{--space:104px}
+  .hero{grid-template-columns:1fr;gap:44px;min-height:0;padding-top:40px}
   .hero .shot{max-width:440px;width:100%;margin:0 auto}
   .sketch-in{grid-template-columns:1fr;gap:44px;padding:56px 28px}
   .sketch-in .phone{order:2}
 }
 @media (max-width:560px){
   body{font-size:16.5px}
-  .band{padding-top:56px;padding-bottom:56px}
+  :root{--space:88px}
   .wrap,.wide{padding-left:18px;padding-right:18px}
   .lede{font-size:18.5px}
   .dek{font-size:17.5px}
@@ -253,7 +256,7 @@ a:focus-visible{outline:2px solid var(--garden);outline-offset:3px}
   </div>
 </div>
 
-<section class="wrap band" style="padding-top:24px">
+<section class="wrap band">
   <h2>What I see</h2>
   <p class="lede">Your four thousand dollar minimum is the right number. It protects the design boards, the rentals, the setup, the teardown, the whole weight of a full service day. It is also a door that closes on couples every season who already love what you make.</p>
   <p>They found you. They read the Style Me Pretty feature. They wanted you. Their budget was twelve hundred dollars. Right now that is a polite no and a lost lead.</p>
@@ -356,7 +359,7 @@ a:focus-visible{outline:2px solid var(--garden);outline-offset:3px}
   </div>
 </section>
 
-<section class="wrap" style="padding-bottom:72px">
+<section class="wrap gap-b">
   <div class="card">
     <h2>What is included</h2>
     <ul class="list">
@@ -378,7 +381,7 @@ a:focus-visible{outline:2px solid var(--garden);outline-offset:3px}
   </div>
 </section>
 
-<section class="wrap" style="padding-bottom:72px">
+<section class="wrap gap-b">
   <div class="yours">
     <h3>What stays yours</h3>
     <p class="quiet" style="margin-bottom:18px">I would rather tell you this now than surprise you later.</p>
@@ -393,7 +396,7 @@ a:focus-visible{outline:2px solid var(--garden);outline-offset:3px}
   </div>
 </section>
 
-<section class="wrap" style="padding-bottom:72px">
+<section class="wrap gap-b">
   <h2>Later, <span class="it">if it earns it</span></h2>
   <div class="later">
     <p>There is a version of this with a palette finder that walks a couple through colour and season and lands them on the right collection, and a visual preview so they can see the shape of what they are buying. I would love to build that. It is real software and it belongs in a second phase, once the store is bringing money in and we know what couples actually get stuck on.</p>
