@@ -196,7 +196,7 @@
     section,.phil,.roi,.founding,.cta-foot,.about,.hero,.foot{
       padding-inline:max(var(--gutter),calc((100% - var(--content)) / 2));
     }
-    section,.phil,.roi,.founding,.about{padding-top:72px;padding-bottom:72px;}
+    section,.phil,.roi,.founding,.about,.cta-foot{padding-top:104px;padding-bottom:104px;}
     .divider{margin-inline:max(var(--gutter),calc((100% - var(--content)) / 2));}
 
     /* language toggle aligns to the content column */
@@ -204,6 +204,8 @@
 
     /* HERO: full-width photo, desktop-scaled headline, constrained text */
     .hero{min-height:100vh;min-height:100svh;padding-top:64px;padding-bottom:56px;justify-content:flex-end;gap:24px;}
+    /* lift the framing so the horizon sits nearer the lower third, not the bottom edge */
+    .hero-bg::before{background-position:center 66%;}
     .hero-in{max-width:760px;}
     .hero h1{font-size:64px;max-width:15ch;}
     .hero .sub{font-size:18px;max-width:46ch;margin-top:20px;}
@@ -212,17 +214,23 @@
     /* prose should not run the full column width */
     .body-copy,.phil p,.about p,.roi p{max-width:64ch;}
 
+    /* give headings and their content more room to breathe */
+    h2{margin-bottom:22px;}
+    .phil p{margin-bottom:20px;}
+
     /* stacks become grids */
-    .inc-grid{grid-template-columns:repeat(3,1fr);gap:16px;}
-    .diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px;}
+    .inc-grid{grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;}
+    .diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 44px;margin-top:34px;}
     .diff-item{border-bottom:1px solid var(--line);}
-    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;margin-top:26px;}
     .steps-grid .step{flex-direction:column;border-bottom:none;align-items:flex-start;gap:12px;}
-    .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px;}
     .feat-grid .card-feat{margin-bottom:0;}
     .card-feat .feat-img{height:280px;}
     /* auto-fill of fixed-width cards: one card looks intentional, two or three fill the row */
-    .work-grid{grid-template-columns:repeat(auto-fill,minmax(300px,360px));justify-content:center;gap:22px;}
+    .work-grid{grid-template-columns:repeat(auto-fill,minmax(300px,360px));justify-content:center;gap:22px;margin-top:26px;}
+    /* Casa Yani teaser: crop flush to the top of the photo (mountains + roofline) */
+    .work-card[href*="casa-yani"] .work-img{object-position:center top;}
 
     /* accent strips get more presence on desktop */
     .strip img{height:360px;}
