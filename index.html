@@ -224,15 +224,16 @@
     .diff-item{border-bottom:1px solid var(--line);}
     .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;margin-top:26px;}
     .steps-grid .step{flex-direction:column;border-bottom:none;align-items:flex-start;gap:12px;}
-    .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:26px;align-items:start;}
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:26px;align-items:start;}
     .feat-grid .card-feat{margin-bottom:0;}
-    .card-feat .feat-img{height:280px;}
-    /* Casa Yani example card: same top crop as the teaser (mountains + roofline) */
-    .card-feat[href*="casa-yani"] .feat-img{object-position:center top;}
+    .card-feat .feat-img{height:250px;}
+    /* per-photo framing so each landscape sits well in the card */
+    .card-feat[href*="casa-yani"] .feat-img{object-position:70% 45%;}
+    .card-feat[href*="copal"] .feat-img{object-position:center 46%;}
     /* auto-fill of fixed-width cards: one card looks intentional, two or three fill the row */
     .work-grid{grid-template-columns:repeat(auto-fill,minmax(300px,360px));justify-content:center;gap:22px;margin-top:26px;}
-    /* Casa Yani teaser: crop flush to the top of the photo (mountains + roofline) */
-    .work-card[href*="casa-yani"] .work-img{object-position:center top;}
+    /* Casa Yani teaser: same framing as the example card above (roof + mountains + garden) */
+    .work-card[href*="casa-yani"] .work-img{object-position:70% 45%;}
 
     /* accent strips get more presence on desktop */
     .strip img{height:360px;}
@@ -353,7 +354,7 @@
   <section class="reveal">
     <div class="sec-label" data-i18n="live-label">See it live</div>
     <h2 data-i18n="live-h2">What a guide <em>looks like.</em></h2>
-    <p class="body-copy" style="margin-bottom:20px" data-i18n="live-lead">Two very different homes, two very different guides. Casa Las Nubes on the coast, and Casa Yani, a remote mountain guide packed with the kind of local knowledge no template could fake. Yours would be entirely its own.</p>
+    <p class="body-copy" style="margin-bottom:20px" data-i18n="live-lead">A few very different homes, a few very different guides. Casa Las Nubes on the coast, Casa Yani high in the Sierra Sur, and Copal in the Tierra en Armonía collection. Yours would be entirely its own.</p>
     <div class="feat-grid">
     <a class="card-feat" href="/casa-las-nubes/">
       <img class="feat-img" src="/casa-las-nubes/images/hero.jpg" alt="Casa Las Nubes terrace, Puerto Escondido" loading="lazy">
@@ -371,6 +372,15 @@
         <div class="name">Casa Yani</div>
         <div class="desc" data-i18n="card2-desc">A remote Superhost retreat high in the Sierra Sur, with a guide that goes deep on real local life. Forest hikes, cacao, a temazcal, cooking with a neighbor. The clearest showcase of the local-knowledge edge.</div>
         <div class="go" data-i18n="card2-go">View the guide →</div>
+      </div>
+    </a>
+    <a class="card-feat" href="/copal/">
+      <img class="feat-img" src="/copal/images/card.jpg" alt="Copal, Tierra en Armonia, La Barra, Puerto Escondido" loading="lazy">
+      <div class="feat-body">
+        <div class="loc">La Barra · Puerto Escondido</div>
+        <div class="name">Copal</div>
+        <div class="desc" data-i18n="card3-desc">A one-bedroom hideaway in the Tierra en Armonía collection, La Barra. A plunge pool, an ocean view, and a palapa of its own. Its guide carries the same calm as the house.</div>
+        <div class="go" data-i18n="card3-go">View the guide →</div>
       </div>
     </a>
     </div>
@@ -516,11 +526,13 @@
       'inc6-s': 'A warm, Airbnb-safe ask at the end. Never pushy.',
       'live-label': 'See it live',
       'live-h2': 'What a guide <em>looks like.</em>',
-      'live-lead': 'Two very different homes, two very different guides. Casa Las Nubes on the coast, and Casa Yani, a remote mountain guide packed with the kind of local knowledge no template could fake. Yours would be entirely its own.',
+      'live-lead': 'A few very different homes, a few very different guides. Casa Las Nubes on the coast, Casa Yani high in the Sierra Sur, and Copal in the Tierra en Armonía collection. Yours would be entirely its own.',
       'card1-desc': "Trevor's own home in La Punta. Ocean views from every room, an ice plunge, and a rooftop palapa for gatherings. Three bedrooms, 600m from the break.",
       'card1-go': 'View the full guide →',
       'card2-desc': 'A remote Superhost retreat high in the Sierra Sur, with a guide that goes deep on real local life. Forest hikes, cacao, a temazcal, cooking with a neighbor. The clearest showcase of the local-knowledge edge.',
       'card2-go': 'View the guide →',
+      'card3-desc': 'A one-bedroom hideaway in the Tierra en Armonía collection, La Barra. A plunge pool, an ocean view, and a palapa of its own. Its guide carries the same calm as the house.',
+      'card3-go': 'View the guide →',
       'work-label': 'Recent work',
       'work-h2': "Guides we've <em>built.</em>",
       'work-lead': 'Real homes, real hosts, real work. A closer look at what we have built and what it changed.',
@@ -592,11 +604,13 @@
       'inc6-s': 'Una solicitud cálida y permitida por Airbnb al final. Nunca invasiva.',
       'live-label': 'Míralo en vivo',
       'live-h2': 'Cómo luce <em>una guía.</em>',
-      'live-lead': 'Dos casas muy diferentes, dos guías muy diferentes. Casa Las Nubes en la costa, y Casa Yani, una guía de montaña remota llena del tipo de conocimiento local que ninguna plantilla podría fingir. La tuya sería completamente propia.',
+      'live-lead': 'Algunas casas muy diferentes, algunas guías muy diferentes. Casa Las Nubes en la costa, Casa Yani en lo alto de la Sierra Sur, y Copal en la colección Tierra en Armonía. La tuya sería completamente propia.',
       'card1-desc': 'La casa de Trevor en La Punta. Vista al océano desde cada habitación, una tina de hielo y una palapa en la azotea para reuniones. Tres habitaciones, a 600m de la ola.',
       'card1-go': 'Ver la guía completa →',
       'card2-desc': 'Un retiro de Superanfitrión remoto en lo alto de la Sierra Sur, con una guía que profundiza en la vida local real. Caminatas por el bosque, cacao, un temazcal, cocinar con una vecina. La muestra más clara de la ventaja del conocimiento local.',
       'card2-go': 'Ver la guía →',
+      'card3-desc': 'Un escondite de una habitación en la colección Tierra en Armonía, La Barra. Una alberca, vista al mar y su propia palapa. Su guía lleva la misma calma que la casa.',
+      'card3-go': 'Ver la guía →',
       'work-label': 'Trabajo reciente',
       'work-h2': 'Guías que hemos <em>construido.</em>',
       'work-lead': 'Casas reales, anfitriones reales, trabajo real. Una mirada cercana a lo que hemos construido y lo que cambió.',
