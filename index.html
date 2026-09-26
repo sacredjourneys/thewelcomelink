@@ -80,7 +80,7 @@
   .strip{position:relative;z-index:2;overflow:hidden;}
   .strip img{width:100%;height:210px;object-fit:cover;display:block;}
   .strip.tall img{height:300px;}
-  .strip.medium img{height:260px;}
+  .strip.medium img{height:260px;object-position:center 70%;}
 
   /* WHAT'S DIFFERENT */
   .diff-item{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);}
@@ -237,7 +237,7 @@
 
     /* accent strips get more presence on desktop */
     .strip img{height:360px;}
-    .strip.medium img{height:400px;}
+    .strip.medium img{height:400px;object-position:center 66%;}
     .strip.tall img{height:460px;}
 
     /* type scale nudge for larger headings */
@@ -280,7 +280,7 @@
   </section>
 
   <div class="strip medium">
-    <img src="/images/beach-sunrise.jpg" alt="" loading="lazy" aria-hidden="true" style="object-position:center 70%;">
+    <img src="/images/beach-sunrise.jpg" alt="" loading="lazy" aria-hidden="true">
   </div>
 
   <section class="reveal">
