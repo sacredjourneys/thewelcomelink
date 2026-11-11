@@ -224,6 +224,7 @@
   .eatcard h3{font-size:15.5px;font-weight:600;}
   .eatcard p{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
   .eatcard .veg{font-size:11px;color:var(--moss);font-weight:600;letter-spacing:.05em;}
+  .eatcard .pin{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:12px;font-weight:600;color:var(--clay-deep);text-decoration:none;background:var(--sand);padding:5px 10px;border-radius:7px;}
 
   /* ===== practical ===== */
   .practical{background:var(--forest);color:#f0ecdf;}
@@ -554,46 +555,67 @@
 
   <div class="divider"></div>
 
-  <!-- FILL: confirm Anna's own favorite spots -->
-  <!-- EAT -->
+  <!-- EAT (Trevor's real La Punta-area picks, with verified map pins) -->
+  <!-- FILL: add or swap any of Anna's own favorites -->
   <section class="reveal">
     <div class="sec-label" data-i18n="eat-label">Eat &amp; drink</div>
     <h2 data-i18n="eat-h2">Where to <em>eat</em></h2>
-    <p class="lead" style="margin-bottom:6px" data-i18n="eat-lead">A few local favorites, all an easy walk from the villa.</p>
+    <p class="lead" style="margin-bottom:6px" data-i18n="eat-lead">A few honest local favorites, all an easy hop from the villa. Tap the pin for the map.</p>
 
     <div class="eatcard">
       <div class="num">01</div>
       <div>
-        <h3>Almoráh <span class="veg" data-i18n="eat1-veg">· veg options</span></h3>
-        <p data-i18n="eat1-desc">Fresh, healthy breakfasts, bowls, and juices. A bright way to start a La Punta morning.</p>
+        <h3>Capsula <span class="veg" data-i18n="eat1-tag">· coffee</span></h3>
+        <p data-i18n="eat1-desc">The best coffee in town, hands down, and an easy stop.</p>
+        <a class="pin" href="https://maps.app.goo.gl/WV6xssnubLybjXB76" target="_blank" rel="noopener" data-i18n="eat-map">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">02</div>
       <div>
-        <h3>Lychee <span class="veg" data-i18n="eat2-veg">· veg options</span></h3>
-        <p data-i18n="eat2-desc">Asian-Mexican fusion and good cocktails. A favorite for a relaxed dinner.</p>
+        <h3>Casa del Surfer <span class="veg" data-i18n="eat2-tag">· healthy, close</span></h3>
+        <p data-i18n="eat2-desc">Close to La Punta, healthy, with great fish tacos and açaí bowls.</p>
+        <a class="pin" href="https://maps.app.goo.gl/BhqN5FwHVXrHTg676" target="_blank" rel="noopener" data-i18n="eat-map">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">03</div>
       <div>
-        <h3>Cafecito</h3>
-        <p data-i18n="eat3-desc">The classic for strong coffee, pastries, and big breakfasts near the beach.</p>
+        <h3>Amarisa Café <span class="veg" data-i18n="eat3-tag">· breakfast &amp; work</span></h3>
+        <p data-i18n="eat3-desc">Sit, work, and have breakfast with good coffee. A solid base for a morning.</p>
+        <a class="pin" href="https://maps.app.goo.gl/zgoSoZ32RL4i6i2U8" target="_blank" rel="noopener" data-i18n="eat-map">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
       <div class="num">04</div>
       <div>
-        <h3>Espadín</h3>
-        <p data-i18n="eat4-desc">Local Oaxacan plates and mezcal, with a warm, easy evening feel.</p>
+        <h3>Malagua Café <span class="veg" data-i18n="eat4-tag">· brunch &amp; bakery</span></h3>
+        <p data-i18n="eat4-desc">Good brunch and a great bakery selection for a slow start.</p>
+        <a class="pin" href="https://maps.app.goo.gl/iL9xRU5gUtsZrPHf9" target="_blank" rel="noopener" data-i18n="eat-map">📍 Map</a>
       </div>
     </div>
     <div class="eatcard">
-      <div class="num">★</div>
+      <div class="num">05</div>
       <div>
-        <h3 data-i18n="eat5-title">Evening taco stands</h3>
-        <p data-i18n="eat5-desc">After dark the main street fills with taco and tlayuda stands. Follow the crowd and the smell of the grill.</p>
+        <h3>Ojitos Abiertos <span class="veg" data-i18n="eat5-tag">· slow &amp; intentional</span></h3>
+        <p data-i18n="eat5-desc">A sweet, slow spot to read or journal. Raw and nut milks made in house, very organic.</p>
+        <a class="pin" href="https://maps.app.goo.gl/8oL9dEH1vYymSprL7" target="_blank" rel="noopener" data-i18n="eat-map">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">06</div>
+      <div>
+        <h3>Chicama <span class="veg" data-i18n="eat6-tag">· dinner</span></h3>
+        <p data-i18n="eat6-desc">A great go-to for dinner, ceviche and cocktails, good vibes. Often a line, so plan ahead.</p>
+        <a class="pin" href="https://maps.app.goo.gl/rHPrNqxPqwP5TiSAA" target="_blank" rel="noopener" data-i18n="eat-map">📍 Map</a>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">07</div>
+      <div>
+        <h3>Birria y barbacoa Alvarado <span class="veg" data-i18n="eat7-tag">· weekends · local gem</span></h3>
+        <p data-i18n="eat7-desc">Weekends only, a local secret with no real online presence. The best quesabirria in Puerto.</p>
+        <a class="pin" href="https://maps.app.goo.gl/LkXssopmgBwe1WsR7" target="_blank" rel="noopener" data-i18n="eat-map">📍 Map</a>
       </div>
     </div>
   </section>
@@ -756,15 +778,22 @@
       'exp8-pre': 'Seasonal',
       'eat-label': 'Eat & drink',
       'eat-h2': 'Where to <em>eat</em>',
-      'eat-lead': 'A few local favorites, all an easy walk from the villa.',
-      'eat1-veg': '· veg options',
-      'eat1-desc': 'Fresh, healthy breakfasts, bowls, and juices. A bright way to start a La Punta morning.',
-      'eat2-veg': '· veg options',
-      'eat2-desc': 'Asian-Mexican fusion and good cocktails. A favorite for a relaxed dinner.',
-      'eat3-desc': 'The classic for strong coffee, pastries, and big breakfasts near the beach.',
-      'eat4-desc': 'Local Oaxacan plates and mezcal, with a warm, easy evening feel.',
-      'eat5-title': 'Evening taco stands',
-      'eat5-desc': 'After dark the main street fills with taco and tlayuda stands. Follow the crowd and the smell of the grill.',
+      'eat-lead': 'A few honest local favorites, all an easy hop from the villa. Tap the pin for the map.',
+      'eat-map': '📍 Map',
+      'eat1-tag': '· coffee',
+      'eat1-desc': 'The best coffee in town, hands down, and an easy stop.',
+      'eat2-tag': '· healthy, close',
+      'eat2-desc': 'Close to La Punta, healthy, with great fish tacos and açaí bowls.',
+      'eat3-tag': '· breakfast & work',
+      'eat3-desc': 'Sit, work, and have breakfast with good coffee. A solid base for a morning.',
+      'eat4-tag': '· brunch & bakery',
+      'eat4-desc': 'Good brunch and a great bakery selection for a slow start.',
+      'eat5-tag': '· slow & intentional',
+      'eat5-desc': 'A sweet, slow spot to read or journal. Raw and nut milks made in house, very organic.',
+      'eat6-tag': '· dinner',
+      'eat6-desc': 'A great go-to for dinner, ceviche and cocktails, good vibes. Often a line, so plan ahead.',
+      'eat7-tag': '· weekends · local gem',
+      'eat7-desc': 'Weekends only, a local secret with no real online presence. The best quesabirria in Puerto.',
       'practical-label': 'Local notes',
       'practical-h2': 'A few <em>practical</em> things',
       'pcard1-title': 'Reaching me',
@@ -890,15 +919,22 @@
       'exp8-pre': 'Estacional',
       'eat-label': 'Comer y beber',
       'eat-h2': 'Dónde <em>comer</em>',
-      'eat-lead': 'Algunos favoritos locales, todos a una caminata fácil desde la villa.',
-      'eat1-veg': '· opciones vegetarianas',
-      'eat1-desc': 'Desayunos frescos y saludables, bowls y jugos. Una forma luminosa de empezar la mañana en La Punta.',
-      'eat2-veg': '· opciones vegetarianas',
-      'eat2-desc': 'Fusión asiático-mexicana y buenos cócteles. Un favorito para una cena relajada.',
-      'eat3-desc': 'El clásico para café cargado, panes y buenos desayunos cerca de la playa.',
-      'eat4-desc': 'Platillos oaxaqueños locales y mezcal, con un ambiente cálido y tranquilo de noche.',
-      'eat5-title': 'Puestos de tacos de noche',
-      'eat5-desc': 'Al caer la noche la calle principal se llena de puestos de tacos y tlayudas. Sigue a la gente y el olor del asador.',
+      'eat-lead': 'Algunos favoritos locales honestos, todos muy cerca de la villa. Toca el pin para el mapa.',
+      'eat-map': '📍 Mapa',
+      'eat1-tag': '· café',
+      'eat1-desc': 'El mejor café del pueblo, sin duda, y fácil de alcanzar.',
+      'eat2-tag': '· saludable, cerca',
+      'eat2-desc': 'Cerca de La Punta, saludable, con unos tacos de pescado y bowls de açaí buenísimos.',
+      'eat3-tag': '· desayuno y trabajo',
+      'eat3-desc': 'Siéntate, trabaja y desayuna con buen café. Una buena base para la mañana.',
+      'eat4-tag': '· brunch y panadería',
+      'eat4-desc': 'Buen brunch y una gran selección de panadería para empezar sin prisa.',
+      'eat5-tag': '· lento y con calma',
+      'eat5-desc': 'Un lugar dulce y tranquilo para leer o escribir. Leche cruda y leches vegetales hechas en casa, muy orgánico.',
+      'eat6-tag': '· cena',
+      'eat6-desc': 'Un gran lugar para cenar, ceviche y cócteles, buen ambiente. Suele haber fila, así que planea.',
+      'eat7-tag': '· fines de semana · joya local',
+      'eat7-desc': 'Solo fines de semana, un secreto local sin presencia en línea. La mejor quesabirria de Puerto.',
       'practical-label': 'Notas locales',
       'practical-h2': 'Algunas cosas <em>prácticas</em>',
       'pcard1-title': 'Contactarme',
