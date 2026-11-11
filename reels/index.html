@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Villa Reels · The Welcome Link</title>
+<meta name="description" content="Short videos for villas in Puerto Escondido, made from the listing photos you already have. Nothing invented.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Villa Reels · Your listing photos, brought to life">
+<meta property="og:description" content="Short videos for villas in Puerto Escondido, made from the photos you already have. No new shoot. Nothing invented.">
+<meta property="og:image" content="https://thewelcomelink.vercel.app/reels/hero-poster.jpg">
+<meta property="og:url" content="https://thewelcomelink.vercel.app/reels/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12303a">
+<style>*,*::before,*::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img,video{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a calm vertical scroll, like walking from the palapa to the pool. Media leads, text follows. */
+:root {
+  --concrete: #ebe6de;      /* cemento pulido, page ground */
+  --concrete-2: #e1dbd1;    /* recessed band */
+  --deep: #12303a;          /* Pacific at depth, main ink */
+  --muted: #58676b;         /* secondary ink */
+  --pool: #13848f;          /* infinity pool, accent */
+  --thatch: #a77a43;        /* palapa, small labels */
+  --line: #cfc7bb;
+  --frame: #12303a;         /* phone frame */
+  --on-accent: #f7f4ef;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --concrete: #0e1c21; --concrete-2: #13252b; --deep: #ece5da; --muted: #9fb0b2;
+    --pool: #3cb7c1; --thatch: #c99a5e; --line: #24393f; --frame: #050c0f; --on-accent: #06171b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --concrete: #0e1c21; --concrete-2: #13252b; --deep: #ece5da; --muted: #9fb0b2;
+  --pool: #3cb7c1; --thatch: #c99a5e; --line: #24393f; --frame: #050c0f; --on-accent: #06171b;
+  color-scheme: dark;
+}
+
+body { background: var(--concrete); color: var(--deep); font: 400 1rem/1.6 var(--body); }
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+section { padding-block: clamp(56px, 9vw, 104px); }
+.band { background: var(--concrete-2); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.4rem, 6.4vw, 4.6rem); line-height: 1.02; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.08; }
+h3 { font-size: 1.25rem; line-height: 1.25; }
+p { margin: 0; max-width: 62ch; }
+.label { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--thatch); }
+.lede { font-size: clamp(1.05rem, 1.8vw, 1.25rem); color: var(--muted); }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+
+/* hero */
+.hero { padding-block: clamp(36px, 6vw, 72px) clamp(40px, 6vw, 72px); }
+.hero-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: clamp(32px, 6vw, 64px); }
+.mark { font: 700 1.1rem/1 var(--display); letter-spacing: -0.01em; }
+.mark span { color: var(--pool); }
+.place { font: 400 0.8rem/1.3 var(--mono); color: var(--muted); text-align: right; }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 44px); }
+.hero-copy { display: flex; flex-direction: column; gap: 22px; }
+.hero-copy h1 em { font-style: normal; color: var(--pool); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px;
+  font: 500 0.98rem/1 var(--body); text-decoration: none; border: 1.5px solid var(--deep); color: var(--deep);
+}
+.btn.primary { background: var(--pool); border-color: var(--pool); color: var(--on-accent); }
+.btn:hover { transform: translateY(-1px); }
+.btn:focus-visible { outline: 3px solid var(--thatch); outline-offset: 3px; }
+.hero-media { position: relative; border-radius: 6px; overflow: hidden; background: var(--frame); aspect-ratio: 16 / 9; max-width: 100%; }
+.hero-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.credit {
+  position: absolute; left: 14px; bottom: 12px; padding: 6px 10px; border-radius: 4px;
+  font: 400 0.72rem/1.2 var(--mono); color: #f7f4ef; background: rgba(6, 20, 24, 0.55);
+}
+
+/* phones */
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 4vw, 48px); align-items: start; }
+.phone-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.phone {
+  background: var(--frame); border-radius: 30px; padding: 10px; max-width: 320px; width: 100%;
+  box-shadow: 0 24px 50px -28px rgba(10, 30, 36, 0.55);
+}
+.phone video { width: 100%; aspect-ratio: 9 / 16; display: block; border-radius: 22px; background: #000; object-fit: cover; }
+.phone-col p { color: var(--muted); font-size: 0.95rem; }
+.sec-head { display: grid; gap: 14px; margin-bottom: clamp(32px, 5vw, 52px); }
+
+/* steps */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.steps li { padding: 24px 22px 8px 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.steps li + li { padding-left: 22px; border-left: 1px solid var(--line); }
+.step-n { font: 500 0.8rem/1 var(--mono); color: var(--pool); }
+.steps p { color: var(--muted); font-size: 0.95rem; }
+
+/* promise */
+.promise { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.promise h2 { font-size: clamp(2rem, 4.6vw, 3.2rem); }
+.promise h2 span { display: block; }
+.promise h2 span:last-child { color: var(--pool); }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.checks li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; color: var(--muted); }
+.checks svg { margin-top: 4px; }
+
+/* packages */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.plan { border: 1px solid var(--line); border-radius: 6px; padding: 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; background: var(--concrete); }
+.plan.feature { border-color: var(--pool); box-shadow: inset 0 0 0 1px var(--pool); }
+.plan .tag { align-self: flex-start; font: 500 0.7rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 9px; border-radius: 999px; background: var(--pool); color: var(--on-accent); }
+.price { font: 600 2.2rem/1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.price small { font: 400 0.85rem/1 var(--body); color: var(--muted); letter-spacing: 0; margin-left: 4px; }
+.plan ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.95rem; display: grid; gap: 6px; }
+.addons { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px 28px; color: var(--muted); font-size: 0.95rem; }
+.addons strong { color: var(--deep); font-weight: 500; }
+.fine { margin-top: 14px; font: 400 0.78rem/1.4 var(--mono); color: var(--muted); }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: end; }
+.contact-box { border-top: 2px solid var(--deep); padding-top: 22px; display: flex; flex-direction: column; gap: 16px; }
+.contact-line { font: 500 1.05rem/1.4 var(--mono); user-select: all; }
+footer { padding-block: 28px 40px; color: var(--muted); font: 400 0.78rem/1.4 var(--mono); }
+
+@media (min-width: 860px) {
+  .hero-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr); align-items: center; }
+}
+@media (max-width: 860px) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .plans { grid-template-columns: 1fr; }
+  .promise, .contact { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .pair { grid-template-columns: 1fr; justify-items: center; }
+  .steps { grid-template-columns: 1fr; }
+  .steps li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .phone { border-radius: 26px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
+</style></head>
+<body>
+
+<header class="wrap hero">
+  <div class="hero-top">
+    <a class="mark" href="/" style="color:inherit;text-decoration:none">Villa<span> Reels</span></a>
+    <div class="place">Puerto Escondido<br>Oaxaca, MX</div>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="label">Video for vacation rentals</span>
+      <h1>Your listing photos, <em>brought to life.</em></h1>
+      <p class="lede">Short videos for villas and rentals, made from the photos you already have. No new shoot. Nothing added that isn't really there.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Get a reel for your villa</a>
+        <a class="btn" href="#packages">See packages</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <video src="hero.mp4" poster="hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Video of an open air villa with an infinity pool facing the Pacific"></video>
+      <span class="credit">Tierra en Armonía · La Barra</span>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="example">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">One villa, five photos</span>
+      <h2>Same photos. Now they move.</h2>
+      <p class="lede">Water ripples, lamps sway, palms move in the breeze. Guests feel the space before they book it, and your listing stops the scroll.</p>
+    </div>
+    <div class="pair">
+      <div class="phone-col">
+        <div class="phone"><video src="before-after.mp4" poster="ba-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Before and after: still listing photo above, the same photo animated below"></video></div>
+        <h3>Before and after</h3>
+        <p>Top: the listing photo as it is today. Bottom: the same photo, animated.</p>
+      </div>
+      <div class="phone-col">
+        <div class="phone"><video src="reel.mp4" poster="reel-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Finished 18 second vertical reel of the villa"></video></div>
+        <h3>The finished reel</h3>
+        <p>18 seconds, vertical for Instagram and TikTok. A wide version comes with it for your website.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">How it works</span>
+      <h2>From your photos to a finished reel in about five days.</h2>
+    </div>
+    <ol class="steps">
+      <li><span class="step-n">01</span><h3>Send your photos</h3><p>Your best 6 to 10 listing photos. Whatever is already on Airbnb or your site works.</p></li>
+      <li><span class="step-n">02</span><h3>I build the shots</h3><p>I pick the strongest angles and animate each one with subtle, believable motion.</p></li>
+      <li><span class="step-n">03</span><h3>Every frame gets checked</h3><p>Anything that drifts from your real space, a chair that changes, a wave that isn't there, gets cut.</p></li>
+      <li><span class="step-n">04</span><h3>Ready to post</h3><p>You get a vertical reel and a wide version, with text and your name on the end card.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap promise">
+    <h2><span>Real photos.</span><span>Real space.</span><span>Nothing invented.</span></h2>
+    <div class="stack">
+      <p class="lede">AI can make any villa look like a resort. That's how hosts end up with "not as pictured" reviews. These reels only add motion to what your photos already show.</p>
+      <ul class="checks">
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--pool)"/><path d="M5.2 9.2l2.4 2.4 5-5" fill="none" stroke="currentColor" stroke-width="1.6" style="color: var(--pool)"/></svg><span>No rooms, views or amenities that don't exist</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--pool)"/><path d="M5.2 9.2l2.4 2.4 5-5" fill="none" stroke="currentColor" stroke-width="1.6" style="color: var(--pool)"/></svg><span>The ocean looks like your ocean, calm days included</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--pool)"/><path d="M5.2 9.2l2.4 2.4 5-5" fill="none" stroke="currentColor" stroke-width="1.6" style="color: var(--pool)"/></svg><span>You approve every reel before it goes anywhere</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Packages</span>
+      <h2>Start with one reel. Keep the content coming if it works.</h2>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>Villa Reel</h3>
+        <div class="price">$200<small>per property</small></div>
+        <ul>
+          <li>15 to 20 second reel from your photos</li>
+          <li>Vertical and wide versions</li>
+          <li>Text overlays and end card</li>
+          <li>Delivered in about 5 days</li>
+        </ul>
+      </article>
+      <article class="plan feature">
+        <span class="tag">For collections</span>
+        <h3>Collection</h3>
+        <div class="price">$150<small>per property</small></div>
+        <ul>
+          <li>Everything in Villa Reel</li>
+          <li>For 3 or more properties</li>
+          <li>Matching style across your collection</li>
+        </ul>
+      </article>
+      <article class="plan">
+        <h3>Monthly Content</h3>
+        <div class="price">$300<small>to $500 / month</small></div>
+        <ul>
+          <li>4 new reels a month</li>
+          <li>Seasonal and detail angles</li>
+          <li>Spanish and English text versions</li>
+        </ul>
+      </article>
+    </div>
+    <div class="addons">
+      <span><strong>Add on:</strong> booking page with an interactive floor plan tour</span>
+      <span><strong>Add on:</strong> <a href="/" style="color:inherit">The Welcome Link</a> digital guide for your guests</span>
+    </div>
+    <p class="fine">Prices in USD.</p>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap contact">
+    <div class="stack">
+      <span class="label">Get in touch</span>
+      <h2>Send me five photos. I'll show you what they can do.</h2>
+      <p class="lede">I'm based in Puerto Escondido and work with villas in La Punta, Zicatela, La Barra and nearby.</p>
+    </div>
+    <div class="contact-box">
+      <span class="label">Trevor · WhatsApp</span>
+      <span class="contact-line" id="wa-number">WhatsApp</span>
+      <a class="btn primary" id="wa-btn" href="#contact">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">Villa Reels is a service of <a href="/" style="color:inherit">The Welcome Link</a> · Puerto Escondido · Example: Tierra en Armonía, La Barra</footer>
+
+<script>
+  // ====== EDIT THIS ONE LINE: WhatsApp number, digits only with country code, e.g. "5219541234567" ======
+  var WHATSAPP = "529542061152";
+  (function () {
+    var digits = WHATSAPP.replace(/\D/g, "");
+    if (!digits) return;
+    var msg = encodeURIComponent("Hi Trevor, I saw Villa Reels and I'd like a reel for my villa.");
+    var href = "https://wa.me/" + digits + "?text=" + msg;
+    document.querySelectorAll('a[href="#contact"]').forEach(function (a) { a.href = href; a.target = "_blank"; a.rel = "noopener"; });
+    var n = document.getElementById("wa-number");
+    if (n) n.textContent = "+" + digits;
+  })();
+
+  // Respect reduced motion: stop autoplay and give viewers controls instead.
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+    }
+  } catch (e) {}
+</script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
