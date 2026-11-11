@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- Built for a prospect, keep private until it's her real guide -->
+<meta name="robots" content="noindex">
+<meta name="description" content="Your guide to the villa in La Punta, everything you need for a beautiful stay by the beach in Puerto Escondido.">
+<meta property="og:title" content="Welcome to La Punta · Puerto Escondido">
+<meta property="og:description" content="A quiet garden villa, two minutes from the sand in La Punta.">
+<meta property="og:image" content="https://thewelcomelink.com/la-punta-villa/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thewelcomelink.com/la-punta-villa/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://thewelcomelink.com/la-punta-villa/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://thewelcomelink.com/la-punta-villa/images/og.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Welcome · La Punta Villa · Puerto Escondido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#2f3d2a;
+    --moss:#5a6b4a;
+    --clay:#b5764f;
+    --clay-deep:#9a5d3a;
+    --sand:#efe7d8;
+    --paper:#f7f1e6;
+    --ink:#322a22;
+    --ink-soft:#5c5247;
+    --line:rgba(50,42,34,.12);
+    --shadow:0 18px 40px -18px rgba(47,61,42,.45);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Hanken Grotesk',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:480px;margin:0 auto;background:var(--paper);min-height:100vh;position:relative;}
+
+  /* texture overlay */
+  .wrap::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    max-width:480px;left:50%;transform:translateX(-50%);
+  }
+
+  /* language toggle */
+  #langToggle{
+    position:fixed;top:14px;left:50%;transform:translateX(calc(240px - 100% - 14px));z-index:999;
+    display:flex;gap:2px;padding:3px;border-radius:999px;
+    background:rgba(28,18,12,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.26);box-shadow:0 6px 18px -8px rgba(0,0,0,.4);
+  }
+  @media(max-width:508px){#langToggle{left:auto;right:14px;transform:none;}}
+  .lang-opt{
+    border:none;background:transparent;color:rgba(255,255,255,.82);cursor:pointer;
+    font-family:'Hanken Grotesk',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;
+    padding:6px 13px;border-radius:999px;transition:background .2s,color .2s;
+  }
+  .lang-opt.active{background:#fff;color:#34291f;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:32px 26px 46px;color:#f5efe2;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      linear-gradient(180deg,rgba(30,40,26,.12) 0%,rgba(30,40,26,.5) 55%,rgba(25,33,22,.86) 100%),
+      url("images/hero.jpg");
+    background-size:cover;
+    background-position:center;
+  }
+  .hero-content{position:relative;z-index:2;}
+  .eyebrow{
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    font-weight:500;opacity:.85;margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6;}
+  .hero h1{
+    font-family:'Newsreader',serif;font-weight:400;font-size:44px;line-height:1.02;
+    letter-spacing:-.01em;margin-bottom:6px;
+  }
+  .hero h1 em{font-style:italic;color:#e9c9a8;}
+  .hero .sub{font-size:16px;opacity:.9;max-width:30ch;margin-top:14px;}
+  .scroll-cue{
+    position:relative;z-index:2;margin-top:34px;font-size:12.5px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.7;display:flex;align-items:center;gap:8px;
+  }
+  .scroll-cue span{animation:bob 2.2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+  /* ===== SECTIONS ===== */
+  section{position:relative;z-index:2;padding:44px 26px;}
+  .sec-label{
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--clay-deep);
+    font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;
+  }
+  .sec-label::before{content:"";width:22px;height:1px;background:var(--clay);}
+  h2{font-family:'Newsreader',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin-bottom:16px;}
+  h2 em{font-style:italic;color:var(--clay-deep);}
+  p.lead{color:var(--ink-soft);font-size:15.5px;}
+
+  .divider{height:1px;background:var(--line);margin:0 26px;position:relative;z-index:2;}
+
+  /* welcome note */
+  .welcome{background:linear-gradient(180deg,#fbf6ec,#f7f1e6);}
+  .welcome .note{
+    font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:19px;
+    line-height:1.5;color:var(--forest);margin-top:6px;
+  }
+  .host-sign{display:flex;align-items:center;gap:12px;margin-top:22px;}
+  .host-sign .avatar{
+    width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--clay),var(--clay-deep));
+    display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Newsreader',serif;font-size:20px;
+  }
+  .host-sign .meta{font-size:13.5px;line-height:1.3;}
+  .host-sign .meta b{font-weight:600;}
+  .host-sign .meta span{color:var(--ink-soft);font-size:12.5px;}
+
+  /* ===== getting here / steps ===== */
+  .arrival{background:var(--forest);color:#f0ecdf;}
+  .arrival .sec-label{color:#e9c9a8;}
+  .arrival .sec-label::before{background:#e9c9a8;}
+  .arrival h2{color:#f5efe2;}
+  .arrival h2 em{color:#e9c9a8;}
+  .arrival .lead{color:rgba(240,236,223,.78);}
+  .route{
+    background:rgba(255,255,255,.05);border:1px solid rgba(233,201,168,.18);border-radius:16px;
+    padding:18px 18px 16px;margin-top:14px;
+  }
+  .route summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    font-weight:500;font-size:15.5px;color:#f5efe2;
+  }
+  .route summary::-webkit-details-marker{display:none;}
+  .route .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e9c9a8;
+    border:1px solid rgba(233,201,168,.4);padding:3px 9px;border-radius:20px;white-space:nowrap;}
+  .route .chev{transition:transform .3s;color:#e9c9a8;font-size:18px;}
+  .route[open] .chev{transform:rotate(90deg);}
+  .route ol{margin:14px 0 0;padding-left:0;list-style:none;counter-reset:step;}
+  .route ol li{
+    counter-increment:step;position:relative;padding:0 0 14px 34px;font-size:14px;
+    color:rgba(240,236,223,.85);line-height:1.5;
+  }
+  .route ol li::before{
+    content:counter(step);position:absolute;left:0;top:-1px;width:22px;height:22px;border-radius:50%;
+    background:var(--clay);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:600;
+  }
+  .route ol li:not(:last-child)::after{
+    content:"";position:absolute;left:10.5px;top:24px;bottom:2px;width:1px;background:rgba(233,201,168,.3);
+  }
+  .landmark{
+    margin-top:8px;background:rgba(233,201,168,.12);border-radius:12px;padding:12px 14px;
+    font-size:13.5px;color:#f0ecdf;display:flex;gap:10px;align-items:flex-start;
+  }
+  .landmark b{color:#e9c9a8;}
+
+  /* ===== quick facts grid ===== */
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;}
+  .fact{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);
+  }
+  .fact .ic{font-size:20px;margin-bottom:8px;display:block;}
+  .fact .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-deep);font-weight:600;}
+  .fact .v{font-size:14.5px;font-weight:500;margin-top:3px;}
+  .fact .v small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
+
+  /* wifi card */
+  .wifi{
+    grid-column:1/-1;background:linear-gradient(135deg,var(--clay),var(--clay-deep));color:#fff;border:none;
+  }
+  .wifi .k{color:rgba(255,255,255,.8);}
+  .wifi-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
+  .wifi-row .label{font-size:12px;opacity:.8;}
+  .wifi-row .val{font-family:'Newsreader',serif;font-size:16px;}
+
+  /* ===== rules list ===== */
+  .rule{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);}
+  .rule:last-child{border-bottom:none;}
+  .rule .ic{
+    flex:none;width:38px;height:38px;border-radius:11px;background:var(--sand);
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+  }
+  .rule .txt b{display:block;font-weight:600;font-size:14.5px;}
+  .rule .txt span{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ===== experiences ===== */
+  .experiences{background:linear-gradient(180deg,#f2ead9,#efe7d8);}
+  .exp{
+    background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-top:14px;
+    border:1px solid var(--line);
+  }
+  .exp .band{height:88px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px 14px;}
+  .exp .band .emoji{font-size:34px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.2));}
+  .exp.e1 .band{background:radial-gradient(120% 140% at 20% 10%,#2f8fb0,#13566e);}
+  .exp.e2 .band{background:radial-gradient(120% 140% at 20% 10%,#6f7d54,#3f4a30);}
+  .exp.e3 .band{background:radial-gradient(120% 140% at 20% 10%,#2f9f9a,#13605c);}
+  .exp.e4 .band{background:radial-gradient(120% 140% at 20% 10%,#3a4e80,#1e2a52);}
+  .exp.e5 .band{background:radial-gradient(120% 140% at 20% 10%,#d79463,#9a5d3a);}
+  .exp.e6 .band{background:radial-gradient(120% 140% at 20% 10%,#7a6f9a,#463c60);}
+  .exp.e7 .band{background:radial-gradient(120% 140% at 20% 10%,#a98a5a,#6b5430);}
+  .exp.e8 .band{background:radial-gradient(120% 140% at 20% 10%,#5f8a6a,#31513c);}
+  .exp .body{padding:15px 16px 17px;}
+  .exp .body h3{font-family:'Newsreader',serif;font-weight:500;font-size:18px;margin-bottom:5px;}
+  .exp .body p{font-size:13.5px;color:var(--ink-soft);}
+  .exp .pre{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--clay-deep);font-weight:600;background:var(--sand);padding:4px 10px;border-radius:20px;}
+
+  /* ===== eat ===== */
+  .eatcard{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .eatcard:last-child{border-bottom:none;}
+  .eatcard .num{font-family:'Newsreader',serif;font-size:22px;color:var(--clay);flex:none;width:30px;line-height:1.1;}
+  .eatcard h3{font-size:15.5px;font-weight:600;}
+  .eatcard p{font-size:13.5px;color:var(--ink-soft);margin-top:2px;}
+  .eatcard .veg{font-size:11px;color:var(--moss);font-weight:600;letter-spacing:.05em;}
+
+  /* ===== practical ===== */
+  .practical{background:var(--forest);color:#f0ecdf;}
+  .practical .sec-label{color:#e9c9a8;}
+  .practical .sec-label::before{background:#e9c9a8;}
+  .practical h2{color:#f5efe2;}
+  .practical h2 em{color:#e9c9a8;}
+  .pcard{
+    background:rgba(255,255,255,.05);border:1px solid rgba(233,201,168,.18);border-radius:14px;
+    padding:15px 16px;margin-top:12px;display:flex;gap:13px;align-items:flex-start;
+  }
+  .pcard .ic{font-size:20px;flex:none;}
+  .pcard b{display:block;font-size:14.5px;color:#f5efe2;margin-bottom:2px;}
+  .pcard span{font-size:13.5px;color:rgba(240,236,223,.8);}
+
+  /* ===== checkout ===== */
+  .checkout .step{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .checkout .step:last-child{border-bottom:none;}
+  .checkout .step .box{
+    flex:none;width:24px;height:24px;border:2px solid var(--clay);border-radius:7px;
+  }
+  .checkout .step span{font-size:14.5px;}
+
+  /* ===== contact ===== */
+  .contact{background:linear-gradient(180deg,#fbf6ec,#f2ead9);text-align:center;padding-bottom:30px;}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:16px;border-radius:14px;font-family:'Hanken Grotesk';font-size:15.5px;font-weight:600;
+    text-decoration:none;margin-top:12px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn-wa{background:#25845a;color:#fff;box-shadow:0 10px 24px -10px rgba(37,132,90,.7);}
+  .btn-ghost{background:transparent;color:var(--forest);border:1.5px solid var(--line);}
+
+  /* footer */
+  .foot{text-align:center;padding:30px 26px 44px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Newsreader',serif;font-style:italic;font-size:18px;color:var(--moss);}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+  .ph{color:var(--clay-deep);font-weight:600;}
+
+  /* check-in note */
+  .checkin-note{font-size:13px;color:var(--clay-deep);background:#fff8f2;border:1.5px solid var(--clay);border-radius:10px;padding:10px 12px;margin-top:10px;font-weight:500;line-height:1.55;}
+
+  /* google maps button */
+  .btn-map{display:flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(233,201,168,.4);border-radius:13px;padding:14px 18px;text-decoration:none;color:#f5efe2;font-weight:600;font-size:15px;margin-top:14px;}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<div id="langToggle">
+  <button class="lang-opt active" id="btnEN" onclick="setLang('en')">EN</button>
+  <button class="lang-opt" id="btnES" onclick="setLang('es')">ES</button>
+</div>
+<div class="wrap">
+
+  <!-- FILL: neighborhood eyebrow, property name, hero headline + tagline, images/hero.jpg -->
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="eyebrow">La Punta · Puerto Escondido</div>
+      <h1 data-i18n="hero-h1">Welcome to <em>your corner<br>of La Punta</em></h1>
+      <p class="sub" data-i18n="hero-sub">Two minutes from the sand, tucked into a quiet garden all your own. Here's everything for an easy, beautiful stay.</p>
+    </div>
+    <div class="scroll-cue" data-i18n="scroll-cue">Scroll to begin <span>↓</span></div>
+  </header>
+
+  <!-- ============================================================
+       MOVEMENT 1: BEFORE YOU COME
+       The host welcome, then what to know days before arrival.
+       ============================================================ -->
+
+  <!-- FILL: host welcome note, host name/initial, review stats -->
+  <!-- WELCOME NOTE -->
+  <section class="welcome reveal">
+    <div class="sec-label" data-i18n="welcome-label">A note from your host</div>
+    <p class="note" data-i18n="welcome-note">"I made this little villa to be a calm place to land after the beach. Slow mornings with coffee on the terrace, the garden to yourself, the waves a two-minute walk away. I live close by and I love helping guests find the best of La Punta. I hope you feel at home here."</p>
+    <div class="host-sign">
+      <div class="avatar">A</div>
+      <!-- FILL: confirm Anna's name / review stats before sending -->
+      <div class="meta"><b>Anna</b> · Superhost<br><span data-i18n="host-reviews">4.93 ★ · 40 reviews · 2 years hosting</span></div>
+    </div>
+  </section>
+
+  <!-- PREP: what to sort before traveling. -->
+  <!-- FILL: adjust prep items to this property -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="prep-label">Before you come</div>
+    <h2 data-i18n="prep-h2">A little <em>prep</em></h2>
+    <p class="lead" style="margin-bottom:8px" data-i18n="prep-lead">A few easy things worth sorting in the days before you travel.</p>
+    <div class="rule">
+      <div class="ic">💵</div>
+      <div class="txt"><b data-i18n="prep1-title">Bring some cash</b><span data-i18n="prep1-text">Many of the taco stands, beach spots, and small cafés in La Punta are cash-only, and small bills help. There are ATMs in town, though they sometimes run empty on weekends, so take out a little early.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🚕</div>
+      <div class="txt"><b data-i18n="prep2-title">Sort your airport pickup</b><span data-i18n="prep2-text">Puerto Escondido airport (PXM) is about ten minutes away. Message me before you fly in and I'll arrange a trusted driver, so someone is waiting for you when you land.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🧴</div>
+      <div class="txt"><b data-i18n="prep3-title">Pack for sand and sun</b><span data-i18n="prep3-text">Reef-safe sunscreen, a hat, and flip-flops. There's an outdoor shower to rinse off after the beach. One honest guest tip: bring your own shampoo.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">📅</div>
+      <div class="txt"><b data-i18n="prep4-title">Pre-book any experiences</b><span data-i18n="prep4-text">Surf lessons, a boat tour to the dolphins or the glowing lagoon, a massage here at the villa. A few need a little notice. Tell me your dates and I'll have it arranged before you arrive.</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       MOVEMENT 2: GETTING HERE
+       Every route ends at the villa. Meeting is via WhatsApp, never a code on the page.
+       ============================================================ -->
+  <!-- FILL: exact street + nearest landmark, the Google Maps pin, parking detail -->
+  <!-- GETTING HERE -->
+  <section class="arrival reveal">
+    <div class="sec-label" data-i18n="arrival-label">Getting here</div>
+    <h2 data-i18n="arrival-h2">Finding your way to <em>the villa</em></h2>
+    <p class="lead" data-i18n="arrival-lead">You're right in the heart of La Punta, a short hop from the airport. Tap your route below. Every one ends at the garden gate, where I'll meet you and get you settled.</p>
+
+    <details class="route">
+      <summary><span data-i18n="routeA-title">From the airport (PXM)</span><span class="tag" data-i18n="routeA-tag">Taxi · 10 min</span><span class="chev">›</span></summary>
+      <ol>
+        <li data-i18n="a1">Puerto Escondido airport (PXM) is about a ten-minute drive from the villa.</li>
+        <li data-i18n="a2">Take an official airport taxi, or the driver I arrange for you. Show them the map pin below, or ask for <b>La Punta</b>, near <b>Playa Zicatela's La Punta entrance</b>.</li>
+        <li data-i18n="a3">Message me when you land and I'll be ready to meet you at the gate.</li>
+        <li data-i18n="a4">A street taxi runs roughly $150 to $250 pesos. The driver I set up will have a fixed price we agree beforehand.</li>
+      </ol>
+    </details>
+
+    <details class="route">
+      <summary><span data-i18n="routeB-title">From Oaxaca City</span><span class="tag" data-i18n="routeB-tag">Van / bus</span><span class="chev">›</span></summary>
+      <ol>
+        <li data-i18n="b1">From Oaxaca City, take an overnight <b>ADO</b> bus or a shared van down to Puerto Escondido (about 6 to 7 hours on the mountain road).</li>
+        <li data-i18n="b2">From the Puerto Escondido terminal, it's a ten-minute taxi to La Punta.</li>
+        <li data-i18n="b3">Ask the driver for <b>La Punta</b> and show them the map pin below.</li>
+        <li data-i18n="b4">Message me when you're close and I'll meet you at the gate.</li>
+      </ol>
+    </details>
+
+    <details class="route">
+      <summary><span data-i18n="routeC-title">By car</span><span class="tag" data-i18n="routeC-tag">Free parking</span><span class="chev">›</span></summary>
+      <ol>
+        <li data-i18n="c1">Head for <b>La Punta</b> in Brisas de Zicatela and follow the map pin below to the villa.</li>
+        <li data-i18n="c2">There's free street parking right out front. Guests almost always find a spot by the door.</li>
+        <li data-i18n="c3">Message me when you arrive and I'll come let you in.</li>
+      </ol>
+    </details>
+
+    <details class="route">
+      <summary><span data-i18n="routeD-title">Already in La Punta · on foot</span><span class="tag" data-i18n="routeD-tag">2 min walk</span><span class="chev">›</span></summary>
+      <ol>
+        <li data-i18n="d1">From the La Punta beach entrance, the villa is about a two-minute walk, roughly 100 meters.</li>
+        <li data-i18n="d2">Follow the map pin to the garden's one secured entrance, shared by just two villas.</li>
+        <li data-i18n="d3">Message me when you're at the gate and I'll let you in.</li>
+      </ol>
+    </details>
+
+    <!-- FILL: replace with the exact villa pin once Anna confirms -->
+    <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=La+Punta+Puerto+Escondido" target="_blank" rel="noopener" data-i18n="map-btn">📍 Open in Google Maps</a>
+
+    <div class="landmark">
+      <span>📍</span>
+      <div data-i18n="landmark1"><b>Lost or arriving?</b> Message me on WhatsApp and I'll meet you at the gate to walk you in.</div>
+    </div>
+    <div class="landmark" style="margin-top:8px;">
+      <span>🚕</span>
+      <div data-i18n="landmark-reminder"><b>Two easy things:</b> the airport (PXM) is only ten minutes away, and there's free parking right on the street out front. Send me your arrival time and I'll be there to let you in.</div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MOVEMENT 3: WHILE YOU'RE HERE
+       The home, the essentials, experiences, eat & drink, in-stay notes.
+       ============================================================ -->
+
+  <!-- FILL: house character + rules -->
+  <!-- THE HOME -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="home-label">The home</div>
+    <h2 data-i18n="home-h2">How it <em>feels here</em></h2>
+    <p class="lead" style="margin-bottom:8px" data-i18n="home-lead">A few things that make the villa an easy place to come home to.</p>
+    <div class="rule">
+      <div class="ic">❄️</div>
+      <div class="txt"><b data-i18n="rule1-title">Cool, quiet nights</b><span data-i18n="rule1-text">AC and a king bed, so you sleep well after a day in the sun. The villa is a bright, open studio with everything within reach.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🚿</div>
+      <div class="txt"><b data-i18n="rule2-title">Hot water and an outdoor shower</b><span data-i18n="rule2-text">High-pressure hot water inside, plus an outdoor shower to rinse the salt and sand before you come in.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">☕</div>
+      <div class="txt"><b data-i18n="rule3-title">Your own kitchen</b><span data-i18n="rule3-text">A modern kitchenette with an induction stove, fridge, cookware, and a coffee station, made for slow mornings on the terrace.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🌿</div>
+      <div class="txt"><b data-i18n="rule4-title">A garden, kept private</b><span data-i18n="rule4-text">The gated garden is shared by just two villas, each with its own entrance and terrace. Quiet, green, and yours to enjoy.</span></div>
+    </div>
+    <div class="rule">
+      <div class="ic">🎶</div>
+      <div class="txt"><b data-i18n="rule5-title">A lively, friendly neighborhood</b><span data-i18n="rule5-text">La Punta is a social beach town, so a little evening music and street life is part of the charm. Community quiet hours begin at 11 PM.</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FILL: wifi network/password, check-in window, checkout time, quiet hours, max guests -->
+  <!-- ESSENTIALS -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="facts-label">The essentials</div>
+    <h2 data-i18n="facts-h2">Good to <em>know</em></h2>
+    <div class="facts">
+      <div class="fact wifi">
+        <span class="ic">📶</span>
+        <div class="k" data-i18n="wifi-label">WiFi</div>
+        <!-- FILL: real network name + password -->
+        <div class="wifi-row"><span class="label" data-i18n="wifi-network">Network</span><span class="val">La Punta Villa</span></div>
+        <div class="wifi-row"><span class="label" data-i18n="wifi-password">Password</span><span class="val">••••••••</span></div>
+      </div>
+      <div class="fact" style="grid-column:1/-1;">
+        <span class="ic">🕑</span>
+        <div class="k" data-i18n="checkin-label">Check-in</div>
+        <!-- FILL: confirm check-in time -->
+        <div class="v" data-i18n="checkin-val">From <strong style="font-size:17px;">3:00 PM</strong></div>
+        <p class="checkin-note" data-i18n="checkin-note">Early check-in is often possible when the villa is free the night before. Just ask and I'll try to have it ready for you.</p>
+      </div>
+      <div class="fact">
+        <span class="ic">🌙</span>
+        <div class="k" data-i18n="checkout-label">Check-out</div>
+        <!-- FILL: confirm checkout time -->
+        <div class="v" data-i18n="checkout-val">By 11 AM</div>
+      </div>
+      <div class="fact">
+        <span class="ic">🔕</span>
+        <div class="k" data-i18n="quiet-label">Quiet hours</div>
+        <div class="v">From 11 PM<small data-i18n="quiet-small">Community quiet hours in La Punta</small></div>
+      </div>
+      <div class="fact">
+        <span class="ic">👥</span>
+        <div class="k" data-i18n="guests-label">Guests</div>
+        <div class="v" data-i18n="guests-val">3 maximum</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILL: experiences list (confirm Anna's real providers / contacts) -->
+  <!-- EXPERIENCES -->
+  <section class="experiences reveal">
+    <div class="sec-label" data-i18n="exp-label">While you're here</div>
+    <h2 data-i18n="exp-h2">Experiences in <em>La Punta</em></h2>
+    <p class="lead" data-i18n="exp-lead">These aren't tourist add-ons, they're the real life of this place, with people who actually live and work here. Every experience is bookable on request, just message me. Prices are shared privately and can shift with the season, but almost anything is possible.</p>
+    <p class="lead" style="font-size:13.5px;margin-top:8px;" data-i18n="exp-note">Tell me the kind of trip you're after, surf and sunsets, or slow and quiet, and I'll point you to the right people.</p>
+
+    <div class="exp e1">
+      <div class="band"><span class="emoji">🏄</span></div>
+      <div class="body">
+        <h3 data-i18n="exp1-title">Surf lessons</h3>
+        <p data-i18n="exp1-desc">La Punta is one of the best places in the world to learn. I'll connect you with local instructors who grew up on these waves. Board and rash guard included.</p>
+        <span class="pre" data-i18n="exp1-pre">Book on request</span>
+      </div>
+    </div>
+
+    <div class="exp e2">
+      <div class="band"><span class="emoji">🧘</span></div>
+      <div class="body">
+        <h3 data-i18n="exp2-title">Beach yoga</h3>
+        <p data-i18n="exp2-desc">Open-air morning yoga a few steps away, facing the sea. A calm, grounding way to start the day. Most mornings, drop-in.</p>
+      </div>
+    </div>
+
+    <div class="exp e3">
+      <div class="band"><span class="emoji">🐬</span></div>
+      <div class="body">
+        <h3 data-i18n="exp3-title">Dolphin &amp; turtle boat trip</h3>
+        <p data-i18n="exp3-desc">An early boat out from the coast to see dolphins and sea turtles, and whales in season. Calm water, soft light, a beautiful morning.</p>
+        <span class="pre" data-i18n="exp3-pre">Book on request · seasonal</span>
+      </div>
+    </div>
+
+    <div class="exp e4">
+      <div class="band"><span class="emoji">✨</span></div>
+      <div class="body">
+        <h3 data-i18n="exp4-title">Bioluminescence night tour</h3>
+        <p data-i18n="exp4-desc">After dark, a boat into Laguna de Manialtepec, where the water glows blue when you move through it. Best on a moonless night.</p>
+        <span class="pre" data-i18n="exp4-pre">Book on request · seasonal</span>
+      </div>
+    </div>
+
+    <div class="exp e5">
+      <div class="band"><span class="emoji">🌅</span></div>
+      <div class="body">
+        <h3 data-i18n="exp5-title">Sunset at the point</h3>
+        <p data-i18n="exp5-desc">Walk to the tip of La Punta for the evening sunset ritual. Everyone gathers on the rocks as the sky turns. No arranging needed, just go.</p>
+      </div>
+    </div>
+
+    <div class="exp e6">
+      <div class="band"><span class="emoji">💆</span></div>
+      <div class="body">
+        <h3 data-i18n="exp6-title">Massage at the villa</h3>
+        <p data-i18n="exp6-desc">A local therapist comes to you, here on the terrace or in the garden. Deep, restorative bodywork without leaving home.</p>
+        <span class="pre" data-i18n="exp6-pre">Book on request</span>
+      </div>
+    </div>
+
+    <div class="exp e7">
+      <div class="band"><span class="emoji">🍶</span></div>
+      <div class="body">
+        <h3 data-i18n="exp7-title">Mezcal &amp; food tasting</h3>
+        <p data-i18n="exp7-desc">A guided taste of Oaxacan mezcal and local food with someone who knows the makers and the stories behind them.</p>
+        <span class="pre" data-i18n="exp7-pre">Book on request</span>
+      </div>
+    </div>
+
+    <div class="exp e8">
+      <div class="band"><span class="emoji">🐢</span></div>
+      <div class="body">
+        <h3 data-i18n="exp8-title">Baby turtle release</h3>
+        <p data-i18n="exp8-desc">In season, join an evening release of baby turtles on a nearby beach. Gentle and moving, lovely with kids.</p>
+        <span class="pre" data-i18n="exp8-pre">Seasonal</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FILL: confirm Anna's own favorite spots -->
+  <!-- EAT -->
+  <section class="reveal">
+    <div class="sec-label" data-i18n="eat-label">Eat &amp; drink</div>
+    <h2 data-i18n="eat-h2">Where to <em>eat</em></h2>
+    <p class="lead" style="margin-bottom:6px" data-i18n="eat-lead">A few local favorites, all an easy walk from the villa.</p>
+
+    <div class="eatcard">
+      <div class="num">01</div>
+      <div>
+        <h3>Almoráh <span class="veg" data-i18n="eat1-veg">· veg options</span></h3>
+        <p data-i18n="eat1-desc">Fresh, healthy breakfasts, bowls, and juices. A bright way to start a La Punta morning.</p>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">02</div>
+      <div>
+        <h3>Lychee <span class="veg" data-i18n="eat2-veg">· veg options</span></h3>
+        <p data-i18n="eat2-desc">Asian-Mexican fusion and good cocktails. A favorite for a relaxed dinner.</p>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">03</div>
+      <div>
+        <h3>Cafecito</h3>
+        <p data-i18n="eat3-desc">The classic for strong coffee, pastries, and big breakfasts near the beach.</p>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">04</div>
+      <div>
+        <h3>Espadín</h3>
+        <p data-i18n="eat4-desc">Local Oaxacan plates and mezcal, with a warm, easy evening feel.</p>
+      </div>
+    </div>
+    <div class="eatcard">
+      <div class="num">★</div>
+      <div>
+        <h3 data-i18n="eat5-title">Evening taco stands</h3>
+        <p data-i18n="eat5-desc">After dark the main street fills with taco and tlayuda stands. Follow the crowd and the smell of the grill.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN-STAY NOTES -->
+  <!-- FILL: how to reach the host, water, the neighborhood -->
+  <section class="practical reveal">
+    <div class="sec-label" data-i18n="practical-label">Local notes</div>
+    <h2 data-i18n="practical-h2">A few <em>practical</em> things</h2>
+    <div class="pcard">
+      <span class="ic">📱</span>
+      <div><b data-i18n="pcard1-title">Reaching me</b><span data-i18n="pcard1-text">I'm a message away on WhatsApp. For anything you need during your stay, just text me. I usually reply quickly.</span></div>
+    </div>
+    <div class="pcard">
+      <span class="ic">💧</span>
+      <div><b data-i18n="pcard2-title">Drinking water</b><span data-i18n="pcard2-text">Drink the bottled or filtered water, not the tap. There's a garrafón in the kitchen to refill your bottle anytime.</span></div>
+    </div>
+    <div class="pcard">
+      <span class="ic">🌴</span>
+      <div><b data-i18n="pcard3-title">You're in La Punta</b><span data-i18n="pcard3-text">The beach, cafés, and surf are all walkable. Downtown Puerto and the Zicatela boardwalk are a short, cheap taxi ride away.</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MOVEMENT 4: HEADING OUT
+       The checkout checklist, then the warm closing note.
+       ============================================================ -->
+
+  <!-- FILL: checkout checklist + where the key goes -->
+  <!-- CHECKOUT -->
+  <section class="checkout reveal">
+    <div class="sec-label" data-i18n="checkout-section-label">Before you go</div>
+    <h2 data-i18n="checkout-h2">Check-out by <em>11 AM</em></h2>
+    <p class="lead" style="margin-bottom:8px" data-i18n="checkout-lead">A quick list to leave the villa easy for the next guests.</p>
+    <div class="step"><div class="box"></div><span data-i18n="step1">Wash any dishes, pots, and pans you used</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step2">Put trash in the bins outside</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step3">Turn off the AC, fan, and lights</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step4">Close the windows and lock the terrace door</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step5">Leave the key where we agreed</span></div>
+    <div class="step"><div class="box"></div><span data-i18n="step6">Message me to say you're off safely 🙏</span></div>
+  </section>
+
+  <!-- FILL: host name in buttons + WhatsApp / phone number (currently points to The Welcome Link line for the demo) -->
+  <!-- CONTACT -->
+  <section class="contact reveal">
+    <div class="sec-label" style="justify-content:center" data-i18n="contact-label">Here for you</div>
+    <h2 data-i18n="contact-h2">Anything you <em>need</em></h2>
+    <p class="lead" data-i18n="contact-lead">Don't hesitate to reach out. I love sharing this place.</p>
+    <a class="btn btn-wa" href="https://wa.me/529542061152" data-i18n="btn-wa">💬 Message Anna on WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+529542061152" data-i18n="btn-call">📞 Call Anna</a>
+  </section>
+
+  <div class="foot">
+    <div class="mark" data-i18n="foot-mark">Buen viaje, and enjoy La Punta.</div>
+    <div class="small">La Punta · Puerto Escondido · Oaxaca</div>
+  </div>
+
+</div>
+
+<script>
+  const T = {
+    en: {
+      'hero-h1': 'Welcome to <em>your corner<br>of La Punta</em>',
+      'hero-sub': "Two minutes from the sand, tucked into a quiet garden all your own. Here's everything for an easy, beautiful stay.",
+      'scroll-cue': 'Scroll to begin <span>↓</span>',
+      'welcome-label': 'A note from your host',
+      'welcome-note': '"I made this little villa to be a calm place to land after the beach. Slow mornings with coffee on the terrace, the garden to yourself, the waves a two-minute walk away. I live close by and I love helping guests find the best of La Punta. I hope you feel at home here."',
+      'host-reviews': '4.93 ★ · 40 reviews · 2 years hosting',
+      'prep-label': 'Before you come',
+      'prep-h2': 'A little <em>prep</em>',
+      'prep-lead': 'A few easy things worth sorting in the days before you travel.',
+      'prep1-title': 'Bring some cash',
+      'prep1-text': 'Many of the taco stands, beach spots, and small cafés in La Punta are cash-only, and small bills help. There are ATMs in town, though they sometimes run empty on weekends, so take out a little early.',
+      'prep2-title': 'Sort your airport pickup',
+      'prep2-text': "Puerto Escondido airport (PXM) is about ten minutes away. Message me before you fly in and I'll arrange a trusted driver, so someone is waiting for you when you land.",
+      'prep3-title': 'Pack for sand and sun',
+      'prep3-text': "Reef-safe sunscreen, a hat, and flip-flops. There's an outdoor shower to rinse off after the beach. One honest guest tip: bring your own shampoo.",
+      'prep4-title': 'Pre-book any experiences',
+      'prep4-text': "Surf lessons, a boat tour to the dolphins or the glowing lagoon, a massage here at the villa. A few need a little notice. Tell me your dates and I'll have it arranged before you arrive.",
+      'arrival-label': 'Getting here',
+      'arrival-h2': 'Finding your way to <em>the villa</em>',
+      'arrival-lead': "You're right in the heart of La Punta, a short hop from the airport. Tap your route below. Every one ends at the garden gate, where I'll meet you and get you settled.",
+      'routeA-title': 'From the airport (PXM)',
+      'routeA-tag': 'Taxi · 10 min',
+      'a1': 'Puerto Escondido airport (PXM) is about a ten-minute drive from the villa.',
+      'a2': 'Take an official airport taxi, or the driver I arrange for you. Show them the map pin below, or ask for <b>La Punta</b>, near <b>Playa Zicatela\'s La Punta entrance</b>.',
+      'a3': "Message me when you land and I'll be ready to meet you at the gate.",
+      'a4': 'A street taxi runs roughly $150 to $250 pesos. The driver I set up will have a fixed price we agree beforehand.',
+      'routeB-title': 'From Oaxaca City',
+      'routeB-tag': 'Van / bus',
+      'b1': 'From Oaxaca City, take an overnight <b>ADO</b> bus or a shared van down to Puerto Escondido (about 6 to 7 hours on the mountain road).',
+      'b2': "From the Puerto Escondido terminal, it's a ten-minute taxi to La Punta.",
+      'b3': 'Ask the driver for <b>La Punta</b> and show them the map pin below.',
+      'b4': "Message me when you're close and I'll meet you at the gate.",
+      'routeC-title': 'By car',
+      'routeC-tag': 'Free parking',
+      'c1': 'Head for <b>La Punta</b> in Brisas de Zicatela and follow the map pin below to the villa.',
+      'c2': "There's free street parking right out front. Guests almost always find a spot by the door.",
+      'c3': "Message me when you arrive and I'll come let you in.",
+      'routeD-title': 'Already in La Punta · on foot',
+      'routeD-tag': '2 min walk',
+      'd1': 'From the La Punta beach entrance, the villa is about a two-minute walk, roughly 100 meters.',
+      'd2': "Follow the map pin to the garden's one secured entrance, shared by just two villas.",
+      'd3': "Message me when you're at the gate and I'll let you in.",
+      'map-btn': '📍 Open in Google Maps',
+      'landmark1': "<b>Lost or arriving?</b> Message me on WhatsApp and I'll meet you at the gate to walk you in.",
+      'landmark-reminder': '<b>Two easy things:</b> the airport (PXM) is only ten minutes away, and there\'s free parking right on the street out front. Send me your arrival time and I\'ll be there to let you in.',
+      'facts-label': 'The essentials',
+      'facts-h2': 'Good to <em>know</em>',
+      'wifi-label': 'WiFi',
+      'wifi-network': 'Network',
+      'wifi-password': 'Password',
+      'checkin-label': 'Check-in',
+      'checkin-val': 'From <strong style="font-size:17px;">3:00 PM</strong>',
+      'checkin-note': "Early check-in is often possible when the villa is free the night before. Just ask and I'll try to have it ready for you.",
+      'checkout-label': 'Check-out',
+      'checkout-val': 'By 11 AM',
+      'quiet-label': 'Quiet hours',
+      'quiet-small': 'Community quiet hours in La Punta',
+      'guests-label': 'Guests',
+      'guests-val': '3 maximum',
+      'home-label': 'The home',
+      'home-h2': 'How it <em>feels here</em>',
+      'home-lead': 'A few things that make the villa an easy place to come home to.',
+      'rule1-title': 'Cool, quiet nights',
+      'rule1-text': 'AC and a king bed, so you sleep well after a day in the sun. The villa is a bright, open studio with everything within reach.',
+      'rule2-title': 'Hot water and an outdoor shower',
+      'rule2-text': 'High-pressure hot water inside, plus an outdoor shower to rinse the salt and sand before you come in.',
+      'rule3-title': 'Your own kitchen',
+      'rule3-text': 'A modern kitchenette with an induction stove, fridge, cookware, and a coffee station, made for slow mornings on the terrace.',
+      'rule4-title': 'A garden, kept private',
+      'rule4-text': 'The gated garden is shared by just two villas, each with its own entrance and terrace. Quiet, green, and yours to enjoy.',
+      'rule5-title': 'A lively, friendly neighborhood',
+      'rule5-text': 'La Punta is a social beach town, so a little evening music and street life is part of the charm. Community quiet hours begin at 11 PM.',
+      'exp-label': "While you're here",
+      'exp-h2': 'Experiences in <em>La Punta</em>',
+      'exp-lead': "These aren't tourist add-ons, they're the real life of this place, with people who actually live and work here. Every experience is bookable on request, just message me. Prices are shared privately and can shift with the season, but almost anything is possible.",
+      'exp-note': "Tell me the kind of trip you're after, surf and sunsets, or slow and quiet, and I'll point you to the right people.",
+      'exp1-title': 'Surf lessons',
+      'exp1-desc': "La Punta is one of the best places in the world to learn. I'll connect you with local instructors who grew up on these waves. Board and rash guard included.",
+      'exp1-pre': 'Book on request',
+      'exp2-title': 'Beach yoga',
+      'exp2-desc': 'Open-air morning yoga a few steps away, facing the sea. A calm, grounding way to start the day. Most mornings, drop-in.',
+      'exp3-title': 'Dolphin & turtle boat trip',
+      'exp3-desc': 'An early boat out from the coast to see dolphins and sea turtles, and whales in season. Calm water, soft light, a beautiful morning.',
+      'exp3-pre': 'Book on request · seasonal',
+      'exp4-title': 'Bioluminescence night tour',
+      'exp4-desc': 'After dark, a boat into Laguna de Manialtepec, where the water glows blue when you move through it. Best on a moonless night.',
+      'exp4-pre': 'Book on request · seasonal',
+      'exp5-title': 'Sunset at the point',
+      'exp5-desc': 'Walk to the tip of La Punta for the evening sunset ritual. Everyone gathers on the rocks as the sky turns. No arranging needed, just go.',
+      'exp6-title': 'Massage at the villa',
+      'exp6-desc': 'A local therapist comes to you, here on the terrace or in the garden. Deep, restorative bodywork without leaving home.',
+      'exp6-pre': 'Book on request',
+      'exp7-title': 'Mezcal & food tasting',
+      'exp7-desc': 'A guided taste of Oaxacan mezcal and local food with someone who knows the makers and the stories behind them.',
+      'exp7-pre': 'Book on request',
+      'exp8-title': 'Baby turtle release',
+      'exp8-desc': 'In season, join an evening release of baby turtles on a nearby beach. Gentle and moving, lovely with kids.',
+      'exp8-pre': 'Seasonal',
+      'eat-label': 'Eat & drink',
+      'eat-h2': 'Where to <em>eat</em>',
+      'eat-lead': 'A few local favorites, all an easy walk from the villa.',
+      'eat1-veg': '· veg options',
+      'eat1-desc': 'Fresh, healthy breakfasts, bowls, and juices. A bright way to start a La Punta morning.',
+      'eat2-veg': '· veg options',
+      'eat2-desc': 'Asian-Mexican fusion and good cocktails. A favorite for a relaxed dinner.',
+      'eat3-desc': 'The classic for strong coffee, pastries, and big breakfasts near the beach.',
+      'eat4-desc': 'Local Oaxacan plates and mezcal, with a warm, easy evening feel.',
+      'eat5-title': 'Evening taco stands',
+      'eat5-desc': 'After dark the main street fills with taco and tlayuda stands. Follow the crowd and the smell of the grill.',
+      'practical-label': 'Local notes',
+      'practical-h2': 'A few <em>practical</em> things',
+      'pcard1-title': 'Reaching me',
+      'pcard1-text': "I'm a message away on WhatsApp. For anything you need during your stay, just text me. I usually reply quickly.",
+      'pcard2-title': 'Drinking water',
+      'pcard2-text': "Drink the bottled or filtered water, not the tap. There's a garrafón in the kitchen to refill your bottle anytime.",
+      'pcard3-title': "You're in La Punta",
+      'pcard3-text': 'The beach, cafés, and surf are all walkable. Downtown Puerto and the Zicatela boardwalk are a short, cheap taxi ride away.',
+      'checkout-section-label': 'Before you go',
+      'checkout-h2': 'Check-out by <em>11 AM</em>',
+      'checkout-lead': 'A quick list to leave the villa easy for the next guests.',
+      'step1': 'Wash any dishes, pots, and pans you used',
+      'step2': 'Put trash in the bins outside',
+      'step3': 'Turn off the AC, fan, and lights',
+      'step4': 'Close the windows and lock the terrace door',
+      'step5': 'Leave the key where we agreed',
+      'step6': "Message me to say you're off safely 🙏",
+      'contact-label': 'Here for you',
+      'contact-h2': 'Anything you <em>need</em>',
+      'contact-lead': "Don't hesitate to reach out. I love sharing this place.",
+      'btn-wa': '💬 Message Anna on WhatsApp',
+      'btn-call': '📞 Call Anna',
+      'foot-mark': 'Buen viaje, and enjoy La Punta.'
+    },
+    es: {
+      'hero-h1': 'Bienvenido a <em>tu rincón<br>de La Punta</em>',
+      'hero-sub': 'A dos minutos de la arena, en un jardín tranquilo solo para ti. Aquí tienes todo para una estancia fácil y hermosa.',
+      'scroll-cue': 'Desliza para comenzar <span>↓</span>',
+      'welcome-label': 'Una nota de tu anfitriona',
+      'welcome-note': '"Hice esta pequeña villa para que sea un lugar tranquilo donde aterrizar después de la playa. Mañanas lentas con café en la terraza, el jardín para ti, y las olas a dos minutos caminando. Vivo cerca y me encanta ayudar a los huéspedes a descubrir lo mejor de La Punta. Espero que te sientas como en casa."',
+      'host-reviews': '4.93 ★ · 40 reseñas · 2 años como anfitriona',
+      'prep-label': 'Antes de venir',
+      'prep-h2': 'Un poco de <em>preparación</em>',
+      'prep-lead': 'Algunas cosas fáciles que vale la pena resolver en los días antes de viajar.',
+      'prep1-title': 'Trae algo de efectivo',
+      'prep1-text': 'Muchos de los puestos de tacos, lugares de playa y cafés pequeños en La Punta son solo en efectivo, y los billetes chicos ayudan. Hay cajeros en el pueblo, aunque a veces se quedan sin dinero los fines de semana, así que saca un poco con tiempo.',
+      'prep2-title': 'Organiza tu traslado del aeropuerto',
+      'prep2-text': 'El aeropuerto de Puerto Escondido (PXM) está a unos diez minutos. Escríbeme antes de volar y organizo un conductor de confianza, para que alguien te espere al aterrizar.',
+      'prep3-title': 'Empaca para arena y sol',
+      'prep3-text': 'Protector solar que no dañe el arrecife, un sombrero y chanclas. Hay una regadera exterior para enjuagarte después de la playa. Un consejo honesto de huéspedes: trae tu propio shampoo.',
+      'prep4-title': 'Reserva las experiencias con tiempo',
+      'prep4-text': 'Clases de surf, un tour en lancha a los delfines o a la laguna que brilla, un masaje aquí en la villa. Algunas necesitan un poco de aviso. Dime tus fechas y lo dejo organizado antes de que llegues.',
+      'arrival-label': 'Cómo llegar',
+      'arrival-h2': 'Cómo encontrar <em>la villa</em>',
+      'arrival-lead': 'Estás en el corazón de La Punta, muy cerca del aeropuerto. Toca tu ruta abajo; todas terminan en el portón del jardín, donde te recibo y te instalo.',
+      'routeA-title': 'Desde el aeropuerto (PXM)',
+      'routeA-tag': 'Taxi · 10 min',
+      'a1': 'El aeropuerto de Puerto Escondido (PXM) está a unos diez minutos en coche de la villa.',
+      'a2': 'Toma un taxi oficial del aeropuerto, o el conductor que yo te organice. Muéstrale el punto del mapa de abajo, o pide <b>La Punta</b>, cerca de la <b>entrada de La Punta en Playa Zicatela</b>.',
+      'a3': 'Escríbeme cuando aterrices y estaré lista para recibirte en el portón.',
+      'a4': 'Un taxi de calle cuesta más o menos $150 a $250 pesos. El conductor que organizo tiene un precio fijo que acordamos antes.',
+      'routeB-title': 'Desde la Ciudad de Oaxaca',
+      'routeB-tag': 'Van / autobús',
+      'b1': 'Desde la Ciudad de Oaxaca, toma un autobús nocturno de <b>ADO</b> o una van compartida hasta Puerto Escondido (unas 6 a 7 horas por la carretera de montaña).',
+      'b2': 'Desde la terminal de Puerto Escondido, son unos diez minutos en taxi hasta La Punta.',
+      'b3': 'Pide al conductor <b>La Punta</b> y muéstrale el punto del mapa de abajo.',
+      'b4': 'Escríbeme cuando estés cerca y te recibo en el portón.',
+      'routeC-title': 'En coche',
+      'routeC-tag': 'Estacionamiento gratis',
+      'c1': 'Dirígete a <b>La Punta</b> en Brisas de Zicatela y sigue el punto del mapa de abajo hasta la villa.',
+      'c2': 'Hay estacionamiento gratis en la calle justo enfrente. Los huéspedes casi siempre encuentran lugar junto a la puerta.',
+      'c3': 'Escríbeme cuando llegues y salgo a abrirte.',
+      'routeD-title': 'Ya en La Punta · a pie',
+      'routeD-tag': '2 min a pie',
+      'd1': 'Desde la entrada de la playa de La Punta, la villa está a unos dos minutos a pie, unos 100 metros.',
+      'd2': 'Sigue el punto del mapa hasta la única entrada segura del jardín, compartida por solo dos villas.',
+      'd3': 'Escríbeme cuando estés en el portón y te abro.',
+      'map-btn': '📍 Abrir en Google Maps',
+      'landmark1': '<b>¿Perdido o llegando?</b> Escríbeme por WhatsApp y te espero en el portón para acompañarte.',
+      'landmark-reminder': '<b>Dos cosas fáciles:</b> el aeropuerto (PXM) está a solo diez minutos, y hay estacionamiento gratis en la calle justo enfrente. Mándame tu hora de llegada y estaré ahí para abrirte.',
+      'facts-label': 'Lo esencial',
+      'facts-h2': 'Bueno <em>saberlo</em>',
+      'wifi-label': 'WiFi',
+      'wifi-network': 'Red',
+      'wifi-password': 'Contraseña',
+      'checkin-label': 'Llegada',
+      'checkin-val': 'A partir de las <strong style="font-size:17px;">3:00 PM</strong>',
+      'checkin-note': 'Muchas veces es posible llegar antes si la villa está libre la noche anterior. Solo pídemelo y trato de tenerla lista para ti.',
+      'checkout-label': 'Salida',
+      'checkout-val': 'Antes de las 11 AM',
+      'quiet-label': 'Horario de silencio',
+      'quiet-small': 'Horario de silencio de la comunidad en La Punta',
+      'guests-label': 'Huéspedes',
+      'guests-val': '3 máximo',
+      'home-label': 'El espacio',
+      'home-h2': 'Cómo <em>se siente aquí</em>',
+      'home-lead': 'Algunas cosas que hacen de la villa un lugar fácil al que volver.',
+      'rule1-title': 'Noches frescas y tranquilas',
+      'rule1-text': 'Aire acondicionado y una cama king, para que duermas bien después de un día de sol. La villa es un estudio amplio y luminoso con todo a la mano.',
+      'rule2-title': 'Agua caliente y regadera exterior',
+      'rule2-text': 'Agua caliente a buena presión adentro, y una regadera exterior para enjuagar la sal y la arena antes de entrar.',
+      'rule3-title': 'Tu propia cocina',
+      'rule3-text': 'Una cocineta moderna con parrilla de inducción, refrigerador, utensilios y una estación de café, hecha para mañanas lentas en la terraza.',
+      'rule4-title': 'Un jardín, pero privado',
+      'rule4-text': 'El jardín cerrado lo comparten solo dos villas, cada una con su entrada y terraza. Tranquilo, verde y para que lo disfrutes.',
+      'rule5-title': 'Un vecindario animado y amable',
+      'rule5-text': 'La Punta es un pueblo de playa social, así que un poco de música y vida en la calle por la noche es parte del encanto. El horario de silencio de la comunidad empieza a las 11 PM.',
+      'exp-label': 'Mientras estés aquí',
+      'exp-h2': 'Experiencias en <em>La Punta</em>',
+      'exp-lead': 'Estas no son atracciones turísticas, son la vida real de este lugar, con personas que de verdad viven y trabajan aquí. Cada experiencia se reserva bajo petición, solo escríbeme. Los precios se comparten en privado y pueden cambiar según la temporada, pero casi todo es posible.',
+      'exp-note': 'Dime qué tipo de viaje buscas, surf y atardeceres, o algo lento y tranquilo, y te conecto con las personas indicadas.',
+      'exp1-title': 'Clases de surf',
+      'exp1-desc': 'La Punta es uno de los mejores lugares del mundo para aprender. Te conecto con instructores locales que crecieron en estas olas. Tabla y licra incluidas.',
+      'exp1-pre': 'Reservar bajo petición',
+      'exp2-title': 'Yoga en la playa',
+      'exp2-desc': 'Yoga matutino al aire libre a unos pasos, frente al mar. Una forma tranquila y arraigada de empezar el día. Casi todas las mañanas, sin reservar.',
+      'exp3-title': 'Lancha de delfines y tortugas',
+      'exp3-desc': 'Una lancha temprano desde la costa para ver delfines y tortugas marinas, y ballenas en temporada. Agua tranquila, luz suave, una mañana hermosa.',
+      'exp3-pre': 'Reservar bajo petición · estacional',
+      'exp4-title': 'Tour nocturno de bioluminiscencia',
+      'exp4-desc': 'Al caer la noche, una lancha hacia la Laguna de Manialtepec, donde el agua brilla azul cuando te mueves en ella. Mejor en noche sin luna.',
+      'exp4-pre': 'Reservar bajo petición · estacional',
+      'exp5-title': 'Atardecer en la punta',
+      'exp5-desc': 'Camina hasta la punta de La Punta para el ritual del atardecer. Todos se reúnen en las rocas cuando el cielo cambia de color. Sin organizar nada, solo ve.',
+      'exp6-title': 'Masaje en la villa',
+      'exp6-desc': 'Una terapeuta local viene a ti, aquí en la terraza o en el jardín. Trabajo corporal profundo y restaurador sin salir de casa.',
+      'exp6-pre': 'Reservar bajo petición',
+      'exp7-title': 'Cata de mezcal y comida',
+      'exp7-desc': 'Una cata guiada de mezcal oaxaqueño y comida local con alguien que conoce a los productores y las historias detrás de ellos.',
+      'exp7-pre': 'Reservar bajo petición',
+      'exp8-title': 'Liberación de tortuguitas',
+      'exp8-desc': 'En temporada, únete a una liberación de tortuguitas al atardecer en una playa cercana. Tierno y conmovedor, lindo con niños.',
+      'exp8-pre': 'Estacional',
+      'eat-label': 'Comer y beber',
+      'eat-h2': 'Dónde <em>comer</em>',
+      'eat-lead': 'Algunos favoritos locales, todos a una caminata fácil desde la villa.',
+      'eat1-veg': '· opciones vegetarianas',
+      'eat1-desc': 'Desayunos frescos y saludables, bowls y jugos. Una forma luminosa de empezar la mañana en La Punta.',
+      'eat2-veg': '· opciones vegetarianas',
+      'eat2-desc': 'Fusión asiático-mexicana y buenos cócteles. Un favorito para una cena relajada.',
+      'eat3-desc': 'El clásico para café cargado, panes y buenos desayunos cerca de la playa.',
+      'eat4-desc': 'Platillos oaxaqueños locales y mezcal, con un ambiente cálido y tranquilo de noche.',
+      'eat5-title': 'Puestos de tacos de noche',
+      'eat5-desc': 'Al caer la noche la calle principal se llena de puestos de tacos y tlayudas. Sigue a la gente y el olor del asador.',
+      'practical-label': 'Notas locales',
+      'practical-h2': 'Algunas cosas <em>prácticas</em>',
+      'pcard1-title': 'Contactarme',
+      'pcard1-text': 'Estoy a un mensaje por WhatsApp. Para lo que necesites durante tu estancia, solo escríbeme. Normalmente respondo rápido.',
+      'pcard2-title': 'Agua para beber',
+      'pcard2-text': 'Toma el agua embotellada o filtrada, no la de la llave. Hay un garrafón en la cocina para rellenar tu botella cuando quieras.',
+      'pcard3-title': 'Estás en La Punta',
+      'pcard3-text': 'La playa, los cafés y el surf están a caminar. El centro de Puerto y el malecón de Zicatela están a un taxi corto y barato.',
+      'checkout-section-label': 'Antes de irte',
+      'checkout-h2': 'Salida a las <em>11 AM</em>',
+      'checkout-lead': 'Una lista rápida para dejar la villa lista para los siguientes huéspedes.',
+      'step1': 'Lava los platos, ollas y sartenes que usaste',
+      'step2': 'Pon la basura en los botes de afuera',
+      'step3': 'Apaga el aire, el ventilador y las luces',
+      'step4': 'Cierra las ventanas y la puerta de la terraza con llave',
+      'step5': 'Deja la llave donde acordamos',
+      'step6': 'Escríbeme para decirme que partiste bien 🙏',
+      'contact-label': 'Aquí para ti',
+      'contact-h2': 'Lo que <em>necesites</em>',
+      'contact-lead': 'No dudes en escribirme. Me encanta compartir este lugar.',
+      'btn-wa': '💬 Escribe a Anna por WhatsApp',
+      'btn-call': '📞 Llamar a Anna',
+      'foot-mark': 'Buen viaje, y disfruta La Punta.'
+    }
+  };
+
+  let lang = 'en';
+
+  function setLang(target) {
+    lang = target;
+    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+    document.getElementById('btnES').classList.toggle('active', lang === 'es');
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+    });
+  }
+
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const routes = document.querySelectorAll('.route');
+  routes.forEach(r => r.addEventListener('toggle', () => {
+    if (r.open) routes.forEach(o => { if (o !== r) o.open = false; });
+  }));
+</script>
+  <!-- Vercel Analytics + Speed Insights (site standard) -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
