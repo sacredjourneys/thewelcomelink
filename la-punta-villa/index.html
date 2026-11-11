@@ -216,6 +216,20 @@
   .exp .body p{font-size:13.5px;color:var(--ink-soft);}
   .exp .pre{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
     color:var(--clay-deep);font-weight:600;background:var(--sand);padding:4px 10px;border-radius:20px;}
+  .exp.e9 .band{background:radial-gradient(120% 140% at 20% 10%,#c9a24a,#86642a);}
+  .exp .book{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding:11px 14px;border-radius:11px;
+    background:var(--forest);color:#f5efe2;font-size:13.5px;font-weight:600;text-decoration:none;}
+  .exp .book:active{transform:scale(.98);}
+  /* how booking works */
+  .howbook{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 18px 8px;margin-top:18px;box-shadow:var(--shadow);}
+  .howbook .hb-title{font-family:'Newsreader',serif;font-size:19px;font-weight:500;margin-bottom:4px;}
+  .howbook .hb-title em{font-style:italic;color:var(--clay-deep);}
+  .howbook .hb-step{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .howbook .hb-step:last-child{border-bottom:none;}
+  .howbook .hb-n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--sand);color:var(--clay-deep);
+    font-family:'Newsreader',serif;font-size:15px;display:flex;align-items:center;justify-content:center;}
+  .howbook .hb-step span{font-size:13.5px;color:var(--ink-soft);}
+  .howbook .hb-step b{color:var(--ink);font-weight:600;}
 
   /* ===== eat ===== */
   .eatcard{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
@@ -258,6 +272,11 @@
   .btn:active{transform:scale(.98);}
   .btn-wa{background:#25845a;color:#fff;box-shadow:0 10px 24px -10px rgba(37,132,90,.7);}
   .btn-ghost{background:transparent;color:var(--forest);border:1.5px solid var(--line);}
+  .btn-concierge{background:var(--forest);color:#f5efe2;box-shadow:0 10px 24px -10px rgba(30,50,40,.6);}
+  .who{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 18px 18px;margin-top:16px;text-align:left;box-shadow:var(--shadow);}
+  .who .who-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--clay-deep);}
+  .who h3{font-family:'Newsreader',serif;font-weight:500;font-size:20px;margin:4px 0 4px;}
+  .who p{font-size:13.5px;color:var(--ink-soft);}
 
   /* footer */
   .foot{text-align:center;padding:30px 26px 44px;position:relative;z-index:2;}
@@ -479,15 +498,24 @@
   <section class="experiences reveal">
     <div class="sec-label" data-i18n="exp-label">While you're here</div>
     <h2 data-i18n="exp-h2">Experiences in <em>La Punta</em></h2>
-    <p class="lead" data-i18n="exp-lead">These aren't tourist add-ons, they're the real life of this place, with people who actually live and work here. Every experience is bookable on request, just message me. Prices are shared privately and can shift with the season, but almost anything is possible.</p>
-    <p class="lead" style="font-size:13.5px;margin-top:8px;" data-i18n="exp-note">Tell me the kind of trip you're after, surf and sunsets, or slow and quiet, and I'll point you to the right people.</p>
+    <p class="lead" data-i18n="exp-lead">These aren't tourist add-ons, they're the real life of this place, with people who actually live and work here. Everything below is booked through our local concierge, one WhatsApp that knows the right people in town.</p>
+
+    <!-- FILL: concierge business WhatsApp (currently Trevor's personal number, swap when the business line is live) -->
+    <div class="howbook">
+      <div class="hb-title" data-i18n="hb-title">How <em>booking</em> works</div>
+      <div class="hb-step"><div class="hb-n">1</div><span data-i18n="hb1">Tap <b>Book with concierge</b> on anything that calls to you. WhatsApp opens with a message already written.</span></div>
+      <div class="hb-step"><div class="hb-n">2</div><span data-i18n="hb2">Add your dates and how many of you. The concierge confirms availability and the price with you directly.</span></div>
+      <div class="hb-step"><div class="hb-n">3</div><span data-i18n="hb3">That's it. It's arranged with trusted local people, and you'll know exactly when and where before you go.</span></div>
+    </div>
+    <p class="lead" style="font-size:13.5px;margin-top:14px;" data-i18n="exp-note">Not sure what you want yet? Tell the concierge the kind of trip you're after, surf and sunsets, or slow and quiet, and they'll point you to the right people.</p>
 
     <div class="exp e1">
       <div class="band"><span class="emoji">🏄</span></div>
       <div class="body">
         <h3 data-i18n="exp1-title">Surf lessons</h3>
-        <p data-i18n="exp1-desc">La Punta is one of the best places in the world to learn. I'll connect you with local instructors who grew up on these waves. Board and rash guard included.</p>
+        <p data-i18n="exp1-desc">La Punta is one of the best places in the world to learn. Lessons with local instructors who grew up on these waves. Board and rash guard included.</p>
         <span class="pre" data-i18n="exp1-pre">Book on request</span>
+        <a class="book" data-book="exp1-title" href="https://wa.me/529542061152" target="_blank" rel="noopener" data-i18n="exp-book">💬 Book with concierge</a>
       </div>
     </div>
 
@@ -505,6 +533,7 @@
         <h3 data-i18n="exp3-title">Dolphin &amp; turtle boat trip</h3>
         <p data-i18n="exp3-desc">An early boat out from the coast to see dolphins and sea turtles, and whales in season. Calm water, soft light, a beautiful morning.</p>
         <span class="pre" data-i18n="exp3-pre">Book on request · seasonal</span>
+        <a class="book" data-book="exp3-title" href="https://wa.me/529542061152" target="_blank" rel="noopener" data-i18n="exp-book">💬 Book with concierge</a>
       </div>
     </div>
 
@@ -514,6 +543,7 @@
         <h3 data-i18n="exp4-title">Bioluminescence night tour</h3>
         <p data-i18n="exp4-desc">After dark, a boat into Laguna de Manialtepec, where the water glows blue when you move through it. Best on a moonless night.</p>
         <span class="pre" data-i18n="exp4-pre">Book on request · seasonal</span>
+        <a class="book" data-book="exp4-title" href="https://wa.me/529542061152" target="_blank" rel="noopener" data-i18n="exp-book">💬 Book with concierge</a>
       </div>
     </div>
 
@@ -531,6 +561,7 @@
         <h3 data-i18n="exp6-title">Massage at the villa</h3>
         <p data-i18n="exp6-desc">A local therapist comes to you, here on the terrace or in the garden. Deep, restorative bodywork without leaving home.</p>
         <span class="pre" data-i18n="exp6-pre">Book on request</span>
+        <a class="book" data-book="exp6-title" href="https://wa.me/529542061152" target="_blank" rel="noopener" data-i18n="exp-book">💬 Book with concierge</a>
       </div>
     </div>
 
@@ -540,6 +571,7 @@
         <h3 data-i18n="exp7-title">Mezcal &amp; food tasting</h3>
         <p data-i18n="exp7-desc">A guided taste of Oaxacan mezcal and local food with someone who knows the makers and the stories behind them.</p>
         <span class="pre" data-i18n="exp7-pre">Book on request</span>
+        <a class="book" data-book="exp7-title" href="https://wa.me/529542061152" target="_blank" rel="noopener" data-i18n="exp-book">💬 Book with concierge</a>
       </div>
     </div>
 
@@ -549,6 +581,17 @@
         <h3 data-i18n="exp8-title">Baby turtle release</h3>
         <p data-i18n="exp8-desc">In season, join an evening release of baby turtles on a nearby beach. Gentle and moving, lovely with kids.</p>
         <span class="pre" data-i18n="exp8-pre">Seasonal</span>
+        <a class="book" data-book="exp8-title" href="https://wa.me/529542061152" target="_blank" rel="noopener" data-i18n="exp-book">💬 Book with concierge</a>
+      </div>
+    </div>
+
+    <div class="exp e9">
+      <div class="band"><span class="emoji">🛵</span></div>
+      <div class="body">
+        <h3 data-i18n="exp9-title">Scooter &amp; motorbike rental</h3>
+        <p data-i18n="exp9-desc">The easiest way to explore the coast on your own time, from the La Punta cafés to the quieter beaches up the road. Helmets included, delivered to the villa.</p>
+        <span class="pre" data-i18n="exp9-pre">Book on request · by the day or week</span>
+        <a class="book" data-book="exp9-title" href="https://wa.me/529542061152" target="_blank" rel="noopener" data-i18n="exp-book">💬 Book with concierge</a>
       </div>
     </div>
   </section>
@@ -663,9 +706,24 @@
   <section class="contact reveal">
     <div class="sec-label" style="justify-content:center" data-i18n="contact-label">Here for you</div>
     <h2 data-i18n="contact-h2">Anything you <em>need</em></h2>
-    <p class="lead" data-i18n="contact-lead">Don't hesitate to reach out. I love sharing this place.</p>
-    <a class="btn btn-wa" href="https://wa.me/529542061152" data-i18n="btn-wa">💬 Message Anna on WhatsApp</a>
-    <a class="btn btn-ghost" href="tel:+529542061152" data-i18n="btn-call">📞 Call Anna</a>
+    <p class="lead" data-i18n="contact-lead">Two ways to reach us, depending on what you need.</p>
+
+    <!-- FILL: Anna's own WhatsApp + phone (demo currently uses Trevor's number) -->
+    <div class="who">
+      <div class="who-label" data-i18n="who1-label">Your host</div>
+      <h3 data-i18n="who1-h">Anna</h3>
+      <p data-i18n="who1-p">For anything about the villa and your stay: arrival, the house, something not working, checkout.</p>
+      <a class="btn btn-wa" href="https://wa.me/529542061152" target="_blank" rel="noopener" data-i18n="btn-wa">💬 Message Anna</a>
+      <a class="btn btn-ghost" href="tel:+529542061152" data-i18n="btn-call">📞 Call Anna</a>
+    </div>
+
+    <!-- FILL: concierge business WhatsApp (currently Trevor's personal number) -->
+    <div class="who">
+      <div class="who-label" data-i18n="who2-label">Concierge</div>
+      <h3 data-i18n="who2-h">Tours, rentals &amp; bookings</h3>
+      <p data-i18n="who2-p">Surf lessons, boat trips, massages, scooters, airport rides, a table somewhere special. If it involves someone in town, the concierge arranges it.</p>
+      <a class="btn btn-concierge" data-book="concierge-general" href="https://wa.me/529542061152" target="_blank" rel="noopener" data-i18n="btn-concierge">🌴 Message the concierge</a>
+    </div>
   </section>
 
   <div class="foot">
@@ -690,11 +748,11 @@
       'prep1-title': 'Bring some cash',
       'prep1-text': 'Many of the taco stands, beach spots, and small cafés in La Punta are cash-only, and small bills help. There are ATMs in town, though they sometimes run empty on weekends, so take out a little early.',
       'prep2-title': 'Sort your airport pickup',
-      'prep2-text': "Puerto Escondido airport (PXM) is about ten minutes away. Message me before you fly in and I'll arrange a trusted driver, so someone is waiting for you when you land.",
+      'prep2-text': "Puerto Escondido airport (PXM) is about ten minutes away. Message the concierge before you fly in and a trusted driver will be waiting for you when you land.",
       'prep3-title': 'Pack for sand and sun',
       'prep3-text': "Reef-safe sunscreen, a hat, and flip-flops. There's an outdoor shower to rinse off after the beach. One honest guest tip: bring your own shampoo.",
       'prep4-title': 'Pre-book any experiences',
-      'prep4-text': "Surf lessons, a boat tour to the dolphins or the glowing lagoon, a massage here at the villa. A few need a little notice. Tell me your dates and I'll have it arranged before you arrive.",
+      'prep4-text': "Surf lessons, a boat tour to the dolphins or the glowing lagoon, a massage here at the villa. A few need a little notice. Send the concierge your dates and it'll be arranged before you arrive.",
       'arrival-label': 'Getting here',
       'arrival-h2': 'Finding your way to <em>the villa</em>',
       'arrival-lead': "You're right in the heart of La Punta, a short hop from the airport. Tap your route below. Every one ends at the garden gate, where I'll meet you and get you settled.",
@@ -752,10 +810,10 @@
       'rule5-text': 'La Punta is a social beach town, so a little evening music and street life is part of the charm. Community quiet hours begin at 11 PM.',
       'exp-label': "While you're here",
       'exp-h2': 'Experiences in <em>La Punta</em>',
-      'exp-lead': "These aren't tourist add-ons, they're the real life of this place, with people who actually live and work here. Every experience is bookable on request, just message me. Prices are shared privately and can shift with the season, but almost anything is possible.",
-      'exp-note': "Tell me the kind of trip you're after, surf and sunsets, or slow and quiet, and I'll point you to the right people.",
+      'exp-lead': "These aren't tourist add-ons, they're the real life of this place, with people who actually live and work here. Everything below is booked through our local concierge, one WhatsApp that knows the right people in town.",
+      'exp-note': "Not sure what you want yet? Tell the concierge the kind of trip you're after, surf and sunsets, or slow and quiet, and they'll point you to the right people.",
       'exp1-title': 'Surf lessons',
-      'exp1-desc': "La Punta is one of the best places in the world to learn. I'll connect you with local instructors who grew up on these waves. Board and rash guard included.",
+      'exp1-desc': "La Punta is one of the best places in the world to learn. Lessons with local instructors who grew up on these waves. Board and rash guard included.",
       'exp1-pre': 'Book on request',
       'exp2-title': 'Beach yoga',
       'exp2-desc': 'Open-air morning yoga a few steps away, facing the sea. A calm, grounding way to start the day. Most mornings, drop-in.',
@@ -776,6 +834,16 @@
       'exp8-title': 'Baby turtle release',
       'exp8-desc': 'In season, join an evening release of baby turtles on a nearby beach. Gentle and moving, lovely with kids.',
       'exp8-pre': 'Seasonal',
+      'hb-title': "How <em>booking</em> works",
+      'hb1': "Tap <b>Book with concierge</b> on anything that calls to you. WhatsApp opens with a message already written.",
+      'hb2': "Add your dates and how many of you. The concierge confirms availability and the price with you directly.",
+      'hb3': "That's it. It's arranged with trusted local people, and you'll know exactly when and where before you go.",
+      'exp-book': "💬 Book with concierge",
+      'exp9-title': "Scooter & motorbike rental",
+      'exp9-desc': "The easiest way to explore the coast on your own time, from the La Punta cafés to the quieter beaches up the road. Helmets included, delivered to the villa.",
+      'exp9-pre': "Book on request · by the day or week",
+      'book-msg': "Hi! I'm staying at Anna's villa in La Punta and I'd like to book: {x}. My dates are: ",
+      'book-general': "Hi! I'm staying at Anna's villa in La Punta and I'd love some help planning a few things. My dates are: ",
       'eat-label': 'Eat & drink',
       'eat-h2': 'Where to <em>eat</em>',
       'eat-lead': 'A few honest local favorites, all an easy hop from the villa. Tap the pin for the map.',
@@ -796,8 +864,8 @@
       'eat7-desc': 'Weekends only, a local secret with no real online presence. The best quesabirria in Puerto.',
       'practical-label': 'Local notes',
       'practical-h2': 'A few <em>practical</em> things',
-      'pcard1-title': 'Reaching me',
-      'pcard1-text': "I'm a message away on WhatsApp. For anything you need during your stay, just text me. I usually reply quickly.",
+      'pcard1-title': "Two ways to reach us",
+      'pcard1-text': "Message Anna for anything about the villa. Message the concierge for tours, rentals, rides, and bookings. Both buttons are at the bottom of this page.",
       'pcard2-title': 'Drinking water',
       'pcard2-text': "Drink the bottled or filtered water, not the tap. There's a garrafón in the kitchen to refill your bottle anytime.",
       'pcard3-title': "You're in La Punta",
@@ -813,9 +881,16 @@
       'step6': "Message me to say you're off safely 🙏",
       'contact-label': 'Here for you',
       'contact-h2': 'Anything you <em>need</em>',
-      'contact-lead': "Don't hesitate to reach out. I love sharing this place.",
-      'btn-wa': '💬 Message Anna on WhatsApp',
+      'contact-lead': "Two ways to reach us, depending on what you need.",
+      'btn-wa': "💬 Message Anna",
       'btn-call': '📞 Call Anna',
+      'who1-label': "Your host",
+      'who1-h': "Anna",
+      'who1-p': "For anything about the villa and your stay: arrival, the house, something not working, checkout.",
+      'who2-label': "Concierge",
+      'who2-h': "Tours, rentals &amp; bookings",
+      'who2-p': "Surf lessons, boat trips, massages, scooters, airport rides, a table somewhere special. If it involves someone in town, the concierge arranges it.",
+      'btn-concierge': "🌴 Message the concierge",
       'foot-mark': 'Buen viaje, and enjoy La Punta.'
     },
     es: {
@@ -831,11 +906,11 @@
       'prep1-title': 'Trae algo de efectivo',
       'prep1-text': 'Muchos de los puestos de tacos, lugares de playa y cafés pequeños en La Punta son solo en efectivo, y los billetes chicos ayudan. Hay cajeros en el pueblo, aunque a veces se quedan sin dinero los fines de semana, así que saca un poco con tiempo.',
       'prep2-title': 'Organiza tu traslado del aeropuerto',
-      'prep2-text': 'El aeropuerto de Puerto Escondido (PXM) está a unos diez minutos. Escríbeme antes de volar y organizo un conductor de confianza, para que alguien te espere al aterrizar.',
+      'prep2-text': "El aeropuerto de Puerto Escondido (PXM) está a unos diez minutos. Escríbele al concierge antes de volar y un conductor de confianza te estará esperando al aterrizar.",
       'prep3-title': 'Empaca para arena y sol',
       'prep3-text': 'Protector solar que no dañe el arrecife, un sombrero y chanclas. Hay una regadera exterior para enjuagarte después de la playa. Un consejo honesto de huéspedes: trae tu propio shampoo.',
       'prep4-title': 'Reserva las experiencias con tiempo',
-      'prep4-text': 'Clases de surf, un tour en lancha a los delfines o a la laguna que brilla, un masaje aquí en la villa. Algunas necesitan un poco de aviso. Dime tus fechas y lo dejo organizado antes de que llegues.',
+      'prep4-text': "Clases de surf, un tour en lancha a los delfines o a la laguna que brilla, un masaje aquí en la villa. Algunas necesitan un poco de aviso. Mándale tus fechas al concierge y queda organizado antes de que llegues.",
       'arrival-label': 'Cómo llegar',
       'arrival-h2': 'Cómo encontrar <em>la villa</em>',
       'arrival-lead': 'Estás en el corazón de La Punta, muy cerca del aeropuerto. Toca tu ruta abajo; todas terminan en el portón del jardín, donde te recibo y te instalo.',
@@ -893,10 +968,10 @@
       'rule5-text': 'La Punta es un pueblo de playa social, así que un poco de música y vida en la calle por la noche es parte del encanto. El horario de silencio de la comunidad empieza a las 11 PM.',
       'exp-label': 'Mientras estés aquí',
       'exp-h2': 'Experiencias en <em>La Punta</em>',
-      'exp-lead': 'Estas no son atracciones turísticas, son la vida real de este lugar, con personas que de verdad viven y trabajan aquí. Cada experiencia se reserva bajo petición, solo escríbeme. Los precios se comparten en privado y pueden cambiar según la temporada, pero casi todo es posible.',
-      'exp-note': 'Dime qué tipo de viaje buscas, surf y atardeceres, o algo lento y tranquilo, y te conecto con las personas indicadas.',
+      'exp-lead': "No son extras para turistas, son la vida real de este lugar, con gente que de verdad vive y trabaja aquí. Todo lo de abajo se reserva con nuestro concierge local, un solo WhatsApp que conoce a la gente correcta en el pueblo.",
+      'exp-note': "¿Aún no sabes qué quieres? Cuéntale al concierge qué tipo de viaje buscas, surf y atardeceres, o algo lento y tranquilo, y te conecta con la gente indicada.",
       'exp1-title': 'Clases de surf',
-      'exp1-desc': 'La Punta es uno de los mejores lugares del mundo para aprender. Te conecto con instructores locales que crecieron en estas olas. Tabla y licra incluidas.',
+      'exp1-desc': 'La Punta es uno de los mejores lugares del mundo para aprender. Clases con instructores locales que crecieron en estas olas. Tabla y licra incluidas.',
       'exp1-pre': 'Reservar bajo petición',
       'exp2-title': 'Yoga en la playa',
       'exp2-desc': 'Yoga matutino al aire libre a unos pasos, frente al mar. Una forma tranquila y arraigada de empezar el día. Casi todas las mañanas, sin reservar.',
@@ -917,6 +992,16 @@
       'exp8-title': 'Liberación de tortuguitas',
       'exp8-desc': 'En temporada, únete a una liberación de tortuguitas al atardecer en una playa cercana. Tierno y conmovedor, lindo con niños.',
       'exp8-pre': 'Estacional',
+      'hb-title': "Cómo <em>reservar</em>",
+      'hb1': "Toca <b>Reservar con concierge</b> en lo que te llame. WhatsApp se abre con un mensaje ya escrito.",
+      'hb2': "Agrega tus fechas y cuántas personas son. El concierge te confirma disponibilidad y precio directamente.",
+      'hb3': "Listo. Se organiza con gente local de confianza, y sabrás exactamente cuándo y dónde antes de ir.",
+      'exp-book': "💬 Reservar con concierge",
+      'exp9-title': "Renta de scooter y moto",
+      'exp9-desc': "La forma más fácil de explorar la costa a tu ritmo, de los cafés de La Punta a las playas más tranquilas del camino. Cascos incluidos, te la llevan a la villa.",
+      'exp9-pre': "Reservar bajo petición · por día o semana",
+      'book-msg': "¡Hola! Me estoy quedando en la villa de Anna en La Punta y me gustaría reservar: {x}. Mis fechas son: ",
+      'book-general': "¡Hola! Me estoy quedando en la villa de Anna en La Punta y me encantaría ayuda para planear algunas cosas. Mis fechas son: ",
       'eat-label': 'Comer y beber',
       'eat-h2': 'Dónde <em>comer</em>',
       'eat-lead': 'Algunos favoritos locales honestos, todos muy cerca de la villa. Toca el pin para el mapa.',
@@ -937,8 +1022,8 @@
       'eat7-desc': 'Solo fines de semana, un secreto local sin presencia en línea. La mejor quesabirria de Puerto.',
       'practical-label': 'Notas locales',
       'practical-h2': 'Algunas cosas <em>prácticas</em>',
-      'pcard1-title': 'Contactarme',
-      'pcard1-text': 'Estoy a un mensaje por WhatsApp. Para lo que necesites durante tu estancia, solo escríbeme. Normalmente respondo rápido.',
+      'pcard1-title': "Dos formas de contactarnos",
+      'pcard1-text': "Escríbele a Anna para todo lo de la villa. Escríbele al concierge para tours, rentas, traslados y reservas. Los dos botones están al final de esta página.",
       'pcard2-title': 'Agua para beber',
       'pcard2-text': 'Toma el agua embotellada o filtrada, no la de la llave. Hay un garrafón en la cocina para rellenar tu botella cuando quieras.',
       'pcard3-title': 'Estás en La Punta',
@@ -954,14 +1039,23 @@
       'step6': 'Escríbeme para decirme que partiste bien 🙏',
       'contact-label': 'Aquí para ti',
       'contact-h2': 'Lo que <em>necesites</em>',
-      'contact-lead': 'No dudes en escribirme. Me encanta compartir este lugar.',
-      'btn-wa': '💬 Escribe a Anna por WhatsApp',
+      'contact-lead': "Dos formas de contactarnos, según lo que necesites.",
+      'btn-wa': "💬 Escribir a Anna",
       'btn-call': '📞 Llamar a Anna',
+      'who1-label': "Tu anfitriona",
+      'who1-h': "Anna",
+      'who1-p': "Para todo lo de la villa y tu estancia: llegada, la casa, algo que no funcione, la salida.",
+      'who2-label': "Concierge",
+      'who2-h': "Tours, rentas y reservas",
+      'who2-p': "Clases de surf, lanchas, masajes, scooters, traslados al aeropuerto, una mesa en un lugar especial. Si involucra a alguien del pueblo, el concierge lo organiza.",
+      'btn-concierge': "🌴 Escribir al concierge",
       'foot-mark': 'Buen viaje, y disfruta La Punta.'
     }
   };
 
   let lang = 'en';
+  // FILL: concierge business WhatsApp (currently Trevor's personal number)
+  const CONCIERGE_WA = 'https://wa.me/529542061152';
 
   function setLang(target) {
     lang = target;
@@ -971,6 +1065,17 @@
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const k = el.getAttribute('data-i18n');
       if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+    });
+    // Concierge links: prefilled WhatsApp message per experience, in the current language
+    document.querySelectorAll('[data-book]').forEach(el => {
+      const k = el.getAttribute('data-book');
+      let msg;
+      if (k === 'concierge-general') msg = T[lang]['book-general'];
+      else {
+        const tmp = document.createElement('div'); tmp.innerHTML = T[lang][k];
+        msg = T[lang]['book-msg'].replace('{x}', tmp.textContent);
+      }
+      el.href = CONCIERGE_WA + '?text=' + encodeURIComponent(msg);
     });
   }
 
@@ -983,6 +1088,8 @@
   routes.forEach(r => r.addEventListener('toggle', () => {
     if (r.open) routes.forEach(o => { if (o !== r) o.open = false; });
   }));
+
+  setLang(lang);
 </script>
   <!-- Vercel Analytics + Speed Insights (site standard) -->
   <script defer src="/_vercel/insights/script.js"></script>
