@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+  DIRECT-BOOKING PROPOSAL TEMPLATE (first used for Anna, La Punta, Nov 2026)
+  To clone for another host: duplicate this folder, then search for "FILL:"
+  and replace every marked value (host name, villa names, prices, links,
+  WhatsApp prefill, OG meta, slug). Photos: images/hero.jpg + scroll-01..06.
+  Default language: set <html lang>, <body data-lang>, and the .active
+  toggle button together.
+====================================================================== -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<!-- FILL: villa names + host name in description / OG / title -->
+<meta name="description" content="A proposal for Anna: one beautiful page for Villa Jardín and Villa Palapa in La Punta, so the guests who already love them can find them and book direct.">
+<meta property="og:title" content="Villa Jardín and Villa Palapa · A proposal for Anna">
+<meta property="og:description" content="One bilingual page for both villas in La Punta, found on Google, with a live calendar and booking on WhatsApp. A proposal from The Welcome Link.">
+<!-- FILL: slug in the four URLs below -->
+<meta property="og:image" content="https://thewelcomelink.com/la-punta-villas/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thewelcomelink.com/la-punta-villas/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://thewelcomelink.com/la-punta-villas/images/og.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Villa Jardín and Villa Palapa · A proposal · The Welcome Link</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero.jpg">
+<style>
+  :root{
+    --shell:#f7f1e6;
+    --cream:#fdfaf3;
+    --paper:#fbf5ea;
+    --sand:#e9ddc7;
+    --sand-soft:#efe6d4;
+    --clay:#c07d54;
+    --clay-deep:#9c5d36;
+    --gold:#c5a25c;
+    --gold-deep:#a07e3f;
+    --gold-warm:#e0c287;
+    --ocean:#3f6f6c;
+    --ocean-deep:#2c5350;
+    --ink:#2a2620;
+    --ink-soft:#6f655a;
+    --ink-faint:#9a8f80;
+    --line:rgba(42,38,32,.14);
+    --line-soft:rgba(42,38,32,.08);
+    --shadow-soft:0 20px 50px -30px rgba(40,33,28,.32);
+    --wa:#1f9d55;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Hanken Grotesk',sans-serif;background:var(--shell);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;}
+
+  /* ===== LANGUAGE TOGGLE ===== */
+  .lang-en,.lang-es{display:contents;}
+  body[data-lang="en"] .lang-es{display:none !important;}
+  body[data-lang="es"] .lang-en{display:none !important;}
+  .lang-toggle{
+    position:fixed;top:16px;right:16px;z-index:200;
+    display:flex;gap:2px;padding:3px;border-radius:999px;
+    background:rgba(22,24,20,.4);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.26);box-shadow:0 6px 20px -8px rgba(0,0,0,.45);
+  }
+  .lang-toggle button{
+    border:none;background:transparent;color:rgba(255,255,255,.85);cursor:pointer;
+    font-family:'Hanken Grotesk',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.12em;
+    padding:6px 14px;border-radius:999px;transition:background .25s,color .25s;
+  }
+  .lang-toggle button.active{background:#fff;color:#2a2620;}
+
+  /* ===== PRIMITIVES ===== */
+  .inner{max-width:1080px;margin:0 auto;padding-left:clamp(16px,6vw,80px);padding-right:clamp(16px,6vw,80px);}
+  section{padding-top:clamp(84px,12vw,170px);padding-bottom:clamp(84px,12vw,170px);position:relative;}
+  .eyebrow{
+    display:inline-flex;align-items:baseline;gap:12px;margin-bottom:clamp(22px,3vw,34px);
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--ink-faint);
+  }
+  .eyebrow .ix{font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:16px;letter-spacing:0;text-transform:none;color:var(--gold-deep);}
+  h1,h2,h3{font-family:'Newsreader',serif;font-weight:400;letter-spacing:-.025em;line-height:1.04;color:#2a241c;}
+  h2{font-size:clamp(34px,5.4vw,66px);font-weight:300;}
+  h2 em{font-style:italic;color:var(--clay-deep);}
+  .lede{font-size:clamp(17px,1.6vw,21px);line-height:1.75;color:var(--ink-soft);font-weight:300;max-width:60ch;}
+  .lede + .lede{margin-top:1.1em;}
+  .lede strong{font-weight:500;color:var(--ink);}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ===== HERO ===== */
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;position:relative;overflow:hidden;padding:0;}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:#2b3a2f;}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 55%;}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,24,18,.28) 0%,rgba(20,24,18,0) 30%,rgba(16,20,14,.25) 58%,rgba(12,16,10,.8) 100%);}
+  .hero-top{position:absolute;top:0;left:0;width:100%;z-index:2;padding:22px 0;}
+  .brandmark{font-family:'Newsreader',serif;font-style:italic;font-size:17px;color:rgba(255,255,255,.9);}
+  .hero-in{position:relative;z-index:2;width:100%;padding-bottom:clamp(48px,9vh,96px);}
+  .hero .eyebrow{color:rgba(255,255,255,.9);margin-bottom:18px;}
+  .hero h1{color:#fff;font-weight:300;font-size:clamp(42px,7.4vw,96px);line-height:1.02;letter-spacing:-.03em;max-width:15ch;text-shadow:0 2px 40px rgba(0,0,0,.35);}
+  .hero h1 em{color:var(--gold-warm);font-style:italic;}
+  .hero .tag{margin-top:clamp(20px,3vw,30px);font-size:14px;letter-spacing:.04em;color:rgba(255,255,255,.86);font-weight:400;}
+  .hero .tag i{font-family:'Newsreader',serif;font-size:16px;}
+
+  /* ===== OPENING ===== */
+  .opening{background:var(--cream);}
+  .opening .inner{max-width:820px;}
+  .opening h2{margin-bottom:clamp(26px,3vw,38px);}
+  .search-card{
+    margin:clamp(30px,4vw,44px) 0;background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;box-shadow:var(--shadow-soft);max-width:520px;
+  }
+  .search-bar{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:15px;color:var(--ink);}
+  .search-bar svg{width:16px;height:16px;flex:none;color:var(--ink-faint);}
+  .search-res{margin-top:14px;font-size:13.5px;color:var(--ink-faint);font-style:italic;line-height:1.5;padding:0 4px;}
+  .pull{
+    font-family:'Newsreader',serif;font-style:italic;font-weight:300;
+    font-size:clamp(22px,2.6vw,32px);line-height:1.45;color:var(--ocean-deep);
+    margin-top:clamp(32px,4vw,48px);padding-left:20px;border-left:2px solid var(--gold);max-width:28ch;
+  }
+
+  /* ===== VISION / SCROLL-THROUGH ===== */
+  .vision{background:var(--shell);padding-bottom:0;}
+  .vision .head{max-width:820px;margin-bottom:clamp(40px,6vw,72px);}
+  .vision h2{margin-bottom:clamp(20px,3vw,30px);}
+  .moment{position:relative;height:clamp(440px,88svh,860px);overflow:hidden;background:var(--sand);}
+  .moment img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transform:scale(1.12) translateY(var(--drift,0px));transition:transform 3.2s cubic-bezier(.2,.6,.2,1);will-change:transform;
+  }
+  .moment.in img{transform:scale(1.02) translateY(var(--drift,0px));}
+  .moment::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,10,0) 50%,rgba(16,14,10,.62) 100%);pointer-events:none;}
+  .moment .cap{
+    position:absolute;left:0;right:0;bottom:0;z-index:2;color:#fff;
+    padding:0 clamp(16px,6vw,80px) clamp(30px,5vw,56px);max-width:1080px;margin:0 auto;
+  }
+  .moment .num{font-family:'Newsreader',serif;font-style:italic;color:var(--gold-warm);font-size:16px;display:block;margin-bottom:8px;}
+  .moment .line{font-family:'Newsreader',serif;font-weight:300;font-size:clamp(24px,3.4vw,40px);line-height:1.2;letter-spacing:-.015em;max-width:24ch;text-shadow:0 2px 24px rgba(0,0,0,.35);
+    opacity:0;transform:translateY(14px);transition:opacity 1.2s ease .5s,transform 1.2s ease .5s;}
+  .moment.in .line{opacity:1;transform:none;}
+  .moment .who{display:block;margin-top:10px;font-family:'Hanken Grotesk',sans-serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.78);font-weight:600;}
+  .vision-note{background:var(--shell);padding:clamp(48px,7vw,84px) 0 clamp(84px,12vw,150px);}
+  .vision-note p{font-size:clamp(15px,1.3vw,17px);line-height:1.75;color:var(--ink-soft);font-weight:300;max-width:62ch;padding-left:20px;border-left:2px solid var(--gold);}
+  .vision-note p strong{font-weight:500;color:var(--ink);}
+
+  /* ===== INCLUDED ===== */
+  .included{background:var(--cream);}
+  .included .head{max-width:760px;margin-bottom:clamp(36px,5vw,60px);}
+  .inc-list{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line);}
+  .inc{display:grid;grid-template-columns:44px 1fr;gap:6px 14px;padding:clamp(22px,3vw,30px) 0;border-bottom:1px solid var(--line);}
+  .inc .ic{width:36px;height:36px;border-radius:50%;background:var(--sand-soft);display:flex;align-items:center;justify-content:center;color:var(--clay-deep);}
+  .inc .ic svg{width:18px;height:18px;}
+  .inc h3{font-size:clamp(21px,2.1vw,26px);font-weight:400;letter-spacing:-.015em;line-height:1.2;margin-top:4px;}
+  .inc p{grid-column:2;font-size:15.5px;line-height:1.7;color:var(--ink-soft);font-weight:300;max-width:60ch;}
+  .inc.gift{background:linear-gradient(160deg,#f6ecd8,#efe1c4);border:1px solid rgba(160,126,63,.25);border-radius:14px;padding:22px 18px;margin-top:22px;}
+  .inc.gift .ic{background:#fff;color:var(--gold-deep);}
+  .gift-tag{display:inline-block;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--gold-deep);margin-bottom:2px;}
+
+  /* ===== EASY ===== */
+  .easy{background:var(--ocean-deep);color:#fff;}
+  .easy .eyebrow{color:rgba(255,255,255,.65);}
+  .easy .eyebrow .ix{color:var(--gold-warm);}
+  .easy h2{color:#fff;margin-bottom:clamp(30px,4vw,48px);max-width:16ch;}
+  .easy h2 em{color:var(--gold-warm);}
+  .easy-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  .easy-item{border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:20px 20px 22px;background:rgba(255,255,255,.04);}
+  .easy-item h3{color:#fff;font-size:21px;font-weight:400;margin-bottom:6px;}
+  .easy-item p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.78);font-weight:300;}
+
+  /* ===== INVESTMENT ===== */
+  .invest{background:var(--paper);}
+  .invest .head{max-width:760px;margin-bottom:clamp(34px,5vw,56px);}
+  .plans{display:grid;grid-template-columns:1fr;gap:16px;}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 22px 26px;box-shadow:var(--shadow-soft);display:flex;flex-direction:column;}
+  .plan .pname{font-family:'Newsreader',serif;font-size:30px;font-weight:400;letter-spacing:-.02em;}
+  .plan .pname em{font-style:italic;color:var(--clay-deep);}
+  .plan .price{margin-top:10px;font-family:'Newsreader',serif;font-size:clamp(34px,4vw,42px);font-weight:300;letter-spacing:-.02em;color:#2a241c;}
+  .plan .price small{font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:.14em;font-weight:600;color:var(--ink-faint);margin-left:6px;}
+  .plan .pdesc{margin-top:12px;font-size:15.5px;line-height:1.7;color:var(--ink-soft);font-weight:300;}
+  .plan ul{list-style:none;margin-top:18px;padding-top:18px;border-top:1px solid var(--line-soft);}
+  .plan li{position:relative;padding-left:22px;font-size:14.5px;line-height:1.6;color:var(--ink-soft);margin-bottom:8px;}
+  .plan li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--gold);}
+  .fine{margin-top:clamp(30px,4vw,44px);display:grid;gap:14px;max-width:720px;}
+  .fine p{font-size:15px;line-height:1.7;color:var(--ink-soft);font-weight:300;padding-left:16px;border-left:2px solid var(--sand);}
+  .fine p strong{font-weight:500;color:var(--ink);}
+  .quiet{margin-top:clamp(26px,3vw,36px);font-family:'Newsreader',serif;font-style:italic;font-size:clamp(19px,2vw,23px);color:var(--ocean-deep);font-weight:300;max-width:40ch;}
+
+  /* ===== STEPS ===== */
+  .steps{background:var(--cream);}
+  .step-list{display:grid;grid-template-columns:1fr;gap:0;margin-top:clamp(30px,4vw,48px);border-top:1px solid var(--line);}
+  .step{display:grid;grid-template-columns:56px 1fr;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);}
+  .step .n{font-family:'Newsreader',serif;font-style:italic;font-size:34px;font-weight:300;color:var(--gold-deep);}
+  .step h3{font-size:22px;font-weight:400;}
+  .step p{grid-column:2;font-size:15px;color:var(--ink-soft);font-weight:300;line-height:1.65;margin-top:4px;}
+
+  /* ===== CLOSE ===== */
+  .close{background:var(--shell);text-align:center;}
+  .close .inner{max-width:720px;}
+  .close h2{margin-bottom:22px;}
+  .close .sign{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(20px,2.2vw,25px);font-weight:300;color:var(--ink-soft);line-height:1.5;margin:0 auto clamp(30px,4vw,42px);max-width:34ch;}
+  .btn-wa{
+    display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:440px;margin:0 auto;
+    background:var(--wa);color:#fff;text-decoration:none;border-radius:999px;padding:19px 26px;
+    font-size:17px;font-weight:600;letter-spacing:.01em;box-shadow:0 18px 40px -18px rgba(31,157,85,.65);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .btn-wa:hover{transform:translateY(-2px);box-shadow:0 22px 46px -18px rgba(31,157,85,.75);}
+  .btn-wa svg{width:22px;height:22px;flex:none;}
+  .secondary{display:inline-block;margin-top:26px;font-size:14px;color:var(--ink-faint);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;}
+  .secondary:hover{color:var(--ink-soft);}
+  .foot{background:var(--shell);text-align:center;padding:0 16px 48px;}
+  .foot .mark{font-family:'Newsreader',serif;font-style:italic;font-size:18px;color:var(--ink-soft);}
+  .foot .small{font-size:12px;color:var(--ink-faint);margin-top:4px;letter-spacing:.04em;}
+
+  @media (min-width:760px){
+    .plans{grid-template-columns:1fr 1fr;gap:20px;}
+    .plan{padding:34px 32px 32px;}
+    .easy-grid{grid-template-columns:1fr 1fr;gap:18px;}
+    .inc{grid-template-columns:56px 1fr;}
+    .inc.gift{padding:28px 28px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal,.moment .line{opacity:1 !important;transform:none !important;transition:none !important;}
+    .moment img{transform:none !important;transition:none !important;}
+    .btn-wa{transition:none;}
+  }
+</style>
+</head>
+<!-- FILL: default language. English shown. For Spanish-first hosts: lang="es" on <html>, data-lang="es" here, and move .active to #btnES -->
+<body data-lang="en">
+
+<div class="lang-toggle">
+  <button id="btnEN" class="active" onclick="setLang('en')">EN</button>
+  <button id="btnES" onclick="setLang('es')">ES</button>
+</div>
+
+<!-- ===================== 1. HERO ===================== -->
+<header class="hero">
+  <div class="hero-bg"><img src="images/hero.jpg" alt="" fetchpriority="high"></div>
+  <div class="hero-top"><div class="inner"><span class="brandmark">The Welcome Link</span></div></div>
+  <div class="hero-in">
+    <div class="inner">
+      <div class="eyebrow"><span>La Punta, Puerto Escondido</span></div>
+      <!-- FILL: villa names (VILLA 1 / VILLA 2) -->
+      <h1>
+        <span class="lang-en"><em>Villa Jardín</em> and <em>Villa Palapa</em></span>
+        <span class="lang-es"><em>Villa Jardín</em> y <em>Villa Palapa</em></span>
+      </h1>
+      <!-- FILL: host name -->
+      <p class="tag">
+        <span class="lang-en">A proposal for Anna, by <i>The Welcome Link</i>.</span>
+        <span class="lang-es">Una propuesta para Anna, de <i>The Welcome Link</i>.</span>
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== 2. THE OPENING ===================== -->
+<section class="opening">
+  <div class="inner">
+    <div class="eyebrow reveal"><span class="ix">01</span><span class="lang-en">The idea</span><span class="lang-es">La idea</span></div>
+    <h2 class="reveal">
+      <span class="lang-en">They already love your place. <em>Let them find you.</em></span>
+      <span class="lang-es">Ya aman tu lugar. <em>Que te encuentren.</em></span>
+    </h2>
+    <p class="lede reveal">
+      <span class="lang-en">When someone falls in love with your villa on Airbnb, the next thing they do is search its name. Right now that search leads nowhere.</span>
+      <span class="lang-es">Cuando alguien se enamora de tu villa en Airbnb, lo siguiente que hace es buscar su nombre. Hoy esa búsqueda no lleva a ningún lado.</span>
+    </p>
+    <!-- FILL: the guest's likely search (current Airbnb title or villa name) -->
+    <div class="search-card reveal" aria-hidden="true">
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span>La Punta Private Villa</span>
+      </div>
+      <div class="search-res">
+        <span class="lang-en">Both villas share this one title on Airbnb, and so do hundreds of other places. Nothing leads back to you.</span>
+        <span class="lang-es">Las dos villas comparten este mismo título en Airbnb, igual que cientos de lugares más. Nada lleva de regreso a ti.</span>
+      </div>
+    </div>
+    <p class="lede reveal">
+      <span class="lang-en">This page changes that. Each villa gets a name of its own (Villa Jardín and Villa Palapa are just working names, you choose) and a home on the web, so the people who already love your place can find you, and book with you, directly.</span>
+      <span class="lang-es">Esta página cambia eso. Cada villa tiene su propio nombre (Villa Jardín y Villa Palapa son nombres provisionales, tú eliges) y su propio lugar en internet, para que la gente que ya ama tu lugar te encuentre, y reserve contigo, directamente.</span>
+    </p>
+    <p class="pull reveal">
+      <span class="lang-en">Ten years in La Punta. Two villas in one quiet garden. They deserve a front door of their own.</span>
+      <span class="lang-es">Diez años en La Punta. Dos villas en un jardín tranquilo. Merecen una puerta propia.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 3. THE VISION (scroll-through) ===================== -->
+<section class="vision">
+  <div class="inner head">
+    <div class="eyebrow reveal"><span class="ix">02</span><span class="lang-en">The vision</span><span class="lang-es">La visión</span></div>
+    <h2 class="reveal">
+      <span class="lang-en">Arriving, <em>before they arrive.</em></span>
+      <span class="lang-es">Llegar, <em>antes de llegar.</em></span>
+    </h2>
+    <p class="lede reveal">
+      <span class="lang-en">The site should feel like walking through your gate. Scroll slowly.</span>
+      <span class="lang-es">El sitio debe sentirse como cruzar tu portón. Baja despacio.</span>
+    </p>
+  </div>
+
+  <!-- FILL: one short line per moment, from the real listing details -->
+  <figure class="moment">
+    <img src="images/scroll-01.jpg" alt="The tropical garden and white villa behind the gate" loading="lazy">
+    <figcaption class="cap"><span class="num">i</span>
+      <span class="line">
+        <span class="lang-en">Through the gate, a quiet tropical garden, shared by just two villas.</span>
+        <span class="lang-es">Al cruzar el portón, un jardín tropical tranquilo, compartido solo por dos villas.</span>
+      </span>
+    </figcaption>
+  </figure>
+  <figure class="moment">
+    <img src="images/scroll-02.jpg" alt="Villa Palapa with its palm-thatched roof" loading="lazy">
+    <figcaption class="cap"><span class="num">ii</span>
+      <span class="line">
+        <span class="lang-en">Villa Palapa, under a traditional palm-thatched roof.</span>
+        <span class="lang-es">Villa Palapa, bajo un techo tradicional de palapa.</span>
+        <span class="who"><span class="lang-en">Dogs welcome, just tell Anna about yours</span><span class="lang-es">Perritos bienvenidos, solo cuéntale a Anna del tuyo</span></span>
+      </span>
+    </figcaption>
+  </figure>
+  <figure class="moment">
+    <img src="images/scroll-03.jpg" alt="Inside Villa Palapa: king bed, desk and thatched ceiling" loading="lazy">
+    <figcaption class="cap"><span class="num">iii</span>
+      <span class="line">
+        <span class="lang-en">A king bed, a desk by the window, and fast WiFi for the mornings you work.</span>
+        <span class="lang-es">Cama king, un escritorio junto a la ventana e internet rápido para las mañanas de trabajo.</span>
+      </span>
+    </figcaption>
+  </figure>
+  <figure class="moment">
+    <img src="images/scroll-04.jpg" alt="The bedroom in Villa Jardín" loading="lazy">
+    <figcaption class="cap"><span class="num">iv</span>
+      <span class="line">
+        <span class="lang-en">Villa Jardín. Cool, bright and calm, with good linens and AC after a day of sun.</span>
+        <span class="lang-es">Villa Jardín. Fresca, luminosa y tranquila, con buena ropa de cama y aire acondicionado después de un día de sol.</span>
+        <span class="who"><span class="lang-en">4.93 stars from 40 guests</span><span class="lang-es">4.93 estrellas de 40 huéspedes</span></span>
+      </span>
+    </figcaption>
+  </figure>
+  <figure class="moment">
+    <img src="images/scroll-05.jpg" alt="Private terrace with two chairs facing the garden" loading="lazy">
+    <figcaption class="cap"><span class="num">v</span>
+      <span class="line">
+        <span class="lang-en">Morning coffee on your own terrace, a book, and nothing but green around you.</span>
+        <span class="lang-es">El café de la mañana en tu propia terraza, un libro, y puro verde alrededor.</span>
+      </span>
+    </figcaption>
+  </figure>
+  <figure class="moment">
+    <img src="images/scroll-06.jpg" alt="Surfers in turquoise water off La Punta" loading="lazy">
+    <figcaption class="cap"><span class="num">vi</span>
+      <span class="line">
+        <span class="lang-en">Then 100 meters, two minutes on foot, and you are in the water at La Punta.</span>
+        <span class="lang-es">Luego 100 metros, dos minutos caminando, y ya estás en el mar de La Punta.</span>
+      </span>
+    </figcaption>
+  </figure>
+
+  <div class="vision-note">
+    <div class="inner">
+      <p class="reveal">
+        <span class="lang-en"><strong>A note on the motion.</strong> The finished site uses short motion clips made from your existing photos. No photo shoot needed, and the spaces always look exactly as they are.</span>
+        <span class="lang-es"><strong>Sobre el movimiento.</strong> El sitio final usa clips cortos con movimiento hechos a partir de tus fotos actuales. No hace falta una sesión de fotos, y los espacios siempre se ven tal como son.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4. WHAT'S INCLUDED ===================== -->
+<section class="included">
+  <div class="inner">
+    <div class="head">
+      <div class="eyebrow reveal"><span class="ix">03</span><span class="lang-en">What's included</span><span class="lang-es">Qué incluye</span></div>
+      <h2 class="reveal">
+        <span class="lang-en">Everything a guest needs <em>to choose you.</em></span>
+        <span class="lang-es">Todo lo que un huésped necesita <em>para elegirte.</em></span>
+      </h2>
+    </div>
+    <div class="inc-list">
+      <div class="inc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg></div>
+        <h3><span class="lang-en">One bilingual page for both villas</span><span class="lang-es">Una página bilingüe para las dos villas</span></h3>
+        <p><span class="lang-en">English and Spanish, each villa with its own story and its own gallery.</span><span class="lang-es">En inglés y español, cada villa con su propia historia y su propia galería.</span></p>
+      </div>
+      <div class="inc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+        <h3><span class="lang-en">Found on Google</span><span class="lang-es">Que te encuentren en Google</span></h3>
+        <p><span class="lang-en">Your own domain, a Google profile for each villa, and a page built to show up when people search your villa names.</span><span class="lang-es">Tu propio dominio, un perfil de Google para cada villa y una página hecha para aparecer cuando busquen el nombre de tus villas.</span></p>
+      </div>
+      <div class="inc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></div>
+        <h3><span class="lang-en">A calendar that updates itself</span><span class="lang-es">Un calendario que se actualiza solo</span></h3>
+        <p><span class="lang-en">It follows your Airbnb calendar, so guests see open dates before they message you. Booking and payment stay on WhatsApp, your way. No monthly fees.</span><span class="lang-es">Sigue tu calendario de Airbnb, así los huéspedes ven las fechas libres antes de escribirte. La reserva y el pago se quedan en WhatsApp, a tu manera. Sin cuotas mensuales.</span></p>
+      </div>
+      <div class="inc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 12a8 8 0 1 1-3.2-6.4"/><path d="M20 4v5h-5"/></svg></div>
+        <h3><span class="lang-en">A short "why book direct" section</span><span class="lang-es">Una sección corta de "por qué reservar directo"</span></h3>
+        <p><span class="lang-en">For your guests: talk to the host directly, a better rate, and ten years of local knowledge.</span><span class="lang-es">Para tus huéspedes: hablar directo con la anfitriona, una mejor tarifa y diez años de conocer la zona.</span></p>
+      </div>
+      <div class="inc gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="9" width="17" height="11" rx="1.5"/><path d="M2.5 9h19M12 9v11M12 9c-1.5-3.5-6-4-6-1.5S10 9 12 9zm0 0c1.5-3.5 6-4 6-1.5S14 9 12 9z"/></svg></div>
+        <div>
+          <span class="gift-tag"><span class="lang-en">Included as a gift</span><span class="lang-es">Incluido de regalo</span></span>
+          <h3><span class="lang-en">A welcome guide in your own voice</span><span class="lang-es">Una guía de bienvenida con tu propia voz</span></h3>
+        </div>
+        <p><span class="lang-en">Your ten years of La Punta: the beaches, the food, the little things only a local knows. No services, no commissions, just the good stuff.</span><span class="lang-es">Tus diez años de La Punta: las playas, la comida, esos detalles que solo conoce quien vive aquí. Sin servicios, sin comisiones, solo lo bueno.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. EASY TO CHANGE ===================== -->
+<section class="easy">
+  <div class="inner">
+    <div class="eyebrow reveal"><span class="ix">04</span><span class="lang-en">Easy to change</span><span class="lang-es">Fácil de cambiar</span></div>
+    <h2 class="reveal">
+      <span class="lang-en">Easy to change, <em>never stuck.</em></span>
+      <span class="lang-es">Fácil de cambiar, <em>nunca atorada.</em></span>
+    </h2>
+    <div class="easy-grid">
+      <div class="easy-item reveal">
+        <h3><span class="lang-en">You can update it yourself</span><span class="lang-es">Tú misma la puedes actualizar</span></h3>
+        <p><span class="lang-en">A simple login where you change your rates, text and photos. Hit save, and the site updates on its own. Nothing to learn.</span><span class="lang-es">Entras con tu usuario, cambias tarifas, textos y fotos, le das guardar y el sitio se actualiza solo. Nada que aprender.</span></p>
+      </div>
+      <div class="easy-item reveal">
+        <h3><span class="lang-en">Your calendar keeps itself</span><span class="lang-es">Tu calendario se cuida solo</span></h3>
+        <p><span class="lang-en">When a night books on Airbnb, it closes on your site too. You don't touch a thing.</span><span class="lang-es">Cuando se reserva una noche en Airbnb, también se cierra en tu sitio. No tienes que mover nada.</span></p>
+      </div>
+      <div class="easy-item reveal">
+        <h3><span class="lang-en">Anything bigger, one message</span><span class="lang-es">Algo más grande, un mensaje</span></h3>
+        <p><span class="lang-en">Send me a WhatsApp and it's handled.</span><span class="lang-es">Me mandas un WhatsApp y queda resuelto.</span></p>
+      </div>
+      <div class="easy-item reveal">
+        <h3><span class="lang-en">It's yours</span><span class="lang-es">Es tuyo</span></h3>
+        <p><span class="lang-en">The domain is in your name, and everything can be handed over to you any time.</span><span class="lang-es">El dominio está a tu nombre, y todo se te puede entregar cuando quieras.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6. INVESTMENT ===================== -->
+<section class="invest">
+  <div class="inner">
+    <div class="head">
+      <div class="eyebrow reveal"><span class="ix">05</span><span class="lang-en">Investment</span><span class="lang-es">Inversión</span></div>
+      <h2 class="reveal">
+        <span class="lang-en">Two ways <em>to begin.</em></span>
+        <span class="lang-es">Dos formas <em>de empezar.</em></span>
+      </h2>
+    </div>
+    <div class="plans">
+      <!-- FILL: plan 1 price -->
+      <div class="plan reveal">
+        <div class="pname">Direct</div>
+        <div class="price">12,000<small>MXN</small></div>
+        <p class="pdesc"><span class="lang-en">Everything above.</span><span class="lang-es">Todo lo anterior.</span></p>
+        <ul>
+          <li><span class="lang-en">Bilingual page for both villas</span><span class="lang-es">Página bilingüe para las dos villas</span></li>
+          <li><span class="lang-en">Your domain and Google profiles</span><span class="lang-es">Tu dominio y perfiles de Google</span></li>
+          <li><span class="lang-en">Self-updating calendar, booking on WhatsApp</span><span class="lang-es">Calendario que se actualiza solo, reservas por WhatsApp</span></li>
+          <li><span class="lang-en">Simple login to edit it yourself</span><span class="lang-es">Acceso sencillo para editarlo tú</span></li>
+          <li><span class="lang-en">Welcome guide, as a gift</span><span class="lang-es">Guía de bienvenida, de regalo</span></li>
+        </ul>
+      </div>
+      <!-- FILL: plan 2 price -->
+      <div class="plan reveal">
+        <div class="pname"><em>Signature</em></div>
+        <div class="price">16,000<small>MXN</small></div>
+        <p class="pdesc"><span class="lang-en">Everything above, plus the cinematic scroll-through with motion clips for each villa.</span><span class="lang-es">Todo lo anterior, más el recorrido cinematográfico con clips en movimiento para cada villa.</span></p>
+        <ul>
+          <li><span class="lang-en">Everything in Direct</span><span class="lang-es">Todo lo de Direct</span></li>
+          <li><span class="lang-en">The slow, arriving-at-the-villa scroll you just saw</span><span class="lang-es">El recorrido lento, como llegar a la villa, que acabas de ver</span></li>
+          <li><span class="lang-en">Motion clips made from your own photos, for each villa</span><span class="lang-es">Clips en movimiento hechos con tus propias fotos, para cada villa</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">
+      <!-- FILL: yearly care price -->
+      <p class="reveal"><span class="lang-en"><strong>Optional yearly care, about 5,000 MXN.</strong> Hosting, updates, seasonal photo swaps, calendar upkeep, and anything bigger you want changed.</span><span class="lang-es"><strong>Cuidado anual opcional, alrededor de 5,000 MXN.</strong> Hospedaje del sitio, actualizaciones, cambio de fotos por temporada, mantenimiento del calendario y cualquier cambio más grande que quieras.</span></p>
+      <p class="reveal"><span class="lang-en"><strong>Your domain.</strong> Registered in your name and paid by you. I set everything up.</span><span class="lang-es"><strong>Tu dominio.</strong> Registrado a tu nombre y pagado por ti. Yo me encargo de configurarlo todo.</span></p>
+    </div>
+    <p class="quiet reveal"><span class="lang-en">A few direct stays a year can cover the page.</span><span class="lang-es">Unas cuantas estancias directas al año pueden cubrir la página.</span></p>
+  </div>
+</section>
+
+<!-- ===================== 7. HOW IT WORKS ===================== -->
+<section class="steps">
+  <div class="inner">
+    <div class="eyebrow reveal"><span class="ix">06</span><span class="lang-en">How it works</span><span class="lang-es">Cómo funciona</span></div>
+    <h2 class="reveal">
+      <span class="lang-en">Three <em>simple steps.</em></span>
+      <span class="lang-es">Tres <em>pasos sencillos.</em></span>
+    </h2>
+    <div class="step-list">
+      <div class="step reveal"><span class="n">1</span><h3><span class="lang-en">50% to start</span><span class="lang-es">50% para empezar</span></h3>
+        <p><span class="lang-en">You send a few favorite photos and the little things you love about each villa.</span><span class="lang-es">Me mandas algunas fotos favoritas y los detalles que más te gustan de cada villa.</span></p></div>
+      <div class="step reveal"><span class="n">2</span><h3><span class="lang-en">Live in about a week</span><span class="lang-es">En línea en una semana, más o menos</span></h3>
+        <p><span class="lang-en">You see it on your phone, tell me what to change, and we do two rounds of changes together.</span><span class="lang-es">Lo ves en tu celular, me dices qué cambiar y hacemos dos rondas de ajustes juntos.</span></p></div>
+      <div class="step reveal"><span class="n">3</span><h3><span class="lang-en">50% on completion</span><span class="lang-es">50% al terminar</span></h3>
+        <p><span class="lang-en">Once it feels right to you. Then it's yours.</span><span class="lang-es">Cuando te sientas a gusto con el resultado. Y es tuyo.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. CLOSE ===================== -->
+<section class="close">
+  <div class="inner">
+    <h2 class="reveal">
+      <span class="lang-en">Let's give them <em>a way home.</em></span>
+      <span class="lang-es">Démosles <em>el camino de regreso.</em></span>
+    </h2>
+    <p class="sign reveal">
+      <span class="lang-en">From one La Punta neighbor to another, it would be a pleasure to build this with you. Trevor</span>
+      <span class="lang-es">De un vecino de La Punta a otra, sería un gusto construir esto contigo. Trevor</span>
+    </p>
+    <!-- FILL: WhatsApp prefill (villa names), URL-encoded -->
+    <a class="btn-wa reveal" href="https://wa.me/529542061152?text=Hola%20Trevor%2C%20vi%20la%20propuesta%20para%20Villa%20Jard%C3%ADn%20y%20Villa%20Palapa." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.790 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.2.84.85-3.12-.2-.32a8.2 8.2 0 0 1-1.26-4.36c0-4.540 3.7-8.230 8.24-8.230 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.690-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.410.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+      <span class="lang-en">Let's build it</span><span class="lang-es">Hagámoslo</span>
+    </a>
+    <!-- FILL: secondary example link -->
+    <a class="secondary reveal" href="https://www.tierraenarmonia.com.mx/" target="_blank" rel="noopener">
+      <span class="lang-en">See a site I built for a collection in La Barra →</span>
+      <span class="lang-es">Mira un sitio que hice para una colección en La Barra →</span>
+    </a>
+  </div>
+</section>
+
+<div class="foot">
+  <div class="mark">The Welcome Link</div>
+  <div class="small"><span class="lang-en">A private proposal for Anna · La Punta, Puerto Escondido</span><span class="lang-es">Una propuesta privada para Anna · La Punta, Puerto Escondido</span></div>
+</div>
+
+<script>
+  function setLang(l){
+    document.body.setAttribute('data-lang', l);
+    document.documentElement.lang = l;
+    document.getElementById('btnEN').classList.toggle('active', l === 'en');
+    document.getElementById('btnES').classList.toggle('active', l === 'es');
+  }
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal, .moment').forEach(function(el){ io.observe(el); });
+  // gentle drift on the scroll-through photos
+  if (!reduce){
+    var moments = [].slice.call(document.querySelectorAll('.moment'));
+    var ticking = false;
+    function drift(){
+      var vh = window.innerHeight;
+      moments.forEach(function(m){
+        var r = m.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        var p = (r.top + r.height / 2 - vh / 2) / vh; // -1..1 around center
+        m.querySelector('img').style.setProperty('--drift', (p * -28).toFixed(1) + 'px');
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(drift); } }, { passive: true });
+    drift();
+  }
+</script>
+<!-- Vercel Analytics + Speed Insights (site standard) -->
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
