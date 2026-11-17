@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thewelcomelink.com/sitemap.xml
