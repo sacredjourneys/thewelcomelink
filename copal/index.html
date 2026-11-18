@@ -79,6 +79,14 @@
     background-size:cover;
     background-position:center;
   }
+  .hero-video{
+    position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:32% center;
+  }
+  .hero-shade{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(30,40,26,.12) 0%,rgba(30,40,26,.5) 55%,rgba(25,33,22,.86) 100%);
+  }
+  @media (prefers-reduced-motion: reduce){.hero-video{display:none;}}
   .hero-content{position:relative;z-index:2;}
   .eyebrow{
     font-size:12px;letter-spacing:.32em;text-transform:uppercase;
@@ -289,6 +297,10 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-bg"></div>
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero.jpg" aria-hidden="true">
+      <source src="images/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shade"></div>
     <div class="hero-content">
       <div class="eyebrow">Copal · La Barra, Puerto Escondido</div>
       <h1 data-i18n="hero-h1">Welcome to <em>your sanctuary<br>by the sea</em></h1>
