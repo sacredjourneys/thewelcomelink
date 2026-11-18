@@ -180,6 +180,16 @@
   .work-card .wq{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:16px;line-height:1.5;color:var(--sea-deep);}
   .work-card .go{font-size:13px;font-weight:600;color:var(--sea);margin-top:12px;}
 
+  /* OFFERINGS: everything we make, each card links to its page */
+  .offer-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:8px;}
+  .offer{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 18px 20px;box-shadow:var(--shadow);text-decoration:none;color:inherit;transition:transform .15s;}
+  a.offer:active{transform:scale(.99);}
+  .offer .tag{align-self:flex-start;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--terra-deep);padding:5px 9px;border-radius:999px;margin-bottom:4px;}
+  .offer .name{font-family:'Newsreader',serif;font-size:23px;font-weight:400;color:#352c1f;line-height:1.15;}
+  .offer .desc{font-size:14px;color:var(--ink-soft);line-height:1.6;}
+  .offer .price{font-size:13.5px;font-weight:600;color:var(--sea-deep);font-variant-numeric:tabular-nums;margin-top:4px;}
+  .offer .go{font-size:13px;font-weight:600;color:var(--sea);margin-top:6px;}
+
   /* wrappers that become grids on desktop (single column on mobile) */
   .feat-grid,.diff-grid,.steps-grid{display:block;}
 
@@ -222,6 +232,7 @@
 
     /* stacks become grids */
     .inc-grid{grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;}
+    .offer-grid{grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;}
     .diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 44px;margin-top:54px;}
     .diff-item{border-bottom:1px solid var(--line);}
     .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;margin-top:26px;}
@@ -284,6 +295,42 @@
   <div class="strip medium">
     <img src="/images/beach-sunrise.jpg" alt="" loading="lazy" aria-hidden="true">
   </div>
+
+  <!-- ============================================================
+       OFFERINGS: the umbrella. Every other page ties back here.
+       Prices in USD with pesos at the house rate of 19 per dollar.
+       ============================================================ -->
+  <section class="reveal" id="offer">
+    <div class="sec-label" data-i18n="offer-label">What we make</div>
+    <h2 data-i18n="offer-h2">Everything for <em>your place.</em></h2>
+    <p class="body-copy" data-i18n="offer-lead">It started with the guide. Now we build the whole front door: a site guests can book on, short videos made from your photos, and someone keeping it all current.</p>
+    <div class="offer-grid">
+      <a class="offer" href="/websites/">
+        <span class="tag" data-i18n="offer1-tag">Core offer</span>
+        <div class="name" data-i18n="offer1-name">Direct booking websites</div>
+        <div class="desc" data-i18n="offer1-desc">A site of your own, in English and Spanish, with booking by WhatsApp. For one villa or a whole collection.</div>
+        <div class="price" data-i18n="offer1-price">From $350 USD · $6,650 MXN</div>
+        <div class="go" data-i18n="offer1-go">See websites →</div>
+      </a>
+      <a class="offer" href="#guides">
+        <div class="name" data-i18n="offer2-name">Welcome guides</div>
+        <div class="desc" data-i18n="offer2-desc">A guide for every home, so guests arrive already knowing the place. Included with every website.</div>
+        <div class="go" data-i18n="offer2-go">See a guide →</div>
+      </a>
+      <a class="offer" href="/reels/">
+        <div class="name">Villa Reels</div>
+        <div class="desc" data-i18n="offer3-desc">Short videos made from your listing photos. Real space, nothing invented.</div>
+        <div class="price" data-i18n="offer3-price">$200 USD · $3,800 MXN per home</div>
+        <div class="go" data-i18n="offer3-go">See Villa Reels →</div>
+      </a>
+      <div class="offer">
+        <div class="name" data-i18n="offer4-name">Care plan</div>
+        <div class="desc" data-i18n="offer4-desc">Hosting, edits, new homes added and guides kept current, for a small monthly fee.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
 
   <section class="reveal">
     <div class="sec-label" data-i18n="why-label">Why it works</div>
@@ -353,7 +400,7 @@
 
   <div class="divider"></div>
 
-  <section class="reveal">
+  <section class="reveal" id="guides">
     <div class="sec-label" data-i18n="live-label">See it live</div>
     <h2 data-i18n="live-h2">What a guide <em>looks like.</em></h2>
     <p class="body-copy" style="margin-bottom:20px" data-i18n="live-lead">A few very different homes, a few very different guides. Casa Las Nubes on the coast, Casa Yani high in the Sierra Sur, and Copal in the Tierra en Armonía collection. Yours would be entirely its own.</p>
@@ -499,6 +546,22 @@
       'phil-p1': "Picture the two ways it can feel to arrive somewhere new. In one, the place quietly opens up for you: the WiFi is right there, the good coffee is a short walk, the beach to catch at sunset already marked. In the other, you're standing at the door, texting the host a question you feel a little silly asking. A real welcome is that difference, and when a guest feels received into a place someone loves, they don't just have a good stay. They fall in love with the town.",
       'phil-p2': "The rental is the doorway. What we're really giving them is the best possible experience of the place.",
       'phil-p3': "A guide that tells your guest where to get the best coffee, which beach to catch at sunset, which taqueria only locals know about. Happy guests, better reviews, more income. Those are the byproducts of doing one thing well: welcoming people into a place we love.",
+      'offer-label': 'What we make',
+      'offer-h2': 'Everything for <em>your place.</em>',
+      'offer-lead': 'It started with the guide. Now we build the whole front door: a site guests can book on, short videos made from your photos, and someone keeping it all current.',
+      'offer1-tag': 'Core offer',
+      'offer1-name': 'Direct booking websites',
+      'offer1-desc': 'A site of your own, in English and Spanish, with booking by WhatsApp. For one villa or a whole collection.',
+      'offer1-price': 'From $350 USD · $6,650 MXN',
+      'offer1-go': 'See websites →',
+      'offer2-name': 'Welcome guides',
+      'offer2-desc': 'A guide for every home, so guests arrive already knowing the place. Included with every website.',
+      'offer2-go': 'See a guide →',
+      'offer3-desc': 'Short videos made from your listing photos. Real space, nothing invented.',
+      'offer3-price': '$200 USD · $3,800 MXN per home',
+      'offer3-go': 'See Villa Reels →',
+      'offer4-name': 'Care plan',
+      'offer4-desc': 'Hosting, edits, new homes added and guides kept current, for a small monthly fee.',
       'why-label': 'Why it works',
       'why-h2': 'Done for you. <em>Fully yours.</em>',
       'why-p1': "Other tools hand you an empty dashboard and a blank template. Most hosts never finish. The ones who do end up with something that looks like everyone else's.",
@@ -579,6 +642,22 @@
       'phil-p1': 'Imagina las dos formas en que se siente llegar a un lugar nuevo. En una, el lugar se abre para ti sin esfuerzo: el WiFi está ahí, el buen café está a unos pasos, la playa para ver el atardecer ya está marcada. En la otra, estás parado en la puerta, escribiéndole al anfitrión una pregunta que te da un poco de pena hacer. Una verdadera bienvenida es esa diferencia, y cuando un huésped se siente recibido en un lugar que alguien ama, no solo tiene una buena estancia. Se enamora del lugar.',
       'phil-p2': 'La renta es la puerta de entrada. Lo que en realidad les estamos dando es la mejor experiencia posible del lugar.',
       'phil-p3': 'Una guía que le dice a tu huésped dónde conseguir el mejor café, qué playa ver al atardecer, qué taquería solo conocen los locales. Huéspedes felices, mejores reseñas, más ingresos. Esos son los subproductos de hacer una cosa bien: dar la bienvenida a las personas en un lugar que amamos.',
+      'offer-label': 'Lo que hacemos',
+      'offer-h2': 'Todo para <em>tu lugar.</em>',
+      'offer-lead': 'Empezó con la guía. Ahora construimos toda la puerta de entrada: un sitio donde tus huéspedes pueden reservar, videos cortos hechos con tus fotos y alguien que lo mantiene todo al día.',
+      'offer1-tag': 'Lo principal',
+      'offer1-name': 'Sitios web de reserva directa',
+      'offer1-desc': 'Un sitio propio, en español e inglés, con reservas por WhatsApp. Para una villa o una colección completa.',
+      'offer1-price': 'Desde $350 USD · $6,650 MXN',
+      'offer1-go': 'Ver sitios web →',
+      'offer2-name': 'Guías de bienvenida',
+      'offer2-desc': 'Una guía para cada casa, para que tus huéspedes lleguen conociendo el lugar. Incluida con cada sitio web.',
+      'offer2-go': 'Ver una guía →',
+      'offer3-desc': 'Videos cortos hechos con las fotos de tu anuncio. Tu espacio real, nada inventado.',
+      'offer3-price': '$200 USD · $3,800 MXN por casa',
+      'offer3-go': 'Ver Villa Reels →',
+      'offer4-name': 'Plan de cuidado',
+      'offer4-desc': 'Hosting, cambios, casas nuevas y guías al día, por una cuota mensual.',
       'why-label': 'Por qué funciona',
       'why-h2': 'Hecho para ti. <em>Completamente tuyo.</em>',
       'why-p1': "Otras herramientas te dan un panel vacío y una plantilla en blanco. La mayoría de los anfitriones nunca la terminan. Los que sí acaban con algo que luce igual al de todos los demás.",
