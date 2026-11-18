@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Done-for-you custom digital welcome guides for short-term rental hosts. Your brand, your local knowledge, built for you in 48 hours.">
+<meta name="description" content="Custom welcome guides for short term rental hosts, built for you in 48 hours. From the same studio in Puerto Escondido: direct booking websites and Villa Reels.">
 <meta property="og:title" content="The Welcome Link">
-<meta property="og:description" content="Done-for-you custom digital welcome guides for short-term rental hosts. Your brand, your local knowledge, built for you in 48 hours.">
+<meta property="og:description" content="Custom welcome guides for short term rental hosts, built for you in 48 hours. From the same studio in Puerto Escondido: direct booking websites and Villa Reels.">
 <meta property="og:image" content="https://thewelcomelink.com/og-image.jpg">
 <meta property="og:url" content="https://thewelcomelink.com/">
 <meta property="og:type" content="website">
@@ -167,6 +167,8 @@
 
   /* hero positioning line (built here, for anywhere) */
   .hero-anywhere{display:inline-flex;align-items:center;gap:9px;margin-top:20px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#fff;opacity:.82;text-shadow:0 1px 10px rgba(0,0,0,.45);}
+  .hero-also{position:relative;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .hero-also a{font-size:12.5px;font-weight:600;color:#fff;text-decoration:none;padding:7px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.1);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
   .hero-anywhere::before{content:"";width:18px;height:1px;background:rgba(255,255,255,.6);flex:none;}
 
   /* RECENT WORK (case studies) */
@@ -280,6 +282,7 @@
       <h1 data-i18n="hero-h1">Welcome your guests <em>beautifully.</em></h1>
       <p class="sub" data-i18n="hero-sub">A custom digital guide built around your home, your town, and the experience you want guests to have. Done for you in 48 hours.</p>
       <div class="hero-anywhere" data-i18n="hero-anywhere">Built in Puerto Escondido. Built for hosts anywhere.</div>
+      <div class="hero-also"><a href="#offer" data-i18n="hero-also1">Also: direct booking websites</a><a href="/reels/">Villa Reels</a></div>
     </div>
     <div class="scroll-cue" data-i18n="scroll-cue">See how it works <span>↓</span></div>
   </header>
@@ -296,41 +299,6 @@
     <img src="/images/beach-sunrise.jpg" alt="" loading="lazy" aria-hidden="true">
   </div>
 
-  <!-- ============================================================
-       OFFERINGS: the umbrella. Every other page ties back here.
-       Prices in USD with pesos at the house rate of 19 per dollar.
-       ============================================================ -->
-  <section class="reveal" id="offer">
-    <div class="sec-label" data-i18n="offer-label">What we make</div>
-    <h2 data-i18n="offer-h2">Everything for <em>your place.</em></h2>
-    <p class="body-copy" data-i18n="offer-lead">It started with the guide. Now we build the whole front door: a site guests can book on, short videos made from your photos, and someone keeping it all current.</p>
-    <div class="offer-grid">
-      <a class="offer" href="/websites/">
-        <span class="tag" data-i18n="offer1-tag">Core offer</span>
-        <div class="name" data-i18n="offer1-name">Direct booking websites</div>
-        <div class="desc" data-i18n="offer1-desc">A site of your own, in English and Spanish, with booking by WhatsApp. For one villa or a whole collection.</div>
-        <div class="price" data-i18n="offer1-price">From $350 USD · $6,650 MXN</div>
-        <div class="go" data-i18n="offer1-go">See websites →</div>
-      </a>
-      <a class="offer" href="#guides">
-        <div class="name" data-i18n="offer2-name">Welcome guides</div>
-        <div class="desc" data-i18n="offer2-desc">A guide for every home, so guests arrive already knowing the place. Included with every website.</div>
-        <div class="go" data-i18n="offer2-go">See a guide →</div>
-      </a>
-      <a class="offer" href="/reels/">
-        <div class="name">Villa Reels</div>
-        <div class="desc" data-i18n="offer3-desc">Short videos made from your listing photos. Real space, nothing invented.</div>
-        <div class="price" data-i18n="offer3-price">$200 USD · $3,800 MXN per home</div>
-        <div class="go" data-i18n="offer3-go">See Villa Reels →</div>
-      </a>
-      <div class="offer">
-        <div class="name" data-i18n="offer4-name">Care plan</div>
-        <div class="desc" data-i18n="offer4-desc">Hosting, edits, new homes added and guides kept current, for a small monthly fee.</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
 
   <section class="reveal">
     <div class="sec-label" data-i18n="why-label">Why it works</div>
@@ -471,6 +439,42 @@
 
   <div class="divider"></div>
 
+  <!-- ============================================================
+       OFFERINGS: the umbrella. Every other page ties back here.
+       Prices in USD with pesos at the house rate of 19 per dollar.
+       ============================================================ -->
+  <section class="reveal" id="offer">
+    <div class="sec-label" data-i18n="offer-label">What we make</div>
+    <h2 data-i18n="offer-h2">Everything for <em>your place.</em></h2>
+    <p class="body-copy" data-i18n="offer-lead">It started with the guide. Now we build the whole front door: a site guests can book on, short videos made from your photos, and someone keeping it all current.</p>
+    <div class="offer-grid">
+      <a class="offer" href="/websites/">
+        <span class="tag" data-i18n="offer1-tag">Core offer</span>
+        <div class="name" data-i18n="offer1-name">Direct booking websites</div>
+        <div class="desc" data-i18n="offer1-desc">A site of your own, in English and Spanish, with booking by WhatsApp. For one villa or a whole collection.</div>
+        <div class="price" data-i18n="offer1-price">From $350 USD · $6,650 MXN</div>
+        <div class="go" data-i18n="offer1-go">See websites →</div>
+      </a>
+      <a class="offer" href="#guides">
+        <div class="name" data-i18n="offer2-name">Welcome guides</div>
+        <div class="desc" data-i18n="offer2-desc">A guide for every home, so guests arrive already knowing the place. Included with every website.</div>
+        <div class="go" data-i18n="offer2-go">See a guide →</div>
+      </a>
+      <a class="offer" href="/reels/">
+        <div class="name">Villa Reels</div>
+        <div class="desc" data-i18n="offer3-desc">Short videos made from your listing photos. Real space, nothing invented.</div>
+        <div class="price" data-i18n="offer3-price">$200 USD · $3,800 MXN per home</div>
+        <div class="go" data-i18n="offer3-go">See Villa Reels →</div>
+      </a>
+      <div class="offer">
+        <div class="name" data-i18n="offer4-name">Care plan</div>
+        <div class="desc" data-i18n="offer4-desc">Hosting, edits, new homes added and guides kept current, for a small monthly fee.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <section class="roi reveal">
     <div class="sec-label" data-i18n="roi-label">The return</div>
     <h2 data-i18n="roi-h2">More than a <em>welcome.</em></h2>
@@ -512,6 +516,14 @@
     </div>
   </section>
 
+  <section class="founding reveal">
+    <div class="founding-card">
+      <h3 data-i18n="free-h3">Your first guide is <em>on us.</em></h3>
+      <p data-i18n="free-p">Tell us about one of your homes and we will build its guide, free. Send it to your next guests and see how it feels. If you like it, we can talk about the rest.</p>
+      <a class="btn-terra" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27d%20love%20a%20free%20guide%20for%20one%20of%20my%20homes." target="_blank" rel="noopener" data-i18n="free-btn">💬 Ask for a free guide</a>
+    </div>
+  </section>
+
   <section class="cta-foot reveal">
     <div class="sec-label" data-i18n="cta-label">Ready</div>
     <h2 data-i18n="cta-h2">Want one for <em>your place?</em></h2>
@@ -521,7 +533,7 @@
 
   <div class="foot">
     <div class="mark">The Welcome Link</div>
-    <div class="small" data-i18n="foot-small">Custom guest welcome experiences · Puerto Escondido</div>
+    <div class="small" data-i18n="foot-small">Welcome guides, websites and Villa Reels · Puerto Escondido</div>
     <div class="links"><span data-i18n="foot-also">Also from us:</span> <a href="/websites/" data-i18n="foot-websites">Websites</a> · <a href="/reels/">Villa Reels</a></div>
   </div>
 
@@ -532,6 +544,10 @@
       'hero-h1': 'Welcome your guests <em>beautifully.</em>',
       'hero-sub': 'A custom digital guide built around your home, your town, and the experience you want guests to have. Done for you in 48 hours.',
       'hero-anywhere': 'Built in Puerto Escondido. Built for hosts anywhere.',
+      'hero-also1': 'Also: direct booking websites',
+      'free-h3': 'Your first guide is <em>on us.</em>',
+      'free-p': 'Tell us about one of your homes and we will build its guide, free. Send it to your next guests and see how it feels. If you like it, we can talk about the rest.',
+      'free-btn': '💬 Ask for a free guide',
       'scroll-cue': 'See how it works <span>↓</span>',
       'phil-label': 'The idea',
       'phil-h2': "It's not a guidebook. It's a <em>welcome.</em>",
@@ -617,7 +633,7 @@
       'cta-h2': 'Want one for <em>your place?</em>',
       'cta-p': 'Built around your property, your local knowledge, your guests. In 48 hours.',
       'cta-btn': '💬 Talk to Trevor on WhatsApp',
-      'foot-small': 'Custom guest welcome experiences · Puerto Escondido',
+      'foot-small': 'Welcome guides, websites and Villa Reels · Puerto Escondido',
       'foot-also': 'Also from us:',
       'foot-websites': 'Websites'
     },
@@ -625,6 +641,10 @@
       'hero-h1': 'Dale la bienvenida a tus huéspedes <em>de forma hermosa.</em>',
       'hero-sub': 'Una guía digital personalizada construida en torno a tu casa, tu ciudad y la experiencia que quieres que tus huéspedes tengan. Hecha para ti en 48 horas.',
       'hero-anywhere': 'Hecha en Puerto Escondido. Hecha para anfitriones en cualquier lugar.',
+      'hero-also1': 'También: sitios web de reserva directa',
+      'free-h3': 'Tu primera guía va <em>por nuestra cuenta.</em>',
+      'free-p': 'Cuéntanos de una de tus casas y le hacemos su guía, gratis. Mándasela a tus próximos huéspedes y ve cómo se siente. Si te gusta, platicamos de lo demás.',
+      'free-btn': '💬 Pide tu guía gratis',
       'scroll-cue': 'Descubre cómo funciona <span>↓</span>',
       'phil-label': 'La idea',
       'phil-h2': 'No es una guía. Es una <em>bienvenida.</em>',
@@ -710,7 +730,7 @@
       'cta-h2': '¿Quieres una para <em>tu lugar?</em>',
       'cta-p': 'Construida en torno a tu propiedad, tu conocimiento local, tus huéspedes. En 48 horas.',
       'cta-btn': '💬 Habla con Trevor por WhatsApp',
-      'foot-small': 'Experiencias de bienvenida personalizadas · Puerto Escondido',
+      'foot-small': 'Guías de bienvenida, sitios web y Villa Reels · Puerto Escondido',
       'foot-also': 'También hacemos:',
       'foot-websites': 'Sitios web'
     }
