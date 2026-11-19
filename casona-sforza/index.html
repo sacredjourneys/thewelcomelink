@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="description" content="A preview welcome guide for Casona Sforza, La Barra, Puerto Escondido. Built by The Welcome Link.">
-<meta property="og:title" content="Casona Sforza · Puerto Escondido">
-<meta property="og:description" content="Brick vaults facing the Pacific, carried onto your guests' phones from the moment they book. A preview built by The Welcome Link.">
+<meta name="description" content="Guía de bienvenida de Casona Sforza, La Barra de Colotepec, Puerto Escondido.">
+<meta property="og:title" content="Casona Sforza · Guía de bienvenida">
+<meta property="og:description" content="Todo para su estancia en Casona Sforza, desde antes de llegar hasta el último día frente al mar.">
 <meta property="og:image" content="https://thewelcomelink.com/casona-sforza/images/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://thewelcomelink.com/casona-sforza/images/og.jpg">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<title>Casona Sforza · Preview · The Welcome Link</title>
+<title>Casona Sforza · Guía de bienvenida</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,7 +26,6 @@
     --sage:#717f63;
     --sage-deep:#525d46;
     --gold:#c2a06a;
-    --gold-deep:#a07f44;
     --sand:#e7ddcc;
     --shell:#f6efe3;
     --cream:#fcf8ef;
@@ -34,6 +33,7 @@
     --ink-soft:#6b6359;
     --line:rgba(42,38,32,.12);
     --shadow:0 20px 48px -22px rgba(40,36,30,.34);
+    --night:#2b241c;
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
@@ -58,15 +58,21 @@
   }
   .lang-toggle button.active{background:#fff;color:#2a2620;}
 
+  /* ===== DRAFT NOTES (remove .tbc styling and the draft bar when approved) ===== */
+  .draft-bar{
+    position:relative;z-index:3;background:#fff6d9;border-bottom:1px solid #ecd892;
+    padding:12px 22px 12px;font-size:12.5px;line-height:1.5;color:#6a5520;
+  }
+  .draft-bar b{font-weight:700;letter-spacing:.04em;}
+  .tbc{background:#fff1bf;border-bottom:1px dashed #c9a43c;border-radius:3px;padding:0 3px;}
+  .arrival .tbc,.night .tbc{background:rgba(255,230,150,.18);color:#ffe7a6;border-bottom-color:#e6c46a;}
+
   /* ===== HERO ===== */
   .hero{
-    position:relative;min-height:92vh;display:flex;flex-direction:column;
+    position:relative;min-height:88vh;display:flex;flex-direction:column;
     justify-content:flex-end;padding:32px 26px 50px;color:#fff;overflow:hidden;
   }
-  .hero-bg{
-    position:absolute;inset:0;z-index:0;
-    background:url("images/hero.jpg") center/cover no-repeat;
-  }
+  .hero-bg{position:absolute;inset:0;z-index:0;background:url("images/hero.jpg") center/cover no-repeat;}
   .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
   @media (prefers-reduced-motion: reduce){.hero-video{display:none;}}
   .hero-bg::after{
@@ -74,12 +80,6 @@
     background:linear-gradient(180deg,rgba(36,28,20,.16) 0%,rgba(36,28,20,.36) 46%,rgba(28,22,15,.88) 100%);
   }
   .hero-content{position:relative;z-index:2;}
-  .preview-tag{
-    display:inline-block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
-    font-weight:600;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
-    border-radius:20px;padding:5px 13px;color:rgba(255,255,255,.92);margin-bottom:20px;
-    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  }
   .eyebrow{
     font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;
     opacity:.84;margin-bottom:14px;display:flex;align-items:center;gap:10px;
@@ -98,100 +98,75 @@
   .scroll-cue i{font-style:normal;animation:bob 2.2s ease-in-out infinite;}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
+  /* ===== JOURNEY NAV ===== */
+  .journey{display:flex;gap:6px;overflow-x:auto;padding:16px 22px;background:var(--cream);border-bottom:1px solid var(--line);scrollbar-width:none;}
+  .journey::-webkit-scrollbar{display:none;}
+  .journey a{flex:none;font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--sage-deep);text-decoration:none;
+    border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff;}
+
+  /* ===== MOVEMENT BANNERS ===== */
+  .movement{padding:46px 26px 6px;text-align:center;}
+  .movement .num{font-family:'Newsreader',serif;font-style:italic;font-size:15px;color:var(--clay-deep);}
+  .movement .t{font-family:'Newsreader',serif;font-size:34px;line-height:1.05;letter-spacing:-.015em;margin-top:4px;color:#28241e;}
+  .movement .rule{width:40px;height:1px;background:var(--clay);margin:16px auto 0;opacity:.6;}
+
   /* ===== SECTIONS ===== */
-  section{position:relative;z-index:2;padding:46px 26px;}
+  section{position:relative;z-index:2;padding:40px 26px;}
   .sec-label{
     font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-deep);
     font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px;
   }
   .sec-label::before{content:"";width:20px;height:1px;background:var(--sage);}
-  h2{
-    font-family:'Newsreader',serif;font-weight:400;font-size:28px;line-height:1.12;
-    letter-spacing:-.01em;margin-bottom:14px;color:#28241e;
-  }
+  h2{font-family:'Newsreader',serif;font-weight:400;font-size:28px;line-height:1.12;letter-spacing:-.01em;margin-bottom:14px;color:#28241e;}
   h2 em{font-style:italic;color:var(--sage-deep);}
+  .lead{font-size:15px;color:var(--ink-soft);line-height:1.7;margin-bottom:18px;}
   .divider{height:1px;background:var(--line);margin:0 26px;position:relative;z-index:2;}
 
-  /* ===== INTRO ===== */
+  /* ===== WELCOME ===== */
   .intro{background:linear-gradient(180deg,#fcf8ef,#f6efe3);}
-  .intro-note{
-    font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:18.5px;
-    line-height:1.6;color:var(--sage-deep);margin-top:4px;
-  }
-  .relief{padding:32px 26px;}
-  .relief p{font-size:15px;color:var(--ink-soft);line-height:1.72;}
+  .intro-note{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:18.5px;line-height:1.6;color:var(--sage-deep);}
+  .sign{margin-top:16px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--clay-deep);}
 
-  /* ===== ARRIVAL TABLE ===== */
-  .checkin{background:linear-gradient(180deg,#f6efe3,#ece1cf);}
+  /* ===== PREP ===== */
+  .prep-item{display:flex;gap:14px;padding:15px 0;border-top:1px solid var(--line);}
+  .prep-item:first-of-type{border-top:none;}
+  .prep-ic{flex:none;width:40px;height:40px;border-radius:12px;background:#efe4d3;display:flex;align-items:center;justify-content:center;font-size:19px;}
+  .prep-item b{display:block;font-size:15px;font-weight:600;margin-bottom:2px;}
+  .prep-item p{font-size:14px;color:var(--ink-soft);line-height:1.6;}
+
+  /* ===== ARRIVAL ===== */
+  .arrival{background:var(--night);color:#f0ecdf;}
+  .arrival .sec-label{color:#e9c9a8;}
+  .arrival .sec-label::before{background:#e9c9a8;}
+  .arrival h2{color:#f5efe2;}
+  .arrival h2 em{color:#e9c9a8;}
+  .arrival .lead{color:rgba(240,236,223,.78);}
+  .route{background:rgba(255,255,255,.05);border:1px solid rgba(233,201,168,.18);border-radius:16px;padding:18px 18px 16px;margin-top:14px;}
+  .route summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:500;font-size:15.5px;color:#f5efe2;}
+  .route summary::-webkit-details-marker{display:none;}
+  .route .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e9c9a8;border:1px solid rgba(233,201,168,.4);padding:3px 9px;border-radius:20px;white-space:nowrap;margin-left:auto;}
+  .route .chev{transition:transform .3s;color:#e9c9a8;font-size:18px;}
+  .route[open] .chev{transform:rotate(90deg);}
+  .route ol{margin:14px 0 0;padding-left:0;list-style:none;counter-reset:step;}
+  .route ol li{counter-increment:step;position:relative;padding:0 0 14px 34px;font-size:14px;color:rgba(240,236,223,.85);line-height:1.5;}
+  .route ol li::before{content:counter(step);position:absolute;left:0;top:-1px;width:22px;height:22px;border-radius:50%;background:var(--clay);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:600;}
+  .route ol li:not(:last-child)::after{content:"";position:absolute;left:10.5px;top:24px;bottom:2px;width:1px;background:rgba(233,201,168,.3);}
+  .btn-map{display:block;text-align:center;margin-top:18px;padding:14px;border-radius:14px;background:#f5efe2;color:#2b241c;font-weight:600;font-size:15px;text-decoration:none;}
+  .landmark{margin-top:10px;background:rgba(233,201,168,.12);border-radius:12px;padding:12px 14px;font-size:13.5px;color:#f0ecdf;display:flex;gap:10px;align-items:flex-start;}
+  .landmark b{color:#e9c9a8;}
+
+  /* ===== ESSENTIALS TABLE ===== */
+  .essentials{background:linear-gradient(180deg,#f6efe3,#ece1cf);}
   .info-table{width:100%;border-collapse:collapse;margin-top:6px;}
   .info-table tr{border-bottom:1px solid var(--line);}
   .info-table tr:last-child{border-bottom:none;}
   .info-table td{padding:13px 0;font-size:14.5px;vertical-align:top;}
-  .info-table td:first-child{
-    width:34%;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
-    font-weight:600;color:var(--sage-deep);padding-right:12px;padding-top:15px;
-  }
+  .info-table td:first-child{width:34%;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--sage-deep);padding-right:12px;padding-top:15px;}
   .info-table td:last-child{color:var(--ink);font-weight:500;line-height:1.45;}
   .info-table td:last-child small{display:block;font-weight:400;color:var(--ink-soft);font-size:13px;margin-top:2px;}
 
-  /* ===== UPSIDE ===== */
-  .addons{background:linear-gradient(160deg,#26211a,#191510);color:#ece5da;padding:50px 26px;}
-  .addons .sec-label{color:#ddb87f;}
-  .addons .sec-label::before{background:#ddb87f;}
-  .addons h2{color:#fff;font-size:26px;margin-bottom:8px;}
-  .addons h2 em{color:#ddb87f;}
-  .addons .sub-copy{font-size:14.5px;color:rgba(236,229,218,.78);margin-bottom:22px;line-height:1.65;}
-  .addon-card{
-    background:rgba(255,255,255,.06);border:1px solid rgba(221,184,127,.18);
-    border-radius:16px;padding:18px 18px 16px;margin-bottom:12px;
-    display:flex;gap:14px;align-items:flex-start;
-  }
-  .addon-card:last-child{margin-bottom:0;}
-  .addon-ic{
-    flex:none;width:40px;height:40px;border-radius:12px;
-    background:rgba(221,184,127,.14);display:flex;align-items:center;
-    justify-content:center;font-size:19px;
-  }
-  .addon-card b{display:block;font-size:15px;font-weight:600;color:#f4efe5;margin-bottom:3px;}
-  .addon-card span{font-size:13px;color:rgba(236,229,218,.74);line-height:1.5;}
-
-  /* ===== CLOSING CTA ===== */
-  .cta{background:linear-gradient(180deg,#ece1cf,#e0d4c0);text-align:center;padding:50px 26px 48px;}
-  .cta .sec-label{justify-content:center;}
-  .cta h2{font-size:26px;margin-bottom:12px;}
-  .cta-copy{
-    font-size:15px;color:var(--ink-soft);line-height:1.72;
-    margin-bottom:20px;max-width:36ch;margin-left:auto;margin-right:auto;
-  }
-  .both-note{
-    background:#fcf8ef;border:1px solid var(--line);border-radius:16px;
-    padding:16px 18px;margin:0 auto 18px;max-width:38ch;box-shadow:var(--shadow);
-  }
-  .both-note .pin{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-deep);font-weight:600;display:block;margin-bottom:6px;}
-  .both-note p{font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
-  .personal-note{
-    font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:15.5px;
-    line-height:1.66;color:var(--sage-deep);max-width:37ch;margin:0 auto 26px;
-  }
-  .cta-sec{display:block;margin-top:16px;font-size:13.5px;color:var(--sage-deep);text-decoration:none;font-weight:500;}
-  .btn-wa{
-    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-    padding:16px;border-radius:14px;font-family:'Hanken Grotesk',sans-serif;font-size:15.5px;
-    font-weight:600;text-decoration:none;background:#25845a;color:#fff;
-    box-shadow:0 10px 26px -10px rgba(37,132,90,.65);
-  }
-
-  /* ===== FOOTER ===== */
-  .foot{text-align:center;padding:28px 26px 46px;position:relative;z-index:2;}
-  .foot .mark{font-family:'Newsreader',serif;font-style:italic;font-size:17px;color:var(--sage-deep);}
-  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
-
-  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
-  .reveal.in{opacity:1;transform:none;}
-
-  /* ===== STAY CARDS ===== */
+  /* ===== CARDS ===== */
   .stay{background:linear-gradient(180deg,#fcf8ef,#f6efe3);}
-  .stay-intro{font-size:15px;color:var(--ink-soft);line-height:1.7;margin-bottom:22px;}
   .card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:18px;border:1px solid var(--line);}
   .card img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;}
   .card-body{padding:18px 18px 20px;}
@@ -199,18 +174,50 @@
   .card h3{font-family:'Newsreader',serif;font-weight:400;font-size:23px;line-height:1.15;margin-bottom:8px;color:#28241e;}
   .card h3 em{font-style:italic;color:var(--clay-deep);}
   .card p{font-size:14px;color:var(--ink-soft);line-height:1.62;}
+  .card p + p{margin-top:8px;}
   .card ul{list-style:none;margin:12px 0 4px;}
-  .card li{font-size:13.5px;padding:8px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;}
+  .card li{font-size:13.5px;padding:9px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;}
   .card li b{font-weight:500;color:var(--ink);}
-  .card li span.p{color:var(--ink-soft);white-space:nowrap;}
-  .pill{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--clay);
-    padding:9px 16px;border-radius:999px;text-decoration:none;}
+  .card li b small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:1px;}
+  .card li span.p{color:var(--ink-soft);white-space:nowrap;text-align:right;}
+  .card .fine{font-size:12.5px;color:var(--ink-soft);margin-top:10px;line-height:1.55;}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .pill{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--clay);padding:9px 16px;border-radius:999px;text-decoration:none;}
+  .pill.ghost{background:transparent;color:var(--clay-deep);border:1px solid var(--clay);}
+
   /* ===== STORY ===== */
   .story{padding:0;background:#efe4d3;}
   .story img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;}
   .story-body{padding:34px 26px 44px;}
-  .story-body p{font-size:15px;color:var(--ink-soft);line-height:1.75;margin-top:4px;}
+  .story-body p{font-size:15px;color:var(--ink-soft);line-height:1.75;margin-top:10px;}
   .story-body .quote{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:19px;color:var(--clay-deep);line-height:1.5;margin-top:18px;}
+
+  /* ===== GOOD TO KNOW ===== */
+  .know{background:var(--cream);}
+
+  /* ===== CHECKOUT ===== */
+  .checkout{background:linear-gradient(180deg,#f6efe3,#ece1cf);}
+  .checkout .step{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .checkout .step:last-child{border-bottom:none;}
+  .checkout .step .box{flex:none;width:24px;height:24px;border:2px solid var(--clay);border-radius:7px;}
+  .checkout .step span{font-size:14.5px;}
+
+  /* ===== CLOSE + CONTACT ===== */
+  .close{background:linear-gradient(180deg,#ece1cf,#e0d4c0);text-align:center;padding:50px 26px 44px;}
+  .close .sec-label{justify-content:center;}
+  .close .personal-note{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:17px;line-height:1.66;color:var(--sage-deep);max-width:36ch;margin:0 auto 24px;}
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:14px;font-size:15.5px;font-weight:600;text-decoration:none;margin-top:10px;}
+  .btn-wa{background:#25845a;color:#fff;box-shadow:0 10px 26px -10px rgba(37,132,90,.65);}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid rgba(42,38,32,.25);}
+  .review{margin-top:26px;font-size:13.5px;color:var(--ink-soft);line-height:1.65;max-width:36ch;margin-left:auto;margin-right:auto;}
+  .review a{color:var(--clay-deep);font-weight:600;}
+
+  .foot{text-align:center;padding:28px 26px 46px;position:relative;z-index:2;}
+  .foot .mark{font-family:'Newsreader',serif;font-style:italic;font-size:17px;color:var(--sage-deep);}
+  .foot .small{font-size:11.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
 </style>
 </head>
 <body data-lang="es">
@@ -223,7 +230,7 @@
 
 <div class="wrap">
 
-  <!-- HERO: cycling loop of 4 of their own photos, animated (images/hero.mp4), poster = first frame -->
+  <!-- HERO: cycling loop of 4 of their own photos (images/hero.mp4), poster = first frame -->
   <header class="hero">
     <div class="hero-bg">
       <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero.jpg" aria-hidden="true">
@@ -231,252 +238,367 @@
       </video>
     </div>
     <div class="hero-content">
-      <div class="preview-tag">
-        <span class="lang-es">Una muestra, hecha para ustedes por The Welcome Link</span>
-        <span class="lang-en">A preview, built for you by The Welcome Link</span>
-      </div>
       <div class="eyebrow">La Barra · Puerto Escondido</div>
       <h1>
         <span class="lang-es">Bienvenidos a <em>Casona Sforza</em></span>
         <span class="lang-en">Welcome to <em>Casona Sforza</em></span>
       </h1>
       <p class="sub">
-        <span class="lang-es">Bóvedas de ladrillo frente al Pacífico, tardes largas y una casa hecha para desconectar. Todo lo que su huésped necesita, en su teléfono desde el día que reserva.</span>
-        <span class="lang-en">Brick vaults facing the Pacific, long evenings and a house made for switching off. Everything your guest needs, on their phone from the day they book.</span>
+        <span class="lang-es">Bóvedas de ladrillo frente al Pacífico, tardes largas y una casa hecha para desconectar. Aquí está todo para su estancia.</span>
+        <span class="lang-en">Brick vaults facing the Pacific, long evenings and a house made for switching off. Everything for your stay is right here.</span>
       </p>
     </div>
     <div class="scroll-cue">
-      <span class="lang-es">Desliza para explorar</span><span class="lang-en">Scroll to explore</span> <i>↓</i>
+      <span class="lang-es">Desliza para empezar</span><span class="lang-en">Scroll to begin</span> <i>↓</i>
     </div>
   </header>
 
-  <!-- INTRO GREETING -->
-  <section class="intro reveal">
-    <!-- PERSONALIZE: nameless on purpose (first contact is by email to the hotel). If Trevor learns the contact's name, set "Hola [Nombre]," / "Hi [Name]," by hand. -->
-    <p class="intro-note">
-      <span class="lang-es">Hola, me contaron que les interesó la guía de bienvenida, así que empecé por aquí. Esta es una pequeña muestra de cómo se sentiría para sus huéspedes: la misma calma de la casa, desde antes de que lleguen a La Barra.</span>
-      <span class="lang-en">Hi, I heard you were curious about the welcome guide, so I started here. This is a small taste of how it could feel for your guests: the same calm as the house, from before they ever reach La Barra.</span>
-    </p>
-  </section>
-
-  <div class="relief reveal">
-    <p>
-      <span class="lang-es">Ya empezada para ustedes. Sin plataformas, sin contraseñas, sin tarea para el equipo. Ustedes lo dicen y yo la construyo, con su marca y no la nuestra.</span>
-      <span class="lang-en">Already started for you. No platforms, no logins, no homework for the team. You say the word and I build it, in your brand, not ours.</span>
-    </p>
+  <!-- DRAFT BAR: remove once Casona approves the guide. Also strip every class="tbc" span (keep the confirmed text). -->
+  <div class="draft-bar">
+    <span class="lang-es"><b>BORRADOR PARA REVISIÓN.</b> Todo viene de casonasforza.com. Lo <span class="tbc">marcado así</span> está por confirmar con ustedes.</span>
+    <span class="lang-en"><b>DRAFT FOR REVIEW.</b> Everything comes from casonasforza.com. Anything <span class="tbc">marked like this</span> is still to confirm with you.</span>
   </div>
 
-  <div class="divider"></div>
+  <nav class="journey" aria-label="Guide">
+    <a href="#antes"><span class="lang-es">Antes de llegar</span><span class="lang-en">Before you come</span></a>
+    <a href="#llegar"><span class="lang-es">Cómo llegar</span><span class="lang-en">Getting here</span></a>
+    <a href="#aqui"><span class="lang-es">Su estancia</span><span class="lang-en">Your stay</span></a>
+    <a href="#salida"><span class="lang-es">La salida</span><span class="lang-en">Heading out</span></a>
+  </nav>
 
-  <!-- BEFORE YOU COME: only facts from casonasforza.com. FILL: check-in and checkout times, airport transfer, once the hotel confirms them. -->
-  <section class="checkin reveal">
-    <div class="sec-label">
-      <span class="lang-es">Antes de llegar</span><span class="lang-en">Before you come</span>
+  <!-- ============================================================
+       MOVEMENT 1: BEFORE YOU COME
+       ============================================================ -->
+  <div class="movement reveal" id="antes">
+    <div class="num">I</div>
+    <div class="t"><span class="lang-es">Antes de llegar</span><span class="lang-en">Before you come</span></div>
+    <div class="rule"></div>
+  </div>
+
+  <section class="intro reveal">
+    <p class="intro-note">
+      <span class="lang-es">Cuando estás aquí, estás en casa. Casona Sforza empezó como una casa de sueño frente al mar, y la abrimos para sostener algo más grande que nosotros. Nos da mucho gusto recibirlos. Esta guía los acompaña desde hoy hasta el último atardecer.</span>
+      <span class="lang-en">When you're here, you're home. Casona Sforza began as a dream house by the sea, and we opened it to hold up something bigger than ourselves. We're so glad to welcome you. This guide walks with you from today until your last sunset.</span>
+    </p>
+    <div class="sign"><span class="lang-es">El equipo de Casona Sforza</span><span class="lang-en">The Casona Sforza team</span></div>
+  </section>
+
+  <section class="reveal" style="padding-top:10px">
+    <div class="sec-label"><span class="lang-es">Unos días antes</span><span class="lang-en">A few days ahead</span></div>
+    <h2><span class="lang-es">Un poco de <em>preparación</em></span><span class="lang-en">A little <em>prep</em></span></h2>
+
+    <div class="prep-item">
+      <div class="prep-ic">🌊</div>
+      <div>
+        <b><span class="lang-es">Vengan a desconectar</span><span class="lang-en">Come ready to switch off</span></b>
+        <p><span class="lang-es">El internet aquí puede ser limitado, y es parte del regalo. Descarguen antes lo que quieran leer, ver o escuchar.</span><span class="lang-en">Internet here can be limited, and that's part of the gift. Download anything you want to read, watch or listen to before you come.</span></p>
+      </div>
     </div>
-    <h2>
-      <span class="lang-es">Lo esencial, <em>resuelto.</em></span>
-      <span class="lang-en">The essentials, <em>sorted.</em></span>
-    </h2>
+    <div class="prep-item">
+      <div class="prep-ic">🤍</div>
+      <div>
+        <b><span class="lang-es">Solo adultos</span><span class="lang-en">Adults only</span></b>
+        <p><span class="lang-es">Casona es un espacio solo para adultos, pensado para el silencio, el descanso y el mar.</span><span class="lang-en">Casona is an adults-only space, made for quiet, rest and the sea.</span></p>
+      </div>
+    </div>
+    <div class="prep-item">
+      <div class="prep-ic">🍽️</div>
+      <div>
+        <b><span class="lang-es">Reserven lo que más desean</span><span class="lang-en">Book what you want most</span></b>
+        <p><span class="lang-es">El vuelo ligero sobre la costa se reserva con 24 horas. Masajes, sauna e ice bath, con al menos 2 horas. Si ya saben qué quieren, escríbannos antes de llegar y lo dejamos listo.</span><span class="lang-en">The ultralight flight over the coast needs 24 hours' notice. Massages, sauna and ice bath need at least 2 hours. If you already know what you'd love, message us before you arrive and we'll have it ready.</span></p>
+      </div>
+    </div>
+    <div class="prep-item">
+      <div class="prep-ic">💵</div>
+      <div>
+        <b><span class="lang-es">Algo de efectivo</span><span class="lang-en">Some cash</span></b>
+        <p><span class="lang-es">En Puerto muchos taxis, puestos y lanchas solo aceptan efectivo. <span class="tbc">En la casa se puede cargar a la habitación.</span></span><span class="lang-en">Around Puerto many taxis, stalls and boats take cash only. <span class="tbc">At the house you can charge things to your room.</span></span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MOVEMENT 2: GETTING HERE
+       Every route ends at the Casona gate. Arrival goes to reception by WhatsApp.
+       FILL: confirm drive times, airport transfer (yes/no + price), parking.
+       ============================================================ -->
+  <div class="movement reveal" id="llegar">
+    <div class="num">II</div>
+    <div class="t"><span class="lang-es">Cómo llegar</span><span class="lang-en">Getting here</span></div>
+    <div class="rule"></div>
+  </div>
+
+  <section class="arrival reveal">
+    <div class="sec-label"><span class="lang-es">Rumbo a La Barra</span><span class="lang-en">To La Barra</span></div>
+    <h2><span class="lang-es">El camino <em>a casa</em></span><span class="lang-en">The way <em>home</em></span></h2>
+    <p class="lead">
+      <span class="lang-es">Casona está frente a la playa en La Barra de Colotepec, al sureste de Puerto Escondido. Toquen su ruta. Todas terminan en nuestra puerta.</span>
+      <span class="lang-en">Casona sits on the beach at La Barra de Colotepec, southeast of Puerto Escondido. Tap your route. Every one ends at our gate.</span>
+    </p>
+
+    <details class="route">
+      <summary><span class="lang-es">Desde el aeropuerto</span><span class="lang-en">From the airport</span><span class="tag">PXM</span><span class="chev">›</span></summary>
+      <ol>
+        <li><span class="lang-es">Al salir, tomen un taxi oficial del aeropuerto. <span class="tbc">O pidan su traslado con nosotros al reservar.</span></span><span class="lang-en">On the way out, take an official airport taxi. <span class="tbc">Or ask us for a transfer when you book.</span></span></li>
+        <li><span class="lang-es">Díganle al chofer: <b>"Casona Sforza, en La Barra de Colotepec"</b>. Son <span class="tbc">unos 20 a 25 minutos</span>.</span><span class="lang-en">Tell the driver: <b>"Casona Sforza, La Barra de Colotepec"</b>. It's <span class="tbc">about 20 to 25 minutes</span>.</span></li>
+        <li><span class="lang-es">Mándennos un WhatsApp al salir del aeropuerto y los esperamos en la entrada.</span><span class="lang-en">Send us a WhatsApp as you leave the airport and we'll meet you at the entrance.</span></li>
+      </ol>
+    </details>
+
+    <details class="route">
+      <summary><span class="lang-es">Desde Puerto</span><span class="lang-en">From town</span><span class="tag">Taxi</span><span class="chev">›</span></summary>
+      <ol>
+        <li><span class="lang-es">Desde Zicatela, La Punta o el centro, cualquier taxi los trae. Pidan <b>"Casona Sforza, La Barra"</b>.</span><span class="lang-en">From Zicatela, La Punta or downtown, any taxi will bring you. Ask for <b>"Casona Sforza, La Barra"</b>.</span></li>
+        <li><span class="lang-es">Acuerden el precio antes de subir. Los taxis aquí no usan taxímetro.</span><span class="lang-en">Agree the fare before you get in. Taxis here don't run meters.</span></li>
+        <li><span class="lang-es">Avísennos cuando vayan en camino y los recibimos en la entrada.</span><span class="lang-en">Let us know when you're on the way and we'll welcome you at the entrance.</span></li>
+      </ol>
+    </details>
+
+    <details class="route">
+      <summary><span class="lang-es">En su propio auto</span><span class="lang-en">By car</span><span class="tag"><span class="lang-es">Manejando</span><span class="lang-en">Driving</span></span><span class="chev">›</span></summary>
+      <ol>
+        <li><span class="lang-es">Pongan el pin de abajo en Google Maps y síganlo hasta La Barra de Colotepec.</span><span class="lang-en">Drop the pin below into Google Maps and follow it to La Barra de Colotepec.</span></li>
+        <li><span class="lang-es">Lleguen con luz de día si pueden. Los últimos tramos se ven mejor antes del atardecer.</span><span class="lang-en">Arrive in daylight if you can. The last stretch is easier to see before sunset.</span></li>
+        <li><span class="lang-es"><span class="tbc">Hay estacionamiento en la casa.</span> Escríbannos al llegar.</span><span class="lang-en"><span class="tbc">There's parking at the house.</span> Message us when you arrive.</span></li>
+      </ol>
+    </details>
+
+    <a class="btn-map" href="https://maps.app.goo.gl/FYUkbqHrZ1mv5YzX6" target="_blank" rel="noopener">📍 <span class="lang-es">Abrir en Google Maps</span><span class="lang-en">Open in Google Maps</span></a>
+
+    <div class="landmark">
+      <span>💬</span>
+      <div><span class="lang-es"><b>¿Ya casi llegan o se perdieron?</b> Escríbannos por WhatsApp y los guiamos hasta la puerta.</span><span class="lang-en"><b>Almost here, or a little lost?</b> Message us on WhatsApp and we'll guide you to the door.</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MOVEMENT 3: WHILE YOU'RE HERE
+       The house, the essentials, La Bóveda, Body & Soul, experiences, the story.
+       ============================================================ -->
+  <div class="movement reveal" id="aqui">
+    <div class="num">III</div>
+    <div class="t"><span class="lang-es">Su estancia</span><span class="lang-en">While you're here</span></div>
+    <div class="rule"></div>
+  </div>
+
+  <!-- THE HOUSE -->
+  <section class="stay reveal">
+    <div class="sec-label"><span class="lang-es">La casa</span><span class="lang-en">The house</span></div>
+    <h2><span class="lang-es">Bóvedas que <em>respiran</em></span><span class="lang-en">Vaults that <em>breathe</em></span></h2>
+    <p class="lead">
+      <span class="lang-es">Casona fue diseñada por Alberto Kalach con bóvedas de ladrillo, una técnica antigua que mantiene la casa fresca y la sostiene firme ante los temblores. Los muebles son de madera local, la cerámica y los cosméticos están hechos a mano aquí.</span>
+      <span class="lang-en">Casona was designed by Alberto Kalach with brick vaults, an ancient technique that keeps the house cool and holds it steady through earthquakes. The furniture is local wood, and the ceramics and bath products are handmade here.</span>
+    </p>
+    <div class="card">
+      <img src="images/hotel-2.jpg" alt="" loading="lazy">
+      <div class="card-body">
+        <div class="card-kicker"><span class="lang-es">Su suite</span><span class="lang-en">Your suite</span></div>
+        <h3><span class="lang-es">Frente al <em>mar</em></span><span class="lang-en">Facing the <em>sea</em></span></h3>
+        <p><span class="lang-es">Según su suite, tienen alberca privada con acceso directo a la playa, hamaca en la terraza frente al mar, o tina hecha a mano y hot tub en su terraza privada. Todas tienen cama King, aire acondicionado, ventilador, caja fuerte y bata.</span><span class="lang-en">Depending on your suite, you'll have a private pool with direct beach access, a hammock on a sea-facing terrace, or a handmade tub and hot tub on your private terrace. Every suite has a King bed, air conditioning, a ceiling fan, a safe and a bathrobe.</span></p>
+        <p class="fine"><span class="lang-es">El minibar tiene costo. Hay cafetera y té en la habitación.</span><span class="lang-en">The minibar is paid. There's a coffee and tea maker in the room.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESSENTIALS. FILL: check-in, checkout, wifi network/password, breakfast, towels. -->
+  <section class="essentials reveal">
+    <div class="sec-label"><span class="lang-es">Lo esencial</span><span class="lang-en">The essentials</span></div>
+    <h2><span class="lang-es">Todo, <em>a la mano</em></span><span class="lang-en">All of it, <em>at hand</em></span></h2>
     <table class="info-table">
       <tr>
+        <td>Check-in</td>
+        <td><span class="tbc"><span class="lang-es">Desde las 15:00</span><span class="lang-en">From 3 PM</span></span><small><span class="lang-es">Si llegan antes, dejen sus maletas y vayan a la playa</span><span class="lang-en">Arriving early? Leave your bags and head to the beach</span></small></td>
+      </tr>
+      <tr>
+        <td>Check-out</td>
+        <td><span class="tbc"><span class="lang-es">Hasta las 12:00</span><span class="lang-en">By 12 noon</span></span><small><span class="lang-es">Pregunten por salida tardía</span><span class="lang-en">Ask about late checkout</span></small></td>
+      </tr>
+      <tr>
+        <td>WiFi</td>
+        <td><span class="tbc"><span class="lang-es">Red y clave en recepción</span><span class="lang-en">Network and password at reception</span></span><small><span class="lang-es">Puede ser limitado, a propósito</span><span class="lang-en">May be limited, on purpose</span></small></td>
+      </tr>
+      <tr>
+        <td><span class="lang-es">Desayuno</span><span class="lang-en">Breakfast</span></td>
+        <td>La Bóveda<small><span class="tbc"><span class="lang-es">Horario e inclusión por confirmar</span><span class="lang-en">Hours and whether it's included, to confirm</span></span></small></td>
+      </tr>
+      <tr>
         <td><span class="lang-es">La casa</span><span class="lang-en">The house</span></td>
-        <td>
-          <span class="lang-es">Solo adultos<small>Frente a la playa en La Barra de Colotepec</small></span>
-          <span class="lang-en">Adults only<small>Beachfront in La Barra de Colotepec</small></span>
-        </td>
+        <td><span class="lang-es">Solo adultos</span><span class="lang-en">Adults only</span><small><span class="lang-es">Respeto y calma para todos, huéspedes y equipo</span><span class="lang-en">Respect and calm for everyone, guests and team</span></small></td>
       </tr>
       <tr>
-        <td>Internet</td>
-        <td>
-          <span class="lang-es">Limitado, a propósito<small>Aquí se viene a respirar el mar y desconectar</small></span>
-          <span class="lang-en">Limited, on purpose<small>You come here to breathe the sea air and switch off</small></span>
-        </td>
-      </tr>
-      <tr>
-        <td><span class="lang-es">Las suites</span><span class="lang-en">The suites</span></td>
-        <td>
-          <span class="lang-es">Cinco tipos<small>Alberca privada, hamaca frente al mar o tina de hidromasaje</small></span>
-          <span class="lang-en">Five kinds<small>Private pool, a hammock facing the sea, or a hot tub</small></span>
-        </td>
-      </tr>
-      <tr>
-        <td><span class="lang-es">La mesa</span><span class="lang-en">Dinner</span></td>
-        <td>
-          <span class="lang-es">La Bóveda<small>Restaurante de la guía Michelin, en casa</small></span>
-          <span class="lang-en">La Bóveda<small>A Michelin guide restaurant, right in the house</small></span>
-        </td>
-      </tr>
-      <tr>
-        <td><span class="lang-es">La arquitectura</span><span class="lang-en">The building</span></td>
-        <td>
-          <span class="lang-es">Alberto Kalach<small>Bóvedas de ladrillo, una técnica milenaria</small></span>
-          <span class="lang-en">Alberto Kalach<small>Brick vaults, an ancient building technique</small></span>
-        </td>
+        <td><span class="lang-es">Recepción</span><span class="lang-en">Reception</span></td>
+        <td>WhatsApp<small><span class="lang-es">El botón al final de esta guía</span><span class="lang-en">The button at the end of this guide</span></small></td>
       </tr>
     </table>
   </section>
 
-  <div class="divider"></div>
-
-  <div class="relief reveal">
-    <p>
-      <span class="lang-es">Esto es lo que sus huéspedes suelen preguntar en recepción o por WhatsApp. Aquí ya está respondido antes de que pregunten, así su llegada se siente tan cuidada como la casa y el equipo tiene más tiempo para lo importante.</span>
-      <span class="lang-en">This is what your guests usually ask at the front desk or on WhatsApp. Here it's answered before they ask, so arriving feels as considered as the house and the team has more time for what matters.</span>
-    </p>
-  </div>
-
-  <!-- WHILE YOU'RE HERE: their own offerings, each card routes to something they already sell -->
+  <!-- LA BÓVEDA -->
   <section class="stay reveal">
-    <div class="sec-label">
-      <span class="lang-es">Mientras están aquí</span><span class="lang-en">While you're here</span>
-    </div>
-    <h2>
-      <span class="lang-es">Lo mejor de la casa, <em>a un toque.</em></span>
-      <span class="lang-en">The best of the house, <em>one tap away.</em></span>
-    </h2>
-    <p class="stay-intro">
-      <span class="lang-es">Cada cosa que Casona Sforza ya ofrece, presentada con calma para que el huésped la descubra y la reserve sin buscarla.</span>
-      <span class="lang-en">Everything Casona Sforza already offers, shown calmly so guests discover it and book it without hunting for it.</span>
-    </p>
-
+    <div class="sec-label"><span class="lang-es">Comer y beber</span><span class="lang-en">Eat &amp; drink</span></div>
+    <h2><span class="lang-es">La mesa de <em>la casa</em></span><span class="lang-en">The house <em>table</em></span></h2>
     <div class="card">
       <img src="images/restaurant-3.jpg" alt="" loading="lazy">
       <div class="card-body">
-        <div class="card-kicker"><span class="lang-es">Restaurante</span><span class="lang-en">Restaurant</span></div>
+        <div class="card-kicker"><span class="lang-es">Restaurante · Guía Michelin</span><span class="lang-en">Restaurant · Michelin Guide</span></div>
         <h3>La <em>Bóveda</em></h3>
-        <p>
-          <span class="lang-es">Cocina honesta con producto de la región y técnica francesa. La miel, la vainilla y el café vienen de Pueblo del Sol, en la sierra de Oaxaca.</span>
-          <span class="lang-en">Honest cooking with local produce and French technique. The honey, vanilla and coffee come from Pueblo del Sol, up in the Oaxaca mountains.</span>
-        </p>
-        <a class="pill" href="https://www.casonasforza.com/es/nuestra-cocina/" target="_blank" rel="noopener"><span class="lang-es">Reservar mesa</span><span class="lang-en">Book a table</span></a>
+        <p><span class="lang-es">Cocina glocal: técnica francesa con producto de granjas y cooperativas cerca de Puerto. La miel, la vainilla y el café vienen de Pueblo del Sol. Desayuno, comida y cena.</span><span class="lang-en">Glocal cooking: French technique with produce from farms and cooperatives near Puerto. The honey, vanilla and coffee come from Pueblo del Sol. Breakfast, lunch and dinner.</span></p>
+        <p><span class="lang-es">Pidan la pesca del día, la tortilla con hoja santa y quesillo, y para cerrar, el helado de la casa o el chocolate de Tabasco. Hay opciones veganas y keto. Para brindar, un Negroni con vermouth Antica.</span><span class="lang-en">Order the catch of the day, the tortilla with hoja santa and quesillo, and to finish, the house ice cream or the Tabasco chocolate. There are vegan and keto options. To toast, a Negroni made with Antica vermouth.</span></p>
+        <p class="fine"><span class="lang-es">En la cocina, el chef Andrés Trujillo y la chef pastelera Vanessa Franco. <span class="tbc">Horarios por confirmar.</span></span><span class="lang-en">In the kitchen, chef Andrés Trujillo and pastry chef Vanessa Franco. <span class="tbc">Hours to confirm.</span></span></p>
+        <div class="pills">
+          <a class="pill" href="https://www.casonasforza.com/es/nuestra-cocina/book-a-table/" target="_blank" rel="noopener"><span class="lang-es">Reservar mesa</span><span class="lang-en">Book a table</span></a>
+          <a class="pill ghost" href="https://www.casonasforza.com/es/nuestra-cocina/" target="_blank" rel="noopener"><span class="lang-es">Ver el menú</span><span class="lang-en">See the menu</span></a>
+        </div>
       </div>
     </div>
+    <!-- FILL (optional): two or three of Trevor's own picks around La Barra for a night out, once Casona says they want outside recommendations. -->
+  </section>
 
+  <!-- BODY & SOUL: prices and policy from casonasforza.com/es/body-soul -->
+  <section class="stay reveal" style="padding-top:0">
+    <div class="sec-label">Body &amp; Soul</div>
+    <h2><span class="lang-es">Cuerpo y <em>alma</em></span><span class="lang-en">Body and <em>soul</em></span></h2>
     <div class="card">
       <img src="images/sauna.jpg" alt="" style="object-position:center 45%" loading="lazy">
       <div class="card-body">
-        <div class="card-kicker">Body &amp; Soul</div>
-        <h3><span class="lang-es">Cuerpo y <em>alma</em></span><span class="lang-en">Body and <em>soul</em></span></h3>
-        <ul>
-          <li><b><span class="lang-es">Sauna e ice bath, una sesión</span><span class="lang-en">Sauna and ice bath, one session</span></b><span class="p">$30 USD</span></li>
-          <li><b><span class="lang-es">Sauna e ice bath, toda la estancia</span><span class="lang-en">Sauna and ice bath, whole stay</span></b><span class="p">$60 USD</span></li>
+        <ul style="margin-top:0">
+          <li><b><span class="lang-es">Sauna e ice bath, una sesión</span><span class="lang-en">Sauna and ice bath, one session</span><small>30 min</small></b><span class="p">$30 USD</span></li>
+          <li><b><span class="lang-es">Sauna e ice bath, toda la estancia</span><span class="lang-en">Sauna and ice bath, whole stay</span><small><span class="lang-es">Una sesión de 30 min al día</span><span class="lang-en">One 30 min session a day</span></small></b><span class="p">$60 USD</span></li>
+          <li><b><span class="lang-es">Masaje</span><span class="lang-en">Massage</span><small><span class="lang-es">En la cabaña de playa o en su suite</span><span class="lang-en">In the beach cabin or your suite</span></small></b><span class="p">60 min $105<br>90 min $155</span></li>
           <li><b><span class="lang-es">Yoga, ceremonia de cacao, sound healing</span><span class="lang-en">Yoga, cacao ceremony, sound healing</span></b><span class="p"><span class="lang-es">a reservar</span><span class="lang-en">on request</span></span></li>
         </ul>
-        <a class="pill" href="https://www.casonasforza.com/es/body-soul/" target="_blank" rel="noopener"><span class="lang-es">Reservar</span><span class="lang-en">Book</span></a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/hotel-2.jpg" alt="" loading="lazy">
-      <div class="card-body">
-        <div class="card-kicker"><span class="lang-es">Experiencias</span><span class="lang-en">Experiences</span></div>
-        <h3><span class="lang-es">La costa, <em>de cerca</em></span><span class="lang-en">The coast, <em>up close</em></span></h3>
-        <ul>
-          <li><b><span class="lang-es">Vuelo ligero sobre Zicatela y La Barra</span><span class="lang-en">Ultralight flight over Zicatela and La Barra</span></b><span class="p">2,600 MXN</span></li>
-          <li><b><span class="lang-es">Un día en Pueblo del Sol</span><span class="lang-en">A day at Pueblo del Sol</span></b><span class="p"><span class="lang-es">selva y café</span><span class="lang-en">jungle and coffee</span></span></li>
-          <li><b>Casa Wabi</b><span class="p"><span class="lang-es">arte</span><span class="lang-en">art</span></span></li>
-          <li><b><span class="lang-es">Santuario de La Escobilla</span><span class="lang-en">La Escobilla turtle sanctuary</span></b><span class="p"><span class="lang-es">en temporada</span><span class="lang-en">in season</span></span></li>
-        </ul>
-        <a class="pill" href="https://www.casonasforza.com/es/experiencias/" target="_blank" rel="noopener"><span class="lang-es">Ver experiencias</span><span class="lang-en">See experiences</span></a>
+        <p class="fine"><span class="lang-es">Precios en USD por persona. Masajes de 7:00 a 20:00, todos los días, con impuestos y propina incluidos. Reserven con 2 horas o más. Cancelar con menos de 2 horas tiene un cargo del 50%.</span><span class="lang-en">Prices in USD per person. Massages 7 AM to 8 PM, every day, tax and tip included. Book 2 hours or more ahead. Cancelling with less than 2 hours' notice is charged at 50%.</span></p>
+        <div class="pills">
+          <a class="pill lang-es" href="https://wa.me/5219541685652?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20en%20Body%20%26%20Soul." target="_blank" rel="noopener">Reservar por WhatsApp</a>
+          <a class="pill lang-en" href="https://wa.me/5219541685652?text=Hi%2C%20I%27d%20love%20to%20book%20something%20at%20Body%20%26%20Soul." target="_blank" rel="noopener">Book on WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- STORY: the one human detail. 100% of revenue funds Pueblo del Sol -->
+  <!-- EXPERIENCES: all from casonasforza.com/es/experiencias, booked through their concierge -->
+  <section class="stay reveal" style="padding-top:0">
+    <div class="sec-label"><span class="lang-es">Experiencias</span><span class="lang-en">Experiences</span></div>
+    <h2><span class="lang-es">La costa, <em>de cerca</em></span><span class="lang-en">The coast, <em>up close</em></span></h2>
+    <p class="lead"><span class="lang-es">Todo se reserva con nuestro concierge. Escríbannos y lo organizamos por ustedes.</span><span class="lang-en">Everything books through our concierge. Message us and we'll arrange it for you.</span></p>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-kicker"><span class="lang-es">En el mar y el cielo</span><span class="lang-en">Sea and sky</span></div>
+        <ul style="margin-top:4px">
+          <li><b><span class="lang-es">Vuelo ligero sobre Zicatela y La Barra</span><span class="lang-en">Ultralight flight over Zicatela and La Barra</span><small><span class="lang-es">20 min, reservar con 24 h, se puede cargar a la habitación</span><span class="lang-en">20 min, book 24 h ahead, can go on your room bill</span></small></b><span class="p">2,600 MXN</span></li>
+          <li><b><span class="lang-es">Amanecer con delfines</span><span class="lang-en">Sunrise with dolphins</span><small><span class="lang-es">Sale 6:30, unas 3.5 horas en mar abierto</span><span class="lang-en">Leaves 6:30 AM, about 3.5 hours at sea</span></small></b><span class="p"></span></li>
+          <li><b><span class="lang-es">Bioluminiscencia en Manialtepec</span><span class="lang-en">Bioluminescence at Manialtepec</span><small><span class="lang-es">Sale 20:00, en lancha, pueden nadar en la laguna</span><span class="lang-en">Leaves 8 PM, by boat, you can swim in the lagoon</span></small></b><span class="p"></span></li>
+          <li><b><span class="lang-es">Clase de surf en Carrizalillo</span><span class="lang-en">Surf lesson at Carrizalillo</span><small><span class="lang-es">Tabla incluida, hasta 1.5 h en el agua</span><span class="lang-en">Board included, up to 1.5 h in the water</span></small></b><span class="p"></span></li>
+          <li><b><span class="lang-es">Laguna de Chacahua</span><span class="lang-en">Chacahua lagoon</span><small><span class="lang-es">Día completo: manglares, aves, mariscos, atardecer</span><span class="lang-en">Full day: mangroves, birds, seafood, sunset</span></small></b><span class="p"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-kicker"><span class="lang-es">Tierra adentro</span><span class="lang-en">Inland and along the coast</span></div>
+        <ul style="margin-top:4px">
+          <li><b><span class="lang-es">Un día en Pueblo del Sol</span><span class="lang-en">A day at Pueblo del Sol</span><small><span class="lang-es">Café de especialidad, tirolesa, cascadas y la shala de los Abuelos</span><span class="lang-en">Specialty coffee, zip line, waterfalls and the Abuelos shala</span></small></b><span class="p"></span></li>
+          <li><b><span class="lang-es">Pueblos mágicos</span><span class="lang-en">Coastal villages</span><small><span class="lang-es">Sale 10:00: La Ventanilla, Mazunte, Zipolite, Puerto Angelito</span><span class="lang-en">Leaves 10 AM: La Ventanilla, Mazunte, Zipolite, Puerto Angelito</span></small></b><span class="p"></span></li>
+          <li><b><span class="lang-es">Santuario de La Escobilla</span><span class="lang-en">La Escobilla turtle sanctuary</span><small><span class="lang-es">Arribadas de junio a septiembre, crías en octubre</span><span class="lang-en">Mass nestings June to September, hatchlings in October</span></small></b><span class="p"></span></li>
+          <li><b>Casa Wabi<small><span class="lang-es">Arte contemporáneo, una sugerencia de cada mes</span><span class="lang-en">Contemporary art, a suggestion each month</span></small></b><span class="p"></span></li>
+        </ul>
+        <div class="pills">
+          <a class="pill lang-es" href="https://wa.me/5219541685652?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20experiencia." target="_blank" rel="noopener">Reservar con el concierge</a>
+          <a class="pill lang-en" href="https://wa.me/5219541685652?text=Hi%2C%20I%27d%20love%20to%20book%20an%20experience." target="_blank" rel="noopener">Book with the concierge</a>
+          <a class="pill ghost" href="https://www.casonasforza.com/es/experiencias/" target="_blank" rel="noopener"><span class="lang-es">Ver todas</span><span class="lang-en">See them all</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY: 100% of revenue funds Pueblo del Sol -->
   <section class="story reveal">
     <img src="images/common-3.jpg" alt="" loading="lazy">
     <div class="story-body">
-      <div class="sec-label">
-        <span class="lang-es">La historia</span><span class="lang-en">The story</span>
-      </div>
-      <h2>
-        <span class="lang-es">Más que un <em>hotel.</em></span>
-        <span class="lang-en">More than a <em>hotel.</em></span>
-      </h2>
+      <div class="sec-label"><span class="lang-es">La historia</span><span class="lang-en">The story</span></div>
+      <h2><span class="lang-es">Más que un <em>hotel</em></span><span class="lang-en">More than a <em>hotel</em></span></h2>
       <p>
-        <span class="lang-es">Casona Sforza nació para sostener Pueblo del Sol, un proyecto para recuperar tradiciones en la comunidad. Todo lo que genera la casa vuelve ahí. Es lo más bonito del lugar, y casi ningún huésped lo sabe al llegar. La guía se lo cuenta.</span>
-        <span class="lang-en">Casona Sforza was born to support Pueblo del Sol, a project to bring traditions back to the community. Everything the house earns goes back there. It's the most beautiful thing about the place, and almost no guest knows it when they arrive. The guide tells them.</span>
+        <span class="lang-es">En 2010, Ezequiel Ayarza Sforza llegó a Puerto Escondido y se enamoró de su gente. Vio que las nuevas generaciones estaban perdiendo sus tradiciones, y así nació Pueblo del Sol, un proyecto con comunidades indígenas de Oaxaca, agricultura orgánica y bioconstrucción.</span>
+        <span class="lang-en">In 2010, Ezequiel Ayarza Sforza came to Puerto Escondido and fell in love with its people. He saw younger generations losing their traditions, and so Pueblo del Sol was born, a project with Oaxaca's indigenous communities, organic farming and natural building.</span>
+      </p>
+      <p>
+        <span class="lang-es">Para sostenerlo, convirtió la casa de sus sueños en este hotel. El 100% de lo que genera Casona Sforza vuelve a Pueblo del Sol. Cada noche que pasan aquí, cada cena y cada masaje, también es parte de eso.</span>
+        <span class="lang-en">To support it, he turned his dream house into this hotel. 100% of what Casona Sforza earns goes back to Pueblo del Sol. Every night you spend here, every dinner and every massage, is part of that too.</span>
       </p>
       <p class="quote">
-        <span class="lang-es">Cuando un huésped se enamora del lugar, gana todo el pueblo.</span>
-        <span class="lang-en">When a guest falls in love with a place, the whole town wins.</span>
+        <span class="lang-es">Gracias por ser parte.</span>
+        <span class="lang-en">Thank you for being part of it.</span>
       </p>
     </div>
   </section>
 
-  <!-- UPSIDE -->
-  <section class="addons reveal">
-    <div class="sec-label">
-      <span class="lang-es">Y después</span><span class="lang-en">And after</span>
-    </div>
-    <h2>
-      <span class="lang-es">Un poquito más, <em>también.</em></span>
-      <span class="lang-en">A little extra, <em>too.</em></span>
-    </h2>
-    <p class="sub-copy">
-      <span class="lang-es">La guía es el comienzo. Si les gusta, esto es lo que puede seguir, sin trabajo extra para el equipo.</span>
-      <span class="lang-en">The guide is the start. If you like it, here's what can follow, with no extra work for the team.</span>
-    </p>
-
-    <div class="addon-card">
-      <div class="addon-ic">🎞️</div>
+  <!-- GOOD TO KNOW -->
+  <section class="know reveal">
+    <div class="sec-label"><span class="lang-es">Bueno saber</span><span class="lang-en">Good to know</span></div>
+    <h2><span class="lang-es">El mar y <em>el pueblo</em></span><span class="lang-en">The sea and <em>the town</em></span></h2>
+    <div class="prep-item">
+      <div class="prep-ic">🌊</div>
       <div>
-        <b><span class="lang-es">Reels cada mes</span><span class="lang-en">Reels every month</span></b>
-        <span class="lang-es">El video de arriba está hecho con cuatro de sus propias fotos. Con su archivo hay material para meses, sin sesión de fotos.</span>
-        <span class="lang-en">The video up top is made from four of your own photos. Your archive holds months of material, no shoot needed.</span>
+        <b><span class="lang-es">Respeten el Pacífico</span><span class="lang-en">Respect the Pacific</span></b>
+        <p><span class="lang-es">El mar aquí es fuerte y cambia con el día. Antes de meterse, pregúntennos cómo está.</span><span class="lang-en">The sea here is strong and changes through the day. Before you go in, ask us how it is.</span></p>
       </div>
     </div>
-
-    <div class="addon-card">
-      <div class="addon-ic">🗓️</div>
+    <div class="prep-item">
+      <div class="prep-ic">☀️</div>
       <div>
-        <b><span class="lang-es">La guía, siempre al día</span><span class="lang-en">The guide, always current</span></b>
-        <span class="lang-es">Ofertas de temporada, menú de La Bóveda, nuevas experiencias. Me mandan el cambio y queda listo.</span>
-        <span class="lang-en">Seasonal offers, the La Bóveda menu, new experiences. Send me the change and it's done.</span>
+        <b><span class="lang-es">El sol de la costa</span><span class="lang-en">The coastal sun</span></b>
+        <p><span class="lang-es">Pega fuerte entre las 11 y las 16. Agua, sombra y protector que cuide el mar.</span><span class="lang-en">It's strongest between 11 and 4. Water, shade and reef-safe sunscreen.</span></p>
       </div>
     </div>
-
-    <div class="addon-card">
-      <div class="addon-ic">🌿</div>
+    <div class="prep-item">
+      <div class="prep-ic">🌿</div>
       <div>
         <b>Kymaia</b>
-        <span class="lang-es">Y cuando quieran, una guía hermana para Kymaia, con su propio carácter.</span>
-        <span class="lang-en">And whenever you're ready, a sister guide for Kymaia, with its own character.</span>
+        <p><span class="lang-es">Nuestro hotel hermano, a unos 30 minutos de Puerto, con tres restaurantes, spa y shala. Si quieren conocerlo, pregúntennos.</span><span class="lang-en">Our sister hotel, about 30 minutes from Puerto, with three restaurants, a spa and a shala. Ask us if you'd like to visit.</span></p>
       </div>
     </div>
   </section>
 
-  <!-- CLOSING CTA -->
-  <section class="cta reveal">
-    <div class="sec-label">
-      <span class="lang-es">El panorama completo</span><span class="lang-en">The full picture</span>
-    </div>
-    <h2>
-      <span class="lang-es">Esto es solo la <em>bienvenida.</em></span>
-      <span class="lang-en">This is just the <em>welcome.</em></span>
-    </h2>
-    <p class="cta-copy">
-      <span class="lang-es">La guía completa incluye cómo llegar desde el aeropuerto y desde el pueblo, sus recomendaciones de Puerto, la salida y un contacto a un toque, todo en el lenguaje de Casona Sforza. La guía se la hago sin costo.</span>
-      <span class="lang-en">The full guide includes getting here from the airport and from town, your picks around Puerto, checkout and one-tap contact, all in Casona Sforza's own language. I'll make the guide at no cost.</span>
-    </p>
+  <!-- ============================================================
+       MOVEMENT 4: HEADING OUT
+       ============================================================ -->
+  <div class="movement reveal" id="salida">
+    <div class="num">IV</div>
+    <div class="t"><span class="lang-es">La salida</span><span class="lang-en">Heading out</span></div>
+    <div class="rule"></div>
+  </div>
+
+  <!-- FILL: confirm checkout time and the key/room process -->
+  <section class="checkout reveal">
+    <div class="sec-label"><span class="lang-es">Antes de irse</span><span class="lang-en">Before you go</span></div>
+    <h2><span class="lang-es">Check-out <em class="tbc">a las 12:00</em></span><span class="lang-en">Check-out <em class="tbc">by 12 noon</em></span></h2>
+    <div class="step"><div class="box"></div><span><span class="lang-es">Revisen la caja fuerte y los cajones</span><span class="lang-en">Check the safe and the drawers</span></span></div>
+    <div class="step"><div class="box"></div><span><span class="lang-es">Dejen la llave en recepción</span><span class="lang-en">Leave the key at reception</span></span></div>
+    <div class="step"><div class="box"></div><span><span class="lang-es">Liquiden minibar, La Bóveda y experiencias</span><span class="lang-en">Settle the minibar, La Bóveda and experiences</span></span></div>
+    <div class="step"><div class="box"></div><span><span class="lang-es">Pidan su taxi o traslado con tiempo</span><span class="lang-en">Ask for your taxi or transfer in good time</span></span></div>
+    <div class="step"><div class="box"></div><span><span class="lang-es">Un último atardecer, si el vuelo lo permite</span><span class="lang-en">One last sunset, if your flight allows</span></span></div>
+  </section>
+
+  <!-- CLOSE + CONTACT: reception WhatsApp as published on casonasforza.com -->
+  <section class="close reveal">
+    <div class="sec-label"><span class="lang-es">Hasta pronto</span><span class="lang-en">Until next time</span></div>
+    <h2><span class="lang-es">Aquí estamos <em>para ustedes</em></span><span class="lang-en">We're here <em>for you</em></span></h2>
     <p class="personal-note">
-      <span class="lang-es">Vivo aquí, en Casa Las Nubes, y Casona Sforza es de esos lugares que hacen que la gente se enamore de Puerto. Sería un honor y un gusto trabajar con un espacio así: empezar por ayudar a que sus huéspedes lo sientan desde antes de llegar, y acompañarlos también en sus próximos proyectos.</span>
-      <span class="lang-en">I live here, at Casa Las Nubes, and Casona Sforza is one of those places that makes people fall for Puerto. It would be an honor and a pleasure to work with a space like this: starting with helping your guests feel it before they arrive, and supporting your next projects too.</span>
+      <span class="lang-es">Gracias por quedarse con nosotros. Esperamos que se lleven un poco de esta calma a casa, y que el mar de La Barra los vuelva a llamar.</span>
+      <span class="lang-en">Thank you for staying with us. We hope you take a little of this calm home with you, and that the sea at La Barra calls you back.</span>
     </p>
-    <a class="btn-wa lang-es" href="https://wa.me/529542061152?text=Hola%20Trevor%2C%20acabo%20de%20ver%20la%20muestra%20de%20Casona%20Sforza%20y%20me%20gustar%C3%ADa%20platicar." target="_blank" rel="noopener">💬 Platiquemos por WhatsApp</a>
-    <a class="btn-wa lang-en" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20just%20saw%20the%20Casona%20Sforza%20preview%20and%20I%27d%20love%20to%20talk." target="_blank" rel="noopener">💬 Let's talk on WhatsApp</a>
-    <a class="cta-sec" href="https://thewelcomelink.com/casa-yani/" target="_blank" rel="noopener">
-      <span class="lang-es">O mira Casa Yani, una guía completa que ya construí →</span>
-      <span class="lang-en">Or see Casa Yani, a full guide I've built →</span>
-    </a>
+    <a class="btn btn-wa lang-es" href="https://wa.me/5219541685652?text=Hola%2C%20soy%20hu%C3%A9sped%20de%20Casona%20Sforza." target="_blank" rel="noopener">💬 Escribir a recepción</a>
+    <a class="btn btn-wa lang-en" href="https://wa.me/5219541685652?text=Hi%2C%20I%27m%20a%20guest%20at%20Casona%20Sforza." target="_blank" rel="noopener">💬 Message reception</a>
+    <a class="btn btn-ghost" href="mailto:reservaciones@casonasforza.com">✉️ reservaciones@casonasforza.com</a>
+    <a class="btn btn-ghost" href="https://www.instagram.com/casonasforza/" target="_blank" rel="noopener">📷 @casonasforza</a>
+    <p class="review">
+      <span class="lang-es">Si su estancia los tocó, contarlo ayuda a que otros encuentren Casona, y con ella, Pueblo del Sol. <a href="https://maps.app.goo.gl/FYUkbqHrZ1mv5YzX6" target="_blank" rel="noopener">Dejar una reseña</a></span>
+      <span class="lang-en">If your stay moved you, sharing it helps others find Casona, and with it, Pueblo del Sol. <a href="https://maps.app.goo.gl/FYUkbqHrZ1mv5YzX6" target="_blank" rel="noopener">Leave a review</a></span>
+    </p>
   </section>
 
   <div class="foot">
-    <div class="mark">The Welcome Link</div>
-    <div class="small">
-      <span class="lang-es">Guías de bienvenida hechas para ustedes · Puerto Escondido</span>
-      <span class="lang-en">Done-for-you guest guides · Puerto Escondido</span>
-    </div>
+    <div class="mark"><span class="lang-es">Bienvenidos a casa.</span><span class="lang-en">Welcome home.</span></div>
+    <div class="small">Casona Sforza · La Barra de Colotepec · Puerto Escondido, Oaxaca</div>
   </div>
 
 </div>
@@ -484,6 +606,9 @@
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const routes=document.querySelectorAll('.route');
+  routes.forEach(r=>r.addEventListener('toggle',()=>{if(r.open)routes.forEach(o=>{if(o!==r)o.open=false;});}));
 
   const body=document.body;
   document.querySelectorAll('.lang-toggle button').forEach(btn=>{
