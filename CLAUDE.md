@@ -78,6 +78,7 @@ Guides follow a four-movement, time-based spine that mirrors the guest's own jou
 - To add a property: duplicate an existing property folder, replace content, commit, push. Vercel auto-deploys.
 - Always commit and push after changes so the live site updates.
 - Analytics is standard on every page. Vercel Web Analytics and Speed Insights script tags sit right before `</body>`: `<script defer src="/_vercel/insights/script.js"></script>` and `<script defer src="/_vercel/speed-insights/script.js"></script>`. They are already in the casa-yani template, so duplicated guides inherit them. Keep them on every new page (guides, teasers, landing). No npm package is used; this is a static site. Web Analytics and Speed Insights must also be enabled once in the Vercel project dashboard for data to flow.
+- Spanish pages for search: /es/ and /es/websites/ are generated from index.html and websites/index.html by `node build-es.js`, which renders the T.es copy into real HTML so Google and AI assistants can read the Spanish. Run it after any edit to those two pages and commit the es/ output with them. Never edit es/ by hand. Each page has a bilingual FAQ (#faq) mirrored as FAQPage structured data, plus robots.txt, llms.txt and sitemap.xml at the root: add any new public page to the sitemap and llms.txt.
 - For pitch teaser pages (previews built for a specific property we're pitching, like /casa-aurora), follow TEASER-PLAYBOOK.md. Teasers are private sales tools: noindex, never added to the homepage examples, one per property we're actively pitching.
 
 ## Founder context

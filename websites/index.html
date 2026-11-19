@@ -11,6 +11,11 @@
 <meta property="og:url" content="https://thewelcomelink.com/websites/">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://thewelcomelink.com/websites/">
+<link rel="alternate" hreflang="en" href="https://thewelcomelink.com/websites/">
+<link rel="alternate" hreflang="es" href="https://thewelcomelink.com/es/websites/">
+<link rel="alternate" hreflang="x-default" href="https://thewelcomelink.com/websites/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_MX">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -168,6 +173,14 @@
     h2{font-size:38px;}
     .phil h2{font-size:44px;}
   }
+  /* FAQ */
+  .faq{margin-top:6px;border-top:1px solid var(--line);}
+  .faq details{border-bottom:1px solid var(--line);}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 34px 18px 0;position:relative;font-family:'Newsreader',serif;font-size:19px;line-height:1.3;color:#352c1f;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";position:absolute;right:4px;top:15px;font-family:'Hanken Grotesk',sans-serif;font-size:22px;font-weight:300;color:var(--terra-deep);transition:transform .25s ease;}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq details p{font-size:15.5px;color:var(--ink-soft);line-height:1.72;padding:0 0 20px;}
 </style>
 <script type="application/ld+json">
 {
@@ -214,6 +227,63 @@
  ]
 }
 </script>
+<script type="application/ld+json" id="faq-ld">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How much does a website cost?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A landing page starts at $350 USD ($6,650 MXN). A full villa site is $700 USD ($13,300 MXN). A collection site for several homes starts at $1,400 USD ($26,600 MXN). Every project is quoted to fit, and a welcome guide for each home is included."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I have to leave Airbnb?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Keep your listings. Your website gives returning guests, referrals and people who find you on Instagram a direct way to reach you and book, with no platform fees in between."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do guests book?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "They tap to message you on WhatsApp from the page of the home they like. You confirm the dates and payment directly with them."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is the site in English and Spanish?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Every site is bilingual, with a switch at the top, so the same site works for guests from Mexico and from abroad."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can it use my own domain?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. We connect it to your own address, like tierraenarmonia.com.mx, so the site and the brand are fully yours."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Who keeps it updated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The care plan takes care of it. For a small monthly fee we handle hosting, edits, new homes and keeping every guide current."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <div id="langToggle">
@@ -232,7 +302,7 @@
       <a class="brandmark" href="/">The Welcome Link</a>
       <h1 data-i18n="hero-h1">Your villa deserves its own <em>front door.</em></h1>
       <p class="sub" data-i18n="hero-sub">We build direct booking websites for villas and rental collections on the Oaxaca coast. Your homes, your story, your guests, with no platform standing in between.</p>
-      <a class="btn-hero js-wa" href="#" target="_blank" rel="noopener" data-i18n="hero-btn">💬 Message us on WhatsApp</a>
+      <a class="btn-hero js-wa" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27d%20like%20to%20talk%20about%20a%20website%20for%20my%20property." target="_blank" rel="noopener" data-i18n="hero-btn">💬 Message us on WhatsApp</a>
       <div class="hero-anywhere" data-i18n="hero-line">Built in Puerto Escondido. In English and Spanish.</div>
     </div>
     <div class="credit">Tierra en Armonía · La Barra</div>
@@ -331,11 +401,27 @@
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- FAQ (also mirrored as FAQPage structured data for search) -->
+  <section class="reveal" id="faq">
+    <div class="sec-label" data-i18n="faq-label">Questions</div>
+    <h2 data-i18n="faq-h2">What hosts <em>ask.</em></h2>
+    <div class="faq">
+      <details><summary data-i18n="faq1-q">How much does a website cost?</summary><p data-i18n="faq1-a">A landing page starts at $350 USD ($6,650 MXN). A full villa site is $700 USD ($13,300 MXN). A collection site for several homes starts at $1,400 USD ($26,600 MXN). Every project is quoted to fit, and a welcome guide for each home is included.</p></details>
+      <details><summary data-i18n="faq2-q">Do I have to leave Airbnb?</summary><p data-i18n="faq2-a">No. Keep your listings. Your website gives returning guests, referrals and people who find you on Instagram a direct way to reach you and book, with no platform fees in between.</p></details>
+      <details><summary data-i18n="faq3-q">How do guests book?</summary><p data-i18n="faq3-a">They tap to message you on WhatsApp from the page of the home they like. You confirm the dates and payment directly with them.</p></details>
+      <details><summary data-i18n="faq4-q">Is the site in English and Spanish?</summary><p data-i18n="faq4-a">Yes. Every site is bilingual, with a switch at the top, so the same site works for guests from Mexico and from abroad.</p></details>
+      <details><summary data-i18n="faq5-q">Can it use my own domain?</summary><p data-i18n="faq5-a">Yes. We connect it to your own address, like tierraenarmonia.com.mx, so the site and the brand are fully yours.</p></details>
+      <details><summary data-i18n="faq6-q">Who keeps it updated?</summary><p data-i18n="faq6-a">The care plan takes care of it. For a small monthly fee we handle hosting, edits, new homes and keeping every guide current.</p></details>
+    </div>
+  </section>
+
   <!-- 8. CLOSING CTA -->
   <section class="cta-foot reveal">
     <h2 data-i18n="cta-h2">Want one for <em>your place?</em></h2>
     <p data-i18n="cta-p">Send us your listing. We will tell you what we would build and what it would cost.</p>
-    <a class="btn-wa js-wa" href="#" target="_blank" rel="noopener" data-i18n="cta-btn">💬 Message us on WhatsApp</a>
+    <a class="btn-wa js-wa" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27d%20like%20to%20talk%20about%20a%20website%20for%20my%20property." target="_blank" rel="noopener" data-i18n="cta-btn">💬 Message us on WhatsApp</a>
   </section>
 
   <div class="foot">
@@ -395,7 +481,21 @@
       'cta-p': 'Send us your listing. We will tell you what we would build and what it would cost.',
       'cta-btn': '💬 Message us on WhatsApp',
       'foot-small': 'Direct booking websites · Puerto Escondido',
-      'foot-guides': 'Welcome guides'
+      'foot-guides': 'Welcome guides',
+      'faq-label': "Questions",
+      'faq-h2': "What hosts <em>ask.</em>",
+      'faq1-q': "How much does a website cost?",
+      'faq1-a': "A landing page starts at $350 USD ($6,650 MXN). A full villa site is $700 USD ($13,300 MXN). A collection site for several homes starts at $1,400 USD ($26,600 MXN). Every project is quoted to fit, and a welcome guide for each home is included.",
+      'faq2-q': "Do I have to leave Airbnb?",
+      'faq2-a': "No. Keep your listings. Your website gives returning guests, referrals and people who find you on Instagram a direct way to reach you and book, with no platform fees in between.",
+      'faq3-q': "How do guests book?",
+      'faq3-a': "They tap to message you on WhatsApp from the page of the home they like. You confirm the dates and payment directly with them.",
+      'faq4-q': "Is the site in English and Spanish?",
+      'faq4-a': "Yes. Every site is bilingual, with a switch at the top, so the same site works for guests from Mexico and from abroad.",
+      'faq5-q': "Can it use my own domain?",
+      'faq5-a': "Yes. We connect it to your own address, like tierraenarmonia.com.mx, so the site and the brand are fully yours.",
+      'faq6-q': "Who keeps it updated?",
+      'faq6-a': "The care plan takes care of it. For a small monthly fee we handle hosting, edits, new homes and keeping every guide current."
     },
     es: {
       'hero-h1': 'Tu villa merece su propia <em>puerta de entrada.</em>',
@@ -440,7 +540,21 @@
       'cta-p': 'Mándanos tu anuncio. Te decimos qué construiríamos y cuánto costaría.',
       'cta-btn': '💬 Escríbenos por WhatsApp',
       'foot-small': 'Sitios web de reserva directa · Puerto Escondido',
-      'foot-guides': 'Guías de bienvenida'
+      'foot-guides': 'Guías de bienvenida',
+      'faq-label': "Preguntas",
+      'faq-h2': "Lo que preguntan <em>los anfitriones.</em>",
+      'faq1-q': "¿Cuánto cuesta un sitio web?",
+      'faq1-a': "Una landing page empieza en $350 USD ($6,650 MXN). Un sitio completo para una villa cuesta $700 USD ($13,300 MXN). Un sitio para una colección de varias casas empieza en $1,400 USD ($26,600 MXN). Cada proyecto se cotiza a la medida, y siempre incluye una guía de bienvenida para cada casa.",
+      'faq2-q': "¿Tengo que dejar Airbnb?",
+      'faq2-a': "No. Mantén tus anuncios. Tu sitio les da a los huéspedes que regresan, a los que llegan recomendados y a quien te encuentra en Instagram una forma directa de escribirte y reservar, sin comisiones de plataforma de por medio.",
+      'faq3-q': "¿Cómo reservan los huéspedes?",
+      'faq3-a': "Tocan un botón para escribirte por WhatsApp desde la página de la casa que les gustó. Tú confirmas fechas y pago directamente con ellos.",
+      'faq4-q': "¿El sitio está en español y en inglés?",
+      'faq4-a': "Sí. Cada sitio es bilingüe, con un botón arriba para cambiar de idioma, así funciona igual para huéspedes de México y de fuera.",
+      'faq5-q': "¿Puede tener mi propio dominio?",
+      'faq5-a': "Sí. Lo conectamos a tu propia dirección, como tierraenarmonia.com.mx, para que el sitio y la marca sean totalmente tuyos.",
+      'faq6-q': "¿Quién lo mantiene al día?",
+      'faq6-a': "El plan de cuidado se encarga. Por una pequeña cuota mensual nos ocupamos del hosting, los cambios, las casas nuevas y de mantener cada guía al día."
     }
   };
 

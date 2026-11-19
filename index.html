@@ -10,6 +10,11 @@
 <meta property="og:url" content="https://thewelcomelink.com/">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://thewelcomelink.com/">
+<link rel="alternate" hreflang="en" href="https://thewelcomelink.com/">
+<link rel="alternate" hreflang="es" href="https://thewelcomelink.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://thewelcomelink.com/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_MX">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <title>The Welcome Link · Welcome guides and websites, Puerto Escondido</title>
@@ -266,6 +271,14 @@
     .phil h2{font-size:44px;}
     .inc-grid{gap:18px;}
   }
+  /* FAQ */
+  .faq{margin-top:6px;border-top:1px solid var(--line);}
+  .faq details{border-bottom:1px solid var(--line);}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 34px 18px 0;position:relative;font-family:'Newsreader',serif;font-size:19px;line-height:1.3;color:#352c1f;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";position:absolute;right:4px;top:15px;font-family:'Hanken Grotesk',sans-serif;font-size:22px;font-weight:300;color:var(--terra-deep);transition:transform .25s ease;}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq details p{font-size:15.5px;color:var(--ink-soft);line-height:1.72;padding:0 0 20px;}
 </style>
 <script type="application/ld+json">
 {
@@ -359,6 +372,63 @@
    },
    "areaServed": "Puerto Escondido, Oaxaca, Mexico",
    "description": "A custom mobile guide guests open before and during their stay: arrival directions, WiFi, house notes, checkout, local food and experiences, one tap contact with the host. Built in about 48 hours, included with every website."
+  }
+ ]
+}
+</script>
+<script type="application/ld+json" id="faq-ld">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is a digital welcome guide?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A web page made just for your home that guests open on their phone. Arrival directions, WiFi, how the house works, checkout, and our favorite places to eat and things to do around town, with one tap to message you. They read it before they arrive and keep it with them all stay."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do my guests need to download an app?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It is a link. It opens on any phone, in English or Spanish, with no app and no login."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much does a guide cost?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Your first guide is free. Every website we build comes with a guide for each home. If you only want guides, message us and we will quote it for your place."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How long does it take?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "About 48 hours from our chat. You review it, send any changes, and share the link with your guests."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I change it later?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. The link stays the same and your guests always see the latest version. Send us what changed, a new WiFi password or a new favorite restaurant, and we update it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where do you work?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We live in Puerto Escondido and know it well, from Zicatela and La Punta to La Barra. We have also built a guide for a mountain retreat in the Sierra Sur of Oaxaca."
+   }
   }
  ]
 }
@@ -603,6 +673,22 @@
 
   <div class="divider"></div>
 
+  <!-- FAQ (also mirrored as FAQPage structured data for search) -->
+  <section class="reveal" id="faq">
+    <div class="sec-label" data-i18n="faq-label">Questions</div>
+    <h2 data-i18n="faq-h2">What hosts <em>ask.</em></h2>
+    <div class="faq">
+      <details><summary data-i18n="faq1-q">What is a digital welcome guide?</summary><p data-i18n="faq1-a">A web page made just for your home that guests open on their phone. Arrival directions, WiFi, how the house works, checkout, and our favorite places to eat and things to do around town, with one tap to message you. They read it before they arrive and keep it with them all stay.</p></details>
+      <details><summary data-i18n="faq2-q">Do my guests need to download an app?</summary><p data-i18n="faq2-a">No. It is a link. It opens on any phone, in English or Spanish, with no app and no login.</p></details>
+      <details><summary data-i18n="faq3-q">How much does a guide cost?</summary><p data-i18n="faq3-a">Your first guide is free. Every website we build comes with a guide for each home. If you only want guides, message us and we will quote it for your place.</p></details>
+      <details><summary data-i18n="faq4-q">How long does it take?</summary><p data-i18n="faq4-a">About 48 hours from our chat. You review it, send any changes, and share the link with your guests.</p></details>
+      <details><summary data-i18n="faq5-q">Can I change it later?</summary><p data-i18n="faq5-a">Yes. The link stays the same and your guests always see the latest version. Send us what changed, a new WiFi password or a new favorite restaurant, and we update it.</p></details>
+      <details><summary data-i18n="faq6-q">Where do you work?</summary><p data-i18n="faq6-a">We live in Puerto Escondido and know it well, from Zicatela and La Punta to La Barra. We have also built a guide for a mountain retreat in the Sierra Sur of Oaxaca.</p></details>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <section class="about reveal">
     <div class="sec-label" data-i18n="about-label">The person behind it</div>
     <p data-i18n="about-p">Trevor is a host in Puerto Escondido. He lives at Casa Las Nubes, runs Sacred Journeys, and believes a stay should feel like being welcomed into a place someone loves, not handed a key and a list of rules. That belief is what this is built on.</p>
@@ -616,7 +702,7 @@
     <div class="founding-card">
       <h3 data-i18n="free-h3">Your first guide is <em>on us.</em></h3>
       <p data-i18n="free-p">Tell us about one of your homes and we will build its guide, free. Send it to your next guests and see how it feels. If you like it, we can talk about the rest.</p>
-      <a class="btn-terra" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27d%20love%20a%20free%20guide%20for%20one%20of%20my%20homes." target="_blank" rel="noopener" data-i18n="free-btn">💬 Ask for a free guide</a>
+      <a class="btn-terra" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%27d%20love%20a%20free%20guide%20for%20one%20of%20my%20homes." data-wa-en="Hi Trevor, I'd love a free guide for one of my homes." data-wa-es="Hola Trevor, me encantaría una guía gratis para una de mis casas." target="_blank" rel="noopener" data-i18n="free-btn">💬 Ask for a free guide</a>
     </div>
   </section>
 
@@ -624,7 +710,7 @@
     <div class="sec-label" data-i18n="cta-label">Ready</div>
     <h2 data-i18n="cta-h2">Want one for <em>your place?</em></h2>
     <p data-i18n="cta-p">Built around your property, your local knowledge, your guests. In 48 hours.</p>
-    <a class="btn-wa" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20saw%20The%20Welcome%20Link%20and%20I%27d%20love%20one%20for%20my%20place." target="_blank" rel="noopener" data-i18n="cta-btn">💬 Talk to Trevor on WhatsApp</a>
+    <a class="btn-wa" href="https://wa.me/529542061152?text=Hi%20Trevor%2C%20I%20saw%20The%20Welcome%20Link%20and%20I%27d%20love%20one%20for%20my%20place." data-wa-en="Hi Trevor, I saw The Welcome Link and I'd love one for my place." data-wa-es="Hola Trevor, vi The Welcome Link y me encantaría una para mi lugar." target="_blank" rel="noopener" data-i18n="cta-btn">💬 Talk to Trevor on WhatsApp</a>
   </section>
 
   <div class="foot">
@@ -731,7 +817,21 @@
       'cta-btn': '💬 Talk to Trevor on WhatsApp',
       'foot-small': 'Welcome guides, websites and Villa Reels · Puerto Escondido',
       'foot-also': 'Also from us:',
-      'foot-websites': 'Websites'
+      'foot-websites': 'Websites',
+      'faq-label': "Questions",
+      'faq-h2': "What hosts <em>ask.</em>",
+      'faq1-q': "What is a digital welcome guide?",
+      'faq1-a': "A web page made just for your home that guests open on their phone. Arrival directions, WiFi, how the house works, checkout, and our favorite places to eat and things to do around town, with one tap to message you. They read it before they arrive and keep it with them all stay.",
+      'faq2-q': "Do my guests need to download an app?",
+      'faq2-a': "No. It is a link. It opens on any phone, in English or Spanish, with no app and no login.",
+      'faq3-q': "How much does a guide cost?",
+      'faq3-a': "Your first guide is free. Every website we build comes with a guide for each home. If you only want guides, message us and we will quote it for your place.",
+      'faq4-q': "How long does it take?",
+      'faq4-a': "About 48 hours from our chat. You review it, send any changes, and share the link with your guests.",
+      'faq5-q': "Can I change it later?",
+      'faq5-a': "Yes. The link stays the same and your guests always see the latest version. Send us what changed, a new WiFi password or a new favorite restaurant, and we update it.",
+      'faq6-q': "Where do you work?",
+      'faq6-a': "We live in Puerto Escondido and know it well, from Zicatela and La Punta to La Barra. We have also built a guide for a mountain retreat in the Sierra Sur of Oaxaca."
     },
     es: {
       'hero-h1': 'Dale la bienvenida a tus huéspedes <em>de forma hermosa.</em>',
@@ -828,7 +928,21 @@
       'cta-btn': '💬 Habla con Trevor por WhatsApp',
       'foot-small': 'Guías de bienvenida, sitios web y Villa Reels · Puerto Escondido',
       'foot-also': 'También hacemos:',
-      'foot-websites': 'Sitios web'
+      'foot-websites': 'Sitios web',
+      'faq-label': "Preguntas",
+      'faq-h2': "Lo que preguntan <em>los anfitriones.</em>",
+      'faq1-q': "¿Qué es una guía de bienvenida digital?",
+      'faq1-a': "Una página web hecha solo para tu casa que tus huéspedes abren en su celular. Cómo llegar, el WiFi, cómo funciona la casa, la salida, y nuestros lugares favoritos para comer y qué hacer en el pueblo, con un toque para escribirte. La leen antes de llegar y la tienen a la mano toda la estancia.",
+      'faq2-q': "¿Mis huéspedes necesitan descargar una app?",
+      'faq2-a': "No. Es un enlace. Abre en cualquier celular, en español o en inglés, sin app y sin crear cuenta.",
+      'faq3-q': "¿Cuánto cuesta una guía?",
+      'faq3-a': "Tu primera guía es gratis. Cada sitio web que hacemos incluye una guía para cada casa. Si solo quieres guías, escríbenos y te cotizamos para tu lugar.",
+      'faq4-q': "¿Cuánto tarda?",
+      'faq4-a': "Unas 48 horas después de platicar. La revisas, nos mandas tus cambios y compartes el enlace con tus huéspedes.",
+      'faq5-q': "¿Puedo cambiarla después?",
+      'faq5-a': "Sí. El enlace es el mismo y tus huéspedes siempre ven la versión más reciente. Mándanos lo que cambió, una nueva contraseña de WiFi o un restaurante nuevo, y la actualizamos.",
+      'faq6-q': "¿Dónde trabajan?",
+      'faq6-a': "Vivimos en Puerto Escondido y lo conocemos bien, de Zicatela y La Punta a La Barra. También hicimos una guía para un refugio en la Sierra Sur de Oaxaca."
     }
   };
 
@@ -842,6 +956,9 @@
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const k = el.getAttribute('data-i18n');
       if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+    });
+    document.querySelectorAll('[data-wa-' + lang + ']').forEach(a => {
+      a.href = 'https://wa.me/529542061152?text=' + encodeURIComponent(a.getAttribute('data-wa-' + lang));
     });
   }
 

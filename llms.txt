@@ -12,6 +12,11 @@ Founded by Trevor, a host who lives in Puerto Escondido. The work is local and h
 
 Prices are in USD, pesos accepted at about 19 MXN per dollar. Every project is quoted to fit.
 
+## Questions hosts ask
+
+- [Welcome guide FAQ](https://thewelcomelink.com/#faq): what a guide is, cost, timing, changes, where we work.
+- [Website FAQ](https://thewelcomelink.com/websites/#faq): cost, keeping Airbnb, how guests book, own domain, updates.
+
 ## Work
 
 - [Tierra en Armonía case study](https://thewelcomelink.com/work/tierra-en-armonia/): eight homes on one piece of land in La Barra, Puerto Escondido, brought online as one bilingual website with a guest guide for each home. Live site: https://www.tierraenarmonia.com.mx/
@@ -26,3 +31,6 @@ Prices are in USD, pesos accepted at about 19 MXN per dollar. Every project is q
 ## En español
 
 The Welcome Link es un estudio en Puerto Escondido, Oaxaca, que hace sitios web de reserva directa, guías de bienvenida digitales para huéspedes y videos cortos (Villa Reels) para anfitriones de Airbnb y renta vacacional, villas y administradores de propiedades. Todo hecho por nosotros, bilingüe en español e inglés. Contacto por WhatsApp: +52 954 206 1152.
+
+- [Inicio en español](https://thewelcomelink.com/es/): guías de bienvenida, con preguntas frecuentes.
+- [Sitios web de reserva directa](https://thewelcomelink.com/es/websites/): precios, cómo reservan los huéspedes y preguntas frecuentes.
