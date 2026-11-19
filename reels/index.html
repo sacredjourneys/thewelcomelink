@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Villa Reels · The Welcome Link</title>
+<link rel="canonical" href="https://thewelcomelink.com/reels/">
 <meta name="description" content="Short videos for villas in Puerto Escondido, made from the listing photos you already have. Nothing invented.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Villa Reels · Your listing photos, brought to life">
@@ -148,7 +149,41 @@ footer { padding-block: 28px 40px; color: var(--muted); font: 400 0.78rem/1.4 va
   .phone { border-radius: 26px; }
 }
 @media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
-</style></head>
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Service",
+   "@id": "https://thewelcomelink.com/reels/#service",
+   "name": "Villa Reels",
+   "serviceType": "Short listing videos for vacation rentals",
+   "provider": {
+    "@id": "https://thewelcomelink.com/#business"
+   },
+   "areaServed": "Puerto Escondido, Oaxaca, Mexico",
+   "url": "https://thewelcomelink.com/reels/",
+   "description": "Short vertical videos for villas, made from the listing photos the host already has. No new shoot, nothing invented.",
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "Villa Reel, one home",
+     "price": "200",
+     "priceCurrency": "USD"
+    },
+    {
+     "@type": "Offer",
+     "name": "Villa Reel, three or more homes, each",
+     "price": "150",
+     "priceCurrency": "USD"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
 <body>
 
 <header class="wrap hero">
