@@ -185,6 +185,19 @@
   .pill{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--clay);padding:9px 16px;border-radius:999px;text-decoration:none;}
   .pill.ghost{background:transparent;color:var(--clay-deep);border:1px solid var(--clay);}
 
+  /* ===== PHOTO STRIPS ===== */
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 18px;margin-top:-4px;}
+  .strip figure{margin:0;}
+  .strip img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;}
+  .strip figcaption{font-size:11px;letter-spacing:.06em;color:var(--ink-soft);margin-top:5px;text-align:center;line-height:1.3;}
+  .card .inset{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;margin-top:14px;}
+  .bleed{position:relative;margin:0;}
+  .bleed img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .bleed figcaption{position:absolute;left:22px;bottom:16px;color:#fff;font-family:'Newsreader',serif;font-style:italic;font-size:19px;text-shadow:0 2px 14px rgba(0,0,0,.55);}
+  .bleed::after{content:"";position:absolute;inset:55% 0 0 0;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.4));pointer-events:none;}
+  .bleed figcaption{z-index:1;}
+  .know-img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:16px;margin-bottom:18px;box-shadow:var(--shadow);}
+
   /* ===== STORY ===== */
   .story{padding:0;background:#efe4d3;}
   .story img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;}
@@ -328,6 +341,11 @@
     <div class="rule"></div>
   </div>
 
+  <figure class="bleed reveal">
+    <img src="images/common-1.jpg" alt="" loading="lazy">
+    <figcaption><span class="lang-es">La entrada a Casona</span><span class="lang-en">Arriving at Casona</span></figcaption>
+  </figure>
+
   <section class="arrival reveal">
     <div class="sec-label"><span class="lang-es">Rumbo a La Barra</span><span class="lang-en">To La Barra</span></div>
     <h2><span class="lang-es">El camino <em>a casa</em></span><span class="lang-en">The way <em>home</em></span></h2>
@@ -390,12 +408,17 @@
       <span class="lang-en">Casona was designed by Alberto Kalach with brick vaults, an ancient technique that keeps the house cool and holds it steady through earthquakes. The furniture is local wood, and the ceramics and bath products are handmade here.</span>
     </p>
     <div class="card">
-      <img src="images/hotel-2.jpg" alt="" loading="lazy">
+      <img src="images/rooms-8.jpg" alt="" loading="lazy">
       <div class="card-body">
         <div class="card-kicker"><span class="lang-es">Su suite</span><span class="lang-en">Your suite</span></div>
         <h3><span class="lang-es">Frente al <em>mar</em></span><span class="lang-en">Facing the <em>sea</em></span></h3>
         <p><span class="lang-es">Según su suite, tienen alberca privada con acceso directo a la playa, hamaca en la terraza frente al mar, o tina hecha a mano y hot tub en su terraza privada. Todas tienen cama King, aire acondicionado, ventilador, caja fuerte y bata.</span><span class="lang-en">Depending on your suite, you'll have a private pool with direct beach access, a hammock on a sea-facing terrace, or a handmade tub and hot tub on your private terrace. Every suite has a King bed, air conditioning, a ceiling fan, a safe and a bathrobe.</span></p>
         <p class="fine"><span class="lang-es">El minibar tiene costo. Hay cafetera y té en la habitación.</span><span class="lang-en">The minibar is paid. There's a coffee and tea maker in the room.</span></p>
+      </div>
+      <div class="strip" style="padding-bottom:18px">
+        <figure><img src="images/rooms-5.jpg" alt="" loading="lazy"><figcaption><span class="lang-es">Alberca privada</span><span class="lang-en">Private pool</span></figcaption></figure>
+        <figure><img src="images/rooms-7.jpg" alt="" loading="lazy"><figcaption><span class="lang-es">Hamaca al mar</span><span class="lang-en">Sea hammock</span></figcaption></figure>
+        <figure><img src="images/rooms-1-2.jpg" alt="" loading="lazy"><figcaption><span class="lang-es">Tina en la terraza</span><span class="lang-en">Terrace tub</span></figcaption></figure>
       </div>
     </div>
   </section>
@@ -437,17 +460,23 @@
     <div class="sec-label"><span class="lang-es">Comer y beber</span><span class="lang-en">Eat &amp; drink</span></div>
     <h2><span class="lang-es">La mesa de <em>la casa</em></span><span class="lang-en">The house <em>table</em></span></h2>
     <div class="card">
-      <img src="images/restaurant-3.jpg" alt="" loading="lazy">
+      <img src="images/common-12.jpg" alt="" loading="lazy">
       <div class="card-body">
         <div class="card-kicker"><span class="lang-es">Restaurante · Guía Michelin</span><span class="lang-en">Restaurant · Michelin Guide</span></div>
         <h3>La <em>Bóveda</em></h3>
         <p><span class="lang-es">Cocina glocal: técnica francesa con producto de granjas y cooperativas cerca de Puerto. La miel, la vainilla y el café vienen de Pueblo del Sol. Desayuno, comida y cena.</span><span class="lang-en">Glocal cooking: French technique with produce from farms and cooperatives near Puerto. The honey, vanilla and coffee come from Pueblo del Sol. Breakfast, lunch and dinner.</span></p>
         <p><span class="lang-es">Pidan la pesca del día, la tortilla con hoja santa y quesillo, y para cerrar, el helado de la casa o el chocolate de Tabasco. Hay opciones veganas y keto. Para brindar, un Negroni con vermouth Antica.</span><span class="lang-en">Order the catch of the day, the tortilla with hoja santa and quesillo, and to finish, the house ice cream or the Tabasco chocolate. There are vegan and keto options. To toast, a Negroni made with Antica vermouth.</span></p>
+        <img class="inset" src="images/restaurant-6.jpg" alt="" style="object-position:center 30%" loading="lazy">
         <p class="fine"><span class="lang-es">En la cocina, el chef Andrés Trujillo y la chef pastelera Vanessa Franco. <span class="tbc">Horarios por confirmar.</span></span><span class="lang-en">In the kitchen, chef Andrés Trujillo and pastry chef Vanessa Franco. <span class="tbc">Hours to confirm.</span></span></p>
         <div class="pills">
           <a class="pill" href="https://www.casonasforza.com/es/nuestra-cocina/book-a-table/" target="_blank" rel="noopener"><span class="lang-es">Reservar mesa</span><span class="lang-en">Book a table</span></a>
           <a class="pill ghost" href="https://www.casonasforza.com/es/nuestra-cocina/" target="_blank" rel="noopener"><span class="lang-es">Ver el menú</span><span class="lang-en">See the menu</span></a>
         </div>
+      </div>
+      <div class="strip" style="padding-bottom:18px">
+        <figure><img src="images/restaurant-4.jpg" alt="" loading="lazy"></figure>
+        <figure><img src="images/restaurant-8.jpg" alt="" loading="lazy"></figure>
+        <figure><img src="images/restaurant-5.jpg" alt="" loading="lazy"></figure>
       </div>
     </div>
     <!-- FILL (optional): two or three of Trevor's own picks around La Barra for a night out, once Casona says they want outside recommendations. -->
@@ -481,6 +510,7 @@
     <h2><span class="lang-es">La costa, <em>de cerca</em></span><span class="lang-en">The coast, <em>up close</em></span></h2>
     <p class="lead"><span class="lang-es">Todo se reserva con nuestro concierge. Escríbannos y lo organizamos por ustedes.</span><span class="lang-en">Everything books through our concierge. Message us and we'll arrange it for you.</span></p>
     <div class="card">
+      <img src="images/experience-1.jpg" alt="" loading="lazy">
       <div class="card-body">
         <div class="card-kicker"><span class="lang-es">En el mar y el cielo</span><span class="lang-en">Sea and sky</span></div>
         <ul style="margin-top:4px">
@@ -535,6 +565,7 @@
   <section class="know reveal">
     <div class="sec-label"><span class="lang-es">Bueno saber</span><span class="lang-en">Good to know</span></div>
     <h2><span class="lang-es">El mar y <em>el pueblo</em></span><span class="lang-en">The sea and <em>the town</em></span></h2>
+    <img class="know-img" src="images/common-10.jpg" alt="" loading="lazy">
     <div class="prep-item">
       <div class="prep-ic">🌊</div>
       <div>
@@ -561,6 +592,11 @@
   <!-- ============================================================
        MOVEMENT 4: HEADING OUT
        ============================================================ -->
+  <figure class="bleed reveal">
+    <img src="images/hotel-0.jpg" alt="" loading="lazy">
+    <figcaption><span class="lang-es">Las noches en Casona</span><span class="lang-en">Evenings at Casona</span></figcaption>
+  </figure>
+
   <div class="movement reveal" id="salida">
     <div class="num">IV</div>
     <div class="t"><span class="lang-es">La salida</span><span class="lang-en">Heading out</span></div>
